@@ -1,0 +1,38 @@
+{
+  "pick_status": "unprocessed",
+  "pick_id": "Denver_Nuggets_2027_1",
+  "year": 2027,
+  "round": 1,
+  "original_team": "Denver Nuggets",
+  "frozen": false,
+  "rules": {
+    "type": "protected_swap",
+    "protection_range": [1, 5],
+    "if_protected_to": "Denver Nuggets",
+    "if_not_protected": {
+      "type": "swap",
+      "possible_destinations": ["Oklahoma City Thunder", "Los Angeles Clippers"],
+      "pool": ["Denver_Nuggets_2027_1", "Los_Angeles_Clippers_2027_1"],
+      "allocation": [
+        {"rank": "mf", "to": "Oklahoma City Thunder"},
+        {"rank": "lf", "to": "Los Angeles Clippers"}
+      ]
+    }
+  }
+}
+
+// GENERIC LOGIC              vvvvvv
+"rules": {
+  "type": "protected_swap",
+  "possible_destinations": ["Utah Jazz", "Charlotte Hornets"],
+  "pool": [
+    "Utah_Jazz_2029_1",
+    "Cleveland_Cavaliers_2029_1",
+    {"pick": "Minnesota_Timberwolves_2029_1", "condition": {"range": [6, 30]}}
+    ],
+    "allocation": [
+      {"rank": "mf", "to": "Utah Jazz"},
+      {"rank": "mid", "to": "Utah Jazz"},
+      {"rank": "lf", "to": "Charlotte Hornets"}
+    ]
+  }

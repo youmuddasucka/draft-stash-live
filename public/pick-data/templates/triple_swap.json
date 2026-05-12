@@ -1,0 +1,53 @@
+{
+    "pick_status": "processed or unprocessed",
+    "pick_id": "City_Team_YYYY_R",
+    "year": YYYY,
+    "round": R,
+    "original_team": "City Team",
+    "frozen": false,
+    "rules": {
+        "type": "triple_swap",
+        "swap_id": "triple_swap_281atlcleuth",
+        "possible_destinations": [
+            "City Team",
+            "City Team",
+            "City Team"
+        ],
+        "levels": [
+            {
+                "description": "Sub-swap (ii)",
+                "pool": [
+                    "City_Team_YYYY_R",
+                    "City_Team_YYYY_R"
+                ],
+                "allocation": [
+                    {
+                        "rank": "1",
+                        "to": "City Team"
+                    },
+                    {
+                        "rank": "2",
+                        "to": "TEMP_II_2"
+                    }
+                ]
+            },
+            {
+                "description": "More favorable of ATL and (lf of UTH and CLE)",
+                "pool": [
+                    "City_Team_YYYY_R",
+                    "TEMP_II_2"
+                ],
+                "allocation": [
+                    {
+                        "rank": "1",
+                        "to": "City Team"
+                    },
+                    {
+                        "rank": "2",
+                        "to": "City Team"
+                    }
+                ]
+            }
+        ]
+    }
+}

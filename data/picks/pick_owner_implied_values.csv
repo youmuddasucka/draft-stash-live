@@ -1,0 +1,482 @@
+pick_id,owner,implied_value
+Atlanta_Hawks_2026_2,Brooklyn Nets,0.05
+Atlanta_Hawks_2027_1,San Antonio Spurs,0.202024
+Atlanta_Hawks_2027_2,Portland Trail Blazers,0.0665375
+Atlanta_Hawks_2028_1,Atlanta Hawks,0.2757234709314891
+Atlanta_Hawks_2028_1,Cleveland Cavaliers,0.19997208263539923
+Atlanta_Hawks_2028_2,Brooklyn Nets,0.0605765
+Atlanta_Hawks_2029_1,Atlanta Hawks,0.288037
+Atlanta_Hawks_2029_2,Oklahoma City Thunder,0.05555525
+Atlanta_Hawks_2030_1,Atlanta Hawks,0.31567125
+Atlanta_Hawks_2030_2,Atlanta Hawks,0.053280999999999995
+Atlanta_Hawks_2031_1,Atlanta Hawks,0.35602925
+Atlanta_Hawks_2031_2,Atlanta Hawks,0.06590538336052203
+Atlanta_Hawks_2031_2,Houston Rockets,0.03515249354261872
+Atlanta_Hawks_2032_1,Atlanta Hawks,0.36313449999999997
+Atlanta_Hawks_2032_2,Atlanta Hawks,0.04743025
+Boston_Celtics_2026_1,Boston Celtics,0.23
+Boston_Celtics_2027_1,Boston Celtics,0.18927049999999998
+Boston_Celtics_2027_2,Utah Jazz,0.06956875
+Boston_Celtics_2028_1,Boston Celtics,0.15660215366705474
+Boston_Celtics_2028_1,San Antonio Spurs,0.2180644424131627
+Boston_Celtics_2029_1,Portland Trail Blazers,0.2526535836177474
+Boston_Celtics_2029_1,Washington Wizards,0.3442448598130841
+Boston_Celtics_2029_2,Oklahoma City Thunder,0.057201499999999995
+Boston_Celtics_2030_1,Boston Celtics,0.42685025
+Boston_Celtics_2030_2,Brooklyn Nets,0.03954425
+Boston_Celtics_2031_1,Boston Celtics,0.37152675
+Boston_Celtics_2031_2,Boston Celtics,0.033955046569093324
+Boston_Celtics_2031_2,Utah Jazz,0.06021101498206372
+Boston_Celtics_2032_1,Boston Celtics,0.3624515
+Boston_Celtics_2032_2,Boston Celtics,0.04766675
+Brooklyn_Nets_2026_1,Brooklyn Nets,0.662197
+Brooklyn_Nets_2026_2,Brooklyn Nets,0.019172
+Brooklyn_Nets_2027_1,Houston Rockets,0.66070275
+Brooklyn_Nets_2027_2,Detroit Pistons,0.018958452558086297
+Brooklyn_Nets_2027_2,Washington Wizards,0.021668646080760096
+Brooklyn_Nets_2028_1,Brooklyn Nets,0.60837825
+Brooklyn_Nets_2028_2,Brooklyn Nets,0.02204725
+Brooklyn_Nets_2029_1,Brooklyn Nets,0.52386675
+Brooklyn_Nets_2029_2,Brooklyn Nets,0.028865500000000002
+Brooklyn_Nets_2030_1,Brooklyn Nets,0.4268005
+Brooklyn_Nets_2030_2,Brooklyn Nets,0.039453
+Brooklyn_Nets_2031_1,Brooklyn Nets,0.38025175
+Brooklyn_Nets_2031_2,Brooklyn Nets,0.0452725
+Brooklyn_Nets_2032_1,Brooklyn Nets,0.36031175
+Brooklyn_Nets_2032_2,Brooklyn Nets,0.048027
+Charlotte_Hornets_2026_1,Charlotte Hornets,0.56613625
+Charlotte_Hornets_2026_2,Detroit Pistons,0.016420239596469106
+Charlotte_Hornets_2026_2,Sacramento Kings,0.027322788517867604
+Charlotte_Hornets_2027_1,Charlotte Hornets,0.5338649999999999
+Charlotte_Hornets_2027_2,Sacramento Kings,0.026282999999999997
+Charlotte_Hornets_2028_1,Charlotte Hornets,0.463733
+Charlotte_Hornets_2028_2,Charlotte Hornets,0.042592629482071716
+Charlotte_Hornets_2028_2,Los Angeles Clippers,0.0291545393858478
+Charlotte_Hornets_2029_1,Charlotte Hornets,0.425915
+Charlotte_Hornets_2029_2,Charlotte Hornets,0.03870875
+Charlotte_Hornets_2030_1,Charlotte Hornets,0.35307975
+Charlotte_Hornets_2030_2,Charlotte Hornets,0.0483485
+Charlotte_Hornets_2031_1,Charlotte Hornets,0.34502025
+Charlotte_Hornets_2031_2,Charlotte Hornets,0.04962475
+Charlotte_Hornets_2032_1,Charlotte Hornets,0.36212925
+Charlotte_Hornets_2032_2,Charlotte Hornets,0.04764125
+Chicago_Bulls_2026_1,Chicago Bulls,0.5393362500000001
+Chicago_Bulls_2026_2,Houston Rockets,0.02581925
+Chicago_Bulls_2027_1,Chicago Bulls,0.5911672499999999
+Chicago_Bulls_2027_2,Washington Wizards,0.0226685
+Chicago_Bulls_2028_1,Chicago Bulls,0.5792904999999999
+Chicago_Bulls_2028_2,Chicago Bulls,0.0238875
+Chicago_Bulls_2029_1,Chicago Bulls,0.48648050000000004
+Chicago_Bulls_2029_2,Chicago Bulls,0.03237275
+Chicago_Bulls_2030_1,Chicago Bulls,0.39835275000000003
+Chicago_Bulls_2030_2,Chicago Bulls,0.042903500000000004
+Chicago_Bulls_2031_1,Chicago Bulls,0.36324825
+Chicago_Bulls_2031_2,Chicago Bulls,0.047496
+Chicago_Bulls_2032_1,Chicago Bulls,0.35870025
+Chicago_Bulls_2032_2,Chicago Bulls,0.048065
+Cleveland_Cavaliers_2026_2,Cleveland Cavaliers,0.0675
+Cleveland_Cavaliers_2027_1,Phoenix Suns,0.1762465
+Cleveland_Cavaliers_2027_2,Minnesota Timberwolves,0.07302425
+Cleveland_Cavaliers_2028_1,Atlanta Hawks,0.27834513105031566
+Cleveland_Cavaliers_2028_1,Cleveland Cavaliers,0.20600875297168791
+Cleveland_Cavaliers_2028_1,Utah Jazz,0.5266609589041096
+Cleveland_Cavaliers_2028_2,Cleveland Cavaliers,0.058091
+Cleveland_Cavaliers_2029_1,Cleveland Cavaliers,0.28699676597412777
+Cleveland_Cavaliers_2029_1,Utah Jazz,0.34841465904450797
+Cleveland_Cavaliers_2029_2,Atlanta Hawks,0.051573
+Cleveland_Cavaliers_2030_1,Cleveland Cavaliers,0.32448725
+Cleveland_Cavaliers_2030_2,San Antonio Spurs,0.05216025
+Cleveland_Cavaliers_2031_1,Cleveland Cavaliers,0.3518355
+Cleveland_Cavaliers_2031_2,Boston Celtics,0.034259337412956316
+Cleveland_Cavaliers_2031_2,Utah Jazz,0.06211319140847747
+Cleveland_Cavaliers_2032_1,Cleveland Cavaliers,0.35940374999999997
+Cleveland_Cavaliers_2032_2,Cleveland Cavaliers,0.04807575
+Dallas_Mavericks_2026_1,Dallas Mavericks,0.42683125
+Dallas_Mavericks_2026_2,Washington Wizards,0.033697000000000005
+Dallas_Mavericks_2027_1,Charlotte Hornets,0.4342679228936539
+Dallas_Mavericks_2027_1,Dallas Mavericks,0.8877937336814621
+Dallas_Mavericks_2027_2,Detroit Pistons,0.015841250989707047
+Dallas_Mavericks_2027_2,Washington Wizards,0.0332233604211972
+Dallas_Mavericks_2028_1,Dallas Mavericks,0.20325000000000001
+Dallas_Mavericks_2028_1,Oklahoma City Thunder,0.32691878818737274
+Dallas_Mavericks_2028_2,Indiana Pacers,0.046735000000000006
+Dallas_Mavericks_2029_1,Brooklyn Nets,0.19971822541966427
+Dallas_Mavericks_2029_1,Houston Rockets,0.3885208464939987
+Dallas_Mavericks_2029_2,Brooklyn Nets,0.047405
+Dallas_Mavericks_2030_1,Dallas Mavericks,0.2016909934374293
+Dallas_Mavericks_2030_1,San Antonio Spurs,0.38519485755240995
+Dallas_Mavericks_2030_2,Brooklyn Nets,0.05485625
+Dallas_Mavericks_2031_1,Dallas Mavericks,0.33175125
+Dallas_Mavericks_2031_2,Detroit Pistons,0.0518125
+Dallas_Mavericks_2032_1,Dallas Mavericks,0.364593
+Dallas_Mavericks_2032_2,Dallas Mavericks,0.04760025
+Denver_Nuggets_2026_1,Denver Nuggets,0.1425
+Denver_Nuggets_2026_2,Charlotte Hornets,0.0825
+Denver_Nuggets_2027_2,Cleveland Cavaliers,0.07597425
+Denver_Nuggets_2028_2,Denver Nuggets,0.0844732641660016
+Denver_Nuggets_2028_2,Washington Wizards,0.06367468846461644
+Denver_Nuggets_2030_2,Oklahoma City Thunder,0.04968075
+Denver_Nuggets_2031_1,Denver Nuggets,0.37112649999999997
+Denver_Nuggets_2031_2,Charlotte Hornets,0.04643175
+Denver_Nuggets_2032_1,Brooklyn Nets,0.35875675
+Denver_Nuggets_2032_2,Denver Nuggets,0.0479085
+Detroit_Pistons_2026_1,Detroit Pistons,0.165
+Detroit_Pistons_2026_2,Boston Celtics,0.075
+Detroit_Pistons_2027_1,Detroit Pistons,0.1440055
+Detroit_Pistons_2027_2,Detroit Pistons,0.08248125
+Detroit_Pistons_2028_1,Detroit Pistons,0.15294349999999998
+Detroit_Pistons_2028_2,Detroit Pistons,0.08001899999999999
+Detroit_Pistons_2029_1,Detroit Pistons,0.21509975
+Detroit_Pistons_2029_2,Detroit Pistons,0.06753119610429137
+Detroit_Pistons_2029_2,Sacramento Kings,0.02804195804195804
+Detroit_Pistons_2030_1,Detroit Pistons,0.2623185
+Detroit_Pistons_2030_2,Detroit Pistons,0.0607415
+Detroit_Pistons_2031_1,Detroit Pistons,0.3368715
+Detroit_Pistons_2031_2,Detroit Pistons,0.05116275
+Detroit_Pistons_2032_1,Detroit Pistons,0.36129525
+Detroit_Pistons_2032_2,Detroit Pistons,0.04778725
+Golden_State_Warriors_2026_1,Golden State Warriors,0.245
+Golden_State_Warriors_2026_2,Minnesota Timberwolves,0.0575
+Golden_State_Warriors_2027_1,Golden State Warriors,0.3454
+Golden_State_Warriors_2027_2,Philadelphia 76ers,0.04471862509992007
+Golden_State_Warriors_2027_2,Washington Wizards,0.03688584779706275
+Golden_State_Warriors_2028_1,Golden State Warriors,0.51417725
+Golden_State_Warriors_2028_2,Philadelphia 76ers,0.028462
+Golden_State_Warriors_2029_1,Golden State Warriors,0.5103865
+Golden_State_Warriors_2029_2,Brooklyn Nets,0.03010075
+Golden_State_Warriors_2030_1,Golden State Warriors,0.4921182834913688
+Golden_State_Warriors_2030_1,Washington Wizards,0.1969109357384442
+Golden_State_Warriors_2030_2,Golden State Warriors,0.06770011273957159
+Golden_State_Warriors_2030_2,Washington Wizards,0.03157306102601508
+Golden_State_Warriors_2031_1,Golden State Warriors,0.3826225
+Golden_State_Warriors_2031_2,Detroit Pistons,0.03459066074782312
+Golden_State_Warriors_2031_2,Minnesota Timberwolves,0.05982802317161477
+Golden_State_Warriors_2032_1,Golden State Warriors,0.3590525
+Golden_State_Warriors_2032_2,Golden State Warriors,0.060625467884413836
+Golden_State_Warriors_2032_2,Memphis Grizzlies,0.022628726287262875
+Houston_Rockets_2026_1,Houston Rockets,0.13
+Houston_Rockets_2026_2,Houston Rockets,0.0875
+Houston_Rockets_2027_1,Brooklyn Nets,0.1354215
+Houston_Rockets_2027_2,Houston Rockets,0.08272483855725311
+Houston_Rockets_2027_2,Oklahoma City Thunder,0.08926184606956998
+Houston_Rockets_2028_1,Houston Rockets,0.14548225
+Houston_Rockets_2028_2,Houston Rockets,0.0820895
+Houston_Rockets_2029_1,Brooklyn Nets,0.17631080725742834
+Houston_Rockets_2029_1,Houston Rockets,0.2959482038429407
+Houston_Rockets_2029_2,Washington Wizards,0.06881799999999999
+Houston_Rockets_2030_1,Houston Rockets,0.28533600000000003
+Houston_Rockets_2030_2,Oklahoma City Thunder,0.05756699999999999
+Houston_Rockets_2031_1,Houston Rockets,0.3403315
+Houston_Rockets_2031_2,Atlanta Hawks,0.06478094575799723
+Houston_Rockets_2031_2,Houston Rockets,0.0360755989530904
+Houston_Rockets_2032_1,Houston Rockets,0.3622805
+Houston_Rockets_2032_2,Minnesota Timberwolves,0.060716981132075465
+Houston_Rockets_2032_2,Phoenix Suns,0.03435095669687815
+Indiana_Pacers_2026_1,Indiana Pacers,0.59463675
+Indiana_Pacers_2027_1,Indiana Pacers,0.21494975
+Indiana_Pacers_2027_2,Indiana Pacers,0.0636265
+Indiana_Pacers_2028_1,Indiana Pacers,0.22230225
+Indiana_Pacers_2028_2,Indiana Pacers,0.06325528398277071
+Indiana_Pacers_2028_2,New York Knicks,0.01647058823529412
+Indiana_Pacers_2029_1,Indiana Pacers,0.2482195
+Indiana_Pacers_2029_2,Indiana Pacers,0.0678505326231691
+Indiana_Pacers_2029_2,Portland Trail Blazers,0.042043172690763055
+Indiana_Pacers_2030_1,Indiana Pacers,0.33307125
+Indiana_Pacers_2030_2,Indiana Pacers,0.051284249999999997
+Indiana_Pacers_2031_1,Indiana Pacers,0.34282475
+Indiana_Pacers_2031_2,Indiana Pacers,0.027090750773993807
+Indiana_Pacers_2031_2,Memphis Grizzlies,0.044164572864321607
+Indiana_Pacers_2031_2,Washington Wizards,0.06212396978021978
+Indiana_Pacers_2032_1,Indiana Pacers,0.36277125
+Indiana_Pacers_2032_2,Indiana Pacers,0.0474925
+Los_Angeles_Clippers_2026_1,Oklahoma City Thunder,0.46599650000000004
+Los_Angeles_Clippers_2027_2,Utah Jazz,0.0198585
+Los_Angeles_Clippers_2028_1,Philadelphia 76ers,0.34453049999999996
+Los_Angeles_Clippers_2028_2,Charlotte Hornets,0.04887316421895861
+Los_Angeles_Clippers_2028_2,Detroit Pistons,0.03114741035856574
+Los_Angeles_Clippers_2029_1,Los Angeles Clippers,0.49500499800079967
+Los_Angeles_Clippers_2029_1,Philadelphia 76ers,0.44197729091636656
+Los_Angeles_Clippers_2029_2,San Antonio Spurs,0.03417675
+Los_Angeles_Clippers_2030_1,Los Angeles Clippers,0.4777255
+Los_Angeles_Clippers_2030_2,Charlotte Hornets,0.04529207516339869
+Los_Angeles_Clippers_2030_2,Utah Jazz,0.0273269595448799
+Los_Angeles_Clippers_2031_1,Los Angeles Clippers,0.406546
+Los_Angeles_Clippers_2031_2,Los Angeles Clippers,0.04213825
+Los_Angeles_Clippers_2032_1,Los Angeles Clippers,0.36131975
+Los_Angeles_Clippers_2032_2,Los Angeles Clippers,0.0477335
+Los_Angeles_Lakers_2026_1,Los Angeles Lakers,0.175
+Los_Angeles_Lakers_2026_2,Toronto Raptors,0.0725
+Los_Angeles_Lakers_2027_2,Brooklyn Nets,0.057620500000000005
+Los_Angeles_Lakers_2028_1,Los Angeles Lakers,0.18557674999999998
+Los_Angeles_Lakers_2028_2,Orlando Magic,0.07170288403765271
+Los_Angeles_Lakers_2028_2,Washington Wizards,0.05053571428571429
+Los_Angeles_Lakers_2029_1,Dallas Mavericks,0.225383
+Los_Angeles_Lakers_2029_2,Washington Wizards,0.0650265
+Los_Angeles_Lakers_2030_1,Los Angeles Lakers,0.254864
+Los_Angeles_Lakers_2030_2,Brooklyn Nets,0.061845000000000004
+Los_Angeles_Lakers_2031_1,Los Angeles Lakers,0.31652225
+Los_Angeles_Lakers_2031_2,Brooklyn Nets,0.053595500000000004
+Los_Angeles_Lakers_2032_1,Los Angeles Lakers,0.364327
+Los_Angeles_Lakers_2032_2,Los Angeles Lakers,0.04751175
+Memphis_Grizzlies_2026_1,Memphis Grizzlies,0.34032650000000003
+Memphis_Grizzlies_2026_2,Portland Trail Blazers,0.04183775000000001
+Memphis_Grizzlies_2027_1,Memphis Grizzlies,0.56034425
+Memphis_Grizzlies_2027_2,Houston Rockets,0.0245135
+Memphis_Grizzlies_2028_1,Memphis Grizzlies,0.5985082500000001
+Memphis_Grizzlies_2028_2,Brooklyn Nets,0.022697
+Memphis_Grizzlies_2029_1,Memphis Grizzlies,0.5694871131352862
+Memphis_Grizzlies_2029_1,Orlando Magic,0.3542477876106195
+Memphis_Grizzlies_2029_2,Brooklyn Nets,0.02571275
+Memphis_Grizzlies_2030_1,Memphis Grizzlies,0.511961738002594
+Memphis_Grizzlies_2030_1,Phoenix Suns,0.2717871179039302
+Memphis_Grizzlies_2030_2,Memphis Grizzlies,0.05215248525695029
+Memphis_Grizzlies_2030_2,Minnesota Timberwolves,0.02152989337395278
+Memphis_Grizzlies_2031_1,Memphis Grizzlies,0.4020925
+Memphis_Grizzlies_2031_2,Indiana Pacers,0.025746318607764388
+Memphis_Grizzlies_2031_2,Memphis Grizzlies,0.0524561053471668
+Memphis_Grizzlies_2032_1,Memphis Grizzlies,0.3583315
+Memphis_Grizzlies_2032_2,Memphis Grizzlies,0.048184750000000005
+Miami_Heat_2026_1,Miami Heat,0.27
+Miami_Heat_2027_1,Miami Heat,0.35133663366336637
+Miami_Heat_2027_2,New York Knicks,0.047518
+Miami_Heat_2028_1,Charlotte Hornets,0.4050466075794621
+Miami_Heat_2028_1,Miami Heat,0.24875037158145066
+Miami_Heat_2029_1,Miami Heat,0.30412425
+Miami_Heat_2029_2,Oklahoma City Thunder,0.0532125
+Miami_Heat_2030_1,Miami Heat,0.40401624999999997
+Miami_Heat_2030_2,Oklahoma City Thunder,0.042024
+Miami_Heat_2031_1,Miami Heat,0.39552350000000003
+Miami_Heat_2031_2,Indiana Pacers,0.02612537353979897
+Miami_Heat_2031_2,Memphis Grizzlies,0.04586560895940271
+Miami_Heat_2031_2,Washington Wizards,0.05778436302681993
+Miami_Heat_2032_1,Miami Heat,0.36058575
+Miami_Heat_2032_2,Brooklyn Nets,0.0479295
+Milwaukee_Bucks_2026_1,Atlanta Hawks,0.7531775300171527
+Milwaukee_Bucks_2026_1,Milwaukee Bucks,0.3773112456196241
+Milwaukee_Bucks_2026_2,New York Knicks,0.036173750000000005
+Milwaukee_Bucks_2027_1,Atlanta Hawks,0.5369476744186046
+Milwaukee_Bucks_2027_1,New Orleans Pelicans,0.6378561961563949
+Milwaukee_Bucks_2027_2,Detroit Pistons,0.0205815
+Milwaukee_Bucks_2028_2,Oklahoma City Thunder,0.02113025
+Milwaukee_Bucks_2029_1,Portland Trail Blazers,0.5911107772435897
+Milwaukee_Bucks_2029_1,Washington Wizards,0.42438793789808915
+Milwaukee_Bucks_2029_2,Detroit Pistons,0.03464813140446052
+Milwaukee_Bucks_2029_2,Sacramento Kings,0.022743190661478598
+Milwaukee_Bucks_2030_1,Milwaukee Bucks,0.32779646993932704
+Milwaukee_Bucks_2030_1,Portland Trail Blazers,0.5487645120803264
+Milwaukee_Bucks_2030_2,Orlando Magic,0.0348125
+Milwaukee_Bucks_2031_1,Milwaukee Bucks,0.399878
+Milwaukee_Bucks_2031_2,Charlotte Hornets,0.04295575
+Milwaukee_Bucks_2032_1,Milwaukee Bucks,0.36232725
+Milwaukee_Bucks_2032_2,Charlotte Hornets,0.04768825
+Minnesota_Timberwolves_2026_2,New York Knicks,0.055
+Minnesota_Timberwolves_2027_1,Utah Jazz,0.27050250000000003
+Minnesota_Timberwolves_2027_2,Portland Trail Blazers,0.052428999999999996
+Minnesota_Timberwolves_2028_1,Minnesota Timberwolves,0.1777945
+Minnesota_Timberwolves_2028_2,San Antonio Spurs,0.07357025
+Minnesota_Timberwolves_2029_1,Minnesota Timberwolves,0.2627372262773722
+Minnesota_Timberwolves_2029_1,Utah Jazz,0.17653043931690782
+Minnesota_Timberwolves_2029_2,Minnesota Timberwolves,0.07039365540743711
+Minnesota_Timberwolves_2029_2,Utah Jazz,0.015652173913043476
+Minnesota_Timberwolves_2030_1,Minnesota Timberwolves,0.20318231292517008
+Minnesota_Timberwolves_2030_1,San Antonio Spurs,0.3630254716981132
+Minnesota_Timberwolves_2030_2,Detroit Pistons,0.06312625000000001
+Minnesota_Timberwolves_2031_1,Sacramento Kings,0.3293005
+Minnesota_Timberwolves_2031_2,Detroit Pistons,0.034767076997344916
+Minnesota_Timberwolves_2031_2,Minnesota Timberwolves,0.06415571111490524
+Minnesota_Timberwolves_2032_1,Minnesota Timberwolves,0.36109949999999996
+Minnesota_Timberwolves_2032_2,Minnesota Timberwolves,0.0477205
+New_Orleans_Pelicans_2026_1,Atlanta Hawks,0.6436001380482107
+New_Orleans_Pelicans_2026_1,Milwaukee Bucks,0.5396698113207548
+New_Orleans_Pelicans_2026_2,San Antonio Spurs,0.019485845129059116
+New_Orleans_Pelicans_2026_2,Washington Wizards,0.02268047708725675
+New_Orleans_Pelicans_2027_1,Atlanta Hawks,0.4008217362491716
+New_Orleans_Pelicans_2027_1,New Orleans Pelicans,0.7656236786469345
+New_Orleans_Pelicans_2028_1,New Orleans Pelicans,0.485729
+New_Orleans_Pelicans_2028_2,San Antonio Spurs,0.030683
+New_Orleans_Pelicans_2029_1,New Orleans Pelicans,0.411601
+New_Orleans_Pelicans_2029_2,San Antonio Spurs,0.040259
+New_Orleans_Pelicans_2030_1,New Orleans Pelicans,0.37075375
+New_Orleans_Pelicans_2030_2,New Orleans Pelicans,0.036277841001463175
+New_Orleans_Pelicans_2030_2,Orlando Magic,0.06218238503507405
+New_Orleans_Pelicans_2031_1,New Orleans Pelicans,0.3575505
+New_Orleans_Pelicans_2031_2,Oklahoma City Thunder,0.035132818765036086
+New_Orleans_Pelicans_2031_2,Orlando Magic,0.06142607741420591
+New_Orleans_Pelicans_2032_1,New Orleans Pelicans,0.3607685
+New_Orleans_Pelicans_2032_2,New Orleans Pelicans,0.04789475
+New_York_Knicks_2026_1,New York Knicks,0.155
+New_York_Knicks_2026_2,Boston Celtics,0.08
+New_York_Knicks_2027_1,Brooklyn Nets,0.25620974999999996
+New_York_Knicks_2027_2,New York Knicks,0.055140499999999995
+New_York_Knicks_2028_2,Detroit Pistons,0.04188125
+New_York_Knicks_2029_1,Brooklyn Nets,0.43695975
+New_York_Knicks_2029_2,Detroit Pistons,0.04440146520146521
+New_York_Knicks_2029_2,Sacramento Kings,0.02179763779527559
+New_York_Knicks_2030_1,New York Knicks,0.41807425000000004
+New_York_Knicks_2030_2,Portland Trail Blazers,0.04045525
+New_York_Knicks_2031_1,Brooklyn Nets,0.39200825
+New_York_Knicks_2031_2,Charlotte Hornets,0.04403125
+New_York_Knicks_2032_1,New York Knicks,0.3634945
+New_York_Knicks_2032_2,New York Knicks,0.047654
+Oklahoma_City_Thunder_2026_1,Oklahoma City Thunder,0.1175
+Oklahoma_City_Thunder_2026_2,Oklahoma City Thunder,0.09
+Oklahoma_City_Thunder_2027_2,Oklahoma City Thunder,0.08742
+Oklahoma_City_Thunder_2028_1,Dallas Mavericks,0.15866929735234214
+Oklahoma_City_Thunder_2028_1,Oklahoma City Thunder,0.2304166666666667
+Oklahoma_City_Thunder_2028_2,Oklahoma City Thunder,0.0781785
+Oklahoma_City_Thunder_2029_1,Oklahoma City Thunder,0.190297
+Oklahoma_City_Thunder_2029_2,Oklahoma City Thunder,0.071573
+Oklahoma_City_Thunder_2030_1,Oklahoma City Thunder,0.292989
+Oklahoma_City_Thunder_2030_2,Oklahoma City Thunder,0.05637575
+Oklahoma_City_Thunder_2031_1,Oklahoma City Thunder,0.33059125
+Oklahoma_City_Thunder_2031_2,Oklahoma City Thunder,0.05176725
+Oklahoma_City_Thunder_2032_1,Oklahoma City Thunder,0.36141075
+Oklahoma_City_Thunder_2032_2,Oklahoma City Thunder,0.047812
+Orlando_Magic_2026_1,Memphis Grizzlies,0.1875
+Orlando_Magic_2026_2,Orlando Magic,0.07
+Orlando_Magic_2027_1,Orlando Magic,0.28578675
+Orlando_Magic_2027_2,Orlando Magic,0.049763
+Orlando_Magic_2028_1,Portland Trail Blazers,0.283048
+Orlando_Magic_2028_2,Orlando Magic,0.052416250000000005
+Orlando_Magic_2029_1,Memphis Grizzlies,0.44440265486725666
+Orlando_Magic_2029_1,Orlando Magic,0.2286176379256806
+Orlando_Magic_2029_2,Memphis Grizzlies,0.013846153846153847
+Orlando_Magic_2029_2,Orlando Magic,0.06379359000201573
+Orlando_Magic_2030_1,Memphis Grizzlies,0.2980865
+Orlando_Magic_2030_2,New Orleans Pelicans,0.038585346843335935
+Orlando_Magic_2030_2,Orlando Magic,0.06618151520078036
+Orlando_Magic_2031_1,Orlando Magic,0.35767400000000005
+Orlando_Magic_2031_2,Oklahoma City Thunder,0.034514166001596173
+Orlando_Magic_2031_2,Orlando Magic,0.061917101042502
+Orlando_Magic_2032_1,Orlando Magic,0.3583565
+Orlando_Magic_2032_2,Orlando Magic,0.048260500000000005
+Philadelphia_76ers_2026_1,Oklahoma City Thunder,0.295
+Philadelphia_76ers_2026_2,Phoenix Suns,0.0475
+Philadelphia_76ers_2027_1,Philadelphia 76ers,0.31408593113284433
+Philadelphia_76ers_2027_2,Oklahoma City Thunder,0.01673913043478261
+Philadelphia_76ers_2027_2,Philadelphia 76ers,0.04510085574572127
+Philadelphia_76ers_2029_1,Los Angeles Clippers,0.26522308923569426
+Philadelphia_76ers_2029_1,Philadelphia 76ers,0.45839464214314274
+Philadelphia_76ers_2029_2,Philadelphia 76ers,0.04583925
+Philadelphia_76ers_2030_1,Philadelphia 76ers,0.277884
+Philadelphia_76ers_2030_2,Dallas Mavericks,0.058647500000000005
+Philadelphia_76ers_2031_1,Philadelphia 76ers,0.3219785
+Philadelphia_76ers_2031_2,Philadelphia 76ers,0.05296675
+Philadelphia_76ers_2032_1,Philadelphia 76ers,0.35707725
+Philadelphia_76ers_2032_2,Philadelphia 76ers,0.048315500000000004
+Phoenix_Suns_2026_1,Memphis Grizzlies,0.3531411010154997
+Phoenix_Suns_2026_1,Phoenix Suns,0.33110323886639675
+Phoenix_Suns_2026_1,Washington Wizards,0.7679585427135678
+Phoenix_Suns_2026_2,Washington Wizards,0.038893000000000004
+Phoenix_Suns_2027_1,Houston Rockets,0.37036725000000004
+Phoenix_Suns_2027_2,Philadelphia 76ers,0.04379639519359146
+Phoenix_Suns_2027_2,Washington Wizards,0.0364220623501199
+Phoenix_Suns_2028_2,Indiana Pacers,0.029852941176470593
+Phoenix_Suns_2028_2,New York Knicks,0.025555444255233897
+Phoenix_Suns_2029_1,Brooklyn Nets,0.2631715210355987
+Phoenix_Suns_2029_1,Houston Rockets,0.5040248684346301
+Phoenix_Suns_2029_2,Phoenix Suns,0.03135775
+Phoenix_Suns_2030_1,Memphis Grizzlies,0.4164667019027484
+Phoenix_Suns_2030_1,Phoenix Suns,0.2726172043010753
+Phoenix_Suns_2030_1,Washington Wizards,0.5316863575568436
+Phoenix_Suns_2030_2,Philadelphia 76ers,0.04824841605068638
+Phoenix_Suns_2030_2,Washington Wizards,0.028231648422408242
+Phoenix_Suns_2031_1,Utah Jazz,0.39024625
+Phoenix_Suns_2031_2,Charlotte Hornets,0.044017
+Phoenix_Suns_2032_1,Phoenix Suns,0.36075525
+Phoenix_Suns_2032_2,Minnesota Timberwolves,0.0615619335347432
+Phoenix_Suns_2032_2,Phoenix Suns,0.03432869910625621
+Portland_Trail_Blazers_2026_1,Portland Trail Blazers,0.508224
+Portland_Trail_Blazers_2026_2,San Antonio Spurs,0.015954174513496545
+Portland_Trail_Blazers_2026_2,Washington Wizards,0.030335137385512075
+Portland_Trail_Blazers_2027_1,Portland Trail Blazers,0.3070704467353952
+Portland_Trail_Blazers_2029_1,Portland Trail Blazers,0.39693946404472724
+Portland_Trail_Blazers_2029_1,Washington Wizards,0.358321213380428
+Portland_Trail_Blazers_2029_2,Memphis Grizzlies,0.04382125
+Portland_Trail_Blazers_2030_1,Milwaukee Bucks,0.2834170065892689
+Portland_Trail_Blazers_2030_1,Portland Trail Blazers,0.5488451461665748
+Portland_Trail_Blazers_2030_2,Philadelphia 76ers,0.05503139085640696
+Portland_Trail_Blazers_2030_2,Washington Wizards,0.0285671858500528
+Portland_Trail_Blazers_2031_1,Portland Trail Blazers,0.37739025000000004
+Portland_Trail_Blazers_2031_2,Portland Trail Blazers,0.0456245
+Portland_Trail_Blazers_2032_1,Portland Trail Blazers,0.35967775
+Portland_Trail_Blazers_2032_2,Portland Trail Blazers,0.047997250000000005
+Sacramento_Kings_2026_1,Sacramento Kings,0.6178279999999999
+Sacramento_Kings_2026_2,Sacramento Kings,0.02092675
+Sacramento_Kings_2027_1,Sacramento Kings,0.6545305
+Sacramento_Kings_2027_2,Sacramento Kings,0.019516
+Sacramento_Kings_2028_1,Sacramento Kings,0.63830025
+Sacramento_Kings_2028_2,Portland Trail Blazers,0.02047525
+Sacramento_Kings_2029_1,Sacramento Kings,0.5379662500000001
+Sacramento_Kings_2029_2,Houston Rockets,0.027679500000000003
+Sacramento_Kings_2030_1,Sacramento Kings,0.44222375
+Sacramento_Kings_2030_2,San Antonio Spurs,0.037505000000000004
+Sacramento_Kings_2031_1,Sacramento Kings,0.25108886846941453
+Sacramento_Kings_2031_1,San Antonio Spurs,0.46771684703602007
+Sacramento_Kings_2031_2,San Antonio Spurs,0.0446475
+Sacramento_Kings_2032_1,Sacramento Kings,0.359048
+Sacramento_Kings_2032_2,Sacramento Kings,0.04801775
+San_Antonio_Spurs_2027_1,Oklahoma City Thunder,0.15459124999999999
+San_Antonio_Spurs_2027_2,San Antonio Spurs,0.07922775
+San_Antonio_Spurs_2028_1,Boston Celtics,0.15049664838513102
+San_Antonio_Spurs_2028_1,San Antonio Spurs,0.20330908032596043
+San_Antonio_Spurs_2028_2,San Antonio Spurs,0.07593025
+San_Antonio_Spurs_2029_1,San Antonio Spurs,0.18182825
+San_Antonio_Spurs_2029_2,San Antonio Spurs,0.07339175
+San_Antonio_Spurs_2030_2,San Antonio Spurs,0.05968
+San_Antonio_Spurs_2031_1,Sacramento Kings,0.23258480051687933
+San_Antonio_Spurs_2031_1,San Antonio Spurs,0.4590561827251247
+San_Antonio_Spurs_2031_2,San Antonio Spurs,0.053179250000000004
+San_Antonio_Spurs_2032_1,San Antonio Spurs,0.362088
+San_Antonio_Spurs_2032_2,San Antonio Spurs,0.04779525
+Toronto_Raptors_2026_1,Toronto Raptors,0.31
+Toronto_Raptors_2026_2,Toronto Raptors,0.045
+Toronto_Raptors_2027_1,Toronto Raptors,0.22995825
+Toronto_Raptors_2027_2,Toronto Raptors,0.06043975
+Toronto_Raptors_2028_1,Toronto Raptors,0.2604155
+Toronto_Raptors_2028_2,Toronto Raptors,0.05596925
+Toronto_Raptors_2029_1,Toronto Raptors,0.337687
+Toronto_Raptors_2029_2,Toronto Raptors,0.049022500000000004
+Toronto_Raptors_2030_1,Toronto Raptors,0.3635435
+Toronto_Raptors_2030_2,Toronto Raptors,0.047061
+Toronto_Raptors_2031_1,Toronto Raptors,0.366646
+Toronto_Raptors_2031_2,New Orleans Pelicans,0.046855
+Toronto_Raptors_2032_1,Toronto Raptors,0.36288975
+Toronto_Raptors_2032_2,Toronto Raptors,0.047432499999999995
+Utah_Jazz_2026_1,Utah Jazz,0.6568575
+Utah_Jazz_2026_2,Milwaukee Bucks,0.017501865950141814
+Utah_Jazz_2026_2,San Antonio Spurs,0.0230354438049076
+Utah_Jazz_2027_1,Utah Jazz,0.61266925
+Utah_Jazz_2027_2,Indiana Pacers,0.02143675
+Utah_Jazz_2028_1,Atlanta Hawks,0.37991438356164386
+Utah_Jazz_2028_1,Utah Jazz,0.5368533083011975
+Utah_Jazz_2028_2,Oklahoma City Thunder,0.026978000000000002
+Utah_Jazz_2029_1,Charlotte Hornets,0.23015066964285716
+Utah_Jazz_2029_1,Utah Jazz,0.466506809848088
+Utah_Jazz_2029_2,Utah Jazz,0.03545125
+Utah_Jazz_2030_1,Utah Jazz,0.3901345
+Utah_Jazz_2030_2,Charlotte Hornets,0.053674146649810364
+Utah_Jazz_2030_2,Utah Jazz,0.026792619825708065
+Utah_Jazz_2031_1,Utah Jazz,0.362159
+Utah_Jazz_2031_2,Utah Jazz,0.04762475
+Utah_Jazz_2032_1,Utah Jazz,0.36080925
+Utah_Jazz_2032_2,Washington Wizards,0.04808225
+Washington_Wizards_2026_1,Memphis Grizzlies,0.5818798449612403
+Washington_Wizards_2026_1,Washington Wizards,0.6717356704462707
+Washington_Wizards_2026_2,New York Knicks,0.01917725
+Washington_Wizards_2027_1,Washington Wizards,0.50283325
+Washington_Wizards_2027_2,New York Knicks,0.021235167886897246
+Washington_Wizards_2027_2,Washington Wizards,0.03321245239278026
+Washington_Wizards_2028_2,Orlando Magic,0.05357142857142857
+Washington_Wizards_2028_2,Washington Wizards,0.03437762868015221
+Washington_Wizards_2029_1,Washington Wizards,0.39093375
+Washington_Wizards_2029_2,Indiana Pacers,0.05991064257028113
+Washington_Wizards_2029_2,Portland Trail Blazers,0.036610852197070574
+Washington_Wizards_2030_1,Memphis Grizzlies,0.3903831845238095
+Washington_Wizards_2030_1,Phoenix Suns,0.2281740947075209
+Washington_Wizards_2030_1,Washington Wizards,0.523504280036686
+Washington_Wizards_2030_2,Philadelphia 76ers,0.04924
+Washington_Wizards_2031_1,Washington Wizards,0.3464025
+Washington_Wizards_2031_2,Washington Wizards,0.049750749999999996
+Washington_Wizards_2032_1,Washington Wizards,0.3607535
+Washington_Wizards_2032_2,Washington Wizards,0.0477925

@@ -1,0 +1,26 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Los_Angeles_Clippers_2029_1",
+  "year": 2029,
+  "round": 1,
+  "original_team": "Los Angeles Clippers",
+  "frozen": false,
+  "rules": {
+    "type": "pro_swap",
+    "swap_id": "pro_swap_291lacphi",
+    "possible_destinations": ["Los Angeles Clippers", "Philadelphia 76ers"],
+    "pool": [
+      "Philadelphia_76ers_2029_1",
+      {
+        "pick": "Los_Angeles_Clippers_2029_1",
+        "condition": {"range": [4, 30]},
+        "if_not_in_range_to": "Los Angeles Clippers",
+        "fallback_pick": "none"
+      }
+    ],
+    "allocation": [
+      {"rank": "1", "to": "Philadelphia 76ers"},
+      {"rank": "2", "to": "Los Angeles Clippers"}
+    ]
+  }
+}

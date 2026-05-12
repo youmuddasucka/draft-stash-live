@@ -1,0 +1,35 @@
+{
+    "pick_status": "processed or unprocessed",
+    "pick_id": "City_Team_YYYY_R",
+    "year": YYYY,
+    "round": R,
+    "original_team": "City Team",
+    "frozen": false,
+    "rules": {
+        "type": "pro_backup",
+        "possible_destinations": [
+            "City Team",
+            "City Team"
+        ],
+        "triggers": [
+            {
+              "pick": "City_Team_YYYY_R",
+              "condition": {"range": [1, 16]}
+            }
+        ],
+        "trigger_logic": "OR or AND",
+        "protection_range": [
+            31,
+            55
+        ],
+        "available_range": [
+            56,
+            60
+        ],
+        "if_triggered_and_protected_to": "City Team",
+        "if_triggered_and_not_protected_to": "City Team",
+        "if_not_triggered_and_protected_to": "City Team",
+        "if_not_triggered_and_not_protected_to": "City Team",
+        "fallback_pick": "City_Team_YYYY_R or none"
+    }
+}

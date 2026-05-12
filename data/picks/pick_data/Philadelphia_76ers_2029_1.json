@@ -1,0 +1,20 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Philadelphia_76ers_2029_1",
+  "year": 2029,
+  "round": 1,
+  "original_team": "Philadelphia 76ers",
+  "frozen": false,
+  "rules": {
+    "type": "protected_swap",
+    "possible_destinations": ["Los Angeles Clippers", "Philadelphia 76ers"],
+    "pool": [
+      "Philadelphia_76ers_2029_1",
+      {"pick": "Los_Angeles_Clippers_2029_1", "condition": {"range": [4, 30]}}
+    ],
+    "allocation": [
+      {"rank": "mf", "to": "Philadelphia 76ers"},
+      {"rank": "lf", "to": "Los Angeles Clippers"}
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Portland_Trail_Blazers_2028_1",
+  "year": 2028,
+  "round": 1,
+  "original_team": "Portland Trail Blazers",
+  "frozen": false,
+  "rules": {
+    "type": "special",
+    "swap_group": "281brknykphiphxwasmilpor",
+    "possible_destinations": [
+      "Portland Trail Blazers",
+      "Washington Wizards",
+      "Milwaukee Bucks"
+    ],
+    "trade_description": "POR participates in the secondary swap with MIL and WAS. POR gets the more favorable of {POR, MIL}. WAS then has a swap right against the less favorable of {MIL, POR}: better goes to WAS, less favorable goes to MIL. POR's own pick goes to POR (if more favorable than MIL), WAS (if POR is LF and WAS takes it), or MIL (final less favorable result). CHI obligation from POR 2028 R1 was extinguished when POR's 2026 R1 conveyed to CHI."
+  }
+}

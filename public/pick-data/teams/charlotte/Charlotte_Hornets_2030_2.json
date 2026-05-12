@@ -1,0 +1,15 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Charlotte_Hornets_2030_2",
+  "year": 2030,
+  "round": 2,
+  "original_team": "Charlotte Hornets",
+  "frozen": false,
+  "rules": {
+    "type": "pro_pick",
+    "protection_range": [31, 55],
+    "available_range": [56, 60],
+    "if_protected_to": "Charlotte Hornets",
+    "if_not_protected_to": "Boston Celtics"
+  }
+}

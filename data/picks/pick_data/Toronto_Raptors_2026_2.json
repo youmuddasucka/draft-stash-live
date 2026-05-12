@@ -1,0 +1,14 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Toronto_Raptors_2026_2",
+  "year": 2026,
+  "round": 2,
+  "original_team": "Toronto Raptors",
+  "frozen": false,
+  "rules": {
+    "type": "protected",
+    "protection_range": [31, 55],
+    "if_protected_to": "Toronto Raptors",
+    "if_not_kept_to": "Indiana Pacers"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Indiana_Pacers_2026_1",
+  "year": 2026,
+  "round": 1,
+  "original_team": "Indiana Pacers",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Los Angeles Clippers"
+  }
+}

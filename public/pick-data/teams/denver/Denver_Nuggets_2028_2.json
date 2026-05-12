@@ -1,0 +1,26 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Denver_Nuggets_2028_2",
+  "year": 2028,
+  "round": 2,
+  "original_team": "Denver Nuggets",
+  "frozen": false,
+  "rules": {
+    "type": "pro_pick",
+    "possible_destinations": [
+      "Denver Nuggets",
+      "Washington Wizards"
+    ],
+    "protection_range": [
+      31,
+      33
+    ],
+    "available_range": [
+      34,
+      60
+    ],
+    "if_protected_to": "Denver Nuggets",
+    "if_not_protected_to": "Washington Wizards",
+    "fallback_pick": "none"
+  }
+}

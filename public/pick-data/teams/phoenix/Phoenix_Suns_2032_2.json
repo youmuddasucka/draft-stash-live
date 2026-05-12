@@ -1,0 +1,18 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Phoenix_Suns_2032_2",
+  "year": 2032,
+  "round": 2,
+  "original_team": "Phoenix Suns",
+  "frozen": false,
+  "rules": {
+    "type": "unpro_swap",
+    "swap_id": "unpro_swap_322houphx",
+    "possible_destinations": ["Chicago Bulls", "Phoenix Suns"],
+    "pool": ["Phoenix_Suns_2032_2", "Houston_Rockets_2032_2"],
+    "allocation": [
+      {"rank": "1", "to": "Chicago Bulls"},
+      {"rank": "2", "to": "Phoenix Suns"}
+    ]
+  }
+}

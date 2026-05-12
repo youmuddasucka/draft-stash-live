@@ -1,0 +1,12 @@
+{
+    "pick_status": "processed or unprocessed",
+    "pick_id": "City_Team_YYYY_R",
+    "year": YYYY,
+    "round": R,
+    "original_team": "City Team",
+    "frozen": false,
+    "rules": {
+        "type": "unprotected",
+        "owner": "City Team"
+    }
+}

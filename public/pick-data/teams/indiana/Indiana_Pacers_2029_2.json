@@ -1,0 +1,18 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Indiana_Pacers_2029_2",
+  "year": 2029,
+  "round": 2,
+  "original_team": "Indiana Pacers",
+  "frozen": false,
+  "rules": {
+    "type": "unpro_swap",
+    "swap_id": "unpro_swap_292indwas",
+    "possible_destinations": ["Indiana Pacers", "Portland Trail Blazers"],
+    "pool": ["Indiana_Pacers_2029_2", "Washington_Wizards_2029_2"],
+    "allocation": [
+      {"rank": "1", "to": "Indiana Pacers"},
+      {"rank": "2", "to": "Portland Trail Blazers"}
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "pick_status": "processed",
+  "pick_id": "New_York_Knicks_2028_1",
+  "year": 2028,
+  "round": 1,
+  "original_team": "New York Knicks",
+  "frozen": false,
+  "rules": {
+    "type": "special",
+    "swap_group": "281brknykphiphxwasmilpor",
+    "possible_destinations": [
+      "Brooklyn Nets",
+      "New York Knicks"
+    ],
+    "trade_description": "NYK's pick is in the main pool {BRK, PHI(if 9-30), PHX, NYK}. BRK gets most/two most favorable. NYK gets the 2nd most favorable of {BRK, PHX, NYK} in most scenarios; NYK gets the least favorable of {BRK, PHX, NYK} if NYK and/or PHI(9-30) is less favorable than both BRK and PHX."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Utah_Jazz_2030_2",
+  "year": 2030,
+  "round": 2,
+  "original_team": "Utah Jazz",
+  "frozen": false,
+  "rules": {
+    "type": "swap",
+    "possible_destinations": ["Charlotte Hornets", "Utah Jazz"],
+    "pool": ["Los_Angeles_Clippers_2030_2", "Utah_Jazz_2030_2"],
+    "allocation": [
+      {"rank": "mf", "to": "Charlotte Hornets"},
+      {"rank": "lf", "to": "Utah Jazz"}
+    ]
+  }
+}

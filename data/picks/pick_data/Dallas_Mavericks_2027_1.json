@@ -1,0 +1,15 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Dallas_Mavericks_2027_1",
+  "year": 2027,
+  "round": 1,
+  "original_team": "Dallas Mavericks",
+  "frozen": false,
+  "rules": {
+    "type": "protected",
+    "protection_range": [1, 2],
+    "if_protected_to": "Dallas Mavericks",
+    "fallback_pick": "Miami_Heat_2028_2",
+    "if_not_protected_to": "Charlotte Hornets"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Milwaukee_Bucks_2032_1",
+  "year": 2032,
+  "round": 1,
+  "original_team": "Milwaukee Bucks",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Milwaukee Bucks"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "pick_status": "unprocessed",
+  "pick_id": "Portland_Trail_Blazers_2028_1",
+  "year": 2028,
+  "round": 1,
+  "original_team": "Portland Trail Blazers",
+  "frozen": false,
+  "rules": {
+    "type": "conditional_multi_trigger",
+    "triggers": [
+      {
+        "pick_id": "Portland_Trail_Blazers_2026_1",
+        "condition": { "range": [1, 14] }
+      },
+      {
+        "pick_id": "Portland_Trail_Blazers_2027_1",
+        "condition": { "range": [1, 14] }
+      }
+    ],
+    "trigger_logic": "ALL",
+    "if_not_triggered_to": "Portland Trail Blazers",
+    "protection_range": [1, 14],
+    "if_protected_to": "Portland Trail Blazers",
+    "if_not_protected_to": "Chicago Bulls",
+    "fallback_pick": "Portland_Trail_Blazers_2028_2"
+  }
+}
+
+fuck this pick man
+1-14 Own or swap for MIL;
+15-30 to CHI if not already settled;
+or Own or swap for MIL if POR has conveyed 1st round pick to CHI by 2027
+[WAS can then swap with MIL];

@@ -1,0 +1,23 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Philadelphia_76ers_2027_1",
+  "year": 2027,
+  "round": 1,
+  "original_team": "Philadelphia 76ers",
+  "frozen": false,
+  "rules": {
+    "type": "protection_backup",
+    "triggers": [
+      {
+        "pick_id": "Philadelphia_76ers_2026_1",
+        "condition": { "range": [1, 4] }
+      }
+    ],
+    "trigger_logic": "ALL",
+    "if_not_triggered_to": "Philadelphia 76ers",
+    "protection_range": [1, 4],
+    "if_protected_to": "Philadelphia 76ers",
+    "if_not_protected_to": "Oklahoma City Thunder",
+    "fallback_pick": "Philadelphia_76ers_2027_2"
+  }
+}

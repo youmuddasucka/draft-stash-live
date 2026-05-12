@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Toronto_Raptors_2026_1",
+  "year": 2026,
+  "round": 1,
+  "original_team": "Toronto Raptors",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Toronto Raptors"
+  }
+}

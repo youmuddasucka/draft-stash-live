@@ -1,0 +1,40 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Utah_Jazz_2028_1",
+  "year": 2028,
+  "round": 1,
+  "original_team": "Utah Jazz",
+  "frozen": false,
+  "rules": {
+    "type": "nested_swap",
+    "possible_destinations": [
+      "Atlanta Hawks",
+      "Utah Jazz",
+      "Cleveland Cavaliers"
+    ],
+    "levels": [
+      {
+        "description": "Sub-swap (ii): less favorable of UTH and CLE",
+        "pool": [
+          "Utah_Jazz_2028_1",
+          "Cleveland_Cavaliers_2028_1"
+        ],
+        "allocation": [
+          { "rank": "mf", "to": "Utah Jazz" },
+          { "rank": "lf", "to": "TEMP_II_LF" }
+        ]
+      },
+      {
+        "description": "More favorable of ATL and (lf of UTH and CLE)",
+        "pool": [
+          "Atlanta_Hawks_2028_1",
+          "TEMP_II_LF"
+        ],
+        "allocation": [
+          { "rank": "mf", "to": "Atlanta Hawks" },
+          { "rank": "lf", "to": "Cleveland Cavaliers" }
+        ]
+      }
+    ]
+  }
+}

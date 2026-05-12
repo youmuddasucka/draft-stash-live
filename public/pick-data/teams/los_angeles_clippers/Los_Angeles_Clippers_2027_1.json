@@ -1,0 +1,28 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Los_Angeles_Clippers_2027_1",
+  "year": 2027,
+  "round": 1,
+  "original_team": "Los Angeles Clippers",
+  "frozen": false,
+  "rules": {
+    "type": "pro_triple_swap",
+    "swap_id": "pro_triple_swap_271denlacokc",
+    "possible_destinations": ["Los Angeles Clippers", "Oklahoma City Thunder", "Denver Nuggets"],
+    "pool": [
+      "Los_Angeles_Clippers_2027_1",
+      "Oklahoma_City_Thunder_2027_1",
+      {
+        "pick": "Denver_Nuggets_2027_1",
+        "condition": {"range": [6, 30]},
+        "if_not_in_range_to": "Denver Nuggets",
+        "fallback_pick": "Denver_Nuggets_2028_1"
+      }
+    ],
+    "allocation": [
+      {"rank": "1", "to": "Oklahoma City Thunder"},
+      {"rank": "2", "to": "Oklahoma City Thunder"},
+      {"rank": "3", "to": "Los Angeles Clippers"}
+    ]
+  }
+}

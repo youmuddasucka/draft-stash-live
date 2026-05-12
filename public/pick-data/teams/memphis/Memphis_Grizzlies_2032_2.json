@@ -1,0 +1,21 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Memphis_Grizzlies_2032_2",
+  "year": 2032,
+  "round": 2,
+  "original_team": "Memphis Grizzlies",
+  "frozen": false,
+  "rules": {
+    "type": "unpro_swap",
+    "swap_id": "unpro_swap_322memphi",
+    "possible_destinations": ["Memphis Grizzlies", "Philadelphia 76ers"],
+    "pool": [
+      "Memphis_Grizzlies_2032_2",
+      "Philadelphia_76ers_2032_2"
+    ],
+    "allocation": [
+      {"rank": "1", "to": "Memphis Grizzlies"},
+      {"rank": "2", "to": "Philadelphia 76ers"}
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Philadelphia_76ers_2026_2",
+  "year": 2026,
+  "round": 2,
+  "original_team": "Philadelphia 76ers",
+  "frozen": false,
+  "rules": {
+    "type": "swap",
+    "possible_destinations": ["Oklahoma City Thunder", "Phoenix Suns", "Washington Wizards"],
+    "pool": ["Philadelphia_76ers_2026_2", "Dallas_Mavericks_2026_2", "Oklahoma_City_Thunder_2026_2"],
+    "allocation": [
+      {"rank": "mf", "to": "Oklahoma City Thunder"},
+      {"rank": "mid", "to": "Phoenix Suns"},
+      {"rank": "lf", "to": "Washington Wizards"}
+    ]
+  }
+}

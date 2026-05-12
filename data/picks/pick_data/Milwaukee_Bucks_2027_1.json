@@ -1,0 +1,23 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Milwaukee_Bucks_2027_1",
+  "year": 2027,
+  "round": 1,
+  "original_team": "Milwaukee Bucks",
+  "frozen": false,
+  "rules": {
+    "type": "protected_swap",
+    "possible_destinations": [
+      "New Orleans Pelicans",
+      "Atlanta Hawks"
+    ],
+    "pool": [
+      "New_Orleans_Pelicans_2027_1",
+      "Milwaukee_Bucks_2027_1"
+    ],
+    "allocation": [
+      { "rank": "mf", "to": "New Orleans Pelicans" },
+      { "rank": "lf", "to": "Atlanta Hawks", "protection": { "range": [1, 4], "if_protected_to": "New Orleans Pelicans" } }
+    ]
+  }
+}

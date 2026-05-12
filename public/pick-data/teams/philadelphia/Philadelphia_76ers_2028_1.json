@@ -1,0 +1,22 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Philadelphia_76ers_2028_1",
+  "year": 2028,
+  "round": 1,
+  "original_team": "Philadelphia 76ers",
+  "frozen": false,
+  "rules": {
+    "type": "special",
+    "swap_group": "281brknykphiphxwasmilpor",
+    "possible_destinations": [
+      "Philadelphia 76ers",
+      "Brooklyn Nets",
+      "Washington Wizards",
+      "Phoenix Suns"
+    ],
+    "condition": {"range": [9, 30]},
+    "if_protected_to": "Philadelphia 76ers",
+    "if_protected_fallback": "Philadelphia_76ers_2028_2",
+    "trade_description": "PHI 2028 R1 protected 1-8. If 9-30 it conveys to BRK and enters the main swap pool (BRK, PHI, PHX, NYK). BRK gets the most/two most favorable of the four. If PHI is the least favorable of {BRK, PHI, PHX}, WAS competes against it: better goes to WAS, absolute worst goes to PHX."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Memphis_Grizzlies_2030_2",
+  "year": 2030,
+  "round": 2,
+  "original_team": "Memphis Grizzlies",
+  "frozen": false,
+  "rules": {
+    "type": "protected",
+    "protection_range": [31, 50],
+    "if_protected_to": "Memphis Grizzlies",
+    "if_not_protected_to": "Minnesota Timberwolves"
+  }
+}

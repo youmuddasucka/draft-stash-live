@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Los_Angeles_Lakers_2028_1",
+  "year": 2028,
+  "round": 1,
+  "original_team": "Los Angeles Lakers",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Los Angeles Lakers"
+  }
+}

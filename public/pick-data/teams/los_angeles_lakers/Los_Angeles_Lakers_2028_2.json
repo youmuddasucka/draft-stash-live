@@ -1,0 +1,18 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Los_Angeles_Lakers_2028_2",
+  "year": 2028,
+  "round": 2,
+  "original_team": "Los Angeles Lakers",
+  "frozen": false,
+  "rules": {
+    "type": "unpro_swap",
+    "swap_id": "unpro_swap_282lalwas",
+    "possible_destinations": ["Orlando Magic", "Washington Wizards"],
+    "pool": ["Los_Angeles_Lakers_2028_2", "Washington_Wizards_2028_2"],
+    "allocation": [
+      {"rank": "1", "to": "Orlando Magic"},
+      {"rank": "2", "to": "Washington Wizards"}
+    ]
+  }
+}

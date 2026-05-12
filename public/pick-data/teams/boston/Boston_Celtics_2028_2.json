@@ -1,0 +1,41 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Boston_Celtics_2028_2",
+  "year": 2028,
+  "round": 2,
+  "original_team": "Boston Celtics",
+  "frozen": false,
+  "rules": {
+    "type": "pro_backup",
+    "possible_destinations": [
+      "San Antonio Spurs",
+      "New York Knicks",
+      "Boston Celtics"
+    ],
+    "triggers": [
+      {
+        "pick": "Boston_Celtics_2028_1",
+        "condition": {
+          "range": [
+            1,
+            1
+          ]
+        }
+      }
+    ],
+    "trigger_logic": "OR",
+    "protection_range": [
+      31,
+      45
+    ],
+    "available_range": [
+      46,
+      60
+    ],
+    "if_triggered_and_protected_to": "San Antonio Spurs",
+    "if_triggered_and_not_protected_to": "New York Knicks",
+    "if_not_triggered_and_protected_to": "Boston Celtics",
+    "if_not_triggered_and_not_protected_to": "New York Knicks",
+    "fallback_pick": "none"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Washington_Wizards_2030_1",
+  "year": 2030,
+  "round": 1,
+  "original_team": "Washington Wizards",
+  "frozen": false,
+  "rules": {
+    "type": "triple_swap",
+    "swap_id": "triple_swap_301memphxwas",
+    "possible_destinations": [
+      "Washington Wizards",
+      "Phoenix Suns",
+      "Memphis Grizzlies"
+    ],
+    "levels": [
+      {
+        "description": "xxx",
+        "pool": [
+          "Washington_Wizards_2030_1",
+          "Phoenix_Suns_2030_1"
+        ],
+        "allocation": [
+          {
+            "rank": "1",
+            "to": "Washington Wizards"
+          },
+          {
+            "rank": "2",
+            "to": "TEMP_I_2"
+          }
+        ]
+      },
+      {
+        "description": "xxx",
+        "pool": [
+          "Memphis_Grizzlies_2030_1",
+          "TEMP_I_2"
+        ],
+        "allocation": [
+          {
+            "rank": "1",
+            "to": "Memphis Grizzlies"
+          },
+          {
+            "rank": "2",
+            "to": "Phoenix Suns"
+          }
+        ]
+      }
+    ]
+  }
+}

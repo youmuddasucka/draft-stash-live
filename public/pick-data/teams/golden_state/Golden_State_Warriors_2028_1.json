@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Golden_State_Warriors_2028_1",
+  "year": 2028,
+  "round": 1,
+  "original_team": "Golden State Warriors",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Golden State Warriors"
+  }
+}

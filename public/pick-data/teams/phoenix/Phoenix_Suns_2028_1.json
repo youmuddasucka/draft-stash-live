@@ -1,0 +1,19 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Phoenix_Suns_2028_1",
+  "year": 2028,
+  "round": 1,
+  "original_team": "Phoenix Suns",
+  "frozen": false,
+  "rules": {
+    "type": "special",
+    "swap_group": "281brknykphiphxwasmilpor",
+    "possible_destinations": [
+      "Brooklyn Nets",
+      "New York Knicks",
+      "Washington Wizards",
+      "Phoenix Suns"
+    ],
+    "trade_description": "PHX's pick is in the main pool {BRK, PHI(if 9-30), PHX, NYK}. BRK gets most/two most favorable. PHX ends up with the absolute least favorable of all four picks: WAS competes against the LF of {BRK, PHI, PHX} and PHX receives the worse of (WAS, LF). PHX's own pick goes to BRK if it's among the most favorable, to NYK if 2nd of {BRK, PHX, NYK}, or stays with PHX if it's the absolute worst."
+  }
+}

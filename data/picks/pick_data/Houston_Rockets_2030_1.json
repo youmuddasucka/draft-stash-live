@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Houston_Rockets_2030_1",
+  "year": 2030,
+  "round": 1,
+  "original_team": "Houston Rockets",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Houston Rockets"
+  }
+}

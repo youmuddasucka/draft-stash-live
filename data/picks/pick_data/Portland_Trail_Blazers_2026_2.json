@@ -1,0 +1,51 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Portland_Trail_Blazers_2026_2",
+  "year": 2026,
+  "round": 2,
+  "original_team": "Portland Trail Blazers",
+  "frozen": false,
+  "rules": {
+    "type": "nested_swap",
+    "possible_destinations": [
+      "Boston Celtics",
+      "San Antonio Spurs",
+      "Washington Wizards"
+    ],
+    "levels": [
+      {
+        "description": "MF of MIN and NYK",
+        "pool": [
+          "Minnesota_Timberwolves_2026_2",
+          "New_York_Knicks_2026_2"
+        ],
+        "allocation": [
+          { "rank": "mf", "to": "TEMP_MIN_NYK_MF" },
+          { "rank": "lf", "to": "New York Knicks" }
+        ]
+      },
+      {
+        "description": "MF of NOP and POR",
+        "pool": [
+          "New_Orleans_Pelicans_2026_2",
+          "Portland_Trail_Blazers_2026_2"
+        ],
+        "allocation": [
+          { "rank": "mf", "to": "TEMP_NOP_POR_MF" },
+          { "rank": "lf", "to": "San Antonio Spurs" }
+        ]
+      },
+      {
+        "description": "Best of all four to BOS",
+        "pool": [
+          "TEMP_MIN_NYK_MF",
+          "TEMP_NOP_POR_MF"
+        ],
+        "allocation": [
+          { "rank": "mf", "to": "Boston Celtics" },
+          { "rank": "lf", "to": "Washington Wizards" }
+        ]
+      }
+    ]
+  }
+}

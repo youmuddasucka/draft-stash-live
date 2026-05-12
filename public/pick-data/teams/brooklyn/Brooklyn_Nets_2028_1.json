@@ -1,0 +1,19 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Brooklyn_Nets_2028_1",
+  "year": 2028,
+  "round": 1,
+  "original_team": "Brooklyn Nets",
+  "frozen": false,
+  "rules": {
+    "type": "special",
+    "swap_group": "281brknykphiphxwasmilpor",
+    "possible_destinations": [
+      "Brooklyn Nets",
+      "New York Knicks",
+      "Washington Wizards",
+      "Phoenix Suns"
+    ],
+    "trade_description": "BRK holds the swap rights. Main pool: {BRK, PHI(if 9-30), PHX, NYK}. BRK gets the most/two most favorable in normal scenarios; if PHI is 3rd most favorable AND NYK is 1st or 2nd, BRK gets 1st and 3rd. BRK's own pick could go to NYK (least of {BRK, PHX, NYK}), WAS (if BRK is LF of {BRK, PHI, PHX} and WAS takes it), or PHX (absolute worst)."
+  }
+}

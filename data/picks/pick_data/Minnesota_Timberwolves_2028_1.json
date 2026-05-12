@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Minnesota_Timberwolves_2028_1",
+  "year": 2028,
+  "round": 1,
+  "original_team": "Minnesota Timberwolves",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Minnesota Timberwolves"
+  }
+}

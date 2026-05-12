@@ -1,0 +1,18 @@
+{
+  "pick_status": "processed",
+  "pick_id": "New_York_Knicks_2029_2",
+  "year": 2029,
+  "round": 2,
+  "original_team": "New York Knicks",
+  "frozen": false,
+  "rules": {
+    "type": "swap",
+    "possible_destinations": ["Detroit Pistons", "Sacramento Kings"],
+    "pool": ["New_York_Knicks_2029_2", "Detroit_Pistons_2029_2", "Milwaukee_Bucks_2029_2"],
+    "allocation": [
+      {"rank": "mf", "to": "Detroit Pistons"},
+      {"rank": "mid", "to": "Detroit Pistons"},
+      {"rank": "lf", "to": "Sacramento Kings"}
+    ]
+  }
+}

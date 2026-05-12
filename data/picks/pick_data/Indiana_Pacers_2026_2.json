@@ -1,0 +1,76 @@
+{
+  "pick_status": "unprocessed",
+  "pick_id": "Indiana_Pacers_2026_2",
+  "year": 2026,
+  "round": 2,
+  "original_team": "Indiana Pacers",
+  "frozen": false,
+  "rules": {
+    "type": "nested_swap",
+    "note": "rules not yet entered"
+  }
+}
+{
+  "pick_status": "unprocessed",
+  "pick_id": "Indiana_Pacers_2026_2",
+  "year": 2026,
+  "round": 2,
+  "original_team": "Indiana Pacers",
+  "frozen": false,
+  "rules": {
+    "type": "nested_swap",
+    "possible_destinations": [
+      "Atlanta Hawks",
+      "Memphis Grizzlies",
+      "Brooklyn Nets",
+      "San Antonio Spurs",
+      "Minnesota Timberwolves"
+    ],
+    "levels": [
+      {
+        "description": "MF of IND and MIA",
+        "pool": [
+          "Indiana_Pacers_2026_2",
+          "Miami_Heat_2026_2"
+        ],
+        "allocation": [
+          { "rank": "mf", "to": "TEMP_IND_MIA_MF" },
+          { "rank": "lf", "to": "TEMP_IND_MIA_LF" }
+        ]
+      },
+      {
+        "description": "MF of (BOS, MF(IND,MIA)) to TEMP, LF to ATL",
+        "pool": [
+          "Boston_Celtics_2026_2",
+          "TEMP_IND_MIA_MF"
+        ],
+        "allocation": [
+          { "rank": "mf", "to": "TEMP_BEST" },
+          { "rank": "lf", "to": "Atlanta Hawks" }
+        ]
+      },
+      {
+        "description": "MEM keeps MF of (TEMP_BEST, LAC), LF to BKN",
+        "pool": [
+          "TEMP_BEST",
+          "LA_Clippers_2026_2"
+        ],
+        "allocation": [
+          { "rank": "mf", "to": "Memphis Grizzlies" },
+          { "rank": "lf", "to": "Brooklyn Nets" }
+        ]
+      },
+      {
+        "description": "MF of (SAS, LF(IND,MIA)) to SAS, LF to MIN",
+        "pool": [
+          "San_Antonio_Spurs_2026_2",
+          "TEMP_IND_MIA_LF"
+        ],
+        "allocation": [
+          { "rank": "mf", "to": "San Antonio Spurs" },
+          { "rank": "lf", "to": "Minnesota Timberwolves" }
+        ]
+      }
+    ]
+  }
+}

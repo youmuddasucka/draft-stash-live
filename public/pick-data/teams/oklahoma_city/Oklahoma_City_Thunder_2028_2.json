@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Oklahoma_City_Thunder_2028_2",
+  "year": 2028,
+  "round": 2,
+  "original_team": "Oklahoma City Thunder",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Philadelphia 76ers"
+  }
+}

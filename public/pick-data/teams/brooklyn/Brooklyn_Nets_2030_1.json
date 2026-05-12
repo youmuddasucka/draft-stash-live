@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Brooklyn_Nets_2030_1",
+  "year": 2030,
+  "round": 1,
+  "original_team": "Brooklyn Nets",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Brooklyn Nets"
+  }
+}

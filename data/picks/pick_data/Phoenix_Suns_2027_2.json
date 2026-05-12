@@ -1,0 +1,17 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Phoenix_Suns_2027_2",
+  "year": 2027,
+  "round": 2,
+  "original_team": "Phoenix Suns",
+  "frozen": false,
+  "rules": {
+    "type": "swap",
+    "possible_destinations": ["Philadelphia 76ers", "Washington Wizards"],
+    "pool": ["Phoenix_Suns_2027_2", "Golden_State_Warriors_2027_2"],
+    "allocation": [
+      {"rank": "mf", "to": "Philadelphia 76ers"},
+      {"rank": "lf", "to": "Washington Wizards"}
+    ]
+  }
+}

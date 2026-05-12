@@ -1,0 +1,24 @@
+{
+    "pick_status": "processed or unprocessed",
+    "pick_id": "City_Team_YYYY_R",
+    "year": YYYY,
+    "round": R,
+    "original_team": "City Team",
+    "frozen": false,
+    "rules": {
+        "type": "unpro_backup",
+        "possible_destinations": [
+            "City Team",
+            "City Team"
+        ],
+        "triggers": [
+            {
+              "pick": "City_Team_YYYY_R",
+              "condition": {"range": [1, 16]}
+            }
+        ],
+        "trigger_logic": "OR or AND",
+        "if_triggered_to": "City Team",
+        "if_not_triggered_to": "City Team"
+    }
+}

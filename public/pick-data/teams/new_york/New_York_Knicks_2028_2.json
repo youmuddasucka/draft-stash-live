@@ -1,0 +1,17 @@
+{
+  "pick_status": "processed",
+  "pick_id": "New_York_Knicks_2028_2",
+  "year": 2028,
+  "round": 2,
+  "original_team": "New York Knicks",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Detroit Pistons"
+  },
+  "pool": {
+    "pool_id": "det_2028_2_utah_pool",
+    "enters_pool_if": {"resolves_to": "Detroit Pistons"},
+    "pool_resolution": {"rank": "lf", "to": "Utah Jazz"}
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "New_Orleans_Pelicans_2032_1",
+  "year": 2032,
+  "round": 1,
+  "original_team": "New Orleans Pelicans",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "New Orleans Pelicans"
+  }
+}

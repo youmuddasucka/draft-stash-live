@@ -1,0 +1,41 @@
+{
+  "pick_status": "processed",
+  "pick_id": "San_Antonio_Spurs_2030_1",
+  "year": 2030,
+  "round": 1,
+  "original_team": "San Antonio Spurs",
+  "frozen": false,
+  "possible_destinations": ["San Antonio Spurs", "Minnesota Timberwolves", "Dallas Mavericks"],
+  "rules": {
+    "type": "nested_swap",
+    "levels": [
+      {
+        "description": "SAN/DAL swap: MF into MIN comparison, LF stays with DAL",
+        "pool": [
+          "San_Antonio_Spurs_2030_1",
+          "Dallas_Mavericks_2030_1"
+        ],
+        "allocation": [
+          {"rank": "1", "to": "TEMP_SAS_DAL_MF"},
+          {"rank": "2", "to": "Dallas Mavericks"}
+        ]
+      },
+      {
+        "description": "MF(SAN,DAL) vs MIN: MF to SAN, LF stays with MIN",
+        "pool": [
+          "TEMP_SAS_DAL_MF",
+          {
+            "pick": "Minnesota_Timberwolves_2030_1",
+            "condition": {"range": [2, 30]},
+            "if_not_in_range_to": "Minnesota Timberwolves",
+            "fallback_pick": "none"
+          }
+        ],
+        "allocation": [
+          {"rank": "1", "to": "San Antonio Spurs"},
+          {"rank": "2", "to": "Minnesota Timberwolves"}
+        ]
+      }
+    ]
+  }
+}

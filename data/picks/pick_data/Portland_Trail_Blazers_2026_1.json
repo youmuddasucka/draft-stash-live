@@ -1,0 +1,16 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Portland_Trail_Blazers_2026_1",
+  "year": 2026,
+  "round": 1,
+  "original_team": "Portland Trail Blazers",
+  "frozen": false,
+  "rules": {
+    "type": "protected",
+    "protection_range": [1, 14],
+    "if_protected_to": "Portland Trail Blazers",
+    "if_not_protected_to": "Chicago Bulls",
+    "fallback_pick": "Portland_Trail_Blazers_2027_1"
+  }
+}
+

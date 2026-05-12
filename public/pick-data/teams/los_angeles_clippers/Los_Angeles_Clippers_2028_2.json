@@ -1,0 +1,25 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Los_Angeles_Clippers_2028_2",
+  "year": 2028,
+  "round": 2,
+  "original_team": "Los Angeles Clippers",
+  "frozen": false,
+  "possible_destinations": ["Charlotte Hornets", "Detroit Pistons", "Utah Jazz"],
+  "rules": {
+    "type": "unpro_swap",
+    "pool": [
+      "Charlotte_Hornets_2028_2",
+      "Los_Angeles_Clippers_2028_2"
+    ],
+    "allocation": [
+      {"rank": "1", "to": "Charlotte Hornets"},
+      {"rank": "2", "to": "Detroit Pistons"}
+    ]
+  },
+  "pool": {
+    "pool_id": "det_2028_2_utah_pool",
+    "enters_pool_if": {"resolves_to": "Detroit Pistons"},
+    "pool_resolution": {"rank": "lf", "to": "Utah Jazz"}
+  }
+}

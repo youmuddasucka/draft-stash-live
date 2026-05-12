@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Charlotte_Hornets_2027_1",
+  "year": 2027,
+  "round": 1,
+  "original_team": "Charlotte Hornets",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Charlotte Hornets"
+  }
+}

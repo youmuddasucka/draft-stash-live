@@ -1,0 +1,29 @@
+{
+    "pick_status": "processed or unprocessed",
+    "pick_id": "City_Team_YYYY_R",
+    "year": YYYY,
+    "round": R,
+    "original_team": "City Team",
+    "frozen": false,
+    "rules": {
+        "type": "pro_swap",
+        "swap_id": "pro_swap_YYRteam1team2",
+        "possible_destinations": [
+            "City Team",
+            "City Team"
+        ],
+        "pool": [
+            "City_Team_YYYY_R",
+            {
+                "pick": "City_Team_YYYY_R",
+                "condition": {"range": [6, 30]},
+                "if_not_in_range_to": "City Team or none",
+                "fallback_pick": "City_Team_YYYY_R or none"
+            }
+        ],
+        "allocation": [
+            {"rank": "1", "to": "City Team"},
+            {"rank": "2", "to": "City Team"}
+        ]
+    }
+}

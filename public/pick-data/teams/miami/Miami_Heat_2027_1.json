@@ -1,0 +1,26 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Miami_Heat_2027_1",
+  "year": 2027,
+  "round": 1,
+  "original_team": "Miami Heat",
+  "frozen": false,
+  "rules": {
+    "type": "pro_pick",
+    "possible_destinations": [
+      "Miami Heat",
+      "Charlotte Hornets"
+    ],
+    "protection_range": [
+      1,
+      14
+    ],
+    "available_range": [
+      15,
+      30
+    ],
+    "if_protected_to": "Miami Heat",
+    "if_not_protected_to": "Charlotte Hornets",
+    "fallback_pick": "Miami_Heat_2028_1"
+  }
+}

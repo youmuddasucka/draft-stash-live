@@ -1,0 +1,21 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Atlanta_Hawks_2029_2",
+  "year": 2029,
+  "round": 2,
+  "original_team": "Atlanta Hawks",
+  "frozen": false,
+  "rules": {
+    "type": "unpro_swap",
+    "swap_id": "unpro_swap_292atlmia",
+    "possible_destinations": ["Charlotte Hornets", "Oklahoma City Thunder"],
+    "pool": [
+      "Atlanta_Hawks_2029_2",
+      "Miami_Heat_2029_2"
+    ],
+    "allocation": [
+      {"rank": "1", "to": "Charlotte Hornets"},
+      {"rank": "2", "to": "Oklahoma City Thunder"}
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Sacramento_Kings_2026_1",
+  "year": 2026,
+  "round": 1,
+  "original_team": "Sacramento Kings",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Sacramento Kings"
+  }
+}

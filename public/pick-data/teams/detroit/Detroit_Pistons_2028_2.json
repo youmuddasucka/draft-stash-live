@@ -1,0 +1,20 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Detroit_Pistons_2028_2",
+  "year": 2028,
+  "round": 2,
+  "original_team": "Detroit Pistons",
+  "frozen": false,
+  "rules": {
+    "type": "pro_pick",
+    "protection_range": [31, 55],
+    "available_range": [56, 60],
+    "if_protected_to": "Detroit Pistons",
+    "if_not_protected_to": "Philadelphia 76ers"
+  },
+  "pool": {
+    "pool_id": "det_2028_2_utah_pool",
+    "enters_pool_if": {"resolves_to": "Detroit Pistons"},
+    "pool_resolution": {"rank": "lf", "to": "Utah Jazz"}
+  }
+}

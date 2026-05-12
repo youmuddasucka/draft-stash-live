@@ -1,0 +1,17 @@
+{
+  "pick_status": "processed",
+  "pick_id": "New_Orleans_Pelicans_2026_1",
+  "year": 2026,
+  "round": 1,
+  "original_team": "New Orleans Pelicans",
+  "frozen": false,
+  "rules": {
+    "type": "swap",
+    "possible_destinations": ["Milwaukee Bucks", "Atlanta Hawks"],
+    "pool": ["Milwaukee_Bucks_2026_1", "New_Orleans_Pelicans_2026_1"],
+    "allocation": [
+      {"rank": "mf", "to": "Atlanta Hawks"},
+      {"rank": "lf", "to": "Milwaukee Bucks"}
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Dallas_Mavericks_2029_1",
+  "year": 2029,
+  "round": 1,
+  "original_team": "Dallas Mavericks",
+  "frozen": false,
+  "rules": {
+    "type": "triple_swap",
+    "swap_id": "triple_swap_291dalhouphx",
+    "possible_destinations": [
+      "Houston Rockets",
+      "Brooklyn Nets"
+    ],
+    "levels": [
+      {
+        "description": "best 2 to houston, worst to brooklyn",
+        "pool": [
+          "Dallas_Mavericks_2029_1",
+          "Houston_Rockets_2029_1",
+          "Phoenix_Suns_2029_1"
+        ],
+        "allocation": [
+          {
+            "rank": "1",
+            "to": "Houston Rockets"
+          },
+          {
+            "rank": "2",
+            "to": "Houston Rockets"
+          },
+          {
+            "rank": "3",
+            "to": "Brooklyn Nets"
+          }
+        ]
+      }
+    ]
+  }
+}

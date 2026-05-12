@@ -1,0 +1,18 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Indiana_Pacers_2028_2",
+  "year": 2028,
+  "round": 2,
+  "original_team": "Indiana Pacers",
+  "frozen": false,
+  "rules": {
+    "type": "unpro_swap",
+    "swap_id": "unpro_swap_282indphx",
+    "possible_destinations": ["Indiana Pacers", "New York Knicks"],
+    "pool": ["Indiana_Pacers_2028_2", "Phoenix_Suns_2028_2"],
+    "allocation": [
+      {"rank": "1", "to": "Indiana Pacers"},
+      {"rank": "2", "to": "New York Knicks"}
+    ]
+  }
+}

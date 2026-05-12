@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Utah_Jazz_2032_1",
+  "year": 2032,
+  "round": 1,
+  "original_team": "Utah Jazz",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Utah Jazz"
+  }
+}

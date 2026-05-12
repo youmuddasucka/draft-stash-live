@@ -1,0 +1,20 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Houston_Rockets_2027_1",
+  "year": 2027,
+  "round": 1,
+  "original_team": "Houston Rockets",
+  "frozen": false,
+  "rules": {
+    "type": "unpro_swap",
+    "swap_id": "unpro_swap_271bknhou",
+    "possible_destinations": ["Houston Rockets", "Brooklyn Nets"],
+    "pool": ["Houston_Rockets_2027_1", "Brooklyn_Nets_2027_1"],
+    "allocation": [
+      {"rank": "1", "to": "Houston Rockets"},
+      {"rank": "2", "to": "Brooklyn Nets"}
+    ]
+  }
+}
+
+

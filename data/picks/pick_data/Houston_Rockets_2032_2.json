@@ -1,0 +1,17 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Houston_Rockets_2032_2",
+  "year": 2032,
+  "round": 2,
+  "original_team": "Houston Rockets",
+  "frozen": false,
+  "rules": {
+    "type": "swap",
+    "possible_destinations": ["Minnesota Timberwolves", "Phoenix Suns"],
+    "pool": ["Houston_Rockets_2032_2", "Phoenix_Suns_2032_2"],
+    "allocation": [
+      {"rank": "mf", "to": "Minnesota Timberwolves"},
+      {"rank": "lf", "to": "Phoenix Suns"}
+    ]   
+  }
+}

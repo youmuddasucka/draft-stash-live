@@ -1,0 +1,421 @@
+year,team,pick
+2026,Sacramento Kings,1
+2026,New Orleans Pelicans,2
+2026,Dallas Mavericks,3
+2026,Charlotte Hornets,4
+2026,Utah Jazz,5
+2026,Indiana Pacers,6
+2026,Washington Wizards,7
+2026,Brooklyn Nets,8
+2026,Portland Trail Blazers,9
+2026,Memphis Grizzlies,10
+2026,Los Angeles Clippers,11
+2026,Chicago Bulls,12
+2026,Phoenix Suns,13
+2026,Golden State Warriors,14
+2026,Philadelphia 76ers,15
+2026,Milwaukee Bucks,16
+2026,San Antonio Spurs,17
+2026,Boston Celtics,18
+2026,Miami Heat,19
+2026,Minnesota Timberwolves,20
+2026,Atlanta Hawks,21
+2026,Orlando Magic,22
+2026,New York Knicks,23
+2026,Toronto Raptors,24
+2026,Los Angeles Lakers,25
+2026,Oklahoma City Thunder,26
+2026,Houston Rockets,27
+2026,Denver Nuggets,28
+2026,Cleveland Cavaliers,29
+2026,Detroit Pistons,30
+2026,Utah Jazz,31
+2026,Indiana Pacers,32
+2026,Washington Wizards,33
+2026,Brooklyn Nets,34
+2026,Dallas Mavericks,35
+2026,Charlotte Hornets,36
+2026,New Orleans Pelicans,37
+2026,Sacramento Kings,38
+2026,Portland Trail Blazers,39
+2026,Memphis Grizzlies,40
+2026,Los Angeles Clippers,41
+2026,Chicago Bulls,42
+2026,Phoenix Suns,43
+2026,Golden State Warriors,44
+2026,Philadelphia 76ers,45
+2026,Milwaukee Bucks,46
+2026,San Antonio Spurs,47
+2026,Boston Celtics,48
+2026,Miami Heat,49
+2026,Minnesota Timberwolves,50
+2026,Atlanta Hawks,51
+2026,Orlando Magic,52
+2026,New York Knicks,53
+2026,Toronto Raptors,54
+2026,Los Angeles Lakers,55
+2026,Oklahoma City Thunder,56
+2026,Houston Rockets,57
+2026,Denver Nuggets,58
+2026,Cleveland Cavaliers,59
+2026,Detroit Pistons,60
+2027,Chicago Bulls,1
+2027,New York Knicks,2
+2027,Philadelphia 76ers,3
+2027,Los Angeles Clippers,4
+2027,Dallas Mavericks,5
+2027,Golden State Warriors,6
+2027,Brooklyn Nets,7
+2027,New Orleans Pelicans,8
+2027,Charlotte Hornets,9
+2027,Washington Wizards,10
+2027,Milwaukee Bucks,11
+2027,Miami Heat,12
+2027,Minnesota Timberwolves,13
+2027,Utah Jazz,14
+2027,Memphis Grizzlies,15
+2027,Phoenix Suns,16
+2027,Los Angeles Lakers,17
+2027,Atlanta Hawks,18
+2027,Portland Trail Blazers,19
+2027,Toronto Raptors,20
+2027,Cleveland Cavaliers,21
+2027,Sacramento Kings,22
+2027,Houston Rockets,23
+2027,Boston Celtics,24
+2027,Orlando Magic,25
+2027,Indiana Pacers,26
+2027,Oklahoma City Thunder,27
+2027,San Antonio Spurs,28
+2027,Denver Nuggets,29
+2027,Detroit Pistons,30
+2027,Los Angeles Clippers,31
+2027,Dallas Mavericks,32
+2027,New York Knicks,33
+2027,Chicago Bulls,34
+2027,Golden State Warriors,35
+2027,Philadelphia 76ers,36
+2027,Brooklyn Nets,37
+2027,New Orleans Pelicans,38
+2027,Charlotte Hornets,39
+2027,Washington Wizards,40
+2027,Milwaukee Bucks,41
+2027,Miami Heat,42
+2027,Minnesota Timberwolves,43
+2027,Utah Jazz,44
+2027,Memphis Grizzlies,45
+2027,Phoenix Suns,46
+2027,Los Angeles Lakers,47
+2027,Atlanta Hawks,48
+2027,Portland Trail Blazers,49
+2027,Toronto Raptors,50
+2027,Cleveland Cavaliers,51
+2027,Sacramento Kings,52
+2027,Houston Rockets,53
+2027,Boston Celtics,54
+2027,Orlando Magic,55
+2027,Indiana Pacers,56
+2027,Oklahoma City Thunder,57
+2027,San Antonio Spurs,58
+2027,Denver Nuggets,59
+2027,Detroit Pistons,60
+2028,Golden State Warriors,1
+2028,Washington Wizards,2
+2028,Memphis Grizzlies,3
+2028,New Orleans Pelicans,4
+2028,Milwaukee Bucks,5
+2028,Sacramento Kings,6
+2028,Utah Jazz,7
+2028,Chicago Bulls,8
+2028,Brooklyn Nets,9
+2028,Los Angeles Clippers,10
+2028,Dallas Mavericks,11
+2028,New York Knicks,12
+2028,Portland Trail Blazers,13
+2028,Charlotte Hornets,14
+2028,Los Angeles Lakers,15
+2028,Boston Celtics,16
+2028,Phoenix Suns,17
+2028,Miami Heat,18
+2028,Oklahoma City Thunder,19
+2028,Detroit Pistons,20
+2028,Atlanta Hawks,21
+2028,Cleveland Cavaliers,22
+2028,Orlando Magic,23
+2028,Indiana Pacers,24
+2028,Toronto Raptors,25
+2028,Minnesota Timberwolves,26
+2028,Denver Nuggets,27
+2028,San Antonio Spurs,28
+2028,Houston Rockets,29
+2028,Philadelphia 76ers,30
+2028,Memphis Grizzlies,31
+2028,Milwaukee Bucks,32
+2028,Sacramento Kings,33
+2028,Utah Jazz,34
+2028,Chicago Bulls,35
+2028,Brooklyn Nets,36
+2028,Golden State Warriors,37
+2028,New Orleans Pelicans,38
+2028,Washington Wizards,39
+2028,Los Angeles Clippers,40
+2028,Dallas Mavericks,41
+2028,New York Knicks,42
+2028,Portland Trail Blazers,43
+2028,Charlotte Hornets,44
+2028,Los Angeles Lakers,45
+2028,Boston Celtics,46
+2028,Phoenix Suns,47
+2028,Miami Heat,48
+2028,Oklahoma City Thunder,49
+2028,Detroit Pistons,50
+2028,Atlanta Hawks,51
+2028,Cleveland Cavaliers,52
+2028,Orlando Magic,53
+2028,Indiana Pacers,54
+2028,Toronto Raptors,55
+2028,Minnesota Timberwolves,56
+2028,Denver Nuggets,57
+2028,San Antonio Spurs,58
+2028,Houston Rockets,59
+2028,Philadelphia 76ers,60
+2029,Memphis Grizzlies,1
+2029,Golden State Warriors,2
+2029,Indiana Pacers,3
+2029,New York Knicks,4
+2029,Washington Wizards,5
+2029,Portland Trail Blazers,6
+2029,Milwaukee Bucks,7
+2029,Chicago Bulls,8
+2029,Utah Jazz,9
+2029,Denver Nuggets,10
+2029,Charlotte Hornets,11
+2029,Sacramento Kings,12
+2029,Brooklyn Nets,13
+2029,Detroit Pistons,14
+2029,Orlando Magic,15
+2029,Boston Celtics,16
+2029,Los Angeles Clippers,17
+2029,Dallas Mavericks,18
+2029,Cleveland Cavaliers,19
+2029,Philadelphia 76ers,20
+2029,Los Angeles Lakers,21
+2029,Phoenix Suns,22
+2029,Toronto Raptors,23
+2029,New Orleans Pelicans,24
+2029,Minnesota Timberwolves,25
+2029,Houston Rockets,26
+2029,Oklahoma City Thunder,27
+2029,Miami Heat,28
+2029,San Antonio Spurs,29
+2029,Atlanta Hawks,30
+2029,New York Knicks,31
+2029,Memphis Grizzlies,32
+2029,Washington Wizards,33
+2029,Portland Trail Blazers,34
+2029,Indiana Pacers,35
+2029,Milwaukee Bucks,36
+2029,Golden State Warriors,37
+2029,Chicago Bulls,38
+2029,Utah Jazz,39
+2029,Denver Nuggets,40
+2029,Charlotte Hornets,41
+2029,Sacramento Kings,42
+2029,Brooklyn Nets,43
+2029,Detroit Pistons,44
+2029,Orlando Magic,45
+2029,Boston Celtics,46
+2029,Los Angeles Clippers,47
+2029,Dallas Mavericks,48
+2029,Cleveland Cavaliers,49
+2029,Philadelphia 76ers,50
+2029,Los Angeles Lakers,51
+2029,Phoenix Suns,52
+2029,Toronto Raptors,53
+2029,New Orleans Pelicans,54
+2029,Minnesota Timberwolves,55
+2029,Houston Rockets,56
+2029,Oklahoma City Thunder,57
+2029,Miami Heat,58
+2029,San Antonio Spurs,59
+2029,Atlanta Hawks,60
+2030,Boston Celtics,1
+2030,Chicago Bulls,2
+2030,New York Knicks,3
+2030,Milwaukee Bucks,4
+2030,Sacramento Kings,5
+2030,Los Angeles Clippers,6
+2030,Detroit Pistons,7
+2030,Phoenix Suns,8
+2030,Brooklyn Nets,9
+2030,Philadelphia 76ers,10
+2030,Golden State Warriors,11
+2030,Memphis Grizzlies,12
+2030,Dallas Mavericks,13
+2030,Miami Heat,14
+2030,Denver Nuggets,15
+2030,Cleveland Cavaliers,16
+2030,New Orleans Pelicans,17
+2030,Atlanta Hawks,18
+2030,San Antonio Spurs,19
+2030,Charlotte Hornets,20
+2030,Houston Rockets,21
+2030,Los Angeles Lakers,22
+2030,Toronto Raptors,23
+2030,Utah Jazz,24
+2030,Washington Wizards,25
+2030,Portland Trail Blazers,26
+2030,Indiana Pacers,27
+2030,Orlando Magic,28
+2030,Minnesota Timberwolves,29
+2030,Oklahoma City Thunder,30
+2030,Sacramento Kings,31
+2030,Milwaukee Bucks,32
+2030,Los Angeles Clippers,33
+2030,Detroit Pistons,34
+2030,Chicago Bulls,35
+2030,Boston Celtics,36
+2030,Phoenix Suns,37
+2030,New York Knicks,38
+2030,Brooklyn Nets,39
+2030,Philadelphia 76ers,40
+2030,Golden State Warriors,41
+2030,Memphis Grizzlies,42
+2030,Dallas Mavericks,43
+2030,Miami Heat,44
+2030,Denver Nuggets,45
+2030,Cleveland Cavaliers,46
+2030,New Orleans Pelicans,47
+2030,Atlanta Hawks,48
+2030,San Antonio Spurs,49
+2030,Charlotte Hornets,50
+2030,Houston Rockets,51
+2030,Los Angeles Lakers,52
+2030,Toronto Raptors,53
+2030,Utah Jazz,54
+2030,Washington Wizards,55
+2030,Portland Trail Blazers,56
+2030,Indiana Pacers,57
+2030,Orlando Magic,58
+2030,Minnesota Timberwolves,59
+2030,Oklahoma City Thunder,60
+2031,Golden State Warriors,1
+2031,Milwaukee Bucks,2
+2031,Miami Heat,3
+2031,Memphis Grizzlies,4
+2031,Los Angeles Clippers,5
+2031,Brooklyn Nets,6
+2031,Sacramento Kings,7
+2031,Phoenix Suns,8
+2031,New York Knicks,9
+2031,Boston Celtics,10
+2031,Toronto Raptors,11
+2031,Indiana Pacers,12
+2031,Houston Rockets,13
+2031,Utah Jazz,14
+2031,Washington Wizards,15
+2031,Philadelphia 76ers,16
+2031,San Antonio Spurs,17
+2031,Chicago Bulls,18
+2031,Atlanta Hawks,19
+2031,Cleveland Cavaliers,20
+2031,Charlotte Hornets,21
+2031,Oklahoma City Thunder,22
+2031,New Orleans Pelicans,23
+2031,Denver Nuggets,24
+2031,Dallas Mavericks,25
+2031,Minnesota Timberwolves,26
+2031,Orlando Magic,27
+2031,Portland Trail Blazers,28
+2031,Detroit Pistons,29
+2031,Los Angeles Lakers,30
+2031,Memphis Grizzlies,31
+2031,Golden State Warriors,32
+2031,Los Angeles Clippers,33
+2031,Miami Heat,34
+2031,Brooklyn Nets,35
+2031,Sacramento Kings,36
+2031,Phoenix Suns,37
+2031,Milwaukee Bucks,38
+2031,New York Knicks,39
+2031,Boston Celtics,40
+2031,Toronto Raptors,41
+2031,Indiana Pacers,42
+2031,Houston Rockets,43
+2031,Utah Jazz,44
+2031,Washington Wizards,45
+2031,Philadelphia 76ers,46
+2031,San Antonio Spurs,47
+2031,Chicago Bulls,48
+2031,Atlanta Hawks,49
+2031,Cleveland Cavaliers,50
+2031,Charlotte Hornets,51
+2031,Oklahoma City Thunder,52
+2031,New Orleans Pelicans,53
+2031,Denver Nuggets,54
+2031,Dallas Mavericks,55
+2031,Minnesota Timberwolves,56
+2031,Orlando Magic,57
+2031,Portland Trail Blazers,58
+2031,Detroit Pistons,59
+2031,Los Angeles Lakers,60
+2032,Miami Heat,1
+2032,Orlando Magic,2
+2032,Golden State Warriors,3
+2032,Phoenix Suns,4
+2032,Denver Nuggets,5
+2032,New York Knicks,6
+2032,Los Angeles Clippers,7
+2032,Atlanta Hawks,8
+2032,Portland Trail Blazers,9
+2032,New Orleans Pelicans,10
+2032,Philadelphia 76ers,11
+2032,Sacramento Kings,12
+2032,Chicago Bulls,13
+2032,Memphis Grizzlies,14
+2032,Brooklyn Nets,15
+2032,Boston Celtics,16
+2032,Houston Rockets,17
+2032,Indiana Pacers,18
+2032,Washington Wizards,19
+2032,Dallas Mavericks,20
+2032,Cleveland Cavaliers,21
+2032,Milwaukee Bucks,22
+2032,Oklahoma City Thunder,23
+2032,Toronto Raptors,24
+2032,Los Angeles Lakers,25
+2032,San Antonio Spurs,26
+2032,Minnesota Timberwolves,27
+2032,Charlotte Hornets,28
+2032,Utah Jazz,29
+2032,Detroit Pistons,30
+2032,Denver Nuggets,31
+2032,Golden State Warriors,32
+2032,Phoenix Suns,33
+2032,Miami Heat,34
+2032,Orlando Magic,35
+2032,New York Knicks,36
+2032,Los Angeles Clippers,37
+2032,Atlanta Hawks,38
+2032,Portland Trail Blazers,39
+2032,New Orleans Pelicans,40
+2032,Philadelphia 76ers,41
+2032,Sacramento Kings,42
+2032,Chicago Bulls,43
+2032,Memphis Grizzlies,44
+2032,Brooklyn Nets,45
+2032,Boston Celtics,46
+2032,Houston Rockets,47
+2032,Indiana Pacers,48
+2032,Washington Wizards,49
+2032,Dallas Mavericks,50
+2032,Cleveland Cavaliers,51
+2032,Milwaukee Bucks,52
+2032,Oklahoma City Thunder,53
+2032,Toronto Raptors,54
+2032,Los Angeles Lakers,55
+2032,San Antonio Spurs,56
+2032,Minnesota Timberwolves,57
+2032,Charlotte Hornets,58
+2032,Utah Jazz,59
+2032,Detroit Pistons,60

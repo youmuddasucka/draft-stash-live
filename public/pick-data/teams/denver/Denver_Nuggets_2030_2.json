@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Denver_Nuggets_2030_2",
+  "year": 2030,
+  "round": 2,
+  "original_team": "Denver Nuggets",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Oklahoma City Thunder"
+  }
+}

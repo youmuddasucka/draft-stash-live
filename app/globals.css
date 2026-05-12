@@ -1,26 +1,187 @@
 @import "tailwindcss";
 
+/* ===== COLOR SYSTEM ===== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-bg: #000000;        /* Black */
+  --color-text: #ffffff;      /* White */
+  --color-nba-blue: #1d428a;  /* NBA Blue */
+  --color-nba-red: #c8102e;   /* NBA Red */
+  --color-gold: #E6B85C;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+.text-gold {
+  color: #E6B85C;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ===== BASE STYLES ===== */
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+}
+
+/* HEADER FONT OVERRIDES */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-header);
+  letter-spacing: 0.02em;
+}
+
+.font-header {
+  font-family: var(--font-header);
+}
+
+/* ===== GLASS EFFECTS ===== */
+
+/* Background: ambient color orbs so blur has something to work through */
+.glass-bg {
+  background: #000000;
+  background-image:
+    radial-gradient(ellipse 700px 500px at 15% 25%, rgba(29, 66, 138, 0.35) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 700px at 85% 75%, rgba(200, 16, 46, 0.20) 0%, transparent 70%),
+    radial-gradient(ellipse 450px 450px at 50% 50%, rgba(255, 255, 255, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 400px at 50% 50%, rgba(230, 184, 92, 0.08) 0%, transparent 70%);
+}
+
+/* Noise grain overlay on the page */
+.glass-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("/noise.svg");
+  background-size: 120px 120px;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* glass-surface: blur + sheen, no border — use when you supply your own border */
+.glass-surface {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.10) 0%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  position: relative;
+  z-index: 1;
+}
+
+/* glass-card: full glass treatment with subtle white border */
+.glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.10) 0%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  position: relative;
+  z-index: 1;
+}
+
+.team-tile {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.team-tile:hover {
+  transform: translateY(-3px) scale(1.08);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--team-color) 22%, transparent) 0%,
+    color-mix(in srgb, var(--team-color) 8%, transparent) 100%
+  );
+  border-color: color-mix(in srgb, var(--team-color) 75%, transparent);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--team-color) 35%, transparent);
+}
+
+/* Logo blurs and darkens on hover */
+.team-tile img {
+  transition: filter 0.25s ease;
+}
+.team-tile:hover img {
+  filter: blur(2.5px) brightness(0.7);
+}
+
+/* Bottom label: hidden — only the centered hover label is used */
+.team-tile .team-abbr-bottom {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Centered label: hidden at rest, fades in on hover */
+.team-tile .team-abbr-center {
+  transition: opacity 0.18s ease;
+  opacity: 0;
+}
+.team-tile:hover .team-abbr-center {
+  opacity: 1;
+}
+
+.glass-select {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.glass-select:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.glass-select option {
+  background: #111;
+  color: white;
+}
+
+.glass-row {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.glass-row:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* ===== OPTIONAL UTILITY CLASSES ===== */
+.text-nba-blue {
+  color: var(--color-nba-blue);
+}
+
+.text-nba-red {
+  color: var(--color-nba-red);
+}
+
+.bg-nba-blue {
+  background-color: var(--color-nba-blue);
+}
+
+.bg-nba-red {
+  background-color: var(--color-nba-red);
 }

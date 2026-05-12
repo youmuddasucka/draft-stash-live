@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Dallas_Mavericks_2032_2",
+  "year": 2032,
+  "round": 2,
+  "original_team": "Dallas Mavericks",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Dallas Mavericks"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "pick_status": "unprocessed",
+  "pick_id": "San_Antonio_Spurs_2030_1",
+  "year": 2030,
+  "round": 1,
+  "original_team": "San Antonio Spurs",
+  "frozen": false,
+  "rules": {
+    "type": "nested_swap",
+    "note": "rules not yet entered"
+  }
+}

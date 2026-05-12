@@ -1,0 +1,13 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Portland_Trail_Blazers_2028_2",
+  "year": 2028,
+  "round": 2,
+  "original_team": "Portland Trail Blazers",
+  "frozen": false,
+  "possible_destinations": ["Portland Trail Blazers", "Chicago Bulls"],
+  "rules": {
+    "type": "unprotected",
+    "possible_destinations": ["Portland Trail Blazers"]
+  }
+}

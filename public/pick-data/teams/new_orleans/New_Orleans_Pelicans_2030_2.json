@@ -1,0 +1,18 @@
+{
+  "pick_status": "processed",
+  "pick_id": "New_Orleans_Pelicans_2030_2",
+  "year": 2030,
+  "round": 2,
+  "original_team": "New Orleans Pelicans",
+  "frozen": false,
+  "rules": {
+    "type": "unpro_swap",
+    "swap_id": "unpro_swap_302noporl",
+    "possible_destinations": ["New Orleans Pelicans", "Orlando Magic"],
+    "pool": ["New_Orleans_Pelicans_2030_2", "Orlando_Magic_2030_2"],
+    "allocation": [
+      {"rank": "1", "to": "Orlando Magic"},
+      {"rank": "2", "to": "New Orleans Pelicans"}
+    ]
+  }
+}

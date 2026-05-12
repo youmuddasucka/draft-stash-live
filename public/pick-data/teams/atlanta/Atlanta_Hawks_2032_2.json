@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Atlanta_Hawks_2032_2",
+  "year": 2032,
+  "round": 2,
+  "original_team": "Atlanta Hawks",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Atlanta Hawks"
+  }
+}

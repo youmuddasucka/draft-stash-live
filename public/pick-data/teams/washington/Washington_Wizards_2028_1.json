@@ -1,0 +1,18 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Washington_Wizards_2028_1",
+  "year": 2028,
+  "round": 1,
+  "original_team": "Washington Wizards",
+  "frozen": false,
+  "rules": {
+    "type": "special",
+    "swap_group": "281brknykphiphxwasmilpor",
+    "possible_destinations": [
+      "Washington Wizards",
+      "Phoenix Suns",
+      "Milwaukee Bucks"
+    ],
+    "trade_description": "WAS has a swap right against the least/less favorable of {BRK, PHI(9-30), PHX}. WAS takes the better of (WAS own, LF of pool); PHX gets the absolute worst. WAS then has a secondary swap right against the less favorable of {MIL, POR}: better goes to WAS, less favorable goes to MIL. WAS's own pick ends up with WAS (most common), PHX (if WAS is absolute worst), or MIL (if WAS loses the secondary MIL/POR swap)."
+  }
+}

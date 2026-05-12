@@ -1,0 +1,18 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Milwaukee_Bucks_2028_1",
+  "year": 2028,
+  "round": 1,
+  "original_team": "Milwaukee Bucks",
+  "frozen": false,
+  "rules": {
+    "type": "special",
+    "swap_group": "281brknykphiphxwasmilpor",
+    "possible_destinations": [
+      "Portland Trail Blazers",
+      "Washington Wizards",
+      "Milwaukee Bucks"
+    ],
+    "trade_description": "MIL participates in the secondary swap with POR and WAS. POR gets the more favorable of {MIL, POR}; WAS gets the more favorable of (WAS comparison result, LF of {MIL, POR}); MIL gets the less favorable. MIL's own pick goes to POR if MIL is more favorable, to WAS if MIL is LF and WAS takes it, or stays with MIL as the final less favorable."
+  }
+}

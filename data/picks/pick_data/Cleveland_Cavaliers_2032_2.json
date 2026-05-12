@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Cleveland_Cavaliers_2032_2",
+  "year": 2032,
+  "round": 2,
+  "original_team": "Cleveland Cavaliers",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Cleveland Cavaliers"
+  }
+}

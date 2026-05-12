@@ -1,0 +1,49 @@
+{
+    "pick_status": "processed or unprocessed",
+    "pick_id": "City_Team_YYYY_R",
+    "year": YYYY,
+    "round": R,
+    "original_team": "City Team",
+    "frozen": false,
+    "rules": {
+        "type": "nested_swap",
+        "swap_id": "nested_swap_YYRteam1team2team3",
+        "possible_destinations": [
+            "City Team",
+            "City Team",
+            "City Team"
+        ],
+        "levels": [
+            {
+                "description": "Description of this comparison",
+                "pool": [
+                    "City_Team_YYYY_R",
+                    "City_Team_YYYY_R",
+                    {
+                        "pick": "City_Team_YYYY_R",
+                        "condition": {"range": [1, 14]},
+                        "if_not_in_range_to": "City Team",
+                        "fallback_pick": "City_Team_YYYY_R or none"
+                    }
+                ],
+                "allocation": [
+                    {"rank": "1", "to": "City Team"},
+                    {"rank": "mid1", "to": "City Team"},
+                    {"rank": "mid2", "to": "City Team"},
+                    {"rank": "2", "to": "TEMP_LABEL"}
+                ]
+            },
+            {
+                "description": "Description of this comparison",
+                "pool": [
+                    "City_Team_YYYY_R",
+                    "TEMP_LABEL"
+                ],
+                "allocation": [
+                    {"rank": "1", "to": "City Team"},
+                    {"rank": "2", "to": "City Team"}
+                ]
+            }
+        ]
+    }
+}

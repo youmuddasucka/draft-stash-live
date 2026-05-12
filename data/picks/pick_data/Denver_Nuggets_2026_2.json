@@ -1,0 +1,17 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Denver_Nuggets_2026_2",
+  "year": 2026,
+  "round": 2,
+  "original_team": "Denver Nuggets",
+  "frozen": false,
+  "rules": {
+    "type": "swap",
+    "possible_destinations": ["Charlotte Hornets", "Minnesota Timberwolves"],
+    "pool": ["Denver_Nuggets_2026_2", "Golden_State_Warriors_2026_2"],
+    "allocation": [
+      {"rank": "mf", "to": "Charlotte Hornets"},
+      {"rank": "lf", "to": "Minnesota Timberwolves"}
+    ]
+  }
+}

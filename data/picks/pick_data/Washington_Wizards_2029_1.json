@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Washington_Wizards_2029_1",
+  "year": 2029,
+  "round": 1,
+  "original_team": "Washington Wizards",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Washington Wizards"
+  }
+}

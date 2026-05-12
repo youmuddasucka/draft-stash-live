@@ -1,0 +1,29 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Miami_Heat_2028_1",
+  "year": 2028,
+  "round": 1,
+  "original_team": "Miami Heat",
+  "frozen": false,
+  "rules": {
+    "type": "unpro_backup",
+    "possible_destinations": [
+      "Charlotte Hornets",
+      "Miami Heat"
+    ],
+    "triggers": [
+      {
+        "pick": "Miami_Heat_2027_1",
+        "condition": {
+          "range": [
+            1,
+            14
+          ]
+        }
+      }
+    ],
+    "trigger_logic": "OR",
+    "if_triggered_to": "Miami Heat",
+    "if_not_triggered_to": "Charlotte Hornets"
+  }
+}

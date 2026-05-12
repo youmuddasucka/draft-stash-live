@@ -1,0 +1,18 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Sacramento_Kings_2031_1",
+  "year": 2031,
+  "round": 1,
+  "original_team": "Sacramento Kings",
+  "frozen": false,
+  "rules": {
+    "type": "unpro_swap",
+    "swap_id": "unpro_swap_311sacsas",
+    "possible_destinations": ["Sacramento Kings", "San Antonio Spurs"],
+    "pool": ["Sacramento_Kings_2031_1", "San_Antonio_Spurs_2031_1"],
+    "allocation": [
+      {"rank": "1", "to": "San Antonio Spurs"},
+      {"rank": "2", "to": "Sacramento Kings"}
+    ]
+  }
+}

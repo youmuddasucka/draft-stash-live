@@ -1,0 +1,40 @@
+{
+  "pick_status": "unprocessed",
+  "pick_id": "Minnesota_Timberwolves_2026_1",
+  "year": 2026,
+  "round": 1,
+  "original_team": "Minnesota Timberwolves",
+  "frozen": false,
+  "rules": {
+    "type": "nested_swap",
+    "note": "rules not yet entered"
+  }
+}
+{
+  "pick_status": "unprocessed",
+  "pick_id": "Minnesota_Timberwolves_2026_1",
+  "year": 2026,
+  "round": 1,
+  "original_team": "Minnesota Timberwolves",
+  "frozen": false,
+  "rules": {
+    "type": "nested_swap",
+    "possible_destinations": [
+      "Utah Jazz",
+      "Minnesota Timberwolves"
+    ],
+    "levels": [
+      {
+        "description": "MF of UTH (if 1-8) and MIN",
+        "pool": [
+          { "pick": "Utah_Jazz_2026_1", "condition": { "range": [1, 8] } },
+          "Minnesota_Timberwolves_2026_1"
+        ],
+        "allocation": [
+          { "rank": "mf", "to": "Utah Jazz" },
+          { "rank": "lf", "to": "Minnesota Timberwolves" }
+        ]
+      }
+    ]
+  }
+}

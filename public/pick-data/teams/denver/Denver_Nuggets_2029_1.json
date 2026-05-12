@@ -1,0 +1,44 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Denver_Nuggets_2029_1",
+  "year": 2029,
+  "round": 1,
+  "original_team": "Denver Nuggets",
+  "frozen": false,
+  "rules": {
+    "type": "pro_backup_branched",
+    "possible_destinations": [
+      "Denver Nuggets",
+      "Oklahoma City Thunder"
+    ],
+    "branches": [
+      {
+        "label": "obligation_1",
+        "triggers": [
+          {"pick": "Denver_Nuggets_2027_1", "condition": {"range": [1, 5]}},
+          {"pick": "Denver_Nuggets_2028_1", "condition": {"range": [1, 5]}}
+        ],
+        "trigger_logic": "AND",
+        "protection_range": [1, 5],
+        "available_range": [6, 30],
+        "if_triggered_and_protected_to": "Denver Nuggets",
+        "if_triggered_and_not_protected_to": "Oklahoma City Thunder",
+        "fallback_pick": "Denver_Nuggets_2029_2"
+      },
+      {
+        "label": "obligation_2",
+        "triggers": [
+          {"pick": "Denver_Nuggets_2027_1", "condition": {"range": [6, 30]}}
+        ],
+        "trigger_logic": "OR",
+        "protection_range": [1, 5],
+        "available_range": [6, 30],
+        "if_triggered_and_protected_to": "Denver Nuggets",
+        "if_triggered_and_not_protected_to": "Oklahoma City Thunder",
+        "fallback_pick": "Denver_Nuggets_2030_1"
+      }
+    ],
+    "if_not_triggered_and_protected_to": "Denver Nuggets",
+    "if_not_triggered_and_not_protected_to": "Denver Nuggets"
+  }
+}

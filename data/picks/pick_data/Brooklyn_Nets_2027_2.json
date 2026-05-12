@@ -1,0 +1,17 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Brooklyn_Nets_2027_2",
+  "year": 2027,
+  "round": 2,
+  "original_team": "Brooklyn Nets",
+  "frozen": false,
+  "rules": {
+    "type": "swap",
+    "possible_destinations": ["Washington Wizards", "Detroit Pistons"],
+    "pool": ["Brooklyn_Nets_2027_2", "Dallas_Mavericks_2027_2"],
+    "allocation": [
+      {"rank": "mf", "to": "Washington Wizards"},
+      {"rank": "lf", "to": "Detroit Pistons"}
+    ]
+  }
+}

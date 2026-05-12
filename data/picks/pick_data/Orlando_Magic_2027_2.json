@@ -1,0 +1,17 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Orlando_Magic_2027_2",
+  "year": 2027,
+  "round": 2,
+  "original_team": "Orlando Magic",
+  "frozen": false,
+  "rules": {
+    "type": "swap",
+    "possible_destinations": ["Orlando Magic", "Utah Jazz"],
+    "pool": ["Orlando_Magic_2027_2", "Boston_Celtics_2027_2"],
+    "allocation": [
+      {"rank": "mf", "to": "Utah Jazz"},
+      {"rank": "lf", "to": "Orlando Magic"}
+    ]
+  }
+}

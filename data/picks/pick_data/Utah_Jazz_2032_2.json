@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Utah_Jazz_2032_2",
+  "year": 2032,
+  "round": 2,
+  "original_team": "Utah Jazz",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Washington Wizards"
+  }
+}

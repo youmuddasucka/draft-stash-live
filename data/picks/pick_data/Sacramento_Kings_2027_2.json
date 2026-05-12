@@ -1,0 +1,20 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Sacramento_Kings_2027_2",
+  "year": 2027,
+  "round": 2,
+  "original_team": "Sacramento Kings",
+  "frozen": false,
+  "rules": {
+    "type": "protection_backup",
+    "triggers": [
+      {
+        "pick_id": "San_Antonio_Spurs_2027_1",
+        "condition": {"range": [1, 16]}
+      }
+    ],
+    "trigger_logic": "ALL",
+    "if_triggered_to": "Oklahoma City Thunder",
+    "if_not_triggered_to": "Sacramento Kings"
+  }
+}  

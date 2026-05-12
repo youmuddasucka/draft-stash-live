@@ -1,0 +1,14 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Memphis_Grizzlies_2026_2",
+  "year": 2026,
+  "round": 2,
+  "original_team": "Memphis Grizzlies",
+  "frozen": false,
+  "rules": {
+    "type": "protected",
+    "protection_range": [31, 42],
+    "if_protected_to": "Los Angeles Clippers",
+    "if_not_protected_to": "Portland Trail Blazers"
+  }
+}

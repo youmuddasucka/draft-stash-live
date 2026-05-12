@@ -1,0 +1,40 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Minnesota_Timberwolves_2030_1",
+  "year": 2030,
+  "round": 1,
+  "original_team": "Minnesota Timberwolves",
+  "frozen": false,
+  "rules": {
+    "type": "nested_swap",
+    "possible_destinations": [
+      "San Antonio Spurs",
+      "Minnesota Timberwolves"
+    ],
+    "levels": [
+      {
+        "description": "MF of SAS and DAL",
+        "pool": [
+          "San_Antonio_Spurs_2030_1",
+          "Dallas_Mavericks_2030_1"
+        ],
+        "allocation": [
+          { "rank": "mf", "to": "TEMP_SAS_DAL_MF" },
+          { "rank": "lf", "to": "Dallas Mavericks" }
+        ]
+      },
+      {
+        "description": "SAS gets MF, MIN gets LF if conveyable",
+        "pool": [
+          "TEMP_SAS_DAL_MF",
+          { "pick": "Minnesota_Timberwolves_2030_1", "condition": { "range": [2, 30] } }
+        ],
+        "allocation": [
+          { "rank": "mf", "to": "San Antonio Spurs" },
+          { "rank": "lf", "to": "Minnesota Timberwolves" }
+        ]
+      }
+    ],
+    "if_protected_to": "Minnesota Timberwolves"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Washington_Wizards_2027_2",
+  "year": 2027,
+  "round": 2,
+  "original_team": "Washington Wizards",
+  "frozen": false,
+  "rules": {
+    "type": "protection_backup",
+    "triggers": [
+      {
+        "pick_id": "Washington_Wizards_2026_1",
+        "condition": {"range": [1, 8]}
+      }
+    ],
+    "trigger_logic": "ALL",
+    "if_triggered_to": "New York Knicks",
+    "if_not_triggered_to": "Washington Wizards"
+  }
+}

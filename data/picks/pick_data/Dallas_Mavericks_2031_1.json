@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Dallas_Mavericks_2031_1",
+  "year": 2031,
+  "round": 1,
+  "original_team": "Dallas Mavericks",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Dallas Mavericks"
+  }
+}

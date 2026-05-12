@@ -1,0 +1,21 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Miami_Heat_2028_2",
+  "year": 2028,
+  "round": 2,
+  "original_team": "Miami Heat",
+  "frozen": false,
+  "possible_destinations": ["Charlotte Hornets", "Detroit Pistons", "Utah Jazz"],
+  "rules": {
+    "type": "special",
+    "trigger_pick": "Dallas_Mavericks_2027_1",
+    "trigger_condition": {"range": [1, 2]},
+    "if_triggered_to": "Charlotte Hornets",
+    "if_not_triggered_to": "Detroit Pistons"
+  },
+  "pool": {
+    "pool_id": "det_2028_2_utah_pool",
+    "enters_pool_if": {"resolves_to": "Detroit Pistons"},
+    "pool_resolution": {"rank": "lf", "to": "Utah Jazz"}
+  }
+}

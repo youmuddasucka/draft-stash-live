@@ -1,0 +1,39 @@
+{
+  "pick_status": "processed",
+  "pick_id": "San_Antonio_Spurs_2026_2",
+  "year": 2026,
+  "round": 2,
+  "original_team": "San Antonio Spurs",
+  "frozen": false,
+  "rules": {
+    "type": "nested_swap",
+    "possible_destinations": [
+      "San Antonio Spurs",
+      "Minnesota Timberwolves"
+    ],
+    "levels": [
+      {
+        "description": "Sub-swap (i): less favorable of IND and MIA",
+        "pool": [
+          "Indiana_Pacers_2026_2",
+          "Miami_Heat_2026_2"
+        ],
+        "allocation": [
+          { "rank": "mf", "to": "TEMP_I_MF" },
+          { "rank": "lf", "to": "TEMP_I_LF" }
+        ]
+      },
+      {
+        "description": "More favorable of SAS and (lf of IND and MIA)",
+        "pool": [
+          "San_Antonio_Spurs_2026_2",
+          "TEMP_I_LF"
+        ],
+        "allocation": [
+          { "rank": "mf", "to": "San Antonio Spurs" },
+          { "rank": "lf", "to": "Minnesota Timberwolves" }
+        ]
+      }
+    ]
+  }
+}

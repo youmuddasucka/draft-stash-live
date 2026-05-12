@@ -1,0 +1,18 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Milwaukee_Bucks_2026_2",
+  "year": 2026,
+  "round": 2,
+  "original_team": "Milwaukee Bucks",
+  "frozen": false,
+  "rules": {
+    "type": "swap",
+    "possible_destinations": ["Boston Celtics", "Orlando Magic", "New York Knicks"],
+    "pool": ["Milwaukee_Bucks_2026_2", "Orlando_Magic_2026_2", "Detroit_Pistons_2026_2"],
+    "allocation": [
+      {"rank": "mf", "to": "Boston Celtics"},
+      {"rank": "mid", "to": "Orlando Magic"},
+      {"rank": "lf", "to": "New York Knicks"}
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "New_York_Knicks_2032_2",
+  "year": 2032,
+  "round": 2,
+  "original_team": "New York Knicks",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "New York Knicks"
+  }
+}

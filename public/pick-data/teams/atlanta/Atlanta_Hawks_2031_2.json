@@ -1,0 +1,29 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Atlanta_Hawks_2031_2",
+  "year": 2031,
+  "round": 2,
+  "original_team": "Atlanta Hawks",
+  "frozen": false,
+  "rules": {
+    "type": "pro_swap",
+    "swap_id": "pro_swap_312atlhou",
+    "possible_destinations": [
+      "Atlanta Hawks",
+      "Houston Rockets"
+    ],
+    "pool": [
+      "Atlanta_Hawks_2031_2",
+      {
+        "pick": "Houston_Rockets_2031_2",
+        "condition": {"range": [31, 55]},
+        "if_not_in_range_to": "Boston Celtics",
+        "fallback_pick": "none"
+      }
+    ],
+    "allocation": [
+      {"rank": "1", "to": "Atlanta Hawks"},
+      {"rank": "2", "to": "Houston Rockets"}
+    ]
+  }
+}

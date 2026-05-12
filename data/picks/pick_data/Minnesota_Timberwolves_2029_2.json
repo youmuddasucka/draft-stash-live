@@ -1,0 +1,20 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Minnesota_Timberwolves_2029_2",
+  "year": 2029,
+  "round": 2,
+  "original_team": "Minnesota Timberwolves",
+  "frozen": false,
+  "rules": {
+    "type": "protection_backup",
+    "triggers": [
+      {
+        "pick_id": "Minnesota_Timberwolves_2029_1",
+        "condition": {"range": [1, 5]}
+      }
+    ],
+    "trigger_logic": "ALL",
+    "if_triggered_to": "Utah Jazz",
+    "if_not_triggered_to": "Minnesota Timberwolves"
+  }
+}

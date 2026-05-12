@@ -1,0 +1,41 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Utah_Jazz_2027_1",
+  "year": 2027,
+  "round": 1,
+  "original_team": "Utah Jazz",
+  "frozen": false,
+  "rules": {
+    "type": "triple_swap",
+    "swap_id": "triple_swap_271cleminuth",
+    "possible_destinations": [
+      "Memphis Grizzlies",
+      "Utah Jazz",
+      "Phoenix Suns"
+    ],
+    "levels": [
+      {
+        "description": "best 2 to utah, worst to phoenix",
+        "pool": [
+          "Cleveland_Cavaliers_2027_1",
+          "Minnesota_Timberwolves_2027_1",
+          "Utah_Jazz_2027_1"
+        ],
+        "allocation": [
+          {
+            "rank": "1",
+            "to": "Memphis Grizzlies"
+          },
+          {
+            "rank": "2",
+            "to": "Utah Jazz"
+          },
+          {
+            "rank": "3",
+            "to": "Phoenix Suns"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Oklahoma_City_Thunder_2026_1",
+  "year": 2026,
+  "round": 1,
+  "original_team": "Oklahoma City Thunder",
+  "frozen": false,
+  "rules": {
+    "type": "protected_swap",
+    "possible_destinations": ["Oklahoma City Thunder", "Washington Wizards"],
+    "pool": [
+      "Los_Angeles_Clippers_2026_1",
+      "Oklahoma_City_Thunder_2026_1",
+      {"pick": "Houston_Rockets_2026_1", "condition": {"range": [5, 30]}}
+    ],
+    "allocation": [
+      {"rank": "mf", "to": "Oklahoma City Thunder"},
+      {"rank": "mid", "to": "Oklahoma City Thunder"},
+      {"rank": "lf", "to": "Washington Wizards"}
+    ]
+  }
+}

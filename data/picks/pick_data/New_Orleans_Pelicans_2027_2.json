@@ -1,0 +1,17 @@
+{
+  "pick_status": "processed",
+  "pick_id": "New_Orleans_Pelicans_2027_2",
+  "year": 2027,
+  "round": 2,
+  "original_team": "New Orleans Pelicans",
+  "frozen": false,
+  "rules": {
+    "type": "swap",
+    "possible_destinations": ["Charlotte Hornets", "Portland Trail Blazers"],
+    "pool": ["New_Orleans_Pelicans_2027_2", "Portland_Trail_Blazers_2027_2"],
+    "allocation": [
+      {"rank": "mf", "to": "Charlotte Hornets"},
+      {"rank": "lf", "to": "Portland Trail Blazers"}
+    ]
+  }
+}

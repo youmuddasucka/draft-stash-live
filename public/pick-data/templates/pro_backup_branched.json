@@ -1,0 +1,44 @@
+{
+    "pick_status": "processed or unprocessed",
+    "pick_id": "City_Team_YYYY_R",
+    "year": YYYY,
+    "round": R,
+    "original_team": "City Team",
+    "frozen": false,
+    "rules": {
+        "type": "pro_backup_branched",
+        "possible_destinations": [
+            "City Team",
+            "City Team"
+        ],
+        "branches": [
+            {
+                "label": "obligation_1",
+                "triggers": [
+                    {"pick": "City_Team_YYYY_R", "condition": {"range": [1, 5]}},
+                    {"pick": "City_Team_YYYY_R", "condition": {"range": [1, 5]}}
+                ],
+                "trigger_logic": "AND or OR",
+                "protection_range": [1, 5],
+                "available_range": [6, 30],
+                "if_triggered_and_protected_to": "City Team",
+                "if_triggered_and_not_protected_to": "City Team",
+                "fallback_pick": "City_Team_YYYY_R or none"
+            },
+            {
+                "label": "obligation_2",
+                "triggers": [
+                    {"pick": "City_Team_YYYY_R", "condition": {"range": [1, 5]}}
+                ],
+                "trigger_logic": "AND or OR",
+                "protection_range": [1, 5],
+                "available_range": [6, 30],
+                "if_triggered_and_protected_to": "City Team",
+                "if_triggered_and_not_protected_to": "City Team",
+                "fallback_pick": "City_Team_YYYY_R or none"
+            }
+        ],
+        "if_not_triggered_and_protected_to": "City Team",
+        "if_not_triggered_and_not_protected_to": "City Team"
+    }
+}

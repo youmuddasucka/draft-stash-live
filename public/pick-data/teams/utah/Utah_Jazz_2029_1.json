@@ -1,0 +1,28 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Utah_Jazz_2029_1",
+  "year": 2029,
+  "round": 1,
+  "original_team": "Utah Jazz",
+  "frozen": false,
+  "rules": {
+    "type": "pro_triple_swap",
+    "swap_id": "pro_triple_swap_291clevuthmin",
+    "possible_destinations": ["Utah Jazz", "Charlotte Hornets"],
+    "pool": [
+      "Utah_Jazz_2029_1",
+      "Cleveland_Cavaliers_2029_1",
+      {
+        "pick": "Minnesota_Timberwolves_2029_1",
+        "condition": {"range": [6, 30]},
+        "if_not_in_range_to": "Minnesota Timberwolves",
+        "fallback_pick": "Minnesota_Timberwolves_2029_2"
+      }
+    ],
+    "allocation": [
+      {"rank": "1", "to": "Utah Jazz"},
+      {"rank": "2", "to": "Utah Jazz"},
+      {"rank": "3", "to": "Charlotte Hornets"}
+    ]
+  }
+}

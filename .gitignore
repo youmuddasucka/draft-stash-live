@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# large sim output files
+data/picks/pick_data/sim_raw_results.csv

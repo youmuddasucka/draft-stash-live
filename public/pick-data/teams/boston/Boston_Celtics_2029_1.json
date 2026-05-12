@@ -1,0 +1,40 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Boston_Celtics_2029_1",
+  "year": 2029,
+  "round": 1,
+  "original_team": "Boston Celtics",
+  "frozen": false,
+  "rules": {
+    "type": "triple_swap",
+    "swap_id": "triple_swap_291bosmilpor",
+    "possible_destinations": [
+      "Portland Trail Blazers",
+      "Washington Wizards"
+    ],
+    "levels": [
+      {
+        "description": "Swappage",
+        "pool": [
+          "Portland_Trail_Blazers_2029_1",
+          "Boston_Celtics_2029_1",
+          "Milwaukee_Bucks_2029_1"
+        ],
+        "allocation": [
+          {
+            "rank": "1",
+            "to": "Portland Trail Blazers"
+          },
+          {
+            "rank": "2",
+            "to": "Washington Wizards"
+          },
+          {
+            "rank": "3",
+            "to": "Portland Trail Blazers"
+          }
+        ]
+      }
+    ]
+  }
+}

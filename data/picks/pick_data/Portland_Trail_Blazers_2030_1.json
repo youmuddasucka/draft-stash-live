@@ -1,0 +1,16 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Portland_Trail_Blazers_2030_1",
+  "year": 2030,
+  "round": 1,
+  "original_team": "Portland Trail Blazers",
+  "frozen": false,
+  "rules": {
+    "type": "swap",
+    "pool": ["Portland_Trail_Blazers_2030_1", "Milwaukee_Bucks_2030_1"],
+    "allocation": [
+      {"rank": "mf", "to": "Portland Trail Blazers"},
+      {"rank": "lf", "to": "Milwaukee Bucks"}
+    ]
+  }
+}

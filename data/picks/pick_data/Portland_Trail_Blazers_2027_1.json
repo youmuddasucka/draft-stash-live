@@ -1,0 +1,25 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Portland_Trail_Blazers_2027_1",
+  "year": 2027,
+  "round": 1,
+  "original_team": "Portland Trail Blazers",
+  "frozen": false,
+  "rules": {
+    "type": "protection_backup",
+    "triggers": [
+      {
+        "pick_id": "Portland_Trail_Blazers_2026_1",
+        "condition": {"range": [1, 14]}
+      }
+    ],
+    "trigger_logic": "ALL",
+    "if_triggered": {
+      "type": "protected",
+      "protection_range": [1, 14],
+      "if_protected_to": "Portland Trail Blazers",
+      "if_not_protected_to": "Chicago Bulls"
+    },
+    "if_not_triggered_to": "Portland Trail Blazers"
+  }
+}

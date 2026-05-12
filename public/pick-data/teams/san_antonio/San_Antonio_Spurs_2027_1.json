@@ -1,0 +1,29 @@
+{
+  "pick_status": "processed",
+  "pick_id": "San_Antonio_Spurs_2027_1",
+  "year": 2027,
+  "round": 1,
+  "original_team": "San Antonio Spurs",
+  "frozen": false,
+  "rules": {
+    "type": "pro_pick",
+    "possible_destinations": [
+      "Sacramento Kings",
+      "Oklahoma City Thunder"
+    ],
+    "protection_range": [
+      1,
+      16
+    ],
+    "available_range": [
+      17,
+      30
+    ],
+    "if_protected_to": "Sacramento Kings",
+    "if_not_protected_to": "Oklahoma City Thunder",
+    "fallback_pick": [
+      "Sacramento_Kings_2027_2",
+      "Charlotte_Hornets_2027_2"
+    ]
+  }
+}

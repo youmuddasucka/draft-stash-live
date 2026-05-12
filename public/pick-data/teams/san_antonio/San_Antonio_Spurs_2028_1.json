@@ -1,0 +1,26 @@
+{
+  "pick_status": "processed",
+  "pick_id": "San_Antonio_Spurs_2028_1",
+  "year": 2028,
+  "round": 1,
+  "original_team": "San Antonio Spurs",
+  "frozen": false,
+  "rules": {
+    "type": "pro_swap",
+    "swap_id": "pro_swap_281bossas",
+    "possible_destinations": ["Boston Celtics", "San Antonio Spurs"],
+    "pool": [
+      "San_Antonio_Spurs_2028_1",
+      {
+        "pick": "Boston_Celtics_2028_1",
+        "condition": {"range": [2, 30]},
+        "if_not_in_range_to": "Boston Celtics",
+        "fallback_pick": "Boston_Celtics_2028_2"
+      }
+    ],
+    "allocation": [
+      {"rank": "1", "to": "San Antonio Spurs"},
+      {"rank": "2", "to": "Boston Celtics"}
+    ]
+  }
+}

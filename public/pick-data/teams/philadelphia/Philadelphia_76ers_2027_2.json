@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Philadelphia_76ers_2027_2",
+  "year": 2027,
+  "round": 2,
+  "original_team": "Philadelphia 76ers",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Philadelphia 76ers"
+  }
+}

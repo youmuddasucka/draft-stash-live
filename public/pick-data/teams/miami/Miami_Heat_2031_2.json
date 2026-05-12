@@ -1,0 +1,53 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Miami_Heat_2031_2",
+  "year": 2031,
+  "round": 2,
+  "original_team": "Miami Heat",
+  "frozen": false,
+  "rules": {
+    "type": "triple_swap",
+    "swap_id": "triple_swap_312indmemmia",
+    "possible_destinations": [
+      "Washington Wizards",
+      "Memphis Grizzlies",
+      "Indiana Pacers"
+    ],
+    "levels": [
+      {
+        "description": "Sub-swap (i): MF(MIA, IND) to WAS",
+        "pool": [
+          "Indiana_Pacers_2031_2",
+          "Miami_Heat_2031_2"
+        ],
+        "allocation": [
+          {
+            "rank": "1",
+            "to": "Washington Wizards"
+          },
+          {
+            "rank": "2",
+            "to": "TEMP_I_2"
+          }
+        ]
+      },
+      {
+        "description": "MEM and LF(MIA, IND)",
+        "pool": [
+          "Memphis_Grizzlies_2031_2",
+          "TEMP_I_2"
+        ],
+        "allocation": [
+          {
+            "rank": "1",
+            "to": "Memphis Grizzlies"
+          },
+          {
+            "rank": "2",
+            "to": "Indiana Pacers"
+          }
+        ]
+      }
+    ]
+  }
+}

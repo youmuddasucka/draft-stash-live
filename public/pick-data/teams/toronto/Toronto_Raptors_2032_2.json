@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Toronto_Raptors_2032_2",
+  "year": 2032,
+  "round": 2,
+  "original_team": "Toronto Raptors",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Brooklyn Nets"
+  }
+}

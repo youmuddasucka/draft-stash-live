@@ -1,0 +1,23 @@
+{
+  "pick_status": "processed",
+  "pick_id": "New_Orleans_Pelicans_2027_1",
+  "year": 2027,
+  "round": 1,
+  "original_team": "New Orleans Pelicans",
+  "frozen": false,
+  "rules": {
+    "type": "protected_swap",
+    "possible_destinations": [
+      "New Orleans Pelicans",
+      "Atlanta Hawks"
+    ],
+    "pool": [
+      "New_Orleans_Pelicans_2027_1",
+      { "pick": "Milwaukee_Bucks_2027_1", "condition": {"range": [5, 30]} }
+    ],
+    "allocation": [
+      { "rank": "mf", "to": "New Orleans Pelicans" },
+      { "rank": "lf", "to": "Atlanta Hawks"}
+    ]
+  }
+}
