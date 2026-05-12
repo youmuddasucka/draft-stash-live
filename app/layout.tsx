@@ -3,6 +3,7 @@ import Link from "next/link";
 import "./globals.css";
 import { teamColors } from "@/components/teamColors";
 import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -201,6 +202,7 @@ export default function RootLayout({
           </main>
 
         </div>
+        <Analytics />
       </body>
     </html>
   );
