@@ -47,7 +47,7 @@ export default function SimPickCard({ pick }: { pick: SimPickCardType }) {
             {/* LEFT — LOGO + META */}
             <div className="flex items-center gap-3 min-w-0 flex-1">
                 <div className="relative shrink-0">
-                    <TeamLogo abbr={originAbbr} />
+                    <TeamLogo abbr={originAbbr} noLink />
                     <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 z-10 px-2 py-0.5 rounded-full bg-[#E6B85C] border border-black shadow-lg text-[11px] font-black text-black leading-none whitespace-nowrap">
                         R{pick.round}
                     </div>
@@ -106,7 +106,7 @@ export default function SimPickCard({ pick }: { pick: SimPickCardType }) {
                         EV
                     </span>
                     <span className="text-lg font-black leading-none mt-0.5">
-                        {pick.ev.toFixed(3)}
+                        {pick.ev.toFixed(1)}
                     </span>
                 </div>
 

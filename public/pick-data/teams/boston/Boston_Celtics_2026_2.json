@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Boston_Celtics_2026_2",
+  "year": 2026,
+  "round": 2,
+  "original_team": "Boston Celtics",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Atlanta Hawks"
+  }
+}

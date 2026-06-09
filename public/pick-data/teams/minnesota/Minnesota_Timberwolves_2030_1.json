@@ -8,6 +8,7 @@
   "possible_destinations": ["San Antonio Spurs", "Dallas Mavericks", "Minnesota Timberwolves"],
   "rules": {
     "type": "nested_swap",
+    "swap_id": "nested_swap_301sasdalmin",
     "levels": [
       {
         "description": "SAN/DAL swap: MF into MIN comparison, LF stays with DAL",

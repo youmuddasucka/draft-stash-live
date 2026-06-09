@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Cleveland_Cavaliers_2026_1",
+  "year": 2026,
+  "round": 1,
+  "original_team": "Cleveland Cavaliers",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Atlanta Hawks"
+  }
+}

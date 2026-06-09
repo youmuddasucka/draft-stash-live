@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Golden_State_Warriors_2026_1",
+  "year": 2026,
+  "round": 1,
+  "original_team": "Golden State Warriors",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Golden State Warriors"
+  }
+}

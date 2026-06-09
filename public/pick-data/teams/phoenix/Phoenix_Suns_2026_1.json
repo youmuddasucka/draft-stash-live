@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Phoenix_Suns_2026_1",
+  "year": 2026,
+  "round": 1,
+  "original_team": "Phoenix Suns",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Memphis Grizzlies"
+  }
+}

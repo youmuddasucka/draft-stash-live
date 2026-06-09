@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Indiana_Pacers_2026_2",
+  "year": 2026,
+  "round": 2,
+  "original_team": "Indiana Pacers",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Memphis Grizzlies"
+  }
+}

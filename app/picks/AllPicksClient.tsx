@@ -184,17 +184,20 @@ function SwapGroupCard({ group }: { group: SwapGroup }) {
 type Props = {
     picks: SimPickCardType[];
     swapGroups: SwapGroup[];
+    initialYear?: number;
+    initialRound?: 1 | 2;
 };
 
 type SortablePick   = { kind: "pick";  data: SimPickCardType; ev: number; year: number; round: number };
 type SortableSwap   = { kind: "swap";  data: SwapGroup;       ev: number; year: number; round: number };
 type DisplayItem    = SortablePick | SortableSwap;
 
-export default function AllPicksClient({ picks, swapGroups }: Props) {
+export default function AllPicksClient({ picks, swapGroups, initialYear, initialRound }: Props) {
     const [sortKey, setSortKey]       = useState<SortKey>("ev");
-    const [yearFilter, setYearFilter] = useState<number | "all">("all");
-    const [roundFilter, setRoundFilter] = useState<1 | 2 | "all">("all");
-    const [teamFilter, setTeamFilter] = useState<string | "all">("all");
+    const [yearFilter, setYearFilter] = useState<number | "all">(initialYear ?? "all");
+    const [roundFilter, setRoundFilter] = useState<1 | 2 | "all">(initialRound ?? "all");
+    const [fromFilter, setFromFilter] = useState<string | "all">("all");
+    const [ownerFilter, setOwnerFilter] = useState<string | "all">("all");
     const [typeFilter, setTypeFilter] = useState<string | "all">("all");
 
     const pickTypes = useMemo(() => {
@@ -209,9 +212,11 @@ export default function AllPicksClient({ picks, swapGroups }: Props) {
         let filteredPicks = [...picks];
         if (yearFilter !== "all")  filteredPicks = filteredPicks.filter(p => p.year === yearFilter);
         if (roundFilter !== "all") filteredPicks = filteredPicks.filter(p => p.round === roundFilter);
-        if (teamFilter !== "all")  filteredPicks = filteredPicks.filter(p =>
-            abbrFor(p.original_team) === teamFilter ||
-            p.ownership.some(o => abbrFor(o.team) === teamFilter)
+        if (fromFilter !== "all")  filteredPicks = filteredPicks.filter(p =>
+            abbrFor(p.original_team) === fromFilter
+        );
+        if (ownerFilter !== "all") filteredPicks = filteredPicks.filter(p =>
+            p.ownership.some(o => abbrFor(o.team) === ownerFilter)
         );
         if (typeFilter !== "all")  filteredPicks = filteredPicks.filter(p => p.pick_type === typeFilter);
 
@@ -219,11 +224,13 @@ export default function AllPicksClient({ picks, swapGroups }: Props) {
         let filteredSwaps = [...swapGroups];
         if (yearFilter !== "all")  filteredSwaps = filteredSwaps.filter(g => g.year === yearFilter);
         if (roundFilter !== "all") filteredSwaps = filteredSwaps.filter(g => g.round === roundFilter);
-        if (teamFilter !== "all")  filteredSwaps = filteredSwaps.filter(g =>
+        if (fromFilter !== "all")  filteredSwaps = filteredSwaps.filter(g =>
+            g.entries.some(e => abbrFor(e.pick.original_team) === fromFilter)
+        );
+        if (ownerFilter !== "all") filteredSwaps = filteredSwaps.filter(g =>
             g.entries.some(e =>
-                abbrFor(e.pick.original_team) === teamFilter ||
-                e.recAbbr === teamFilter ||
-                e.pick.ownership.some(o => abbrFor(o.team) === teamFilter)
+                e.recAbbr === ownerFilter ||
+                e.pick.ownership.some(o => abbrFor(o.team) === ownerFilter)
             )
         );
         if (typeFilter !== "all")  filteredSwaps = filteredSwaps.filter(g => g.pick_type === typeFilter);
@@ -241,9 +248,13 @@ export default function AllPicksClient({ picks, swapGroups }: Props) {
         }
 
         return items;
-    }, [picks, swapGroups, sortKey, yearFilter, roundFilter, teamFilter, typeFilter]);
+    }, [picks, swapGroups, sortKey, yearFilter, roundFilter, fromFilter, ownerFilter, typeFilter]);
 
-    const totalCount = picks.length + swapGroups.flatMap(g => g.entries).length;
+    // Count distinct picks — a pick can appear in more than one swap group's
+    // entries, so flattening would double-count it.
+    const totalCount = picks.length + new Set(
+        swapGroups.flatMap(g => g.entries.map(e => e.pick.pick_id))
+    ).size;
 
     return (
         <div className="max-w-5xl mx-auto px-6 py-10 space-y-6">
@@ -283,9 +294,14 @@ export default function AllPicksClient({ picks, swapGroups }: Props) {
                     <option value={2}>2nd Round</option>
                 </select>
 
-                <select value={teamFilter} onChange={e => setTeamFilter(e.target.value)} className="glass-select">
-                    <option value="all">All Teams</option>
-                    {TEAMS.map(t => <option key={t} value={t}>{t}</option>)}
+                <select value={fromFilter} onChange={e => setFromFilter(e.target.value)} className="glass-select">
+                    <option value="all">From: All Teams</option>
+                    {TEAMS.map(t => <option key={t} value={t}>From: {t}</option>)}
+                </select>
+
+                <select value={ownerFilter} onChange={e => setOwnerFilter(e.target.value)} className="glass-select">
+                    <option value="all">Owner: All Teams</option>
+                    {TEAMS.map(t => <option key={t} value={t}>Owner: {t}</option>)}
                 </select>
 
                 <select value={typeFilter} onChange={e => setTypeFilter(e.target.value)} className="glass-select">

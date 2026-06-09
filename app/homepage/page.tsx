@@ -41,85 +41,97 @@ export default function DraftStashPage() {
     });
 
   return (
-    <div className="glass-bg min-h-screen text-white px-6 py-10">
-      <section className="grid gap-6 grid-cols-[2fr_3fr_2fr] items-start">
+    <div className="glass-bg min-h-screen text-white px-4 py-6 md:px-6 md:py-10">
+      <section className="grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-[2fr_3fr_2fr] items-start">
 
         {/* LEFT — TOP STASHES */}
-        <div className="glass-card rounded-xl p-5 h-[650px] flex flex-col gap-4">
-          <h2 className="text-2xl font-bold text-center text-gold shrink-0">Top Stashes</h2>
-          <div className="space-y-2 overflow-y-auto pr-1">
+        <div className="order-2 md:order-0 glass-card rounded-2xl p-5 h-[440px] md:h-[700px] flex flex-col gap-3">
+          <div className="shrink-0 pb-1 border-b border-white/6">
+            <h2 className="text-base font-black tracking-[0.12em] uppercase text-center text-gold">Top Stashes</h2>
+          </div>
+          <div className="space-y-0.5 overflow-y-auto">
             {stashRankings.map((row, i) => {
               const color = teamColors[row.team] ?? "#888";
               return (
                 <a
                   key={row.team}
                   href={`/teams/${row.team.toLowerCase()}`}
-                  className="group flex items-center gap-3 rounded-lg px-3 py-3 hover:bg-white/6 transition-colors"
-                  style={{ borderLeft: `3px solid ${color}40` }}
+                  className="group flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-[#E6B85C]/5 hover:border-[#E6B85C]/10 border border-transparent transition-all"
+                  style={{ borderLeft: `2px solid ${color}30` }}
                 >
-                  <span className="text-sm opacity-30 w-5 shrink-0 tabular-nums">{i + 1}</span>
-                  <TeamLogo abbr={row.team} size={36} />
-                  <span className="text-base font-semibold flex-1">{row.team}</span>
-                  <span className="text-sm font-mono opacity-40 tabular-nums">{row.score.toFixed(1)}</span>
-                  <span className="text-white/20 text-sm group-hover:text-white/50 transition-colors">→</span>
+                  <span className="text-xs opacity-25 w-4 shrink-0 tabular-nums font-mono">{i + 1}</span>
+                  <TeamLogo abbr={row.team} size={32} />
+                  <span className="text-sm font-semibold flex-1">{row.team}</span>
+                  <span className="text-xs font-mono text-[#A8A9AD] opacity-60 tabular-nums">{row.score.toFixed(1)}</span>
+                  <span className="text-white/15 text-xs group-hover:text-[#E6B85C]/40 transition-colors">→</span>
                 </a>
               );
             })}
           </div>
         </div>
 
-        {/* CENTER — HEADER + ALL TEAMS */}
-        <div className="rounded-xl p-6 space-y-6 relative flex flex-col items-center">
-          <div className="flex flex-col items-center space-y-3">
-            <h1 className="text-4xl font-bold tracking-wide text-gold">DRAFT STASH</h1>
-            <img src="/logo.png" alt="Banner Logo" width={200} height={200} className="opacity-80" />
-            <h2 className="text-3xl font-semibold text-gold">All Teams</h2>
+        {/* CENTER — HERO + ALL TEAMS */}
+        <div className="order-1 md:order-0 flex flex-col items-center gap-5">
+
+          {/* Hero panel */}
+          <div className="glass-card rounded-2xl px-6 py-5 flex flex-col items-center gap-2 w-full">
+            <h1 className="text-[2.2rem] font-black tracking-[0.1em] text-gold leading-none">DRAFT STASH</h1>
+            <div className="relative my-1">
+              <div className="absolute inset-0 rounded-full blur-2xl scale-150" style={{ background: "radial-gradient(circle, rgba(230,184,92,0.22) 0%, transparent 70%)" }} />
+              <img src="/logo.png" alt="Draft Stash" width={160} height={160} className="relative z-10 opacity-88" />
+            </div>
+            <p className="text-[10px] font-black tracking-[0.25em] uppercase text-[#A8A9AD] opacity-45">2026 Draft Intelligence</p>
           </div>
 
-          <div className="grid grid-cols-2 gap-6 w-full">
-            <div className="glass-card rounded-lg p-4 space-y-4">
-              <h3 className="text-lg font-semibold uppercase opacity-70 text-center text-gold">West</h3>
-              <div className="grid grid-cols-3 gap-2">
-                {westTeams.map(abbr => (
-                  <a
-                    key={abbr}
-                    href={`/teams/${abbr.toLowerCase()}`}
-                    className="team-tile rounded-xl relative overflow-hidden aspect-square"
-                    style={{ "--team-color": teamColors[abbr] || "#ffffff" } as React.CSSProperties}
-                  >
-                    <img src={teamLogos[abbr]} alt={abbr} className="absolute inset-0 w-full h-full object-cover" />
-                    <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 to-transparent pointer-events-none" />
-                    <div className="team-abbr-bottom absolute bottom-1.5 left-0 right-0 text-center text-[10px] font-black tracking-widest text-white" style={{ textShadow: "0 1px 6px rgba(0,0,0,1)" }}>{abbr}</div>
-                    <div className="team-abbr-center absolute inset-0 flex items-center justify-center text-sm font-black tracking-[0.18em] text-white" style={{ textShadow: "0 2px 10px rgba(0,0,0,1)" }}>{abbr}</div>
-                  </a>
-                ))}
-              </div>
+          {/* All Teams */}
+          <div className="w-full space-y-3">
+            <div className="flex items-center gap-3 px-1">
+              <div className="h-px flex-1" style={{ background: "linear-gradient(to right, transparent, rgba(230,184,92,0.25))" }} />
+              <span className="text-[9px] font-black tracking-[0.25em] uppercase text-gold opacity-55">All Teams</span>
+              <div className="h-px flex-1" style={{ background: "linear-gradient(to left, transparent, rgba(230,184,92,0.25))" }} />
             </div>
-            <div className="glass-card rounded-lg p-4 space-y-4">
-              <h3 className="text-lg font-semibold uppercase opacity-70 text-center text-gold">East</h3>
-              <div className="grid grid-cols-3 gap-2">
-                {eastTeams.map(abbr => (
-                  <a
-                    key={abbr}
-                    href={`/teams/${abbr.toLowerCase()}`}
-                    className="team-tile rounded-xl relative overflow-hidden aspect-square"
-                    style={{ "--team-color": teamColors[abbr] || "#ffffff" } as React.CSSProperties}
-                  >
-                    <img src={teamLogos[abbr]} alt={abbr} className="absolute inset-0 w-full h-full object-cover" />
-                    <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 to-transparent pointer-events-none" />
-                    <div className="team-abbr-bottom absolute bottom-1.5 left-0 right-0 text-center text-[10px] font-black tracking-widest text-white" style={{ textShadow: "0 1px 6px rgba(0,0,0,1)" }}>{abbr}</div>
-                    <div className="team-abbr-center absolute inset-0 flex items-center justify-center text-sm font-black tracking-[0.18em] text-white" style={{ textShadow: "0 2px 10px rgba(0,0,0,1)" }}>{abbr}</div>
-                  </a>
-                ))}
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
+              <div className="glass-card rounded-xl p-3 space-y-2">
+                <h3 className="text-[9px] font-black uppercase tracking-[0.2em] text-center text-[#A8A9AD] opacity-45">West</h3>
+                <div className="grid grid-cols-5 md:grid-cols-3 gap-1.5">
+                  {westTeams.map(abbr => (
+                    <a
+                      key={abbr}
+                      href={`/teams/${abbr.toLowerCase()}`}
+                      className="team-tile rounded-lg relative overflow-hidden aspect-square"
+                    >
+                      <img src={teamLogos[abbr]} alt={abbr} className="absolute inset-0 w-full h-full object-cover" />
+                      <div className="team-abbr-center absolute inset-0 flex items-center justify-center text-[10px] font-black tracking-[0.15em]" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)" }}>{abbr}</div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+              <div className="glass-card rounded-xl p-3 space-y-2">
+                <h3 className="text-[9px] font-black uppercase tracking-[0.2em] text-center text-[#A8A9AD] opacity-45">East</h3>
+                <div className="grid grid-cols-5 md:grid-cols-3 gap-1.5">
+                  {eastTeams.map(abbr => (
+                    <a
+                      key={abbr}
+                      href={`/teams/${abbr.toLowerCase()}`}
+                      className="team-tile rounded-lg relative overflow-hidden aspect-square"
+                    >
+                      <img src={teamLogos[abbr]} alt={abbr} className="absolute inset-0 w-full h-full object-cover" />
+                      <div className="team-abbr-center absolute inset-0 flex items-center justify-center text-[10px] font-black tracking-[0.15em]" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.9)" }}>{abbr}</div>
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         {/* RIGHT — TOP PICKS */}
-        <div className="glass-card rounded-xl p-5 h-[650px] flex flex-col gap-4">
-          <h2 className="text-2xl font-bold text-center text-gold shrink-0">Top Picks</h2>
-          <div className="space-y-2 overflow-y-auto pr-1">
+        <div className="order-3 md:order-0 glass-card rounded-2xl p-5 h-[440px] md:h-[700px] flex flex-col gap-3">
+          <div className="shrink-0 pb-1 border-b border-white/6">
+            <h2 className="text-base font-black tracking-[0.12em] uppercase text-center text-gold">Top Picks</h2>
+          </div>
+          <div className="space-y-0.5 overflow-y-auto">
             {topPicks.map((row, i) => {
               const { bg, text } = evStyles(row.ev, row.round);
               const color = teamColors[row.ownerAbbr] ?? "#888";
@@ -127,19 +139,19 @@ export default function DraftStashPage() {
                 <a
                   key={i}
                   href={`/picks/${row.year}/${row.round}/${row.originAbbr.toLowerCase()}`}
-                  className="group flex items-center gap-3 rounded-lg px-3 py-3 hover:bg-white/6 transition-colors"
-                  style={{ borderLeft: `3px solid ${color}40` }}
+                  className="group flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-[#E6B85C]/5 border border-transparent transition-all"
+                  style={{ borderLeft: `2px solid ${color}30` }}
                 >
-                  <span className="text-sm opacity-30 w-5 shrink-0 tabular-nums">{i + 1}</span>
-                  <TeamLogo abbr={row.ownerAbbr} size={36} />
+                  <span className="text-xs opacity-25 w-4 shrink-0 tabular-nums font-mono">{i + 1}</span>
+                  <TeamLogo abbr={row.ownerAbbr} size={32} />
                   <div className="flex flex-col leading-tight flex-1 min-w-0">
-                    <span className="text-base font-semibold truncate">{row.label}</span>
-                    <span className="text-xs opacity-40">{row.year} · R{row.round}</span>
+                    <span className="text-sm font-semibold truncate">{row.label}</span>
+                    <span className="text-[10px] text-[#A8A9AD] opacity-50">{row.year} · R{row.round}</span>
                   </div>
-                  <span className={`text-sm font-black px-2 py-1 rounded tabular-nums shrink-0 ${bg} ${text}`}>
+                  <span className={`text-xs font-black px-2 py-1 rounded tabular-nums shrink-0 ${bg} ${text}`}>
                     {row.ev.toFixed(1)}
                   </span>
-                  <span className="text-white/20 text-sm group-hover:text-white/50 transition-colors">→</span>
+                  <span className="text-white/15 text-xs group-hover:text-[#E6B85C]/40 transition-colors">→</span>
                 </a>
               );
             })}

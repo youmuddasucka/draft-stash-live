@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Utah_Jazz_2026_2",
+  "year": 2026,
+  "round": 2,
+  "original_team": "Utah Jazz",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "San Antonio Spurs"
+  }
+}

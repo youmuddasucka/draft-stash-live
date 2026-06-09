@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Detroit_Pistons_2026_1",
+  "year": 2026,
+  "round": 1,
+  "original_team": "Detroit Pistons",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Minnesota Timberwolves"
+  }
+}

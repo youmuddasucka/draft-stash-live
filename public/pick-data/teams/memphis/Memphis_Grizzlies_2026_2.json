@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Memphis_Grizzlies_2026_2",
+  "year": 2026,
+  "round": 2,
+  "original_team": "Memphis Grizzlies",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Los Angeles Clippers"
+  }
+}

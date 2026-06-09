@@ -4,6 +4,7 @@ import "./globals.css";
 import { teamColors } from "@/components/teamColors";
 import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import MobileNav from "@/components/MobileNav";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -47,7 +48,16 @@ export default function RootLayout({
 
           {/* NAVBAR */}
           <header className="bg-[#E6B85C] border-b border-black/10 relative z-50 shadow-sm">
-            <nav className="font-header mx-auto grid max-w-7xl grid-cols-3 items-center px-6 py-3">
+
+            {/* MOBILE BAR */}
+            <div className="md:hidden flex items-center justify-between px-4 py-2">
+              <Link href="/">
+                <img src="/banner.png" alt="Draft Stash" className="h-8" />
+              </Link>
+              <MobileNav teams={TEAMS} years={PICK_YEARS} rounds={ROUNDS} />
+            </div>
+
+            <nav className="font-header mx-auto hidden md:grid max-w-7xl grid-cols-3 items-center px-6 py-3">
 
               {/* LEFT */}
               <div className="flex items-center">
@@ -124,9 +134,12 @@ export default function RootLayout({
                       {/* YEAR */}
                       {PICK_YEARS.map((year) => (
                         <div key={year} className="relative group/year">
-                          <div className="px-3 py-1.5 rounded-md text-white hover:bg-neutral-800 cursor-pointer whitespace-nowrap">
+                          <Link
+                            href={`/picks?year=${year}`}
+                            className="block px-3 py-1.5 rounded-md text-white hover:bg-neutral-800 cursor-pointer whitespace-nowrap"
+                          >
                             {year}
-                          </div>
+                          </Link>
 
                           {/* ROUND DROPDOWN */}
                           <div className="absolute right-full top-0 mr-2 hidden group-hover/year:block z-50">
@@ -135,9 +148,12 @@ export default function RootLayout({
                             <div className="flex flex-col gap-1 rounded-xl border border-neutral-800 bg-black p-2 shadow-2xl">
                               {ROUNDS.map((round) => (
                                 <div key={`${year}-${round}`} className="relative group/round">
-                                  <div className="px-3 py-1.5 rounded-md text-white hover:bg-neutral-800 cursor-pointer whitespace-nowrap">
+                                  <Link
+                                    href={`/picks?year=${year}&round=${round}`}
+                                    className="block px-3 py-1.5 rounded-md text-white hover:bg-neutral-800 cursor-pointer whitespace-nowrap"
+                                  >
                                     Round {round}
-                                  </div>
+                                  </Link>
 
                                   {/* TEAMS */}
                                   <div className="absolute right-full top-0 mr-2 hidden group-hover/round:block z-50">
@@ -172,18 +188,18 @@ export default function RootLayout({
                   </div>
                 </div>
 
-                <Link
+                {/* <Link
                   href="/projected-standings"
                   className="hover:text-white whitespace-nowrap"
                 >
                   PROJECTED STANDINGS
-                </Link>
+                </Link> */}
 
                 <Link
-                  href="/pelton_scale"
+                  href="/stash-value"
                   className="hover:text-white whitespace-nowrap"
                 >
-                  VALUE SCALE
+                  STASH VALUE
                 </Link>
 
                 <Link
@@ -192,6 +208,13 @@ export default function RootLayout({
                 >
                   ABOUT
                 </Link>
+
+                {/* <Link
+                  href="/dev"
+                  className="hover:text-white whitespace-nowrap opacity-50"
+                >
+                  DEV
+                </Link> */}
               </div>
             </nav>
           </header>

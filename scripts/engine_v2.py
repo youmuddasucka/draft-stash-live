@@ -200,7 +200,8 @@ def generate_order(baseline: dict, year: int, random_teams_by_year: dict = None)
     rteams = (random_teams_by_year or {}).get(year, set())
 
     r1_blended = blend_order(baseline[year]["r1"], t, rteams)
-    r1_final = apply_lottery(r1_blended)
+    # Skip lottery for settled years (BASE_YEAR draft already happened)
+    r1_final = r1_blended if year <= BASE_YEAR else apply_lottery(r1_blended)
 
     r2_blended = blend_order(baseline[year]["r2"], t, rteams)
 
@@ -217,7 +218,7 @@ def pelton_value(pick: dict, order: DraftOrder) -> float:
     pos = order.position_of(team, rnd)
     raw = PELTON_CURVE[pos] * 100
     years_ahead = max(0, pick["year"] - BASE_YEAR)
-    return round(raw * (DISCOUNT_RATE ** years_ahead), 4)
+    return round(raw * (DISCOUNT_RATE ** years_ahead), 1)
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -484,7 +485,11 @@ def resolve_pick(pick: dict, order: DraftOrder, all_picks: dict, group_cache: di
 
     if pick.get("frozen"):
         owner = pick["rules"].get("owner", pick["original_team"])
-        return {"owner": owner, "value": 0}
+        # A frozen pick is valued at the 30th overall pick (end of 1st round),
+        # decayed by year like any other future pick.
+        years_ahead = max(0, pick["year"] - BASE_YEAR)
+        frozen_value = round(PELTON_CURVE[30] * 100 * (DISCOUNT_RATE ** years_ahead), 1)
+        return {"owner": owner, "value": frozen_value}
 
     rtype = pick["rules"]["type"]
 
@@ -611,7 +616,7 @@ def build_output(pick_results: dict, all_picks: dict, n_sims: int, output_dir: s
                 "team": owner,
                 "prob": round(count / n_sims, 4),
                 "conditional_ev": round(
-                    _mean(results["values_by_owner"][owner]), 4
+                    _mean(results["values_by_owner"][owner]), 1
                 ),
                 "conditional_slot": round(
                     _mean(results["positions_by_owner"][owner]), 1
@@ -635,7 +640,7 @@ def build_output(pick_results: dict, all_picks: dict, n_sims: int, output_dir: s
             "original_team": pick["original_team"],
             "pick_type": pick["rules"]["type"],
             "frozen": pick.get("frozen", False),
-            "ev": round(ev, 4),
+            "ev": round(ev, 1),
             "expected_slot": round(expected_slot, 1) if expected_slot else None,
             "ownership": ownership,
             "slot_probs": slot_probs,
@@ -651,7 +656,7 @@ def build_output(pick_results: dict, all_picks: dict, n_sims: int, output_dir: s
                 "pick_type": pick["rules"]["type"],
                 "frozen": pick.get("frozen", False),
                 "prob": entry["prob"],
-                "ev": round(ev, 4),
+                "ev": round(ev, 1),
                 "conditional_ev": entry["conditional_ev"],
             })
 

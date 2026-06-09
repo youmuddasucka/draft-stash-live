@@ -1,0 +1,12 @@
+{
+  "pick_status": "processed",
+  "pick_id": "Los_Angeles_Clippers_2026_1",
+  "year": 2026,
+  "round": 1,
+  "original_team": "Los Angeles Clippers",
+  "frozen": false,
+  "rules": {
+    "type": "unprotected",
+    "owner": "Oklahoma City Thunder"
+  }
+}

@@ -8,8 +8,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 30.8589,
-    "conditional_ev": 30.8589
+    "ev": 30.9,
+    "conditional_ev": 30.9
   },
   {
     "team": "New York Knicks",
@@ -20,8 +20,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2543,
-    "conditional_ev": 4.2543
+    "ev": 4.2,
+    "conditional_ev": 4.2
   },
   {
     "team": "Atlanta Hawks",
@@ -32,8 +32,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.7463,
-    "conditional_ev": 4.7463
+    "ev": 4.8,
+    "conditional_ev": 4.8
   },
   {
     "team": "Brooklyn Nets",
@@ -44,8 +44,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 18.4735,
-    "conditional_ev": 18.4735
+    "ev": 18.5,
+    "conditional_ev": 18.5
+  },
+  {
+    "team": "New York Knicks",
+    "pick_id": "New_York_Knicks_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "New York Knicks",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 2.2,
+    "conditional_ev": 2.2
   },
   {
     "team": "Brooklyn Nets",
@@ -56,8 +68,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 33.2006,
-    "conditional_ev": 33.2006
+    "ev": 33.5,
+    "conditional_ev": 33.5
   },
   {
     "team": "Detroit Pistons",
@@ -67,9 +79,9 @@
     "original_team": "New York Knicks",
     "pick_type": "unprotected",
     "frozen": false,
-    "prob": 0.5588,
-    "ev": 3.5265,
-    "conditional_ev": 3.5265
+    "prob": 0.548,
+    "ev": 3.5,
+    "conditional_ev": 3.5
   },
   {
     "team": "Utah Jazz",
@@ -79,9 +91,9 @@
     "original_team": "New York Knicks",
     "pick_type": "unprotected",
     "frozen": false,
-    "prob": 0.4412,
-    "ev": 3.5265,
-    "conditional_ev": 2.4659
+    "prob": 0.452,
+    "ev": 3.5,
+    "conditional_ev": 2.5
   },
   {
     "team": "Phoenix Suns",
@@ -91,9 +103,9 @@
     "original_team": "New York Knicks",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.8464,
-    "ev": 20.445,
-    "conditional_ev": 20.445
+    "prob": 0.8498,
+    "ev": 20.4,
+    "conditional_ev": 20.4
   },
   {
     "team": "New York Knicks",
@@ -103,9 +115,9 @@
     "original_team": "New York Knicks",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.115,
-    "ev": 20.445,
-    "conditional_ev": 27.6211
+    "prob": 0.1204,
+    "ev": 20.4,
+    "conditional_ev": 27.5
   },
   {
     "team": "Washington Wizards",
@@ -115,9 +127,9 @@
     "original_team": "New York Knicks",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.026,
-    "ev": 20.445,
-    "conditional_ev": 30.6441
+    "prob": 0.0198,
+    "ev": 20.4,
+    "conditional_ev": 30.2
   },
   {
     "team": "Brooklyn Nets",
@@ -127,9 +139,21 @@
     "original_team": "New York Knicks",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.0126,
-    "ev": 20.445,
-    "conditional_ev": 34.4715
+    "prob": 0.01,
+    "ev": 20.4,
+    "conditional_ev": 32.2
+  },
+  {
+    "team": "New York Knicks",
+    "pick_id": "New_York_Knicks_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "New York Knicks",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 18.8,
+    "conditional_ev": 18.8
   },
   {
     "team": "Chicago Bulls",
@@ -140,8 +164,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.4984,
-    "conditional_ev": 4.4984
+    "ev": 4.4,
+    "conditional_ev": 4.4
   },
   {
     "team": "New York Knicks",
@@ -152,8 +176,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 36.474,
-    "conditional_ev": 36.474
+    "ev": 36.0,
+    "conditional_ev": 36.0
   },
   {
     "team": "New York Knicks",
@@ -164,8 +188,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 2.4935,
-    "conditional_ev": 2.4935
+    "ev": 2.5,
+    "conditional_ev": 2.5
   },
   {
     "team": "Detroit Pistons",
@@ -175,9 +199,9 @@
     "original_team": "New York Knicks",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.8146,
-    "ev": 4.5119,
-    "conditional_ev": 4.5119
+    "prob": 0.8168,
+    "ev": 4.5,
+    "conditional_ev": 4.5
   },
   {
     "team": "Chicago Bulls",
@@ -187,9 +211,9 @@
     "original_team": "New York Knicks",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.1854,
-    "ev": 4.5119,
-    "conditional_ev": 2.4444
+    "prob": 0.1832,
+    "ev": 4.5,
+    "conditional_ev": 2.5
   },
   {
     "team": "New York Knicks",
@@ -200,8 +224,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.9541,
-    "conditional_ev": 31.9541
+    "ev": 32.1,
+    "conditional_ev": 32.1
   },
   {
     "team": "Detroit Pistons",
@@ -212,8 +236,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 26.847,
-    "conditional_ev": 26.847
+    "ev": 27.2,
+    "conditional_ev": 27.2
   },
   {
     "team": "Detroit Pistons",
@@ -224,8 +248,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 1.756,
-    "conditional_ev": 1.756
+    "ev": 1.8,
+    "conditional_ev": 1.8
   },
   {
     "team": "Detroit Pistons",
@@ -236,8 +260,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 32.1731,
-    "conditional_ev": 32.1731
+    "ev": 32.4,
+    "conditional_ev": 32.4
   },
   {
     "team": "Chicago Bulls",
@@ -247,9 +271,9 @@
     "original_team": "Detroit Pistons",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.544,
-    "ev": 2.1298,
-    "conditional_ev": 2.1298
+    "prob": 0.5522,
+    "ev": 2.1,
+    "conditional_ev": 2.1
   },
   {
     "team": "Detroit Pistons",
@@ -259,9 +283,9 @@
     "original_team": "Detroit Pistons",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.456,
-    "ev": 2.1298,
-    "conditional_ev": 3.5844
+    "prob": 0.4478,
+    "ev": 2.1,
+    "conditional_ev": 3.6
   },
   {
     "team": "Detroit Pistons",
@@ -272,8 +296,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 15.5042,
-    "conditional_ev": 15.5042
+    "ev": 15.5,
+    "conditional_ev": 15.5
+  },
+  {
+    "team": "Minnesota Timberwolves",
+    "pick_id": "Detroit_Pistons_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Detroit Pistons",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 14.2,
+    "conditional_ev": 14.2
   },
   {
     "team": "Detroit Pistons",
@@ -284,8 +320,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.0728,
-    "conditional_ev": 4.0728
+    "ev": 4.1,
+    "conditional_ev": 4.1
+  },
+  {
+    "team": "New Orleans Pelicans",
+    "pick_id": "Detroit_Pistons_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Detroit Pistons",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 1.8,
+    "conditional_ev": 1.8
   },
   {
     "team": "Detroit Pistons",
@@ -296,8 +344,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.0458,
-    "conditional_ev": 31.0458
+    "ev": 30.3,
+    "conditional_ev": 30.3
   },
   {
     "team": "Philadelphia 76ers",
@@ -307,9 +355,9 @@
     "original_team": "Detroit Pistons",
     "pick_type": "pro_pick",
     "frozen": false,
-    "prob": 0.638,
-    "ev": 1.6017,
-    "conditional_ev": 1.6017
+    "prob": 0.6454,
+    "ev": 1.6,
+    "conditional_ev": 1.6
   },
   {
     "team": "Detroit Pistons",
@@ -319,9 +367,9 @@
     "original_team": "Detroit Pistons",
     "pick_type": "pro_pick",
     "frozen": false,
-    "prob": 0.2564,
-    "ev": 1.6017,
-    "conditional_ev": 2.7426
+    "prob": 0.2468,
+    "ev": 1.6,
+    "conditional_ev": 2.8
   },
   {
     "team": "Utah Jazz",
@@ -331,9 +379,9 @@
     "original_team": "Detroit Pistons",
     "pick_type": "pro_pick",
     "frozen": false,
-    "prob": 0.1056,
-    "ev": 1.6017,
-    "conditional_ev": 2.4619
+    "prob": 0.1078,
+    "ev": 1.6,
+    "conditional_ev": 2.5
   },
   {
     "team": "Detroit Pistons",
@@ -344,8 +392,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2407,
-    "conditional_ev": 4.2407
+    "ev": 4.3,
+    "conditional_ev": 4.3
   },
   {
     "team": "Detroit Pistons",
@@ -356,8 +404,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 20.6806,
-    "conditional_ev": 20.6806
+    "ev": 20.3,
+    "conditional_ev": 20.3
   },
   {
     "team": "Detroit Pistons",
@@ -368,8 +416,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 3.6438,
-    "conditional_ev": 3.6438
+    "ev": 3.6,
+    "conditional_ev": 3.6
   },
   {
     "team": "Detroit Pistons",
@@ -380,8 +428,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 14.141,
-    "conditional_ev": 14.141
+    "ev": 14.2,
+    "conditional_ev": 14.2
   },
   {
     "team": "Charlotte Hornets",
@@ -391,9 +439,9 @@
     "original_team": "Los Angeles Clippers",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.998,
-    "ev": 7.48,
-    "conditional_ev": 7.48
+    "prob": 0.9986,
+    "ev": 7.5,
+    "conditional_ev": 7.5
   },
   {
     "team": "Detroit Pistons",
@@ -403,9 +451,21 @@
     "original_team": "Los Angeles Clippers",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.002,
-    "ev": 7.48,
-    "conditional_ev": 5.6183
+    "prob": 0.0014,
+    "ev": 7.5,
+    "conditional_ev": 5.7
+  },
+  {
+    "team": "Brooklyn Nets",
+    "pick_id": "Los_Angeles_Clippers_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Los Angeles Clippers",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 5.2,
+    "conditional_ev": 5.2
   },
   {
     "team": "Los Angeles Clippers",
@@ -416,8 +476,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 33.6516,
-    "conditional_ev": 33.6516
+    "ev": 33.9,
+    "conditional_ev": 33.9
   },
   {
     "team": "Utah Jazz",
@@ -427,9 +487,9 @@
     "original_team": "Los Angeles Clippers",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.5044,
-    "ev": 3.0173,
-    "conditional_ev": 3.0173
+    "prob": 0.5002,
+    "ev": 3.0,
+    "conditional_ev": 3.0
   },
   {
     "team": "Charlotte Hornets",
@@ -439,9 +499,9 @@
     "original_team": "Los Angeles Clippers",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.4956,
-    "ev": 3.0173,
-    "conditional_ev": 6.5025
+    "prob": 0.4998,
+    "ev": 3.0,
+    "conditional_ev": 6.6
   },
   {
     "team": "Oklahoma City Thunder",
@@ -452,8 +512,8 @@
     "pick_type": "pro_triple_swap",
     "frozen": false,
     "prob": 1.0,
-    "ev": 62.2829,
-    "conditional_ev": 62.2829
+    "ev": 61.9,
+    "conditional_ev": 61.9
   },
   {
     "team": "Los Angeles Clippers",
@@ -463,9 +523,9 @@
     "original_team": "Los Angeles Clippers",
     "pick_type": "pro_swap",
     "frozen": false,
-    "prob": 0.6278,
-    "ev": 32.8781,
-    "conditional_ev": 32.8781
+    "prob": 0.618,
+    "ev": 34.5,
+    "conditional_ev": 34.5
   },
   {
     "team": "Philadelphia 76ers",
@@ -475,9 +535,9 @@
     "original_team": "Los Angeles Clippers",
     "pick_type": "pro_swap",
     "frozen": false,
-    "prob": 0.3722,
-    "ev": 32.8781,
-    "conditional_ev": 43.0592
+    "prob": 0.382,
+    "ev": 34.5,
+    "conditional_ev": 43.1
   },
   {
     "team": "Los Angeles Clippers",
@@ -488,8 +548,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2224,
-    "conditional_ev": 4.2224
+    "ev": 4.3,
+    "conditional_ev": 4.3
   },
   {
     "team": "San Antonio Spurs",
@@ -500,8 +560,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.8643,
-    "conditional_ev": 4.8643
+    "ev": 4.8,
+    "conditional_ev": 4.8
   },
   {
     "team": "Los Angeles Clippers",
@@ -512,8 +572,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.504,
-    "conditional_ev": 31.504
+    "ev": 31.6,
+    "conditional_ev": 31.6
   },
   {
     "team": "Los Angeles Clippers",
@@ -524,8 +584,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 36.4515,
-    "conditional_ev": 36.4515
+    "ev": 36.3,
+    "conditional_ev": 36.3
   },
   {
     "team": "Utah Jazz",
@@ -536,8 +596,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 7.7814,
-    "conditional_ev": 7.7814
+    "ev": 7.8,
+    "conditional_ev": 7.8
+  },
+  {
+    "team": "Oklahoma City Thunder",
+    "pick_id": "Los_Angeles_Clippers_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Los Angeles Clippers",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 37.5,
+    "conditional_ev": 37.5
   },
   {
     "team": "Los Angeles Clippers",
@@ -548,8 +620,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.5255,
-    "conditional_ev": 4.5255
+    "ev": 4.4,
+    "conditional_ev": 4.4
   },
   {
     "team": "Philadelphia 76ers",
@@ -560,8 +632,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 58.1225,
-    "conditional_ev": 58.1225
+    "ev": 58.0,
+    "conditional_ev": 58.0
   },
   {
     "team": "Sacramento Kings",
@@ -572,8 +644,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 48.5426,
-    "conditional_ev": 48.5426
+    "ev": 48.2,
+    "conditional_ev": 48.2
   },
   {
     "team": "Sacramento Kings",
@@ -584,8 +656,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2605,
-    "conditional_ev": 4.2605
+    "ev": 4.3,
+    "conditional_ev": 4.3
   },
   {
     "team": "San Antonio Spurs",
@@ -596,8 +668,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 5.0725,
-    "conditional_ev": 5.0725
+    "ev": 5.0,
+    "conditional_ev": 5.0
   },
   {
     "team": "Sacramento Kings",
@@ -608,8 +680,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 65.0803,
-    "conditional_ev": 65.0803
+    "ev": 64.9,
+    "conditional_ev": 64.9
+  },
+  {
+    "team": "Sacramento Kings",
+    "pick_id": "Sacramento_Kings_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Sacramento Kings",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 8.0,
+    "conditional_ev": 8.0
   },
   {
     "team": "San Antonio Spurs",
@@ -619,9 +703,9 @@
     "original_team": "Sacramento Kings",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.5934,
-    "ev": 41.8293,
-    "conditional_ev": 41.8293
+    "prob": 0.593,
+    "ev": 41.4,
+    "conditional_ev": 41.4
   },
   {
     "team": "Sacramento Kings",
@@ -631,9 +715,9 @@
     "original_team": "Sacramento Kings",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.4066,
-    "ev": 41.8293,
-    "conditional_ev": 22.6041
+    "prob": 0.407,
+    "ev": 41.4,
+    "conditional_ev": 22.6
   },
   {
     "team": "Portland Trail Blazers",
@@ -644,8 +728,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 7.8333,
-    "conditional_ev": 7.8333
+    "ev": 7.8,
+    "conditional_ev": 7.8
   },
   {
     "team": "Sacramento Kings",
@@ -656,8 +740,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 60.8844,
-    "conditional_ev": 60.8844
+    "ev": 60.7,
+    "conditional_ev": 60.7
+  },
+  {
+    "team": "Sacramento Kings",
+    "pick_id": "Sacramento_Kings_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Sacramento Kings",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 50.0,
+    "conditional_ev": 50.0
   },
   {
     "team": "San Antonio Spurs",
@@ -668,8 +764,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.4515,
-    "conditional_ev": 4.4515
+    "ev": 4.5,
+    "conditional_ev": 4.5
   },
   {
     "team": "Sacramento Kings",
@@ -680,8 +776,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 38.3854,
-    "conditional_ev": 38.3854
+    "ev": 38.2,
+    "conditional_ev": 38.2
   },
   {
     "team": "Sacramento Kings",
@@ -692,8 +788,8 @@
     "pick_type": "unpro_backup",
     "frozen": false,
     "prob": 1.0,
-    "ev": 8.5735,
-    "conditional_ev": 8.5735
+    "ev": 8.6,
+    "conditional_ev": 8.6
   },
   {
     "team": "Houston Rockets",
@@ -704,8 +800,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 6.318,
-    "conditional_ev": 6.318
+    "ev": 6.3,
+    "conditional_ev": 6.3
   },
   {
     "team": "Sacramento Kings",
@@ -716,8 +812,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 32.4285,
-    "conditional_ev": 32.4285
+    "ev": 31.2,
+    "conditional_ev": 31.2
   },
   {
     "team": "Atlanta Hawks",
@@ -728,8 +824,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.1864,
-    "conditional_ev": 4.1864
+    "ev": 4.3,
+    "conditional_ev": 4.3
   },
   {
     "team": "San Antonio Spurs",
@@ -740,8 +836,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.3764,
-    "conditional_ev": 31.3764
+    "ev": 31.6,
+    "conditional_ev": 31.6
   },
   {
     "team": "Atlanta Hawks",
@@ -752,8 +848,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2297,
-    "conditional_ev": 4.2297
+    "ev": 4.2,
+    "conditional_ev": 4.2
   },
   {
     "team": "Atlanta Hawks",
@@ -764,8 +860,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 27.7253,
-    "conditional_ev": 27.7253
+    "ev": 28.1,
+    "conditional_ev": 28.1
   },
   {
     "team": "Brooklyn Nets",
@@ -776,8 +872,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 3.4863,
-    "conditional_ev": 3.4863
+    "ev": 3.5,
+    "conditional_ev": 3.5
+  },
+  {
+    "team": "Denver Nuggets",
+    "pick_id": "Atlanta_Hawks_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Atlanta Hawks",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 3.8,
+    "conditional_ev": 3.8
   },
   {
     "team": "Atlanta Hawks",
@@ -788,8 +896,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 33.9305,
-    "conditional_ev": 33.9305
+    "ev": 34.0,
+    "conditional_ev": 34.0
+  },
+  {
+    "team": "San Antonio Spurs",
+    "pick_id": "Atlanta_Hawks_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Atlanta Hawks",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 24.5,
+    "conditional_ev": 24.5
   },
   {
     "team": "Atlanta Hawks",
@@ -799,9 +919,9 @@
     "original_team": "Atlanta Hawks",
     "pick_type": "pro_swap",
     "frozen": false,
-    "prob": 0.5446,
-    "ev": 5.7143,
-    "conditional_ev": 5.7143
+    "prob": 0.5516,
+    "ev": 5.7,
+    "conditional_ev": 5.7
   },
   {
     "team": "Houston Rockets",
@@ -811,9 +931,9 @@
     "original_team": "Atlanta Hawks",
     "pick_type": "pro_swap",
     "frozen": false,
-    "prob": 0.4554,
-    "ev": 5.7143,
-    "conditional_ev": 2.9724
+    "prob": 0.4484,
+    "ev": 5.7,
+    "conditional_ev": 3.0
   },
   {
     "team": "Cleveland Cavaliers",
@@ -823,9 +943,9 @@
     "original_team": "Atlanta Hawks",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.7716,
-    "ev": 22.1384,
-    "conditional_ev": 22.1384
+    "prob": 0.7876,
+    "ev": 22.2,
+    "conditional_ev": 22.2
   },
   {
     "team": "Atlanta Hawks",
@@ -835,9 +955,9 @@
     "original_team": "Atlanta Hawks",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.2284,
-    "ev": 22.1384,
-    "conditional_ev": 32.2325
+    "prob": 0.2124,
+    "ev": 22.2,
+    "conditional_ev": 32.6
   },
   {
     "team": "Atlanta Hawks",
@@ -848,8 +968,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.7485,
-    "conditional_ev": 31.7485
+    "ev": 31.9,
+    "conditional_ev": 31.9
   },
   {
     "team": "Oklahoma City Thunder",
@@ -859,9 +979,9 @@
     "original_team": "Atlanta Hawks",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.6056,
-    "ev": 3.3106,
-    "conditional_ev": 3.3106
+    "prob": 0.5862,
+    "ev": 3.3,
+    "conditional_ev": 3.3
   },
   {
     "team": "Charlotte Hornets",
@@ -871,9 +991,9 @@
     "original_team": "Atlanta Hawks",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.3944,
-    "ev": 3.3106,
-    "conditional_ev": 4.4385
+    "prob": 0.4138,
+    "ev": 3.3,
+    "conditional_ev": 4.5
   },
   {
     "team": "Atlanta Hawks",
@@ -884,8 +1004,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.6159,
-    "conditional_ev": 31.6159
+    "ev": 31.4,
+    "conditional_ev": 31.4
   },
   {
     "team": "Atlanta Hawks",
@@ -896,8 +1016,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.6389,
-    "conditional_ev": 4.6389
+    "ev": 4.7,
+    "conditional_ev": 4.7
   },
   {
     "team": "Washington Wizards",
@@ -908,8 +1028,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 2.6822,
-    "conditional_ev": 2.6822
+    "ev": 2.7,
+    "conditional_ev": 2.7
   },
   {
     "team": "Los Angeles Lakers",
@@ -920,8 +1040,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 32.2889,
-    "conditional_ev": 32.2889
+    "ev": 32.3,
+    "conditional_ev": 32.3
   },
   {
     "team": "Los Angeles Lakers",
@@ -932,8 +1052,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 26.4984,
-    "conditional_ev": 26.4984
+    "ev": 26.5,
+    "conditional_ev": 26.5
   },
   {
     "team": "Brooklyn Nets",
@@ -944,8 +1064,20 @@
     "pick_type": "unpro_backup",
     "frozen": false,
     "prob": 1.0,
-    "ev": 2.1107,
-    "conditional_ev": 2.1107
+    "ev": 2.1,
+    "conditional_ev": 2.1
+  },
+  {
+    "team": "Los Angeles Lakers",
+    "pick_id": "Los_Angeles_Lakers_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Los Angeles Lakers",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 17.5,
+    "conditional_ev": 17.5
   },
   {
     "team": "Brooklyn Nets",
@@ -956,8 +1088,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 3.9544,
-    "conditional_ev": 3.9544
+    "ev": 3.9,
+    "conditional_ev": 3.9
   },
   {
     "team": "Los Angeles Lakers",
@@ -968,8 +1100,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 16.4155,
-    "conditional_ev": 16.4155
+    "ev": 16.3,
+    "conditional_ev": 16.3
   },
   {
     "team": "Washington Wizards",
@@ -980,8 +1112,20 @@
     "pick_type": "unpro_swap",
     "frozen": false,
     "prob": 1.0,
-    "ev": 2.1335,
-    "conditional_ev": 2.1335
+    "ev": 2.1,
+    "conditional_ev": 2.1
+  },
+  {
+    "team": "Golden State Warriors",
+    "pick_id": "Los_Angeles_Lakers_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Los Angeles Lakers",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 2.5,
+    "conditional_ev": 2.5
   },
   {
     "team": "Los Angeles Lakers",
@@ -992,8 +1136,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 29.4394,
-    "conditional_ev": 29.4394
+    "ev": 29.8,
+    "conditional_ev": 29.8
   },
   {
     "team": "Brooklyn Nets",
@@ -1004,8 +1148,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 3.5627,
-    "conditional_ev": 3.5627
+    "ev": 3.6,
+    "conditional_ev": 3.6
   },
   {
     "team": "Memphis Grizzlies",
@@ -1016,8 +1160,8 @@
     "pick_type": "pro_pick",
     "frozen": false,
     "prob": 1.0,
-    "ev": 16.1779,
-    "conditional_ev": 16.1779
+    "ev": 16.1,
+    "conditional_ev": 16.1
   },
   {
     "team": "Dallas Mavericks",
@@ -1028,8 +1172,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 19.6799,
-    "conditional_ev": 19.6799
+    "ev": 19.5,
+    "conditional_ev": 19.5
   },
   {
     "team": "Atlanta Hawks",
@@ -1040,8 +1184,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2097,
-    "conditional_ev": 4.2097
+    "ev": 4.2,
+    "conditional_ev": 4.2
   },
   {
     "team": "Washington Wizards",
@@ -1052,8 +1196,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 52.0542,
-    "conditional_ev": 52.0542
+    "ev": 52.4,
+    "conditional_ev": 52.4
   },
   {
     "team": "Philadelphia 76ers",
@@ -1064,8 +1208,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.4766,
-    "conditional_ev": 4.4766
+    "ev": 4.5,
+    "conditional_ev": 4.5
   },
   {
     "team": "Washington Wizards",
@@ -1076,8 +1220,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2523,
-    "conditional_ev": 4.2523
+    "ev": 4.3,
+    "conditional_ev": 4.3
   },
   {
     "team": "Washington Wizards",
@@ -1088,8 +1232,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 38.277,
-    "conditional_ev": 38.277
+    "ev": 38.4,
+    "conditional_ev": 38.4
   },
   {
     "team": "Orlando Magic",
@@ -1100,8 +1244,8 @@
     "pick_type": "unpro_swap",
     "frozen": false,
     "prob": 1.0,
-    "ev": 5.4751,
-    "conditional_ev": 5.4751
+    "ev": 5.5,
+    "conditional_ev": 5.5
   },
   {
     "team": "Washington Wizards",
@@ -1112,8 +1256,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.9159,
-    "conditional_ev": 31.9159
+    "ev": 31.9,
+    "conditional_ev": 31.9
+  },
+  {
+    "team": "New York Knicks",
+    "pick_id": "Washington_Wizards_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Washington Wizards",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 9.0,
+    "conditional_ev": 9.0
   },
   {
     "team": "Washington Wizards",
@@ -1124,8 +1280,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2174,
-    "conditional_ev": 4.2174
+    "ev": 4.2,
+    "conditional_ev": 4.2
+  },
+  {
+    "team": "Washington Wizards",
+    "pick_id": "Washington_Wizards_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Washington Wizards",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 100.0,
+    "conditional_ev": 100.0
   },
   {
     "team": "Washington Wizards",
@@ -1135,9 +1303,9 @@
     "original_team": "Washington Wizards",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.772,
-    "ev": 44.4892,
-    "conditional_ev": 44.4892
+    "prob": 0.7748,
+    "ev": 44.4,
+    "conditional_ev": 44.4
   },
   {
     "team": "Milwaukee Bucks",
@@ -1147,9 +1315,9 @@
     "original_team": "Washington Wizards",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.228,
-    "ev": 44.4892,
-    "conditional_ev": 29.3956
+    "prob": 0.2252,
+    "ev": 44.4,
+    "conditional_ev": 29.6
   },
   {
     "team": "Washington Wizards",
@@ -1160,8 +1328,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.8087,
-    "conditional_ev": 31.8087
+    "ev": 32.2,
+    "conditional_ev": 32.2
   },
   {
     "team": "Indiana Pacers",
@@ -1171,9 +1339,9 @@
     "original_team": "Washington Wizards",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.7518,
-    "ev": 5.5863,
-    "conditional_ev": 5.5863
+    "prob": 0.755,
+    "ev": 5.6,
+    "conditional_ev": 5.6
   },
   {
     "team": "Portland Trail Blazers",
@@ -1183,9 +1351,9 @@
     "original_team": "Washington Wizards",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.2482,
-    "ev": 5.5863,
-    "conditional_ev": 3.3858
+    "prob": 0.245,
+    "ev": 5.6,
+    "conditional_ev": 3.4
   },
   {
     "team": "New York Knicks",
@@ -1196,8 +1364,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 6.5095,
-    "conditional_ev": 6.5095
+    "ev": 6.5,
+    "conditional_ev": 6.5
   },
   {
     "team": "Washington Wizards",
@@ -1207,9 +1375,9 @@
     "original_team": "Washington Wizards",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.4784,
-    "ev": 42.7188,
-    "conditional_ev": 42.7188
+    "prob": 0.489,
+    "ev": 42.7,
+    "conditional_ev": 42.7
   },
   {
     "team": "Phoenix Suns",
@@ -1219,9 +1387,9 @@
     "original_team": "Washington Wizards",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.3304,
-    "ev": 42.7188,
-    "conditional_ev": 22.1942
+    "prob": 0.316,
+    "ev": 42.7,
+    "conditional_ev": 21.9
   },
   {
     "team": "Memphis Grizzlies",
@@ -1231,9 +1399,9 @@
     "original_team": "Washington Wizards",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.1912,
-    "ev": 42.7188,
-    "conditional_ev": 30.805
+    "prob": 0.195,
+    "ev": 42.7,
+    "conditional_ev": 30.6
   },
   {
     "team": "Oklahoma City Thunder",
@@ -1244,8 +1412,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 3.482,
-    "conditional_ev": 3.482
+    "ev": 3.5,
+    "conditional_ev": 3.5
   },
   {
     "team": "Los Angeles Clippers",
@@ -1256,8 +1424,8 @@
     "pick_type": "pro_triple_swap",
     "frozen": false,
     "prob": 1.0,
-    "ev": 12.4318,
-    "conditional_ev": 12.4318
+    "ev": 12.4,
+    "conditional_ev": 12.4
   },
   {
     "team": "Oklahoma City Thunder",
@@ -1268,8 +1436,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 18.5186,
-    "conditional_ev": 18.5186
+    "ev": 18.5,
+    "conditional_ev": 18.5
   },
   {
     "team": "Oklahoma City Thunder",
@@ -1280,8 +1448,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2527,
-    "conditional_ev": 4.2527
+    "ev": 4.3,
+    "conditional_ev": 4.3
   },
   {
     "team": "Philadelphia 76ers",
@@ -1292,8 +1460,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 1.7293,
-    "conditional_ev": 1.7293
+    "ev": 1.7,
+    "conditional_ev": 1.7
+  },
+  {
+    "team": "Washington Wizards",
+    "pick_id": "Oklahoma_City_Thunder_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Oklahoma City Thunder",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 1.2,
+    "conditional_ev": 1.2
   },
   {
     "team": "Oklahoma City Thunder",
@@ -1304,8 +1484,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 30.1278,
-    "conditional_ev": 30.1278
+    "ev": 30.4,
+    "conditional_ev": 30.4
+  },
+  {
+    "team": "Dallas Mavericks",
+    "pick_id": "Oklahoma_City_Thunder_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Oklahoma City Thunder",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 11.8,
+    "conditional_ev": 11.8
   },
   {
     "team": "Oklahoma City Thunder",
@@ -1316,8 +1508,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 3.9412,
-    "conditional_ev": 3.9412
+    "ev": 4.0,
+    "conditional_ev": 4.0
   },
   {
     "team": "Dallas Mavericks",
@@ -1328,8 +1520,8 @@
     "pick_type": "unpro_swap",
     "frozen": false,
     "prob": 1.0,
-    "ev": 14.0248,
-    "conditional_ev": 14.0248
+    "ev": 14.0,
+    "conditional_ev": 14.0
   },
   {
     "team": "Oklahoma City Thunder",
@@ -1340,8 +1532,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 2.5363,
-    "conditional_ev": 2.5363
+    "ev": 2.5,
+    "conditional_ev": 2.5
   },
   {
     "team": "Oklahoma City Thunder",
@@ -1352,8 +1544,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.891,
-    "conditional_ev": 31.891
+    "ev": 32.0,
+    "conditional_ev": 32.0
   },
   {
     "team": "Oklahoma City Thunder",
@@ -1364,8 +1556,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 25.7378,
-    "conditional_ev": 25.7378
+    "ev": 25.9,
+    "conditional_ev": 25.9
   },
   {
     "team": "Miami Heat",
@@ -1375,9 +1567,9 @@
     "original_team": "Oklahoma City Thunder",
     "pick_type": "nested_swap",
     "frozen": false,
-    "prob": 0.6518,
-    "ev": 1.272,
-    "conditional_ev": 1.272
+    "prob": 0.6492,
+    "ev": 1.3,
+    "conditional_ev": 1.3
   },
   {
     "team": "San Antonio Spurs",
@@ -1387,9 +1579,9 @@
     "original_team": "Oklahoma City Thunder",
     "pick_type": "nested_swap",
     "frozen": false,
-    "prob": 0.3388,
-    "ev": 1.272,
-    "conditional_ev": 1.6342
+    "prob": 0.339,
+    "ev": 1.3,
+    "conditional_ev": 1.7
   },
   {
     "team": "New York Knicks",
@@ -1399,9 +1591,9 @@
     "original_team": "Oklahoma City Thunder",
     "pick_type": "nested_swap",
     "frozen": false,
-    "prob": 0.0094,
-    "ev": 1.272,
-    "conditional_ev": 1.96
+    "prob": 0.0118,
+    "ev": 1.3,
+    "conditional_ev": 2.0
   },
   {
     "team": "Chicago Bulls",
@@ -1412,8 +1604,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 6.4906,
-    "conditional_ev": 6.4906
+    "ev": 6.5,
+    "conditional_ev": 6.5
   },
   {
     "team": "Chicago Bulls",
@@ -1424,8 +1616,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 33.2815,
-    "conditional_ev": 33.2815
+    "ev": 33.1,
+    "conditional_ev": 33.1
+  },
+  {
+    "team": "Houston Rockets",
+    "pick_id": "Chicago_Bulls_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Chicago Bulls",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 6.2,
+    "conditional_ev": 6.2
   },
   {
     "team": "Chicago Bulls",
@@ -1436,8 +1640,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 57.6926,
-    "conditional_ev": 57.6926
+    "ev": 57.6,
+    "conditional_ev": 57.6
   },
   {
     "team": "Chicago Bulls",
@@ -1448,8 +1652,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.8567,
-    "conditional_ev": 4.8567
+    "ev": 4.9,
+    "conditional_ev": 4.9
   },
   {
     "team": "Chicago Bulls",
@@ -1460,8 +1664,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 45.3754,
-    "conditional_ev": 45.3754
+    "ev": 45.5,
+    "conditional_ev": 45.5
   },
   {
     "team": "Chicago Bulls",
@@ -1472,8 +1676,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2691,
-    "conditional_ev": 4.2691
+    "ev": 4.2,
+    "conditional_ev": 4.2
   },
   {
     "team": "Chicago Bulls",
@@ -1484,8 +1688,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 5.9579,
-    "conditional_ev": 5.9579
+    "ev": 6.0,
+    "conditional_ev": 6.0
   },
   {
     "team": "Chicago Bulls",
@@ -1496,8 +1700,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 32.2836,
-    "conditional_ev": 32.2836
+    "ev": 31.8,
+    "conditional_ev": 31.8
   },
   {
     "team": "Dallas Mavericks",
@@ -1508,8 +1712,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 7.1393,
-    "conditional_ev": 7.1393
+    "ev": 7.1,
+    "conditional_ev": 7.1
   },
   {
     "team": "Chicago Bulls",
@@ -1520,8 +1724,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 36.5744,
-    "conditional_ev": 36.5744
+    "ev": 36.9,
+    "conditional_ev": 36.9
   },
   {
     "team": "Chicago Bulls",
@@ -1532,8 +1736,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.396,
-    "conditional_ev": 4.396
+    "ev": 4.4,
+    "conditional_ev": 4.4
+  },
+  {
+    "team": "Chicago Bulls",
+    "pick_id": "Chicago_Bulls_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Chicago Bulls",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 60.2,
+    "conditional_ev": 60.2
   },
   {
     "team": "Chicago Bulls",
@@ -1544,8 +1760,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 51.2803,
-    "conditional_ev": 51.2803
+    "ev": 50.9,
+    "conditional_ev": 50.9
+  },
+  {
+    "team": "San Antonio Spurs",
+    "pick_id": "Utah_Jazz_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Utah Jazz",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 7.5,
+    "conditional_ev": 7.5
   },
   {
     "team": "Utah Jazz",
@@ -1556,8 +1784,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 33.0909,
-    "conditional_ev": 33.0909
+    "ev": 33.0,
+    "conditional_ev": 33.0
   },
   {
     "team": "Oklahoma City Thunder",
@@ -1568,8 +1796,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 5.7714,
-    "conditional_ev": 5.7714
+    "ev": 5.7,
+    "conditional_ev": 5.7
   },
   {
     "team": "Washington Wizards",
@@ -1580,8 +1808,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.219,
-    "conditional_ev": 4.219
+    "ev": 4.2,
+    "conditional_ev": 4.2
   },
   {
     "team": "Utah Jazz",
@@ -1591,9 +1819,9 @@
     "original_team": "Utah Jazz",
     "pick_type": "pro_triple_swap",
     "frozen": false,
-    "prob": 0.9252,
-    "ev": 44.3155,
-    "conditional_ev": 44.3155
+    "prob": 0.9302,
+    "ev": 44.3,
+    "conditional_ev": 44.3
   },
   {
     "team": "Charlotte Hornets",
@@ -1603,9 +1831,9 @@
     "original_team": "Utah Jazz",
     "pick_type": "pro_triple_swap",
     "frozen": false,
-    "prob": 0.0748,
-    "ev": 44.3155,
-    "conditional_ev": 24.0558
+    "prob": 0.0698,
+    "ev": 44.3,
+    "conditional_ev": 23.9
   },
   {
     "team": "Charlotte Hornets",
@@ -1615,9 +1843,9 @@
     "original_team": "Utah Jazz",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.5044,
-    "ev": 5.6058,
-    "conditional_ev": 5.6058
+    "prob": 0.5002,
+    "ev": 5.6,
+    "conditional_ev": 5.6
   },
   {
     "team": "Utah Jazz",
@@ -1627,9 +1855,9 @@
     "original_team": "Utah Jazz",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.4956,
-    "ev": 5.6058,
-    "conditional_ev": 3.8825
+    "prob": 0.4998,
+    "ev": 5.6,
+    "conditional_ev": 4.0
   },
   {
     "team": "Memphis Grizzlies",
@@ -1639,9 +1867,21 @@
     "original_team": "Utah Jazz",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 1.0,
-    "ev": 45.7148,
-    "conditional_ev": 45.7148
+    "prob": 0.9998,
+    "ev": 45.5,
+    "conditional_ev": 45.5
+  },
+  {
+    "team": "Utah Jazz",
+    "pick_id": "Utah_Jazz_2027_1",
+    "year": 2027,
+    "round": 1,
+    "original_team": "Utah Jazz",
+    "pick_type": "triple_swap",
+    "frozen": false,
+    "prob": 0.0002,
+    "ev": 45.5,
+    "conditional_ev": 39.2
   },
   {
     "team": "Utah Jazz",
@@ -1652,8 +1892,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 36.5566,
-    "conditional_ev": 36.5566
+    "ev": 36.1,
+    "conditional_ev": 36.1
   },
   {
     "team": "Indiana Pacers",
@@ -1664,8 +1904,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 5.9393,
-    "conditional_ev": 5.9393
+    "ev": 5.9,
+    "conditional_ev": 5.9
   },
   {
     "team": "Utah Jazz",
@@ -1676,8 +1916,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.9173,
-    "conditional_ev": 31.9173
+    "ev": 31.6,
+    "conditional_ev": 31.6
   },
   {
     "team": "Utah Jazz",
@@ -1688,8 +1928,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 5.6649,
-    "conditional_ev": 5.6649
+    "ev": 5.6,
+    "conditional_ev": 5.6
   },
   {
     "team": "Utah Jazz",
@@ -1699,9 +1939,9 @@
     "original_team": "Utah Jazz",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.6796,
-    "ev": 48.8548,
-    "conditional_ev": 48.8548
+    "prob": 0.6592,
+    "ev": 49.1,
+    "conditional_ev": 49.1
   },
   {
     "team": "Atlanta Hawks",
@@ -1711,9 +1951,9 @@
     "original_team": "Utah Jazz",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.2736,
-    "ev": 48.8548,
-    "conditional_ev": 34.3227
+    "prob": 0.293,
+    "ev": 49.1,
+    "conditional_ev": 34.1
   },
   {
     "team": "Cleveland Cavaliers",
@@ -1723,9 +1963,21 @@
     "original_team": "Utah Jazz",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.0468,
-    "ev": 48.8548,
-    "conditional_ev": 27.4596
+    "prob": 0.0478,
+    "ev": 49.1,
+    "conditional_ev": 27.4
+  },
+  {
+    "team": "Utah Jazz",
+    "pick_id": "Utah_Jazz_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Utah Jazz",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 77.5,
+    "conditional_ev": 77.5
   },
   {
     "team": "Utah Jazz",
@@ -1736,8 +1988,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.3845,
-    "conditional_ev": 4.3845
+    "ev": 4.3,
+    "conditional_ev": 4.3
+  },
+  {
+    "team": "Memphis Grizzlies",
+    "pick_id": "Phoenix_Suns_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Phoenix Suns",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 29.5,
+    "conditional_ev": 29.5
   },
   {
     "team": "Charlotte Hornets",
@@ -1748,8 +2012,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.5075,
-    "conditional_ev": 4.5075
+    "ev": 4.5,
+    "conditional_ev": 4.5
   },
   {
     "team": "Brooklyn Nets",
@@ -1759,9 +2023,9 @@
     "original_team": "Phoenix Suns",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.84,
-    "ev": 48.3664,
-    "conditional_ev": 48.3664
+    "prob": 0.8492,
+    "ev": 48.3,
+    "conditional_ev": 48.3
   },
   {
     "team": "Phoenix Suns",
@@ -1771,9 +2035,9 @@
     "original_team": "Phoenix Suns",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.1158,
-    "ev": 48.3664,
-    "conditional_ev": 30.1228
+    "prob": 0.1106,
+    "ev": 48.3,
+    "conditional_ev": 29.8
   },
   {
     "team": "Washington Wizards",
@@ -1783,9 +2047,9 @@
     "original_team": "Phoenix Suns",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.0442,
-    "ev": 48.3664,
-    "conditional_ev": 33.0784
+    "prob": 0.0402,
+    "ev": 48.3,
+    "conditional_ev": 33.1
   },
   {
     "team": "Phoenix Suns",
@@ -1796,8 +2060,8 @@
     "pick_type": "unprotected",
     "frozen": true,
     "prob": 1.0,
-    "ev": 0.0,
-    "conditional_ev": 0.0
+    "ev": 10.4,
+    "conditional_ev": 10.4
   },
   {
     "team": "Phoenix Suns",
@@ -1808,8 +2072,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 5.77,
-    "conditional_ev": 5.77
+    "ev": 5.8,
+    "conditional_ev": 5.8
   },
   {
     "team": "Washington Wizards",
@@ -1819,9 +2083,9 @@
     "original_team": "Phoenix Suns",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.5216,
-    "ev": 49.4891,
-    "conditional_ev": 49.4891
+    "prob": 0.511,
+    "ev": 49.3,
+    "conditional_ev": 49.3
   },
   {
     "team": "Phoenix Suns",
@@ -1831,9 +2095,9 @@
     "original_team": "Phoenix Suns",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.3334,
-    "ev": 49.4891,
-    "conditional_ev": 18.1412
+    "prob": 0.336,
+    "ev": 49.3,
+    "conditional_ev": 18.5
   },
   {
     "team": "Memphis Grizzlies",
@@ -1843,9 +2107,9 @@
     "original_team": "Phoenix Suns",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.145,
-    "ev": 49.4891,
-    "conditional_ev": 30.4782
+    "prob": 0.153,
+    "ev": 49.3,
+    "conditional_ev": 30.5
   },
   {
     "team": "Philadelphia 76ers",
@@ -1855,9 +2119,9 @@
     "original_team": "Phoenix Suns",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.77,
-    "ev": 5.7999,
-    "conditional_ev": 5.7999
+    "prob": 0.7712,
+    "ev": 5.8,
+    "conditional_ev": 5.8
   },
   {
     "team": "Washington Wizards",
@@ -1867,9 +2131,9 @@
     "original_team": "Phoenix Suns",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.23,
-    "ev": 5.7999,
-    "conditional_ev": 5.1725
+    "prob": 0.2288,
+    "ev": 5.8,
+    "conditional_ev": 5.1
   },
   {
     "team": "Philadelphia 76ers",
@@ -1879,9 +2143,9 @@
     "original_team": "Phoenix Suns",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.5048,
-    "ev": 6.2118,
-    "conditional_ev": 6.2118
+    "prob": 0.5072,
+    "ev": 6.2,
+    "conditional_ev": 6.2
   },
   {
     "team": "Washington Wizards",
@@ -1891,9 +2155,9 @@
     "original_team": "Phoenix Suns",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.4952,
-    "ev": 6.2118,
-    "conditional_ev": 3.3582
+    "prob": 0.4928,
+    "ev": 6.2,
+    "conditional_ev": 3.3
   },
   {
     "team": "Houston Rockets",
@@ -1904,8 +2168,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 42.2074,
-    "conditional_ev": 42.2074
+    "ev": 42.4,
+    "conditional_ev": 42.4
   },
   {
     "team": "Phoenix Suns",
@@ -1915,9 +2179,9 @@
     "original_team": "Phoenix Suns",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.5028,
-    "ev": 3.0505,
-    "conditional_ev": 3.0505
+    "prob": 0.5,
+    "ev": 3.1,
+    "conditional_ev": 3.1
   },
   {
     "team": "Chicago Bulls",
@@ -1927,9 +2191,9 @@
     "original_team": "Phoenix Suns",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.4972,
-    "ev": 3.0505,
-    "conditional_ev": 5.4212
+    "prob": 0.5,
+    "ev": 3.1,
+    "conditional_ev": 5.5
   },
   {
     "team": "Houston Rockets",
@@ -1939,9 +2203,9 @@
     "original_team": "Phoenix Suns",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.9292,
-    "ev": 46.1241,
-    "conditional_ev": 46.1241
+    "prob": 0.9376,
+    "ev": 46.0,
+    "conditional_ev": 46.0
   },
   {
     "team": "Brooklyn Nets",
@@ -1951,9 +2215,9 @@
     "original_team": "Phoenix Suns",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.0708,
-    "ev": 46.1241,
-    "conditional_ev": 24.2011
+    "prob": 0.0624,
+    "ev": 46.0,
+    "conditional_ev": 24.1
   },
   {
     "team": "Indiana Pacers",
@@ -1963,9 +2227,9 @@
     "original_team": "Phoenix Suns",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.9926,
-    "ev": 6.0218,
-    "conditional_ev": 6.0218
+    "prob": 0.9904,
+    "ev": 6.0,
+    "conditional_ev": 6.0
   },
   {
     "team": "New York Knicks",
@@ -1975,9 +2239,21 @@
     "original_team": "Phoenix Suns",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.0074,
-    "ev": 6.0218,
-    "conditional_ev": 4.1855
+    "prob": 0.0096,
+    "ev": 6.0,
+    "conditional_ev": 4.1
+  },
+  {
+    "team": "Dallas Mavericks",
+    "pick_id": "Phoenix_Suns_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Phoenix Suns",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 4.0,
+    "conditional_ev": 4.0
   },
   {
     "team": "Memphis Grizzlies",
@@ -1988,8 +2264,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 33.4313,
-    "conditional_ev": 33.4313
+    "ev": 33.5,
+    "conditional_ev": 33.5
   },
   {
     "team": "San Antonio Spurs",
@@ -2000,8 +2276,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2955,
-    "conditional_ev": 4.2955
+    "ev": 4.2,
+    "conditional_ev": 4.2
   },
   {
     "team": "San Antonio Spurs",
@@ -2012,8 +2288,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 17.9122,
-    "conditional_ev": 17.9122
+    "ev": 17.8,
+    "conditional_ev": 17.8
   },
   {
     "team": "San Antonio Spurs",
@@ -2024,8 +2300,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 3.4148,
-    "conditional_ev": 3.4148
+    "ev": 3.4,
+    "conditional_ev": 3.4
   },
   {
     "team": "Oklahoma City Thunder",
@@ -2036,8 +2312,20 @@
     "pick_type": "pro_pick",
     "frozen": false,
     "prob": 1.0,
-    "ev": 13.2235,
-    "conditional_ev": 13.2235
+    "ev": 13.2,
+    "conditional_ev": 13.2
+  },
+  {
+    "team": "Minnesota Timberwolves",
+    "pick_id": "San_Antonio_Spurs_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "San Antonio Spurs",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 1.5,
+    "conditional_ev": 1.5
   },
   {
     "team": "Sacramento Kings",
@@ -2047,9 +2335,9 @@
     "original_team": "San Antonio Spurs",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.5934,
-    "ev": 21.6646,
-    "conditional_ev": 21.6646
+    "prob": 0.593,
+    "ev": 21.6,
+    "conditional_ev": 21.6
   },
   {
     "team": "San Antonio Spurs",
@@ -2059,9 +2347,9 @@
     "original_team": "San Antonio Spurs",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.4066,
-    "ev": 21.6646,
-    "conditional_ev": 40.9439
+    "prob": 0.407,
+    "ev": 21.6,
+    "conditional_ev": 41.2
   },
   {
     "team": "San Antonio Spurs",
@@ -2072,8 +2360,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 1.8505,
-    "conditional_ev": 1.8505
+    "ev": 1.8,
+    "conditional_ev": 1.8
   },
   {
     "team": "Boston Celtics",
@@ -2083,9 +2371,9 @@
     "original_team": "San Antonio Spurs",
     "pick_type": "pro_swap",
     "frozen": false,
-    "prob": 0.7404,
-    "ev": 13.6225,
-    "conditional_ev": 13.6225
+    "prob": 0.7298,
+    "ev": 13.6,
+    "conditional_ev": 13.6
   },
   {
     "team": "San Antonio Spurs",
@@ -2095,9 +2383,21 @@
     "original_team": "San Antonio Spurs",
     "pick_type": "pro_swap",
     "frozen": false,
-    "prob": 0.2596,
-    "ev": 13.6225,
-    "conditional_ev": 17.8053
+    "prob": 0.2702,
+    "ev": 13.6,
+    "conditional_ev": 17.8
+  },
+  {
+    "team": "Cleveland Cavaliers",
+    "pick_id": "San_Antonio_Spurs_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "San Antonio Spurs",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 13.0,
+    "conditional_ev": 13.0
   },
   {
     "team": "San Antonio Spurs",
@@ -2108,8 +2408,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 3.9128,
-    "conditional_ev": 3.9128
+    "ev": 3.9,
+    "conditional_ev": 3.9
   },
   {
     "team": "Dallas Mavericks",
@@ -2119,9 +2419,9 @@
     "original_team": "San Antonio Spurs",
     "pick_type": "nested_swap",
     "frozen": false,
-    "prob": 0.5904,
-    "ev": 19.0281,
-    "conditional_ev": 19.0281
+    "prob": 0.6006,
+    "ev": 19.2,
+    "conditional_ev": 19.2
   },
   {
     "team": "San Antonio Spurs",
@@ -2131,9 +2431,9 @@
     "original_team": "San Antonio Spurs",
     "pick_type": "nested_swap",
     "frozen": false,
-    "prob": 0.2648,
-    "ev": 19.0281,
-    "conditional_ev": 38.1597
+    "prob": 0.2716,
+    "ev": 19.2,
+    "conditional_ev": 37.9
   },
   {
     "team": "Minnesota Timberwolves",
@@ -2143,9 +2443,9 @@
     "original_team": "San Antonio Spurs",
     "pick_type": "nested_swap",
     "frozen": false,
-    "prob": 0.1448,
-    "ev": 19.0281,
-    "conditional_ev": 25.6476
+    "prob": 0.1278,
+    "ev": 19.2,
+    "conditional_ev": 25.0
   },
   {
     "team": "San Antonio Spurs",
@@ -2155,9 +2455,9 @@
     "original_team": "San Antonio Spurs",
     "pick_type": "nested_swap",
     "frozen": false,
-    "prob": 0.6536,
-    "ev": 1.7116,
-    "conditional_ev": 1.7116
+    "prob": 0.6516,
+    "ev": 1.7,
+    "conditional_ev": 1.7
   },
   {
     "team": "Miami Heat",
@@ -2167,9 +2467,9 @@
     "original_team": "San Antonio Spurs",
     "pick_type": "nested_swap",
     "frozen": false,
-    "prob": 0.3464,
-    "ev": 1.7116,
-    "conditional_ev": 1.2718
+    "prob": 0.3484,
+    "ev": 1.7,
+    "conditional_ev": 1.3
   },
   {
     "team": "San Antonio Spurs",
@@ -2180,8 +2480,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.9018,
-    "conditional_ev": 31.9018
+    "ev": 32.1,
+    "conditional_ev": 32.1
   },
   {
     "team": "San Antonio Spurs",
@@ -2192,8 +2492,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 2.3933,
-    "conditional_ev": 2.3933
+    "ev": 2.4,
+    "conditional_ev": 2.4
   },
   {
     "team": "Portland Trail Blazers",
@@ -2204,8 +2504,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2286,
-    "conditional_ev": 4.2286
+    "ev": 4.2,
+    "conditional_ev": 4.2
   },
   {
     "team": "Portland Trail Blazers",
@@ -2216,8 +2516,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 34.3678,
-    "conditional_ev": 34.3678
+    "ev": 33.9,
+    "conditional_ev": 33.9
+  },
+  {
+    "team": "San Antonio Spurs",
+    "pick_id": "Portland_Trail_Blazers_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Portland Trail Blazers",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 5.5,
+    "conditional_ev": 5.5
   },
   {
     "team": "Portland Trail Blazers",
@@ -2228,8 +2540,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 27.8729,
-    "conditional_ev": 27.8729
+    "ev": 27.9,
+    "conditional_ev": 27.9
   },
   {
     "team": "Washington Wizards",
@@ -2239,9 +2551,9 @@
     "original_team": "Portland Trail Blazers",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.5048,
-    "ev": 3.3234,
-    "conditional_ev": 3.3234
+    "prob": 0.5072,
+    "ev": 3.3,
+    "conditional_ev": 3.3
   },
   {
     "team": "Philadelphia 76ers",
@@ -2251,9 +2563,9 @@
     "original_team": "Portland Trail Blazers",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.4952,
-    "ev": 3.3234,
-    "conditional_ev": 6.2659
+    "prob": 0.4928,
+    "ev": 3.3,
+    "conditional_ev": 6.2
   },
   {
     "team": "Portland Trail Blazers",
@@ -2264,8 +2576,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2302,
-    "conditional_ev": 4.2302
+    "ev": 4.2,
+    "conditional_ev": 4.2
   },
   {
     "team": "Portland Trail Blazers",
@@ -2275,9 +2587,9 @@
     "original_team": "Portland Trail Blazers",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.595,
-    "ev": 30.3402,
-    "conditional_ev": 30.3402
+    "prob": 0.5872,
+    "ev": 30.4,
+    "conditional_ev": 30.4
   },
   {
     "team": "Washington Wizards",
@@ -2287,9 +2599,9 @@
     "original_team": "Portland Trail Blazers",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.405,
-    "ev": 30.3402,
-    "conditional_ev": 27.7024
+    "prob": 0.4128,
+    "ev": 30.4,
+    "conditional_ev": 28.0
   },
   {
     "team": "Portland Trail Blazers",
@@ -2300,8 +2612,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.8111,
-    "conditional_ev": 31.8111
+    "ev": 32.2,
+    "conditional_ev": 32.2
   },
   {
     "team": "Memphis Grizzlies",
@@ -2312,8 +2624,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 3.9198,
-    "conditional_ev": 3.9198
+    "ev": 3.9,
+    "conditional_ev": 3.9
   },
   {
     "team": "Portland Trail Blazers",
@@ -2324,20 +2636,8 @@
     "pick_type": "pro_swap",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.1671,
-    "conditional_ev": 4.1671
-  },
-  {
-    "team": "Milwaukee Bucks",
-    "pick_id": "Portland_Trail_Blazers_2030_1",
-    "year": 2030,
-    "round": 1,
-    "original_team": "Portland Trail Blazers",
-    "pick_type": "unpro_swap",
-    "frozen": false,
-    "prob": 0.5054,
-    "ev": 23.6851,
-    "conditional_ev": 23.6851
+    "ev": 4.2,
+    "conditional_ev": 4.2
   },
   {
     "team": "Portland Trail Blazers",
@@ -2347,9 +2647,21 @@
     "original_team": "Portland Trail Blazers",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.4946,
-    "ev": 23.6851,
-    "conditional_ev": 48.6789
+    "prob": 0.5082,
+    "ev": 48.4,
+    "conditional_ev": 48.4
+  },
+  {
+    "team": "Milwaukee Bucks",
+    "pick_id": "Portland_Trail_Blazers_2030_1",
+    "year": 2030,
+    "round": 1,
+    "original_team": "Portland Trail Blazers",
+    "pick_type": "unpro_swap",
+    "frozen": false,
+    "prob": 0.4918,
+    "ev": 48.4,
+    "conditional_ev": 24.2
   },
   {
     "team": "Portland Trail Blazers",
@@ -2360,8 +2672,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.4734,
-    "conditional_ev": 4.4734
+    "ev": 4.4,
+    "conditional_ev": 4.4
+  },
+  {
+    "team": "Chicago Bulls",
+    "pick_id": "Portland_Trail_Blazers_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Portland Trail Blazers",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 31.0,
+    "conditional_ev": 31.0
   },
   {
     "team": "Milwaukee Bucks",
@@ -2371,9 +2695,9 @@
     "original_team": "Portland Trail Blazers",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.7668,
-    "ev": 26.4389,
-    "conditional_ev": 26.4389
+    "prob": 0.7688,
+    "ev": 26.3,
+    "conditional_ev": 26.3
   },
   {
     "team": "Washington Wizards",
@@ -2383,9 +2707,9 @@
     "original_team": "Portland Trail Blazers",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.2052,
-    "ev": 26.4389,
-    "conditional_ev": 36.3478
+    "prob": 0.201,
+    "ev": 26.3,
+    "conditional_ev": 36.5
   },
   {
     "team": "Portland Trail Blazers",
@@ -2395,9 +2719,9 @@
     "original_team": "Portland Trail Blazers",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.028,
-    "ev": 26.4389,
-    "conditional_ev": 73.3934
+    "prob": 0.0302,
+    "ev": 26.3,
+    "conditional_ev": 72.2
   },
   {
     "team": "Los Angeles Clippers",
@@ -2408,8 +2732,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 25.0197,
-    "conditional_ev": 25.0197
+    "ev": 25.0,
+    "conditional_ev": 25.0
   },
   {
     "team": "Indiana Pacers",
@@ -2420,8 +2744,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2353,
-    "conditional_ev": 4.2353
+    "ev": 4.2,
+    "conditional_ev": 4.2
   },
   {
     "team": "Indiana Pacers",
@@ -2432,8 +2756,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.0926,
-    "conditional_ev": 4.0926
+    "ev": 4.1,
+    "conditional_ev": 4.1
   },
   {
     "team": "Indiana Pacers",
@@ -2444,8 +2768,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 19.7547,
-    "conditional_ev": 19.7547
+    "ev": 19.7,
+    "conditional_ev": 19.7
+  },
+  {
+    "team": "Memphis Grizzlies",
+    "pick_id": "Indiana_Pacers_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Indiana Pacers",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 8.8,
+    "conditional_ev": 8.8
   },
   {
     "team": "Indiana Pacers",
@@ -2456,8 +2792,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.5793,
-    "conditional_ev": 31.5793
+    "ev": 31.6,
+    "conditional_ev": 31.6
   },
   {
     "team": "New York Knicks",
@@ -2467,9 +2803,9 @@
     "original_team": "Indiana Pacers",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.9926,
-    "ev": 2.859,
-    "conditional_ev": 2.859
+    "prob": 0.9904,
+    "ev": 2.9,
+    "conditional_ev": 2.9
   },
   {
     "team": "Indiana Pacers",
@@ -2479,9 +2815,9 @@
     "original_team": "Indiana Pacers",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.0074,
-    "ev": 2.859,
-    "conditional_ev": 4.523
+    "prob": 0.0096,
+    "ev": 2.9,
+    "conditional_ev": 4.6
   },
   {
     "team": "Indiana Pacers",
@@ -2492,8 +2828,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 20.3309,
-    "conditional_ev": 20.3309
+    "ev": 20.4,
+    "conditional_ev": 20.4
   },
   {
     "team": "Los Angeles Clippers",
@@ -2504,8 +2840,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 66.2541,
-    "conditional_ev": 66.2541
+    "ev": 56.0,
+    "conditional_ev": 56.0
   },
   {
     "team": "Washington Wizards",
@@ -2515,9 +2851,9 @@
     "original_team": "Indiana Pacers",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.4592,
-    "ev": 5.1786,
-    "conditional_ev": 5.1786
+    "prob": 0.4708,
+    "ev": 5.3,
+    "conditional_ev": 5.3
   },
   {
     "team": "Indiana Pacers",
@@ -2527,9 +2863,9 @@
     "original_team": "Indiana Pacers",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.3516,
-    "ev": 5.1786,
-    "conditional_ev": 2.6724
+    "prob": 0.3446,
+    "ev": 5.3,
+    "conditional_ev": 2.6
   },
   {
     "team": "Memphis Grizzlies",
@@ -2539,9 +2875,9 @@
     "original_team": "Indiana Pacers",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.1892,
-    "ev": 5.1786,
-    "conditional_ev": 4.3801
+    "prob": 0.1846,
+    "ev": 5.3,
+    "conditional_ev": 4.4
   },
   {
     "team": "Indiana Pacers",
@@ -2552,8 +2888,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.2065,
-    "conditional_ev": 31.2065
+    "ev": 30.9,
+    "conditional_ev": 30.9
   },
   {
     "team": "New Orleans Pelicans",
@@ -2563,9 +2899,9 @@
     "original_team": "Indiana Pacers",
     "pick_type": "nested_swap",
     "frozen": false,
-    "prob": 0.7764,
-    "ev": 2.8371,
-    "conditional_ev": 2.8371
+    "prob": 0.7712,
+    "ev": 2.8,
+    "conditional_ev": 2.8
   },
   {
     "team": "New York Knicks",
@@ -2575,9 +2911,9 @@
     "original_team": "Indiana Pacers",
     "pick_type": "nested_swap",
     "frozen": false,
-    "prob": 0.2236,
-    "ev": 2.8371,
-    "conditional_ev": 2.2881
+    "prob": 0.2288,
+    "ev": 2.8,
+    "conditional_ev": 2.3
   },
   {
     "team": "Portland Trail Blazers",
@@ -2587,9 +2923,9 @@
     "original_team": "Indiana Pacers",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.7518,
-    "ev": 2.972,
-    "conditional_ev": 2.972
+    "prob": 0.755,
+    "ev": 3.0,
+    "conditional_ev": 3.0
   },
   {
     "team": "Indiana Pacers",
@@ -2599,9 +2935,9 @@
     "original_team": "Indiana Pacers",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.2482,
-    "ev": 2.972,
-    "conditional_ev": 4.9166
+    "prob": 0.245,
+    "ev": 3.0,
+    "conditional_ev": 4.9
   },
   {
     "team": "Indiana Pacers",
@@ -2612,8 +2948,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 32.2061,
-    "conditional_ev": 32.2061
+    "ev": 31.9,
+    "conditional_ev": 31.9
   },
   {
     "team": "Houston Rockets",
@@ -2624,8 +2960,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 32.033,
-    "conditional_ev": 32.033
+    "ev": 31.8,
+    "conditional_ev": 31.8
   },
   {
     "team": "Dallas Mavericks",
@@ -2636,8 +2972,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 2.981,
-    "conditional_ev": 2.981
+    "ev": 3.0,
+    "conditional_ev": 3.0
   },
   {
     "team": "New York Knicks",
@@ -2647,9 +2983,9 @@
     "original_team": "Houston Rockets",
     "pick_type": "nested_swap",
     "frozen": false,
-    "prob": 0.767,
-    "ev": 2.2012,
-    "conditional_ev": 2.2012
+    "prob": 0.7594,
+    "ev": 2.2,
+    "conditional_ev": 2.2
   },
   {
     "team": "New Orleans Pelicans",
@@ -2659,9 +2995,9 @@
     "original_team": "Houston Rockets",
     "pick_type": "nested_swap",
     "frozen": false,
-    "prob": 0.2236,
-    "ev": 2.2012,
-    "conditional_ev": 2.6862
+    "prob": 0.2288,
+    "ev": 2.2,
+    "conditional_ev": 2.7
   },
   {
     "team": "San Antonio Spurs",
@@ -2671,9 +3007,9 @@
     "original_team": "Houston Rockets",
     "pick_type": "nested_swap",
     "frozen": false,
-    "prob": 0.0076,
-    "ev": 2.2012,
-    "conditional_ev": 1.7601
+    "prob": 0.0094,
+    "ev": 2.2,
+    "conditional_ev": 1.7
   },
   {
     "team": "Miami Heat",
@@ -2683,9 +3019,9 @@
     "original_team": "Houston Rockets",
     "pick_type": "nested_swap",
     "frozen": false,
-    "prob": 0.0018,
-    "ev": 2.2012,
-    "conditional_ev": 1.47
+    "prob": 0.0024,
+    "ev": 2.2,
+    "conditional_ev": 1.4
   },
   {
     "team": "Houston Rockets",
@@ -2696,8 +3032,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 28.5283,
-    "conditional_ev": 28.5283
+    "ev": 29.4,
+    "conditional_ev": 29.4
   },
   {
     "team": "Atlanta Hawks",
@@ -2707,9 +3043,9 @@
     "original_team": "Houston Rockets",
     "pick_type": "pro_swap",
     "frozen": false,
-    "prob": 0.4554,
-    "ev": 5.3671,
-    "conditional_ev": 5.3671
+    "prob": 0.4484,
+    "ev": 5.4,
+    "conditional_ev": 5.4
   },
   {
     "team": "Houston Rockets",
@@ -2719,9 +3055,9 @@
     "original_team": "Houston Rockets",
     "pick_type": "pro_swap",
     "frozen": false,
-    "prob": 0.3788,
-    "ev": 5.3671,
-    "conditional_ev": 3.9313
+    "prob": 0.3872,
+    "ev": 5.4,
+    "conditional_ev": 4.0
   },
   {
     "team": "Boston Celtics",
@@ -2731,9 +3067,21 @@
     "original_team": "Houston Rockets",
     "pick_type": "pro_swap",
     "frozen": false,
-    "prob": 0.1658,
-    "ev": 5.3671,
-    "conditional_ev": 1.6287
+    "prob": 0.1644,
+    "ev": 5.4,
+    "conditional_ev": 1.6
+  },
+  {
+    "team": "Philadelphia 76ers",
+    "pick_id": "Houston_Rockets_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Houston Rockets",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 21.5,
+    "conditional_ev": 21.5
   },
   {
     "team": "Houston Rockets",
@@ -2744,8 +3092,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 17.2509,
-    "conditional_ev": 17.2509
+    "ev": 17.2,
+    "conditional_ev": 17.2
   },
   {
     "team": "Houston Rockets",
@@ -2756,8 +3104,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 2.2853,
-    "conditional_ev": 2.2853
+    "ev": 2.3,
+    "conditional_ev": 2.3
   },
   {
     "team": "Houston Rockets",
@@ -2768,8 +3116,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.4873,
-    "conditional_ev": 31.4873
+    "ev": 32.2,
+    "conditional_ev": 32.2
+  },
+  {
+    "team": "Houston Rockets",
+    "pick_id": "Houston_Rockets_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Houston Rockets",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 2.8,
+    "conditional_ev": 2.8
   },
   {
     "team": "Brooklyn Nets",
@@ -2780,8 +3140,8 @@
     "pick_type": "unpro_swap",
     "frozen": false,
     "prob": 1.0,
-    "ev": 17.3574,
-    "conditional_ev": 17.3574
+    "ev": 17.4,
+    "conditional_ev": 17.4
   },
   {
     "team": "Oklahoma City Thunder",
@@ -2792,8 +3152,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 3.8268,
-    "conditional_ev": 3.8268
+    "ev": 3.9,
+    "conditional_ev": 3.9
   },
   {
     "team": "Chicago Bulls",
@@ -2803,9 +3163,9 @@
     "original_team": "Houston Rockets",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.5028,
-    "ev": 5.5065,
-    "conditional_ev": 5.5065
+    "prob": 0.5,
+    "ev": 5.4,
+    "conditional_ev": 5.4
   },
   {
     "team": "Phoenix Suns",
@@ -2815,9 +3175,9 @@
     "original_team": "Houston Rockets",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.4972,
-    "ev": 5.5065,
-    "conditional_ev": 3.0232
+    "prob": 0.5,
+    "ev": 5.4,
+    "conditional_ev": 3.1
   },
   {
     "team": "Brooklyn Nets",
@@ -2827,9 +3187,9 @@
     "original_team": "Houston Rockets",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.7218,
-    "ev": 17.9352,
-    "conditional_ev": 17.9352
+    "prob": 0.7338,
+    "ev": 18.0,
+    "conditional_ev": 18.0
   },
   {
     "team": "Houston Rockets",
@@ -2839,9 +3199,9 @@
     "original_team": "Houston Rockets",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.2782,
-    "ev": 17.9352,
-    "conditional_ev": 31.5032
+    "prob": 0.2662,
+    "ev": 18.0,
+    "conditional_ev": 31.6
   },
   {
     "team": "Charlotte Hornets",
@@ -2852,8 +3212,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 3.2717,
-    "conditional_ev": 3.2717
+    "ev": 3.3,
+    "conditional_ev": 3.3
+  },
+  {
+    "team": "Orlando Magic",
+    "pick_id": "Orlando_Magic_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Orlando Magic",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 4.5,
+    "conditional_ev": 4.5
   },
   {
     "team": "Orlando Magic",
@@ -2864,8 +3236,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 32.704,
-    "conditional_ev": 32.704
+    "ev": 32.4,
+    "conditional_ev": 32.4
   },
   {
     "team": "New Orleans Pelicans",
@@ -2875,9 +3247,9 @@
     "original_team": "Orlando Magic",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.6284,
-    "ev": 3.0996,
-    "conditional_ev": 3.0996
+    "prob": 0.628,
+    "ev": 3.1,
+    "conditional_ev": 3.1
   },
   {
     "team": "Orlando Magic",
@@ -2887,9 +3259,9 @@
     "original_team": "Orlando Magic",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.3716,
-    "ev": 3.0996,
-    "conditional_ev": 5.2251
+    "prob": 0.372,
+    "ev": 3.1,
+    "conditional_ev": 5.2
   },
   {
     "team": "Orlando Magic",
@@ -2900,8 +3272,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 23.8554,
-    "conditional_ev": 23.8554
+    "ev": 23.8,
+    "conditional_ev": 23.8
   },
   {
     "team": "Orlando Magic",
@@ -2911,9 +3283,9 @@
     "original_team": "Orlando Magic",
     "pick_type": "pro_swap",
     "frozen": false,
-    "prob": 0.9376,
-    "ev": 22.9851,
-    "conditional_ev": 22.9851
+    "prob": 0.9352,
+    "ev": 22.6,
+    "conditional_ev": 22.6
   },
   {
     "team": "Memphis Grizzlies",
@@ -2923,9 +3295,9 @@
     "original_team": "Orlando Magic",
     "pick_type": "pro_swap",
     "frozen": false,
-    "prob": 0.0624,
-    "ev": 22.9851,
-    "conditional_ev": 40.4305
+    "prob": 0.0648,
+    "ev": 22.6,
+    "conditional_ev": 39.5
   },
   {
     "team": "Orlando Magic",
@@ -2936,8 +3308,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2279,
-    "conditional_ev": 4.2279
+    "ev": 4.2,
+    "conditional_ev": 4.2
   },
   {
     "team": "Orlando Magic",
@@ -2947,9 +3319,9 @@
     "original_team": "Orlando Magic",
     "pick_type": "unpro_backup",
     "frozen": false,
-    "prob": 0.989,
-    "ev": 3.2522,
-    "conditional_ev": 3.2522
+    "prob": 0.9874,
+    "ev": 3.3,
+    "conditional_ev": 3.3
   },
   {
     "team": "Memphis Grizzlies",
@@ -2959,9 +3331,9 @@
     "original_team": "Orlando Magic",
     "pick_type": "unpro_backup",
     "frozen": false,
-    "prob": 0.011,
-    "ev": 3.2522,
-    "conditional_ev": 3.2471
+    "prob": 0.0126,
+    "ev": 3.3,
+    "conditional_ev": 3.6
   },
   {
     "team": "Orlando Magic",
@@ -2972,8 +3344,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.795,
-    "conditional_ev": 31.795
+    "ev": 31.9,
+    "conditional_ev": 31.9
   },
   {
     "team": "Memphis Grizzlies",
@@ -2984,8 +3356,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 29.0952,
-    "conditional_ev": 29.0952
+    "ev": 29.3,
+    "conditional_ev": 29.3
   },
   {
     "team": "Utah Jazz",
@@ -2996,20 +3368,20 @@
     "pick_type": "unpro_swap",
     "frozen": false,
     "prob": 1.0,
-    "ev": 3.4246,
-    "conditional_ev": 3.4246
+    "ev": 3.4,
+    "conditional_ev": 3.4
   },
   {
-    "team": "Orlando Magic",
-    "pick_id": "Orlando_Magic_2031_2",
-    "year": 2031,
-    "round": 2,
+    "team": "Charlotte Hornets",
+    "pick_id": "Orlando_Magic_2026_1",
+    "year": 2026,
+    "round": 1,
     "original_team": "Orlando Magic",
-    "pick_type": "unpro_swap",
+    "pick_type": "unprotected",
     "frozen": false,
-    "prob": 0.5012,
-    "ev": 5.5084,
-    "conditional_ev": 5.5084
+    "prob": 1.0,
+    "ev": 27.0,
+    "conditional_ev": 27.0
   },
   {
     "team": "Oklahoma City Thunder",
@@ -3019,9 +3391,21 @@
     "original_team": "Orlando Magic",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.4988,
-    "ev": 5.5084,
-    "conditional_ev": 3.1653
+    "prob": 0.5,
+    "ev": 3.1,
+    "conditional_ev": 3.1
+  },
+  {
+    "team": "Orlando Magic",
+    "pick_id": "Orlando_Magic_2031_2",
+    "year": 2031,
+    "round": 2,
+    "original_team": "Orlando Magic",
+    "pick_type": "unpro_swap",
+    "frozen": false,
+    "prob": 0.5,
+    "ev": 3.1,
+    "conditional_ev": 5.5
   },
   {
     "team": "Portland Trail Blazers",
@@ -3032,8 +3416,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 22.9402,
-    "conditional_ev": 22.9402
+    "ev": 22.9,
+    "conditional_ev": 22.9
   },
   {
     "team": "Detroit Pistons",
@@ -3043,9 +3427,9 @@
     "original_team": "Charlotte Hornets",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.8516,
-    "ev": 4.1572,
-    "conditional_ev": 4.1572
+    "prob": 0.8526,
+    "ev": 4.2,
+    "conditional_ev": 4.2
   },
   {
     "team": "Utah Jazz",
@@ -3055,9 +3439,9 @@
     "original_team": "Charlotte Hornets",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.1464,
-    "ev": 4.1572,
-    "conditional_ev": 2.7871
+    "prob": 0.146,
+    "ev": 4.2,
+    "conditional_ev": 2.7
   },
   {
     "team": "Charlotte Hornets",
@@ -3067,9 +3451,9 @@
     "original_team": "Charlotte Hornets",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.002,
-    "ev": 4.1572,
-    "conditional_ev": 5.8825
+    "prob": 0.0014,
+    "ev": 4.2,
+    "conditional_ev": 5.9
   },
   {
     "team": "Charlotte Hornets",
@@ -3080,8 +3464,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 32.5067,
-    "conditional_ev": 32.5067
+    "ev": 32.1,
+    "conditional_ev": 32.1
+  },
+  {
+    "team": "Sacramento Kings",
+    "pick_id": "Charlotte_Hornets_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Charlotte Hornets",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 4.8,
+    "conditional_ev": 4.8
   },
   {
     "team": "Charlotte Hornets",
@@ -3092,8 +3488,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 29.5772,
-    "conditional_ev": 29.5772
+    "ev": 29.5,
+    "conditional_ev": 29.5
   },
   {
     "team": "Charlotte Hornets",
@@ -3103,9 +3499,9 @@
     "original_team": "Charlotte Hornets",
     "pick_type": "pro_pick",
     "frozen": false,
-    "prob": 0.9136,
-    "ev": 4.8344,
-    "conditional_ev": 4.8344
+    "prob": 0.9068,
+    "ev": 4.9,
+    "conditional_ev": 4.9
   },
   {
     "team": "Boston Celtics",
@@ -3115,9 +3511,9 @@
     "original_team": "Charlotte Hornets",
     "pick_type": "pro_pick",
     "frozen": false,
-    "prob": 0.0864,
-    "ev": 4.8344,
-    "conditional_ev": 1.8874
+    "prob": 0.0932,
+    "ev": 4.9,
+    "conditional_ev": 1.9
   },
   {
     "team": "Charlotte Hornets",
@@ -3128,8 +3524,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 41.0381,
-    "conditional_ev": 41.0381
+    "ev": 41.1,
+    "conditional_ev": 41.1
   },
   {
     "team": "Charlotte Hornets",
@@ -3140,8 +3536,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2332,
-    "conditional_ev": 4.2332
+    "ev": 4.3,
+    "conditional_ev": 4.3
   },
   {
     "team": "Charlotte Hornets",
@@ -3152,8 +3548,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 5.4189,
-    "conditional_ev": 5.4189
+    "ev": 5.4,
+    "conditional_ev": 5.4
   },
   {
     "team": "Charlotte Hornets",
@@ -3164,8 +3560,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.8708,
-    "conditional_ev": 31.8708
+    "ev": 31.7,
+    "conditional_ev": 31.7
   },
   {
     "team": "Sacramento Kings",
@@ -3176,8 +3572,8 @@
     "pick_type": "unpro_backup",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.424,
-    "conditional_ev": 4.424
+    "ev": 4.4,
+    "conditional_ev": 4.4
   },
   {
     "team": "Charlotte Hornets",
@@ -3188,8 +3584,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 34.5582,
-    "conditional_ev": 34.5582
+    "ev": 34.2,
+    "conditional_ev": 34.2
   },
   {
     "team": "Charlotte Hornets",
@@ -3200,8 +3596,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2995,
-    "conditional_ev": 4.2995
+    "ev": 4.2,
+    "conditional_ev": 4.2
+  },
+  {
+    "team": "Charlotte Hornets",
+    "pick_id": "Charlotte_Hornets_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Charlotte Hornets",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 33.0,
+    "conditional_ev": 33.0
   },
   {
     "team": "Charlotte Hornets",
@@ -3212,8 +3620,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 27.7994,
-    "conditional_ev": 27.7994
+    "ev": 27.8,
+    "conditional_ev": 27.8
   },
   {
     "team": "Brooklyn Nets",
@@ -3224,8 +3632,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.3588,
-    "conditional_ev": 4.3588
+    "ev": 4.4,
+    "conditional_ev": 4.4
   },
   {
     "team": "Boston Celtics",
@@ -3236,8 +3644,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 15.1049,
-    "conditional_ev": 15.1049
+    "ev": 15.1,
+    "conditional_ev": 15.1
   },
   {
     "team": "Boston Celtics",
@@ -3248,8 +3656,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.1811,
-    "conditional_ev": 4.1811
+    "ev": 4.2,
+    "conditional_ev": 4.2
   },
   {
     "team": "Portland Trail Blazers",
@@ -3259,9 +3667,9 @@
     "original_team": "Boston Celtics",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.6038,
-    "ev": 26.4679,
-    "conditional_ev": 26.4679
+    "prob": 0.6096,
+    "ev": 26.3,
+    "conditional_ev": 26.3
   },
   {
     "team": "Washington Wizards",
@@ -3271,9 +3679,9 @@
     "original_team": "Boston Celtics",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.3962,
-    "ev": 26.4679,
-    "conditional_ev": 26.9335
+    "prob": 0.3904,
+    "ev": 26.3,
+    "conditional_ev": 27.1
   },
   {
     "team": "New York Knicks",
@@ -3283,9 +3691,9 @@
     "original_team": "Boston Celtics",
     "pick_type": "pro_backup",
     "frozen": false,
-    "prob": 0.9972,
-    "ev": 2.5017,
-    "conditional_ev": 2.5017
+    "prob": 0.996,
+    "ev": 2.5,
+    "conditional_ev": 2.5
   },
   {
     "team": "Boston Celtics",
@@ -3295,9 +3703,21 @@
     "original_team": "Boston Celtics",
     "pick_type": "pro_backup",
     "frozen": false,
-    "prob": 0.0028,
-    "ev": 2.5017,
-    "conditional_ev": 4.5791
+    "prob": 0.004,
+    "ev": 2.5,
+    "conditional_ev": 4.6
+  },
+  {
+    "team": "Atlanta Hawks",
+    "pick_id": "Boston_Celtics_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Boston Celtics",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 2.0,
+    "conditional_ev": 2.0
   },
   {
     "team": "Boston Celtics",
@@ -3308,8 +3728,32 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 34.0019,
-    "conditional_ev": 34.0019
+    "ev": 33.9,
+    "conditional_ev": 33.9
+  },
+  {
+    "team": "Boston Celtics",
+    "pick_id": "Boston_Celtics_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Boston Celtics",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 15.5,
+    "conditional_ev": 15.5
+  },
+  {
+    "team": "Boston Celtics",
+    "pick_id": "Boston_Celtics_2031_2",
+    "year": 2031,
+    "round": 2,
+    "original_team": "Boston Celtics",
+    "pick_type": "unpro_swap",
+    "frozen": false,
+    "prob": 0.5076,
+    "ev": 3.1,
+    "conditional_ev": 3.1
   },
   {
     "team": "Utah Jazz",
@@ -3319,21 +3763,9 @@
     "original_team": "Boston Celtics",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.502,
-    "ev": 5.8186,
-    "conditional_ev": 5.8186
-  },
-  {
-    "team": "Boston Celtics",
-    "pick_id": "Boston_Celtics_2031_2",
-    "year": 2031,
-    "round": 2,
-    "original_team": "Boston Celtics",
-    "pick_type": "unpro_swap",
-    "frozen": false,
-    "prob": 0.498,
-    "ev": 5.8186,
-    "conditional_ev": 3.1291
+    "prob": 0.4924,
+    "ev": 3.1,
+    "conditional_ev": 5.8
   },
   {
     "team": "San Antonio Spurs",
@@ -3343,9 +3775,9 @@
     "original_team": "Boston Celtics",
     "pick_type": "pro_swap",
     "frozen": false,
-    "prob": 0.7404,
-    "ev": 19.9518,
-    "conditional_ev": 19.9518
+    "prob": 0.7298,
+    "ev": 19.9,
+    "conditional_ev": 19.9
   },
   {
     "team": "Boston Celtics",
@@ -3355,9 +3787,9 @@
     "original_team": "Boston Celtics",
     "pick_type": "pro_swap",
     "frozen": false,
-    "prob": 0.2596,
-    "ev": 19.9518,
-    "conditional_ev": 14.1394
+    "prob": 0.2702,
+    "ev": 19.9,
+    "conditional_ev": 14.1
   },
   {
     "team": "Boston Celtics",
@@ -3368,8 +3800,8 @@
     "pick_type": "unprotected",
     "frozen": true,
     "prob": 1.0,
-    "ev": 0.0,
-    "conditional_ev": 0.0
+    "ev": 10.4,
+    "conditional_ev": 10.4
   },
   {
     "team": "Oklahoma City Thunder",
@@ -3380,8 +3812,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 3.6144,
-    "conditional_ev": 3.6144
+    "ev": 3.6,
+    "conditional_ev": 3.6
   },
   {
     "team": "Boston Celtics",
@@ -3392,8 +3824,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 33.1854,
-    "conditional_ev": 33.1854
+    "ev": 33.4,
+    "conditional_ev": 33.4
   },
   {
     "team": "Charlotte Hornets",
@@ -3404,8 +3836,20 @@
     "pick_type": "unpro_swap",
     "frozen": false,
     "prob": 1.0,
-    "ev": 1.9304,
-    "conditional_ev": 1.9304
+    "ev": 1.9,
+    "conditional_ev": 1.9
+  },
+  {
+    "team": "Oklahoma City Thunder",
+    "pick_id": "Dallas_Mavericks_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Dallas Mavericks",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 7.0,
+    "conditional_ev": 7.0
   },
   {
     "team": "Dallas Mavericks",
@@ -3416,8 +3860,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.2879,
-    "conditional_ev": 31.2879
+    "ev": 31.3,
+    "conditional_ev": 31.3
   },
   {
     "team": "Los Angeles Clippers",
@@ -3428,8 +3872,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 5.2325,
-    "conditional_ev": 5.2325
+    "ev": 5.2,
+    "conditional_ev": 5.2
   },
   {
     "team": "Houston Rockets",
@@ -3439,9 +3883,9 @@
     "original_team": "Dallas Mavericks",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.7926,
-    "ev": 39.0551,
-    "conditional_ev": 39.0551
+    "prob": 0.7962,
+    "ev": 39.6,
+    "conditional_ev": 39.6
   },
   {
     "team": "Brooklyn Nets",
@@ -3451,9 +3895,9 @@
     "original_team": "Dallas Mavericks",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.2074,
-    "ev": 39.0551,
-    "conditional_ev": 20.4258
+    "prob": 0.2038,
+    "ev": 39.6,
+    "conditional_ev": 20.4
   },
   {
     "team": "Dallas Mavericks",
@@ -3464,8 +3908,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2674,
-    "conditional_ev": 4.2674
+    "ev": 4.2,
+    "conditional_ev": 4.2
   },
   {
     "team": "Brooklyn Nets",
@@ -3476,8 +3920,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.0141,
-    "conditional_ev": 4.0141
+    "ev": 4.0,
+    "conditional_ev": 4.0
   },
   {
     "team": "Charlotte Hornets",
@@ -3487,9 +3931,9 @@
     "original_team": "Dallas Mavericks",
     "pick_type": "pro_pick",
     "frozen": false,
-    "prob": 0.8982,
-    "ev": 45.0437,
-    "conditional_ev": 45.0437
+    "prob": 0.908,
+    "ev": 45.0,
+    "conditional_ev": 45.0
   },
   {
     "team": "Dallas Mavericks",
@@ -3499,21 +3943,9 @@
     "original_team": "Dallas Mavericks",
     "pick_type": "pro_pick",
     "frozen": false,
-    "prob": 0.1018,
-    "ev": 45.0437,
-    "conditional_ev": 87.0833
-  },
-  {
-    "team": "Dallas Mavericks",
-    "pick_id": "Dallas_Mavericks_2030_1",
-    "year": 2030,
-    "round": 1,
-    "original_team": "Dallas Mavericks",
-    "pick_type": "nested_swap",
-    "frozen": false,
-    "prob": 0.4096,
-    "ev": 20.0344,
-    "conditional_ev": 20.0344
+    "prob": 0.092,
+    "ev": 45.0,
+    "conditional_ev": 87.4
   },
   {
     "team": "San Antonio Spurs",
@@ -3523,9 +3955,21 @@
     "original_team": "Dallas Mavericks",
     "pick_type": "nested_swap",
     "frozen": false,
-    "prob": 0.397,
-    "ev": 20.0344,
-    "conditional_ev": 42.7301
+    "prob": 0.418,
+    "ev": 43.1,
+    "conditional_ev": 43.1
+  },
+  {
+    "team": "Dallas Mavericks",
+    "pick_id": "Dallas_Mavericks_2030_1",
+    "year": 2030,
+    "round": 1,
+    "original_team": "Dallas Mavericks",
+    "pick_type": "nested_swap",
+    "frozen": false,
+    "prob": 0.3994,
+    "ev": 43.1,
+    "conditional_ev": 20.0
   },
   {
     "team": "Minnesota Timberwolves",
@@ -3535,9 +3979,9 @@
     "original_team": "Dallas Mavericks",
     "pick_type": "nested_swap",
     "frozen": false,
-    "prob": 0.1934,
-    "ev": 20.0344,
-    "conditional_ev": 25.2974
+    "prob": 0.1826,
+    "ev": 43.1,
+    "conditional_ev": 25.1
   },
   {
     "team": "Detroit Pistons",
@@ -3548,8 +3992,8 @@
     "pick_type": "unpro_swap",
     "frozen": false,
     "prob": 1.0,
-    "ev": 6.2196,
-    "conditional_ev": 6.2196
+    "ev": 6.2,
+    "conditional_ev": 6.2
   },
   {
     "team": "Brooklyn Nets",
@@ -3560,8 +4004,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.6178,
-    "conditional_ev": 4.6178
+    "ev": 4.7,
+    "conditional_ev": 4.7
   },
   {
     "team": "Dallas Mavericks",
@@ -3572,8 +4016,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 32.0849,
-    "conditional_ev": 32.0849
+    "ev": 32.2,
+    "conditional_ev": 32.2
   },
   {
     "team": "Oklahoma City Thunder",
@@ -3584,8 +4028,20 @@
     "pick_type": "unpro_swap",
     "frozen": false,
     "prob": 1.0,
-    "ev": 39.217,
-    "conditional_ev": 39.217
+    "ev": 39.0,
+    "conditional_ev": 39.0
+  },
+  {
+    "team": "Dallas Mavericks",
+    "pick_id": "Dallas_Mavericks_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Dallas Mavericks",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 45.8,
+    "conditional_ev": 45.8
   },
   {
     "team": "Detroit Pistons",
@@ -3596,8 +4052,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.1808,
-    "conditional_ev": 4.1808
+    "ev": 4.1,
+    "conditional_ev": 4.1
   },
   {
     "team": "San Antonio Spurs",
@@ -3608,8 +4064,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 2.6461,
-    "conditional_ev": 2.6461
+    "ev": 2.6,
+    "conditional_ev": 2.6
   },
   {
     "team": "Sacramento Kings",
@@ -3620,8 +4076,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.2276,
-    "conditional_ev": 31.2276
+    "ev": 31.2,
+    "conditional_ev": 31.2
+  },
+  {
+    "team": "Washington Wizards",
+    "pick_id": "Minnesota_Timberwolves_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Minnesota Timberwolves",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 3.2,
+    "conditional_ev": 3.2
   },
   {
     "team": "Phoenix Suns",
@@ -3631,9 +4099,9 @@
     "original_team": "Minnesota Timberwolves",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.8852,
-    "ev": 20.6805,
-    "conditional_ev": 20.6805
+    "prob": 0.883,
+    "ev": 20.7,
+    "conditional_ev": 20.7
   },
   {
     "team": "Utah Jazz",
@@ -3643,9 +4111,9 @@
     "original_team": "Minnesota Timberwolves",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.1148,
-    "ev": 20.6805,
-    "conditional_ev": 24.3237
+    "prob": 0.117,
+    "ev": 20.7,
+    "conditional_ev": 24.4
   },
   {
     "team": "Detroit Pistons",
@@ -3656,8 +4124,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 3.782,
-    "conditional_ev": 3.782
+    "ev": 3.7,
+    "conditional_ev": 3.7
   },
   {
     "team": "Charlotte Hornets",
@@ -3667,9 +4135,9 @@
     "original_team": "Minnesota Timberwolves",
     "pick_type": "pro_triple_swap",
     "frozen": false,
-    "prob": 0.5948,
-    "ev": 18.4823,
-    "conditional_ev": 18.4823
+    "prob": 0.5984,
+    "ev": 18.7,
+    "conditional_ev": 18.7
   },
   {
     "team": "Utah Jazz",
@@ -3679,9 +4147,9 @@
     "original_team": "Minnesota Timberwolves",
     "pick_type": "pro_triple_swap",
     "frozen": false,
-    "prob": 0.3876,
-    "ev": 18.4823,
-    "conditional_ev": 26.671
+    "prob": 0.3836,
+    "ev": 18.7,
+    "conditional_ev": 26.5
   },
   {
     "team": "Minnesota Timberwolves",
@@ -3691,9 +4159,9 @@
     "original_team": "Minnesota Timberwolves",
     "pick_type": "pro_triple_swap",
     "frozen": false,
-    "prob": 0.0176,
-    "ev": 18.4823,
-    "conditional_ev": 70.9611
+    "prob": 0.018,
+    "ev": 18.7,
+    "conditional_ev": 69.5
   },
   {
     "team": "Minnesota Timberwolves",
@@ -3704,8 +4172,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2535,
-    "conditional_ev": 4.2535
+    "ev": 4.2,
+    "conditional_ev": 4.2
   },
   {
     "team": "Utah Jazz",
@@ -3715,9 +4183,9 @@
     "original_team": "Minnesota Timberwolves",
     "pick_type": "unpro_backup",
     "frozen": false,
-    "prob": 0.9824,
-    "ev": 3.1106,
-    "conditional_ev": 3.1106
+    "prob": 0.982,
+    "ev": 3.1,
+    "conditional_ev": 3.1
   },
   {
     "team": "Minnesota Timberwolves",
@@ -3727,9 +4195,9 @@
     "original_team": "Minnesota Timberwolves",
     "pick_type": "unpro_backup",
     "frozen": false,
-    "prob": 0.0176,
-    "ev": 3.1106,
-    "conditional_ev": 2.9038
+    "prob": 0.018,
+    "ev": 3.1,
+    "conditional_ev": 3.3
   },
   {
     "team": "Minnesota Timberwolves",
@@ -3740,8 +4208,8 @@
     "pick_type": "unprotected",
     "frozen": true,
     "prob": 1.0,
-    "ev": 0.0,
-    "conditional_ev": 0.0
+    "ev": 10.4,
+    "conditional_ev": 10.4
   },
   {
     "team": "Portland Trail Blazers",
@@ -3752,8 +4220,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 2.9474,
-    "conditional_ev": 2.9474
+    "ev": 2.9,
+    "conditional_ev": 2.9
   },
   {
     "team": "Minnesota Timberwolves",
@@ -3763,9 +4231,9 @@
     "original_team": "Minnesota Timberwolves",
     "pick_type": "nested_swap",
     "frozen": false,
-    "prob": 0.6618,
-    "ev": 22.5824,
-    "conditional_ev": 22.5824
+    "prob": 0.6896,
+    "ev": 23.0,
+    "conditional_ev": 23.0
   },
   {
     "team": "San Antonio Spurs",
@@ -3775,9 +4243,9 @@
     "original_team": "Minnesota Timberwolves",
     "pick_type": "nested_swap",
     "frozen": false,
-    "prob": 0.3382,
-    "ev": 22.5824,
-    "conditional_ev": 38.8578
+    "prob": 0.3104,
+    "ev": 23.0,
+    "conditional_ev": 38.3
   },
   {
     "team": "Detroit Pistons",
@@ -3787,9 +4255,9 @@
     "original_team": "Minnesota Timberwolves",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.55,
-    "ev": 3.1809,
-    "conditional_ev": 3.1809
+    "prob": 0.5542,
+    "ev": 3.2,
+    "conditional_ev": 3.2
   },
   {
     "team": "Chicago Bulls",
@@ -3799,9 +4267,21 @@
     "original_team": "Minnesota Timberwolves",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.45,
-    "ev": 3.1809,
-    "conditional_ev": 5.1956
+    "prob": 0.4458,
+    "ev": 3.2,
+    "conditional_ev": 5.2
+  },
+  {
+    "team": "Detroit Pistons",
+    "pick_id": "Minnesota_Timberwolves_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Minnesota Timberwolves",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 23.0,
+    "conditional_ev": 23.0
   },
   {
     "team": "Minnesota Timberwolves",
@@ -3812,8 +4292,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 19.3108,
-    "conditional_ev": 19.3108
+    "ev": 19.3,
+    "conditional_ev": 19.3
   },
   {
     "team": "Brooklyn Nets",
@@ -3824,8 +4304,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2052,
-    "conditional_ev": 4.2052
+    "ev": 4.2,
+    "conditional_ev": 4.2
   },
   {
     "team": "Oklahoma City Thunder",
@@ -3835,9 +4315,9 @@
     "original_team": "Denver Nuggets",
     "pick_type": "pro_backup_branched",
     "frozen": false,
-    "prob": 0.8466,
-    "ev": 30.5437,
-    "conditional_ev": 30.5437
+    "prob": 0.8588,
+    "ev": 30.8,
+    "conditional_ev": 30.8
   },
   {
     "team": "Denver Nuggets",
@@ -3847,9 +4327,9 @@
     "original_team": "Denver Nuggets",
     "pick_type": "pro_backup_branched",
     "frozen": false,
-    "prob": 0.1534,
-    "ev": 30.5437,
-    "conditional_ev": 70.7364
+    "prob": 0.1412,
+    "ev": 30.8,
+    "conditional_ev": 70.9
   },
   {
     "team": "Oklahoma City Thunder",
@@ -3860,8 +4340,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.7707,
-    "conditional_ev": 4.7707
+    "ev": 4.7,
+    "conditional_ev": 4.7
   },
   {
     "team": "Oklahoma City Thunder",
@@ -3872,8 +4352,20 @@
     "pick_type": "pro_triple_swap",
     "frozen": false,
     "prob": 1.0,
-    "ev": 22.5137,
-    "conditional_ev": 22.5137
+    "ev": 22.5,
+    "conditional_ev": 22.5
+  },
+  {
+    "team": "Chicago Bulls",
+    "pick_id": "Denver_Nuggets_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Denver Nuggets",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 2.2,
+    "conditional_ev": 2.2
   },
   {
     "team": "Denver Nuggets",
@@ -3884,8 +4376,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 33.792,
-    "conditional_ev": 33.792
+    "ev": 33.8,
+    "conditional_ev": 33.8
   },
   {
     "team": "Washington Wizards",
@@ -3896,8 +4388,8 @@
     "pick_type": "pro_pick",
     "frozen": false,
     "prob": 1.0,
-    "ev": 3.6944,
-    "conditional_ev": 3.6944
+    "ev": 3.7,
+    "conditional_ev": 3.7
   },
   {
     "team": "Denver Nuggets",
@@ -3908,8 +4400,20 @@
     "pick_type": "pro_backup",
     "frozen": false,
     "prob": 1.0,
-    "ev": 26.0493,
-    "conditional_ev": 26.0493
+    "ev": 25.9,
+    "conditional_ev": 25.9
+  },
+  {
+    "team": "Denver Nuggets",
+    "pick_id": "Denver_Nuggets_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Denver Nuggets",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 16.5,
+    "conditional_ev": 16.5
   },
   {
     "team": "Chicago Bulls",
@@ -3920,8 +4424,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.4973,
-    "conditional_ev": 4.4973
+    "ev": 4.5,
+    "conditional_ev": 4.5
   },
   {
     "team": "Denver Nuggets",
@@ -3932,8 +4436,8 @@
     "pick_type": "pro_backup_branched",
     "frozen": false,
     "prob": 1.0,
-    "ev": 36.3257,
-    "conditional_ev": 36.3257
+    "ev": 36.1,
+    "conditional_ev": 36.1
   },
   {
     "team": "Utah Jazz",
@@ -3944,8 +4448,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 3.1818,
-    "conditional_ev": 3.1818
+    "ev": 3.2,
+    "conditional_ev": 3.2
   },
   {
     "team": "Brooklyn Nets",
@@ -3956,8 +4460,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.9894,
-    "conditional_ev": 31.9894
+    "ev": 31.9,
+    "conditional_ev": 31.9
   },
   {
     "team": "Charlotte Hornets",
@@ -3967,9 +4471,9 @@
     "original_team": "Denver Nuggets",
     "pick_type": "unpro_backup",
     "frozen": false,
-    "prob": 0.8466,
-    "ev": 4.8955,
-    "conditional_ev": 4.8955
+    "prob": 0.8588,
+    "ev": 4.9,
+    "conditional_ev": 4.9
   },
   {
     "team": "Oklahoma City Thunder",
@@ -3979,9 +4483,9 @@
     "original_team": "Denver Nuggets",
     "pick_type": "unpro_backup",
     "frozen": false,
-    "prob": 0.1534,
-    "ev": 4.8955,
-    "conditional_ev": 4.9045
+    "prob": 0.1412,
+    "ev": 4.9,
+    "conditional_ev": 4.9
   },
   {
     "team": "Toronto Raptors",
@@ -3992,8 +4496,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 26.3748,
-    "conditional_ev": 26.3748
+    "ev": 26.5,
+    "conditional_ev": 26.5
   },
   {
     "team": "Toronto Raptors",
@@ -4004,8 +4508,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.792,
-    "conditional_ev": 4.792
+    "ev": 4.7,
+    "conditional_ev": 4.7
   },
   {
     "team": "Toronto Raptors",
@@ -4016,8 +4520,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 33.8042,
-    "conditional_ev": 33.8042
+    "ev": 34.0,
+    "conditional_ev": 34.0
   },
   {
     "team": "Brooklyn Nets",
@@ -4028,8 +4532,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2384,
-    "conditional_ev": 4.2384
+    "ev": 4.2,
+    "conditional_ev": 4.2
   },
   {
     "team": "Toronto Raptors",
@@ -4040,8 +4544,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.4401,
-    "conditional_ev": 4.4401
+    "ev": 4.4,
+    "conditional_ev": 4.4
   },
   {
     "team": "Toronto Raptors",
@@ -4052,8 +4556,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 34.0303,
-    "conditional_ev": 34.0303
+    "ev": 33.4,
+    "conditional_ev": 33.4
+  },
+  {
+    "team": "Toronto Raptors",
+    "pick_id": "Toronto_Raptors_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Toronto Raptors",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 3.5,
+    "conditional_ev": 3.5
   },
   {
     "team": "New Orleans Pelicans",
@@ -4064,8 +4580,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.5078,
-    "conditional_ev": 4.5078
+    "ev": 4.5,
+    "conditional_ev": 4.5
+  },
+  {
+    "team": "Toronto Raptors",
+    "pick_id": "Toronto_Raptors_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Toronto Raptors",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 25.8,
+    "conditional_ev": 25.8
   },
   {
     "team": "Toronto Raptors",
@@ -4076,8 +4604,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.9192,
-    "conditional_ev": 31.9192
+    "ev": 31.7,
+    "conditional_ev": 31.7
   },
   {
     "team": "Toronto Raptors",
@@ -4088,8 +4616,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.4864,
-    "conditional_ev": 4.4864
+    "ev": 4.5,
+    "conditional_ev": 4.5
   },
   {
     "team": "Toronto Raptors",
@@ -4100,8 +4628,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.9548,
-    "conditional_ev": 31.9548
+    "ev": 32.5,
+    "conditional_ev": 32.5
   },
   {
     "team": "Toronto Raptors",
@@ -4112,8 +4640,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 3.9176,
-    "conditional_ev": 3.9176
+    "ev": 3.9,
+    "conditional_ev": 3.9
   },
   {
     "team": "Toronto Raptors",
@@ -4124,8 +4652,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 36.1327,
-    "conditional_ev": 36.1327
+    "ev": 36.0,
+    "conditional_ev": 36.0
+  },
+  {
+    "team": "Phoenix Suns",
+    "pick_id": "Philadelphia_76ers_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Philadelphia 76ers",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 4.2,
+    "conditional_ev": 4.2
   },
   {
     "team": "Philadelphia 76ers",
@@ -4136,8 +4676,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 30.2474,
-    "conditional_ev": 30.2474
+    "ev": 30.5,
+    "conditional_ev": 30.5
   },
   {
     "team": "Philadelphia 76ers",
@@ -4147,9 +4687,9 @@
     "original_team": "Philadelphia 76ers",
     "pick_type": "unpro_backup",
     "frozen": false,
-    "prob": 0.9036,
-    "ev": 4.7169,
-    "conditional_ev": 4.7169
+    "prob": 0.891,
+    "ev": 4.7,
+    "conditional_ev": 4.7
   },
   {
     "team": "Brooklyn Nets",
@@ -4159,9 +4699,9 @@
     "original_team": "Philadelphia 76ers",
     "pick_type": "unpro_backup",
     "frozen": false,
-    "prob": 0.0964,
-    "ev": 4.7169,
-    "conditional_ev": 4.7343
+    "prob": 0.109,
+    "ev": 4.7,
+    "conditional_ev": 4.8
   },
   {
     "team": "Philadelphia 76ers",
@@ -4171,9 +4711,9 @@
     "original_team": "Philadelphia 76ers",
     "pick_type": "pro_swap",
     "frozen": false,
-    "prob": 0.6278,
-    "ev": 37.1529,
-    "conditional_ev": 37.1529
+    "prob": 0.618,
+    "ev": 36.8,
+    "conditional_ev": 36.8
   },
   {
     "team": "Los Angeles Clippers",
@@ -4183,21 +4723,9 @@
     "original_team": "Philadelphia 76ers",
     "pick_type": "pro_swap",
     "frozen": false,
-    "prob": 0.3722,
-    "ev": 37.1529,
-    "conditional_ev": 24.332
-  },
-  {
-    "team": "Memphis Grizzlies",
-    "pick_id": "Philadelphia_76ers_2032_2",
-    "year": 2032,
-    "round": 2,
-    "original_team": "Philadelphia 76ers",
-    "pick_type": "unpro_swap",
-    "frozen": false,
-    "prob": 0.503,
-    "ev": 5.4721,
-    "conditional_ev": 5.4721
+    "prob": 0.382,
+    "ev": 36.8,
+    "conditional_ev": 24.5
   },
   {
     "team": "Philadelphia 76ers",
@@ -4207,9 +4735,21 @@
     "original_team": "Philadelphia 76ers",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.497,
-    "ev": 5.4721,
-    "conditional_ev": 2.9997
+    "prob": 0.5,
+    "ev": 3.0,
+    "conditional_ev": 3.0
+  },
+  {
+    "team": "Memphis Grizzlies",
+    "pick_id": "Philadelphia_76ers_2032_2",
+    "year": 2032,
+    "round": 2,
+    "original_team": "Philadelphia 76ers",
+    "pick_type": "unpro_swap",
+    "frozen": false,
+    "prob": 0.5,
+    "ev": 3.0,
+    "conditional_ev": 5.4
   },
   {
     "team": "Dallas Mavericks",
@@ -4220,8 +4760,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.3024,
-    "conditional_ev": 4.3024
+    "ev": 4.3,
+    "conditional_ev": 4.3
   },
   {
     "team": "Philadelphia 76ers",
@@ -4232,8 +4772,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 33.5699,
-    "conditional_ev": 33.5699
+    "ev": 33.8,
+    "conditional_ev": 33.8
   },
   {
     "team": "Philadelphia 76ers",
@@ -4244,8 +4784,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 32.6086,
-    "conditional_ev": 32.6086
+    "ev": 32.3,
+    "conditional_ev": 32.3
   },
   {
     "team": "Philadelphia 76ers",
@@ -4256,8 +4796,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.8848,
-    "conditional_ev": 4.8848
+    "ev": 4.9,
+    "conditional_ev": 4.9
   },
   {
     "team": "Philadelphia 76ers",
@@ -4268,8 +4808,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2912,
-    "conditional_ev": 4.2912
+    "ev": 4.3,
+    "conditional_ev": 4.3
   },
   {
     "team": "Philadelphia 76ers",
@@ -4280,8 +4820,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.7977,
-    "conditional_ev": 31.7977
+    "ev": 31.9,
+    "conditional_ev": 31.9
   },
   {
     "team": "Philadelphia 76ers",
@@ -4291,9 +4831,9 @@
     "original_team": "Philadelphia 76ers",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.5474,
-    "ev": 34.2422,
-    "conditional_ev": 34.2422
+    "prob": 0.5528,
+    "ev": 35.0,
+    "conditional_ev": 35.0
   },
   {
     "team": "Brooklyn Nets",
@@ -4303,21 +4843,9 @@
     "original_team": "Philadelphia 76ers",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.1684,
-    "ev": 34.2422,
-    "conditional_ev": 37.9803
-  },
-  {
-    "team": "Phoenix Suns",
-    "pick_id": "Philadelphia_76ers_2028_1",
-    "year": 2028,
-    "round": 1,
-    "original_team": "Philadelphia 76ers",
-    "pick_type": "special",
-    "frozen": false,
-    "prob": 0.1424,
-    "ev": 34.2422,
-    "conditional_ev": 23.5723
+    "prob": 0.1662,
+    "ev": 35.0,
+    "conditional_ev": 38.4
   },
   {
     "team": "Washington Wizards",
@@ -4327,9 +4855,21 @@
     "original_team": "Philadelphia 76ers",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.1418,
-    "ev": 34.2422,
-    "conditional_ev": 35.3692
+    "prob": 0.1408,
+    "ev": 35.0,
+    "conditional_ev": 35.5
+  },
+  {
+    "team": "Phoenix Suns",
+    "pick_id": "Philadelphia_76ers_2028_1",
+    "year": 2028,
+    "round": 1,
+    "original_team": "Philadelphia 76ers",
+    "pick_type": "special",
+    "frozen": false,
+    "prob": 0.1402,
+    "ev": 35.0,
+    "conditional_ev": 23.7
   },
   {
     "team": "Oklahoma City Thunder",
@@ -4340,8 +4880,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 28.25,
-    "conditional_ev": 28.25
+    "ev": 28.2,
+    "conditional_ev": 28.2
   },
   {
     "team": "Philadelphia 76ers",
@@ -4352,8 +4892,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.0294,
-    "conditional_ev": 4.0294
+    "ev": 4.1,
+    "conditional_ev": 4.1
   },
   {
     "team": "Philadelphia 76ers",
@@ -4364,8 +4904,8 @@
     "pick_type": "nested_swap",
     "frozen": false,
     "prob": 1.0,
-    "ev": 5.3875,
-    "conditional_ev": 5.3875
+    "ev": 5.4,
+    "conditional_ev": 5.4
   },
   {
     "team": "Miami Heat",
@@ -4376,8 +4916,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 35.5666,
-    "conditional_ev": 35.5666
+    "ev": 36.9,
+    "conditional_ev": 36.9
   },
   {
     "team": "Miami Heat",
@@ -4388,8 +4928,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 32.112,
-    "conditional_ev": 32.112
+    "ev": 32.0,
+    "conditional_ev": 32.0
   },
   {
     "team": "Charlotte Hornets",
@@ -4399,9 +4939,9 @@
     "original_team": "Miami Heat",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.6056,
-    "ev": 6.5862,
-    "conditional_ev": 6.5862
+    "prob": 0.5862,
+    "ev": 6.6,
+    "conditional_ev": 6.6
   },
   {
     "team": "Oklahoma City Thunder",
@@ -4411,9 +4951,9 @@
     "original_team": "Miami Heat",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.3944,
-    "ev": 6.5862,
-    "conditional_ev": 2.306
+    "prob": 0.4138,
+    "ev": 6.6,
+    "conditional_ev": 2.3
   },
   {
     "team": "Charlotte Hornets",
@@ -4423,9 +4963,9 @@
     "original_team": "Miami Heat",
     "pick_type": "unpro_backup",
     "frozen": false,
-    "prob": 0.515,
-    "ev": 18.1141,
-    "conditional_ev": 18.1141
+    "prob": 0.5176,
+    "ev": 18.1,
+    "conditional_ev": 18.1
   },
   {
     "team": "Miami Heat",
@@ -4435,9 +4975,9 @@
     "original_team": "Miami Heat",
     "pick_type": "unpro_backup",
     "frozen": false,
-    "prob": 0.485,
-    "ev": 18.1141,
-    "conditional_ev": 55.862
+    "prob": 0.4824,
+    "ev": 18.1,
+    "conditional_ev": 56.5
   },
   {
     "team": "Washington Wizards",
@@ -4447,9 +4987,9 @@
     "original_team": "Miami Heat",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.5408,
-    "ev": 5.8766,
-    "conditional_ev": 5.8766
+    "prob": 0.5292,
+    "ev": 5.8,
+    "conditional_ev": 5.8
   },
   {
     "team": "Indiana Pacers",
@@ -4459,9 +4999,9 @@
     "original_team": "Miami Heat",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.3208,
-    "ev": 5.8766,
-    "conditional_ev": 2.4411
+    "prob": 0.3364,
+    "ev": 5.8,
+    "conditional_ev": 2.4
   },
   {
     "team": "Memphis Grizzlies",
@@ -4471,9 +5011,21 @@
     "original_team": "Miami Heat",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.1384,
-    "ev": 5.8766,
-    "conditional_ev": 3.9302
+    "prob": 0.1344,
+    "ev": 5.8,
+    "conditional_ev": 4.0
+  },
+  {
+    "team": "Miami Heat",
+    "pick_id": "Miami_Heat_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Miami Heat",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 35.0,
+    "conditional_ev": 35.0
   },
   {
     "team": "Miami Heat",
@@ -4484,8 +5036,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 34.4106,
-    "conditional_ev": 34.4106
+    "ev": 33.6,
+    "conditional_ev": 33.6
+  },
+  {
+    "team": "San Antonio Spurs",
+    "pick_id": "Miami_Heat_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Miami Heat",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 5.0,
+    "conditional_ev": 5.0
   },
   {
     "team": "Detroit Pistons",
@@ -4495,9 +5059,9 @@
     "original_team": "Miami Heat",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.6328,
-    "ev": 6.252,
-    "conditional_ev": 6.252
+    "prob": 0.653,
+    "ev": 6.2,
+    "conditional_ev": 6.2
   },
   {
     "team": "Utah Jazz",
@@ -4507,9 +5071,9 @@
     "original_team": "Miami Heat",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.3068,
-    "ev": 6.252,
-    "conditional_ev": 1.7536
+    "prob": 0.2942,
+    "ev": 6.2,
+    "conditional_ev": 1.7
   },
   {
     "team": "Charlotte Hornets",
@@ -4519,9 +5083,9 @@
     "original_team": "Miami Heat",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.0604,
-    "ev": 6.252,
-    "conditional_ev": 4.4784
+    "prob": 0.0528,
+    "ev": 6.2,
+    "conditional_ev": 4.9
   },
   {
     "team": "Brooklyn Nets",
@@ -4532,8 +5096,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.246,
-    "conditional_ev": 4.246
+    "ev": 4.2,
+    "conditional_ev": 4.2
   },
   {
     "team": "Miami Heat",
@@ -4544,8 +5108,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 36.7221,
-    "conditional_ev": 36.7221
+    "ev": 36.7,
+    "conditional_ev": 36.7
   },
   {
     "team": "Miami Heat",
@@ -4555,9 +5119,9 @@
     "original_team": "Miami Heat",
     "pick_type": "pro_pick",
     "frozen": false,
-    "prob": 0.9264,
-    "ev": 39.8476,
-    "conditional_ev": 39.8476
+    "prob": 0.9244,
+    "ev": 40.0,
+    "conditional_ev": 40.0
   },
   {
     "team": "Charlotte Hornets",
@@ -4567,9 +5131,9 @@
     "original_team": "Miami Heat",
     "pick_type": "pro_pick",
     "frozen": false,
-    "prob": 0.0736,
-    "ev": 39.8476,
-    "conditional_ev": 30.139
+    "prob": 0.0756,
+    "ev": 40.0,
+    "conditional_ev": 30.2
   },
   {
     "team": "Oklahoma City Thunder",
@@ -4580,8 +5144,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.743,
-    "conditional_ev": 4.743
+    "ev": 4.8,
+    "conditional_ev": 4.8
   },
   {
     "team": "Golden State Warriors",
@@ -4592,8 +5156,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 53.2757,
-    "conditional_ev": 53.2757
+    "ev": 53.2,
+    "conditional_ev": 53.2
   },
   {
     "team": "Chicago Bulls",
@@ -4603,9 +5167,9 @@
     "original_team": "Golden State Warriors",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.55,
-    "ev": 5.8229,
-    "conditional_ev": 5.8229
+    "prob": 0.5542,
+    "ev": 5.8,
+    "conditional_ev": 5.8
   },
   {
     "team": "Detroit Pistons",
@@ -4615,9 +5179,21 @@
     "original_team": "Golden State Warriors",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.45,
-    "ev": 5.8229,
-    "conditional_ev": 2.887
+    "prob": 0.4458,
+    "ev": 5.8,
+    "conditional_ev": 2.9
+  },
+  {
+    "team": "Golden State Warriors",
+    "pick_id": "Golden_State_Warriors_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Golden State Warriors",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 40.0,
+    "conditional_ev": 40.0
   },
   {
     "team": "Washington Wizards",
@@ -4627,9 +5203,9 @@
     "original_team": "Golden State Warriors",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.77,
-    "ev": 5.0299,
-    "conditional_ev": 5.0299
+    "prob": 0.7712,
+    "ev": 5.0,
+    "conditional_ev": 5.0
   },
   {
     "team": "Philadelphia 76ers",
@@ -4639,9 +5215,9 @@
     "original_team": "Golden State Warriors",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.23,
-    "ev": 5.0299,
-    "conditional_ev": 5.6261
+    "prob": 0.2288,
+    "ev": 5.0,
+    "conditional_ev": 5.6
   },
   {
     "team": "Golden State Warriors",
@@ -4651,9 +5227,9 @@
     "original_team": "Golden State Warriors",
     "pick_type": "pro_pick",
     "frozen": false,
-    "prob": 0.6686,
-    "ev": 46.2624,
-    "conditional_ev": 46.2624
+    "prob": 0.6722,
+    "ev": 45.9,
+    "conditional_ev": 45.9
   },
   {
     "team": "Dallas Mavericks",
@@ -4663,9 +5239,9 @@
     "original_team": "Golden State Warriors",
     "pick_type": "pro_pick",
     "frozen": false,
-    "prob": 0.3314,
-    "ev": 46.2624,
-    "conditional_ev": 14.9419
+    "prob": 0.3278,
+    "ev": 45.9,
+    "conditional_ev": 15.1
   },
   {
     "team": "Golden State Warriors",
@@ -4676,8 +5252,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.9539,
-    "conditional_ev": 31.9539
+    "ev": 32.5,
+    "conditional_ev": 32.5
   },
   {
     "team": "Brooklyn Nets",
@@ -4688,8 +5264,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 6.4767,
-    "conditional_ev": 6.4767
+    "ev": 6.5,
+    "conditional_ev": 6.5
   },
   {
     "team": "Golden State Warriors",
@@ -4699,9 +5275,9 @@
     "original_team": "Golden State Warriors",
     "pick_type": "pro_pick",
     "frozen": false,
-    "prob": 0.6632,
-    "ev": 5.3643,
-    "conditional_ev": 5.3643
+    "prob": 0.6732,
+    "ev": 5.3,
+    "conditional_ev": 5.3
   },
   {
     "team": "Memphis Grizzlies",
@@ -4711,9 +5287,9 @@
     "original_team": "Golden State Warriors",
     "pick_type": "pro_pick",
     "frozen": false,
-    "prob": 0.3368,
-    "ev": 5.3643,
-    "conditional_ev": 1.9855
+    "prob": 0.3268,
+    "ev": 5.3,
+    "conditional_ev": 2.0
   },
   {
     "team": "Golden State Warriors",
@@ -4724,8 +5300,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 49.8507,
-    "conditional_ev": 49.8507
+    "ev": 50.0,
+    "conditional_ev": 50.0
   },
   {
     "team": "Golden State Warriors",
@@ -4736,8 +5312,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 36.4607,
-    "conditional_ev": 36.4607
+    "ev": 36.7,
+    "conditional_ev": 36.7
   },
   {
     "team": "Dallas Mavericks",
@@ -4747,9 +5323,9 @@
     "original_team": "Golden State Warriors",
     "pick_type": "unpro_backup",
     "frozen": false,
-    "prob": 0.6686,
-    "ev": 4.7697,
-    "conditional_ev": 4.7697
+    "prob": 0.6722,
+    "ev": 4.8,
+    "conditional_ev": 4.8
   },
   {
     "team": "Golden State Warriors",
@@ -4759,9 +5335,9 @@
     "original_team": "Golden State Warriors",
     "pick_type": "unpro_backup",
     "frozen": false,
-    "prob": 0.3314,
-    "ev": 4.7697,
-    "conditional_ev": 4.7111
+    "prob": 0.3278,
+    "ev": 4.8,
+    "conditional_ev": 4.7
   },
   {
     "team": "Golden State Warriors",
@@ -4772,8 +5348,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 33.6485,
-    "conditional_ev": 33.6485
+    "ev": 33.6,
+    "conditional_ev": 33.6
+  },
+  {
+    "team": "Miami Heat",
+    "pick_id": "Golden_State_Warriors_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Golden State Warriors",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 5.8,
+    "conditional_ev": 5.8
   },
   {
     "team": "Philadelphia 76ers",
@@ -4784,8 +5372,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 6.7847,
-    "conditional_ev": 6.7847
+    "ev": 6.8,
+    "conditional_ev": 6.8
   },
   {
     "team": "Brooklyn Nets",
@@ -4796,8 +5384,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 33.5357,
-    "conditional_ev": 33.5357
+    "ev": 33.5,
+    "conditional_ev": 33.5
+  },
+  {
+    "team": "Brooklyn Nets",
+    "pick_id": "Brooklyn_Nets_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Brooklyn Nets",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 8.2,
+    "conditional_ev": 8.2
   },
   {
     "team": "Brooklyn Nets",
@@ -4808,8 +5408,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 6.9999,
-    "conditional_ev": 6.9999
+    "ev": 7.0,
+    "conditional_ev": 7.0
   },
   {
     "team": "Brooklyn Nets",
@@ -4820,8 +5420,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 46.4667,
-    "conditional_ev": 46.4667
+    "ev": 47.0,
+    "conditional_ev": 47.0
   },
   {
     "team": "Brooklyn Nets",
@@ -4832,8 +5432,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2552,
-    "conditional_ev": 4.2552
+    "ev": 4.3,
+    "conditional_ev": 4.3
   },
   {
     "team": "Houston Rockets",
@@ -4844,8 +5444,8 @@
     "pick_type": "unpro_swap",
     "frozen": false,
     "prob": 1.0,
-    "ev": 63.4721,
-    "conditional_ev": 63.4721
+    "ev": 63.5,
+    "conditional_ev": 63.5
   },
   {
     "team": "Brooklyn Nets",
@@ -4856,8 +5456,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.9508,
-    "conditional_ev": 4.9508
+    "ev": 5.0,
+    "conditional_ev": 5.0
   },
   {
     "team": "Washington Wizards",
@@ -4868,8 +5468,8 @@
     "pick_type": "unpro_swap",
     "frozen": false,
     "prob": 1.0,
-    "ev": 8.0723,
-    "conditional_ev": 8.0723
+    "ev": 8.1,
+    "conditional_ev": 8.1
   },
   {
     "team": "Brooklyn Nets",
@@ -4880,8 +5480,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 37.2724,
-    "conditional_ev": 37.2724
+    "ev": 37.6,
+    "conditional_ev": 37.6
   },
   {
     "team": "Brooklyn Nets",
@@ -4892,8 +5492,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 6.1404,
-    "conditional_ev": 6.1404
+    "ev": 6.2,
+    "conditional_ev": 6.2
   },
   {
     "team": "Brooklyn Nets",
@@ -4904,8 +5504,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.9886,
-    "conditional_ev": 31.9886
+    "ev": 31.8,
+    "conditional_ev": 31.8
   },
   {
     "team": "Brooklyn Nets",
@@ -4915,9 +5515,9 @@
     "original_team": "Brooklyn Nets",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.989,
-    "ev": 55.4843,
-    "conditional_ev": 55.4843
+    "prob": 0.9878,
+    "ev": 55.6,
+    "conditional_ev": 55.6
   },
   {
     "team": "Washington Wizards",
@@ -4927,21 +5527,9 @@
     "original_team": "Brooklyn Nets",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.0108,
-    "ev": 55.4843,
-    "conditional_ev": 36.0684
-  },
-  {
-    "team": "Phoenix Suns",
-    "pick_id": "Brooklyn_Nets_2028_1",
-    "year": 2028,
-    "round": 1,
-    "original_team": "Brooklyn Nets",
-    "pick_type": "special",
-    "frozen": false,
-    "prob": 0.0002,
-    "ev": 55.4843,
-    "conditional_ev": 38.416
+    "prob": 0.0122,
+    "ev": 55.6,
+    "conditional_ev": 35.9
   },
   {
     "team": "Brooklyn Nets",
@@ -4952,8 +5540,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.3955,
-    "conditional_ev": 4.3955
+    "ev": 4.5,
+    "conditional_ev": 4.5
+  },
+  {
+    "team": "Brooklyn Nets",
+    "pick_id": "Brooklyn_Nets_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Brooklyn Nets",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 52.8,
+    "conditional_ev": 52.8
   },
   {
     "team": "New Orleans Pelicans",
@@ -4964,20 +5564,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 48.1293,
-    "conditional_ev": 48.1293
+    "ev": 48.3,
+    "conditional_ev": 48.3
   },
   {
-    "team": "Oklahoma City Thunder",
-    "pick_id": "New_Orleans_Pelicans_2031_2",
-    "year": 2031,
-    "round": 2,
+    "team": "Atlanta Hawks",
+    "pick_id": "New_Orleans_Pelicans_2026_1",
+    "year": 2026,
+    "round": 1,
     "original_team": "New Orleans Pelicans",
-    "pick_type": "unpro_swap",
+    "pick_type": "unprotected",
     "frozen": false,
-    "prob": 0.5012,
-    "ev": 3.1368,
-    "conditional_ev": 3.1368
+    "prob": 1.0,
+    "ev": 47.8,
+    "conditional_ev": 47.8
   },
   {
     "team": "Orlando Magic",
@@ -4987,9 +5587,21 @@
     "original_team": "New Orleans Pelicans",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.4988,
-    "ev": 3.1368,
-    "conditional_ev": 5.4532
+    "prob": 0.5,
+    "ev": 5.5,
+    "conditional_ev": 5.5
+  },
+  {
+    "team": "Oklahoma City Thunder",
+    "pick_id": "New_Orleans_Pelicans_2031_2",
+    "year": 2031,
+    "round": 2,
+    "original_team": "New Orleans Pelicans",
+    "pick_type": "unpro_swap",
+    "frozen": false,
+    "prob": 0.5,
+    "ev": 5.5,
+    "conditional_ev": 3.2
   },
   {
     "team": "New Orleans Pelicans",
@@ -5000,8 +5612,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 35.564,
-    "conditional_ev": 35.564
+    "ev": 35.2,
+    "conditional_ev": 35.2
   },
   {
     "team": "Charlotte Hornets",
@@ -5012,8 +5624,8 @@
     "pick_type": "pro_swap",
     "frozen": false,
     "prob": 1.0,
-    "ev": 6.8256,
-    "conditional_ev": 6.8256
+    "ev": 6.8,
+    "conditional_ev": 6.8
   },
   {
     "team": "New Orleans Pelicans",
@@ -5024,8 +5636,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.6291,
-    "conditional_ev": 31.6291
+    "ev": 32.0,
+    "conditional_ev": 32.0
   },
   {
     "team": "San Antonio Spurs",
@@ -5036,8 +5648,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 5.2598,
-    "conditional_ev": 5.2598
+    "ev": 5.2,
+    "conditional_ev": 5.2
   },
   {
     "team": "New Orleans Pelicans",
@@ -5048,8 +5660,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2462,
-    "conditional_ev": 4.2462
+    "ev": 4.2,
+    "conditional_ev": 4.2
   },
   {
     "team": "New Orleans Pelicans",
@@ -5060,8 +5672,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 39.8555,
-    "conditional_ev": 39.8555
+    "ev": 39.7,
+    "conditional_ev": 39.7
   },
   {
     "team": "Orlando Magic",
@@ -5071,9 +5683,9 @@
     "original_team": "New Orleans Pelicans",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.6284,
-    "ev": 5.4877,
-    "conditional_ev": 5.4877
+    "prob": 0.628,
+    "ev": 5.5,
+    "conditional_ev": 5.5
   },
   {
     "team": "New Orleans Pelicans",
@@ -5083,9 +5695,9 @@
     "original_team": "New Orleans Pelicans",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.3716,
-    "ev": 5.4877,
-    "conditional_ev": 3.2689
+    "prob": 0.372,
+    "ev": 5.5,
+    "conditional_ev": 3.3
   },
   {
     "team": "Atlanta Hawks",
@@ -5095,9 +5707,9 @@
     "original_team": "New Orleans Pelicans",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.682,
-    "ev": 46.5195,
-    "conditional_ev": 46.5195
+    "prob": 0.6796,
+    "ev": 46.4,
+    "conditional_ev": 46.4
   },
   {
     "team": "New Orleans Pelicans",
@@ -5107,9 +5719,21 @@
     "original_team": "New Orleans Pelicans",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.318,
-    "ev": 46.5195,
-    "conditional_ev": 73.6396
+    "prob": 0.3204,
+    "ev": 46.4,
+    "conditional_ev": 74.1
+  },
+  {
+    "team": "Chicago Bulls",
+    "pick_id": "New_Orleans_Pelicans_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "New Orleans Pelicans",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 6.8,
+    "conditional_ev": 6.8
   },
   {
     "team": "New Orleans Pelicans",
@@ -5120,8 +5744,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 32.5184,
-    "conditional_ev": 32.5184
+    "ev": 33.0,
+    "conditional_ev": 33.0
   },
   {
     "team": "San Antonio Spurs",
@@ -5132,8 +5756,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 6.2562,
-    "conditional_ev": 6.2562
+    "ev": 6.2,
+    "conditional_ev": 6.2
   },
   {
     "team": "Cleveland Cavaliers",
@@ -5144,8 +5768,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.7793,
-    "conditional_ev": 31.7793
+    "ev": 32.1,
+    "conditional_ev": 32.1
   },
   {
     "team": "Atlanta Hawks",
@@ -5156,8 +5780,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.8369,
-    "conditional_ev": 4.8369
+    "ev": 4.9,
+    "conditional_ev": 4.9
   },
   {
     "team": "Cleveland Cavaliers",
@@ -5168,8 +5792,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 36.2447,
-    "conditional_ev": 36.2447
+    "ev": 35.9,
+    "conditional_ev": 35.9
   },
   {
     "team": "Chicago Bulls",
@@ -5180,8 +5804,32 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 3.6784,
-    "conditional_ev": 3.6784
+    "ev": 3.7,
+    "conditional_ev": 3.7
+  },
+  {
+    "team": "Atlanta Hawks",
+    "pick_id": "Cleveland_Cavaliers_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Cleveland Cavaliers",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 20.0,
+    "conditional_ev": 20.0
+  },
+  {
+    "team": "Utah Jazz",
+    "pick_id": "Cleveland_Cavaliers_2031_2",
+    "year": 2031,
+    "round": 2,
+    "original_team": "Cleveland Cavaliers",
+    "pick_type": "unpro_swap",
+    "frozen": false,
+    "prob": 0.5076,
+    "ev": 5.8,
+    "conditional_ev": 5.8
   },
   {
     "team": "Boston Celtics",
@@ -5191,21 +5839,9 @@
     "original_team": "Cleveland Cavaliers",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.502,
-    "ev": 3.1707,
-    "conditional_ev": 3.1707
-  },
-  {
-    "team": "Utah Jazz",
-    "pick_id": "Cleveland_Cavaliers_2031_2",
-    "year": 2031,
-    "round": 2,
-    "original_team": "Cleveland Cavaliers",
-    "pick_type": "unpro_swap",
-    "frozen": false,
-    "prob": 0.498,
-    "ev": 3.1707,
-    "conditional_ev": 5.8029
+    "prob": 0.4924,
+    "ev": 5.8,
+    "conditional_ev": 3.2
   },
   {
     "team": "Atlanta Hawks",
@@ -5215,9 +5851,9 @@
     "original_team": "Cleveland Cavaliers",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.498,
-    "ev": 32.3058,
-    "conditional_ev": 32.3058
+    "prob": 0.4946,
+    "ev": 32.3,
+    "conditional_ev": 32.3
   },
   {
     "team": "Utah Jazz",
@@ -5227,9 +5863,9 @@
     "original_team": "Cleveland Cavaliers",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.3204,
-    "ev": 32.3058,
-    "conditional_ev": 48.7692
+    "prob": 0.3408,
+    "ev": 32.3,
+    "conditional_ev": 48.1
   },
   {
     "team": "Cleveland Cavaliers",
@@ -5239,9 +5875,9 @@
     "original_team": "Cleveland Cavaliers",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.1816,
-    "ev": 32.3058,
-    "conditional_ev": 25.5749
+    "prob": 0.1646,
+    "ev": 32.3,
+    "conditional_ev": 25.5
   },
   {
     "team": "Utah Jazz",
@@ -5252,8 +5888,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.9734,
-    "conditional_ev": 4.9734
+    "ev": 5.0,
+    "conditional_ev": 5.0
+  },
+  {
+    "team": "Los Angeles Clippers",
+    "pick_id": "Cleveland_Cavaliers_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Cleveland Cavaliers",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 3.0,
+    "conditional_ev": 3.0
   },
   {
     "team": "Cleveland Cavaliers",
@@ -5264,8 +5912,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 33.6911,
-    "conditional_ev": 33.6911
+    "ev": 33.6,
+    "conditional_ev": 33.6
   },
   {
     "team": "San Antonio Spurs",
@@ -5276,8 +5924,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.7529,
-    "conditional_ev": 4.7529
+    "ev": 4.7,
+    "conditional_ev": 4.7
   },
   {
     "team": "Utah Jazz",
@@ -5287,9 +5935,9 @@
     "original_team": "Cleveland Cavaliers",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.8852,
-    "ev": 25.6751,
-    "conditional_ev": 25.6751
+    "prob": 0.8828,
+    "ev": 25.7,
+    "conditional_ev": 25.7
   },
   {
     "team": "Phoenix Suns",
@@ -5299,9 +5947,21 @@
     "original_team": "Cleveland Cavaliers",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.1148,
-    "ev": 25.6751,
-    "conditional_ev": 22.0607
+    "prob": 0.117,
+    "ev": 25.7,
+    "conditional_ev": 22.1
+  },
+  {
+    "team": "Memphis Grizzlies",
+    "pick_id": "Cleveland_Cavaliers_2027_1",
+    "year": 2027,
+    "round": 1,
+    "original_team": "Cleveland Cavaliers",
+    "pick_type": "triple_swap",
+    "frozen": false,
+    "prob": 0.0002,
+    "ev": 25.7,
+    "conditional_ev": 65.4
   },
   {
     "team": "Utah Jazz",
@@ -5312,8 +5972,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.1755,
-    "conditional_ev": 4.1755
+    "ev": 4.2,
+    "conditional_ev": 4.2
   },
   {
     "team": "Utah Jazz",
@@ -5323,9 +5983,9 @@
     "original_team": "Cleveland Cavaliers",
     "pick_type": "pro_triple_swap",
     "frozen": false,
-    "prob": 0.6872,
-    "ev": 47.861,
-    "conditional_ev": 47.861
+    "prob": 0.6862,
+    "ev": 46.6,
+    "conditional_ev": 46.6
   },
   {
     "team": "Charlotte Hornets",
@@ -5335,9 +5995,9 @@
     "original_team": "Cleveland Cavaliers",
     "pick_type": "pro_triple_swap",
     "frozen": false,
-    "prob": 0.3128,
-    "ev": 47.861,
-    "conditional_ev": 15.3526
+    "prob": 0.3138,
+    "ev": 46.6,
+    "conditional_ev": 15.2
   },
   {
     "team": "Portland Trail Blazers",
@@ -5347,9 +6007,9 @@
     "original_team": "Milwaukee Bucks",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.972,
-    "ev": 60.173,
-    "conditional_ev": 60.173
+    "prob": 0.9698,
+    "ev": 60.3,
+    "conditional_ev": 60.3
   },
   {
     "team": "Washington Wizards",
@@ -5359,9 +6019,9 @@
     "original_team": "Milwaukee Bucks",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.0228,
-    "ev": 60.173,
-    "conditional_ev": 51.8848
+    "prob": 0.0242,
+    "ev": 60.3,
+    "conditional_ev": 50.6
   },
   {
     "team": "Milwaukee Bucks",
@@ -5371,9 +6031,21 @@
     "original_team": "Milwaukee Bucks",
     "pick_type": "special",
     "frozen": false,
-    "prob": 0.0052,
-    "ev": 60.173,
-    "conditional_ev": 45.2219
+    "prob": 0.006,
+    "ev": 60.3,
+    "conditional_ev": 45.9
+  },
+  {
+    "team": "Milwaukee Bucks",
+    "pick_id": "Milwaukee_Bucks_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Milwaukee Bucks",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 43.0,
+    "conditional_ev": 43.0
   },
   {
     "team": "Charlotte Hornets",
@@ -5384,20 +6056,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.517,
-    "conditional_ev": 4.517
-  },
-  {
-    "team": "Portland Trail Blazers",
-    "pick_id": "Milwaukee_Bucks_2030_1",
-    "year": 2030,
-    "round": 1,
-    "original_team": "Milwaukee Bucks",
-    "pick_type": "unpro_swap",
-    "frozen": false,
-    "prob": 0.5054,
-    "ev": 47.7523,
-    "conditional_ev": 47.7523
+    "ev": 4.5,
+    "conditional_ev": 4.5
   },
   {
     "team": "Milwaukee Bucks",
@@ -5407,9 +6067,21 @@
     "original_team": "Milwaukee Bucks",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.4946,
-    "ev": 47.7523,
-    "conditional_ev": 23.8381
+    "prob": 0.5082,
+    "ev": 23.7,
+    "conditional_ev": 23.7
+  },
+  {
+    "team": "Portland Trail Blazers",
+    "pick_id": "Milwaukee_Bucks_2030_1",
+    "year": 2030,
+    "round": 1,
+    "original_team": "Milwaukee Bucks",
+    "pick_type": "unpro_swap",
+    "frozen": false,
+    "prob": 0.4918,
+    "ev": 23.7,
+    "conditional_ev": 48.5
   },
   {
     "team": "Detroit Pistons",
@@ -5420,8 +6092,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 8.3558,
-    "conditional_ev": 8.3558
+    "ev": 8.4,
+    "conditional_ev": 8.4
   },
   {
     "team": "Detroit Pistons",
@@ -5431,9 +6103,9 @@
     "original_team": "Milwaukee Bucks",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.7294,
-    "ev": 5.9906,
-    "conditional_ev": 5.9906
+    "prob": 0.7354,
+    "ev": 6.0,
+    "conditional_ev": 6.0
   },
   {
     "team": "Chicago Bulls",
@@ -5443,9 +6115,9 @@
     "original_team": "Milwaukee Bucks",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.2706,
-    "ev": 5.9906,
-    "conditional_ev": 1.7391
+    "prob": 0.2646,
+    "ev": 6.0,
+    "conditional_ev": 1.8
   },
   {
     "team": "Milwaukee Bucks",
@@ -5456,8 +6128,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 31.7708,
-    "conditional_ev": 31.7708
+    "ev": 32.4,
+    "conditional_ev": 32.4
   },
   {
     "team": "Portland Trail Blazers",
@@ -5467,9 +6139,9 @@
     "original_team": "Milwaukee Bucks",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.8012,
-    "ev": 39.2452,
-    "conditional_ev": 39.2452
+    "prob": 0.8032,
+    "ev": 39.3,
+    "conditional_ev": 39.3
   },
   {
     "team": "Washington Wizards",
@@ -5479,9 +6151,9 @@
     "original_team": "Milwaukee Bucks",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.1988,
-    "ev": 39.2452,
-    "conditional_ev": 29.0657
+    "prob": 0.1968,
+    "ev": 39.3,
+    "conditional_ev": 29.1
   },
   {
     "team": "Charlotte Hornets",
@@ -5492,8 +6164,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.2451,
-    "conditional_ev": 4.2451
+    "ev": 4.3,
+    "conditional_ev": 4.3
   },
   {
     "team": "Orlando Magic",
@@ -5504,8 +6176,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 4.8178,
-    "conditional_ev": 4.8178
+    "ev": 4.8,
+    "conditional_ev": 4.8
   },
   {
     "team": "New Orleans Pelicans",
@@ -5515,9 +6187,9 @@
     "original_team": "Milwaukee Bucks",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.8236,
-    "ev": 66.9939,
-    "conditional_ev": 66.9939
+    "prob": 0.8244,
+    "ev": 66.9,
+    "conditional_ev": 66.9
   },
   {
     "team": "Atlanta Hawks",
@@ -5527,9 +6199,21 @@
     "original_team": "Milwaukee Bucks",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.1764,
-    "ev": 66.9939,
-    "conditional_ev": 52.6831
+    "prob": 0.1756,
+    "ev": 66.9,
+    "conditional_ev": 52.6
+  },
+  {
+    "team": "Boston Celtics",
+    "pick_id": "Milwaukee_Bucks_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Milwaukee Bucks",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 6.0,
+    "conditional_ev": 6.0
   },
   {
     "team": "Milwaukee Bucks",
@@ -5540,8 +6224,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 33.8828,
-    "conditional_ev": 33.8828
+    "ev": 34.1,
+    "conditional_ev": 34.1
   },
   {
     "team": "Philadelphia 76ers",
@@ -5552,8 +6236,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 7.658,
-    "conditional_ev": 7.658
+    "ev": 7.7,
+    "conditional_ev": 7.7
   },
   {
     "team": "Memphis Grizzlies",
@@ -5564,8 +6248,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 56.5913,
-    "conditional_ev": 56.5913
+    "ev": 56.9,
+    "conditional_ev": 56.9
   },
   {
     "team": "Memphis Grizzlies",
@@ -5575,9 +6259,9 @@
     "original_team": "Memphis Grizzlies",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.6724,
-    "ev": 5.4249,
-    "conditional_ev": 5.4249
+    "prob": 0.681,
+    "ev": 5.5,
+    "conditional_ev": 5.5
   },
   {
     "team": "Indiana Pacers",
@@ -5587,9 +6271,21 @@
     "original_team": "Memphis Grizzlies",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.3276,
-    "ev": 5.4249,
-    "conditional_ev": 2.4415
+    "prob": 0.319,
+    "ev": 5.5,
+    "conditional_ev": 2.4
+  },
+  {
+    "team": "Memphis Grizzlies",
+    "pick_id": "Memphis_Grizzlies_2026_1",
+    "year": 2026,
+    "round": 1,
+    "original_team": "Memphis Grizzlies",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 66.8,
+    "conditional_ev": 66.8
   },
   {
     "team": "Houston Rockets",
@@ -5600,8 +6296,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 7.4689,
-    "conditional_ev": 7.4689
+    "ev": 7.4,
+    "conditional_ev": 7.4
   },
   {
     "team": "Memphis Grizzlies",
@@ -5611,9 +6307,9 @@
     "original_team": "Memphis Grizzlies",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.6638,
-    "ev": 45.7138,
-    "conditional_ev": 45.7138
+    "prob": 0.652,
+    "ev": 45.4,
+    "conditional_ev": 45.4
   },
   {
     "team": "Phoenix Suns",
@@ -5623,9 +6319,9 @@
     "original_team": "Memphis Grizzlies",
     "pick_type": "triple_swap",
     "frozen": false,
-    "prob": 0.3362,
-    "ev": 45.7138,
-    "conditional_ev": 18.3041
+    "prob": 0.348,
+    "ev": 45.4,
+    "conditional_ev": 18.0
   },
   {
     "team": "Memphis Grizzlies",
@@ -5636,8 +6332,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 32.4694,
-    "conditional_ev": 32.4694
+    "ev": 31.6,
+    "conditional_ev": 31.6
   },
   {
     "team": "Brooklyn Nets",
@@ -5648,8 +6344,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 6.6648,
-    "conditional_ev": 6.6648
+    "ev": 6.7,
+    "conditional_ev": 6.7
+  },
+  {
+    "team": "Memphis Grizzlies",
+    "pick_id": "Memphis_Grizzlies_2032_2",
+    "year": 2032,
+    "round": 2,
+    "original_team": "Memphis Grizzlies",
+    "pick_type": "unpro_swap",
+    "frozen": false,
+    "prob": 0.5,
+    "ev": 5.4,
+    "conditional_ev": 5.4
   },
   {
     "team": "Philadelphia 76ers",
@@ -5659,21 +6367,9 @@
     "original_team": "Memphis Grizzlies",
     "pick_type": "unpro_swap",
     "frozen": false,
-    "prob": 0.503,
-    "ev": 3.0589,
-    "conditional_ev": 3.0589
-  },
-  {
-    "team": "Memphis Grizzlies",
-    "pick_id": "Memphis_Grizzlies_2032_2",
-    "year": 2032,
-    "round": 2,
-    "original_team": "Memphis Grizzlies",
-    "pick_type": "unpro_swap",
-    "frozen": false,
-    "prob": 0.497,
-    "ev": 3.0589,
-    "conditional_ev": 5.3581
+    "prob": 0.5,
+    "ev": 5.4,
+    "conditional_ev": 3.0
   },
   {
     "team": "Memphis Grizzlies",
@@ -5683,9 +6379,9 @@
     "original_team": "Memphis Grizzlies",
     "pick_type": "pro_swap",
     "frozen": false,
-    "prob": 0.9376,
-    "ev": 52.773,
-    "conditional_ev": 52.773
+    "prob": 0.9352,
+    "ev": 52.3,
+    "conditional_ev": 52.3
   },
   {
     "team": "Orlando Magic",
@@ -5695,9 +6391,9 @@
     "original_team": "Memphis Grizzlies",
     "pick_type": "pro_swap",
     "frozen": false,
-    "prob": 0.0624,
-    "ev": 52.773,
-    "conditional_ev": 31.7449
+    "prob": 0.0648,
+    "ev": 52.3,
+    "conditional_ev": 31.4
   },
   {
     "team": "Memphis Grizzlies",
@@ -5708,8 +6404,8 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 60.1416,
-    "conditional_ev": 60.1416
+    "ev": 59.9,
+    "conditional_ev": 59.9
   },
   {
     "team": "Memphis Grizzlies",
@@ -5719,9 +6415,9 @@
     "original_team": "Memphis Grizzlies",
     "pick_type": "pro_pick",
     "frozen": false,
-    "prob": 0.6704,
-    "ev": 6.1482,
-    "conditional_ev": 6.1482
+    "prob": 0.6712,
+    "ev": 6.1,
+    "conditional_ev": 6.1
   },
   {
     "team": "Minnesota Timberwolves",
@@ -5731,9 +6427,9 @@
     "original_team": "Memphis Grizzlies",
     "pick_type": "pro_pick",
     "frozen": false,
-    "prob": 0.3296,
-    "ev": 6.1482,
-    "conditional_ev": 1.9232
+    "prob": 0.3288,
+    "ev": 6.1,
+    "conditional_ev": 1.9
   },
   {
     "team": "Memphis Grizzlies",
@@ -5744,8 +6440,20 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 33.3957,
-    "conditional_ev": 33.3957
+    "ev": 34.3,
+    "conditional_ev": 34.3
+  },
+  {
+    "team": "Los Angeles Clippers",
+    "pick_id": "Memphis_Grizzlies_2026_2",
+    "year": 2026,
+    "round": 2,
+    "original_team": "Memphis Grizzlies",
+    "pick_type": "unprotected",
+    "frozen": false,
+    "prob": 1.0,
+    "ev": 7.2,
+    "conditional_ev": 7.2
   },
   {
     "team": "Brooklyn Nets",
@@ -5756,7 +6464,7 @@
     "pick_type": "unprotected",
     "frozen": false,
     "prob": 1.0,
-    "ev": 7.2259,
-    "conditional_ev": 7.2259
+    "ev": 7.2,
+    "conditional_ev": 7.2
   }
 ]

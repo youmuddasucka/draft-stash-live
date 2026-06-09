@@ -1,271 +1,34 @@
 import { notFound } from "next/navigation";
-import fs from "fs";
-import path from "path";
 import { loadSimPickCards, type SimPickCard } from "@/lib/loadSimPickCards";
-import { TEAM_METADATA, TEAM_FULL_TO_ABBR } from "@/lib/teamMetadata";
+import { TEAM_METADATA } from "@/lib/teamMetadata";
 import { teamColors } from "@/components/teamColors";
 import TeamLogo from "@/components/TeamLogo";
 import { evStyles } from "@/lib/picks/evColor";
-import { LOTTERY_TEAMS, PLAYOFF_TEAMS, ROUND2_TEAMS, type DraftEntry } from "@/lib/draft2026Data";
 import PickComments from "@/components/PickComments";
+import { SWAP_POS_COLOR } from "@/lib/picks/constants";
+import { loadRawPick, loadRawPickById, buildRelatedChain } from "@/lib/picks/loaders";
+import {
+    getPickTypeInfo, isSwapType, isBackupType, roundLabel,
+    abbrFor, cityFor, find2026Entry,
+    formatRange, formatCondition, parsePickId, pickLabel, triggerProb,
+} from "@/lib/picks/utils";
+import RelatedPickRow from "@/components/picks/RelatedPickRow";
+
+// Some team colors are near-black (Brooklyn #111, Spurs #000) and unreadable as
+// text on the dark UI. Flip anything too dark to white; readable colors (e.g.
+// Houston's red) pass through unchanged.
+function readableTextColor(hex: string): string {
+    const m = /^#?([0-9a-fA-F]{6})$/.exec(hex);
+    if (!m) return hex;
+    const n = parseInt(m[1], 16);
+    const r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
+    const lum = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+    return lum < 0.25 ? "#ffffff" : hex;
+}
 
 type Props = {
     params: Promise<{ year: string; round: string; team: string }>;
 };
-
-/* ============================================================
-   TEAM FOLDER MAP — maps abbr → pick-data directory name
-============================================================ */
-const TEAM_FOLDER: Record<string, string> = {
-    ATL: "atlanta",        BOS: "boston",         BKN: "brooklyn",
-    CHA: "charlotte",      CHI: "chicago",        CLE: "cleveland",
-    DAL: "dallas",         DEN: "denver",         DET: "detroit",
-    GSW: "golden_state",   HOU: "houston",        IND: "indiana",
-    LAC: "los_angeles_clippers", LAL: "los_angeles_lakers",
-    MEM: "memphis",        MIA: "miami",          MIL: "milwaukee",
-    MIN: "minnesota",      NOP: "new_orleans",    NYK: "new_york",
-    OKC: "oklahoma_city",  ORL: "orlando",        PHI: "philadelphia",
-    PHX: "phoenix",        POR: "portland",       SAC: "sacramento",
-    SAS: "san_antonio",    TOR: "toronto",        UTA: "utah",
-    WAS: "washington",
-};
-
-function loadRawPick(pickId: string, teamAbbr: string): any | null {
-    const folder = TEAM_FOLDER[teamAbbr];
-    if (!folder) return null;
-    const filePath = path.join(
-        process.cwd(), "public", "pick-data", "teams", folder, `${pickId}.json`
-    );
-    try {
-        return JSON.parse(fs.readFileSync(filePath, "utf-8"));
-    } catch {
-        return null;
-    }
-}
-
-/* ============================================================
-   RELATED PICKS — BFS through JSON pick-ID references
-============================================================ */
-const PICK_ID_RE = /^[A-Za-z_]+_\d{4}_[12]$/;
-
-function loadRawPickById(pickId: string): any | null {
-    const match = pickId.match(/^(.+)_\d{4}_[12]$/);
-    if (!match) return null;
-    const abbr = TEAM_FULL_TO_ABBR[match[1].replace(/_/g, " ")];
-    return abbr ? loadRawPick(pickId, abbr) : null;
-}
-
-function collectPickIds(obj: any): string[] {
-    if (!obj) return [];
-    if (typeof obj === "string") return PICK_ID_RE.test(obj) ? [obj] : [];
-    if (Array.isArray(obj))      return obj.flatMap(collectPickIds);
-    if (typeof obj === "object") return Object.values(obj).flatMap(collectPickIds);
-    return [];
-}
-
-function buildRelatedChain(startId: string, allPicks: SimPickCard[]): Set<string> {
-    // Build undirected adjacency: if A references B, add both A→B and B→A
-    const adj = new Map<string, Set<string>>();
-    for (const p of allPicks) {
-        const raw = loadRawPickById(p.pick_id);
-        if (!raw?.rules) continue;
-        const refs = collectPickIds(raw.rules).filter(id => id !== p.pick_id);
-        if (!adj.has(p.pick_id)) adj.set(p.pick_id, new Set());
-        for (const refId of refs) {
-            adj.get(p.pick_id)!.add(refId);
-            if (!adj.has(refId)) adj.set(refId, new Set());
-            adj.get(refId)!.add(p.pick_id);
-        }
-    }
-
-    // BFS on undirected graph
-    const visited = new Set([startId]);
-    const queue   = [startId];
-    while (queue.length) {
-        const cur = queue.shift()!;
-        for (const neighbor of (adj.get(cur) ?? [])) {
-            if (!visited.has(neighbor)) { visited.add(neighbor); queue.push(neighbor); }
-        }
-    }
-    visited.delete(startId);
-    return visited;
-}
-
-
-const SWAP_POS_COLOR: Record<string, string> = {
-    "SWAP BEST":  "#22c55e",
-    "SWAP MID":   "#f59e0b",
-    "SWAP WORST": "#ef4444",
-};
-
-/* ============================================================
-   PICK TYPE REGISTRY
-============================================================ */
-const PICK_TYPE_INFO: Record<string, { label: string; tag: string; borderColor: string; description: string }> = {
-    unprotected: {
-        label: "Unprotected", tag: "CONVEYS ALWAYS", borderColor: "#E6B85C",
-        description: "This pick conveys unconditionally — no lottery protection, no swap conditions, no outs. Whoever holds this right receives the pick regardless of where the team lands in the draft.",
-    },
-    unpro_swap: {
-        label: "Unprotected Swap", tag: "SWAP", borderColor: "#a855f7",
-        description: "An unprotected swap right. The holder compares the picks in the pool and takes whichever lands in the best draft position. No conditions required — the swap is always exercisable.",
-    },
-    pro_swap: {
-        label: "Protected Swap", tag: "SWAP · PROTECTED", borderColor: "#a855f7",
-        description: "A protected swap right. The holder can only take the better pick if specific draft-position conditions are met. If the protection triggers, each team keeps their own pick.",
-    },
-    pro_pick: {
-        label: "Protected Pick", tag: "PROTECTED", borderColor: "#3b82f6",
-        description: "This pick has lottery protection. It only conveys to the holder if it falls outside a specified range. If it lands in the protected zone, the original team keeps it and the pick rolls over or triggers a backup.",
-    },
-    pro_backup: {
-        label: "Backup Pick", tag: "BACKUP", borderColor: "#3b82f6",
-        description: "A backup pick that activates if the primary protected pick never fully conveyed. After a certain number of years of protection, this pick is sent instead.",
-    },
-    unpro_backup: {
-        label: "Unprotected Backup", tag: "BACKUP", borderColor: "#3b82f6",
-        description: "A backup pick with no additional protection. Conveys automatically if the primary pick triggered the backup clause.",
-    },
-    pro_backup_branched: {
-        label: "Branched Backup", tag: "BACKUP · BRANCHED", borderColor: "#3b82f6",
-        description: "A multi-path backup pick. The original pick had multiple protection windows and branching conditions. This pick conveys under one of several possible resolution scenarios.",
-    },
-    nested_swap: {
-        label: "Nested Swap", tag: "SWAP · NESTED", borderColor: "#a855f7",
-        description: "A swap right that is conditional on the outcome of another swap. Part of a layered multi-team arrangement — whether this swap can even be exercised depends on how a prior swap resolved.",
-    },
-    triple_swap: {
-        label: "Triple Swap", tag: "SWAP · 3-WAY", borderColor: "#ec4899",
-        description: "A three-team swap right. The holder takes the best pick among three participating teams. All three picks are linked and resolve simultaneously.",
-    },
-    pro_triple_swap: {
-        label: "Protected Triple Swap", tag: "SWAP · 3-WAY · PROTECTED", borderColor: "#ec4899",
-        description: "A protected three-team swap. The holder gets the best pick among three teams only if certain draft-position conditions are met.",
-    },
-    special: {
-        label: "Special", tag: "SPECIAL", borderColor: "#6b7280",
-        description: "This pick has a non-standard structure with custom or unusual conditions not captured by standard pick type classifications.",
-    },
-};
-
-function getPickTypeInfo(pt: string) {
-    return PICK_TYPE_INFO[pt] ?? {
-        label: pt.replace(/_/g, " "), tag: pt.toUpperCase(),
-        borderColor: "rgba(255,255,255,0.15)", description: "Pick type details unavailable.",
-    };
-}
-
-function isSwapType(pt: string): boolean { return pt.includes("swap"); }
-function isBackupType(pt: string): boolean { return pt.includes("backup"); }
-function roundLabel(r: number): string { return r === 1 ? "1st Round" : r === 2 ? "2nd Round" : `Round ${r}`; }
-
-/* ============================================================
-   2026 HELPERS — resolved draft data
-============================================================ */
-function originalAbbrFrom(entry: DraftEntry): string {
-    if (!entry.note) return entry.id;
-    const m = entry.note.match(/^via (.+)$/);
-    return m ? m[1] : entry.id;
-}
-
-function find2026Entry(teamAbbr: string, round: number): { slot: number; entry: DraftEntry } | null {
-    const r1 = [...LOTTERY_TEAMS, ...PLAYOFF_TEAMS];
-    const arr = round === 1 ? r1 : ROUND2_TEAMS;
-    for (let i = 0; i < arr.length; i++) {
-        if (originalAbbrFrom(arr[i]) === teamAbbr) {
-            const slot = round === 1
-                ? (i < LOTTERY_TEAMS.length ? i + 1 : i - LOTTERY_TEAMS.length + 15)
-                : i + 1;
-            return { slot, entry: arr[i] };
-        }
-    }
-    return null;
-}
-function abbrFor(fullName: string): string { return TEAM_FULL_TO_ABBR[fullName] ?? fullName; }
-function cityFor(fullName: string): string {
-    const a = abbrFor(fullName);
-    return TEAM_METADATA[a]?.city ?? fullName;
-}
-
-function formatRange([min, max]: [number, number]): string {
-    if (min === 1 && max === 1)  return "falls #1 overall";
-    if (min === max)             return `falls at pick ${min}`;
-    if (min === 1 && max === 14) return "falls in the lottery (top 14)";
-    if (min === 1)               return `falls in the top ${max}`;
-    return `falls between picks ${min}–${max}`;
-}
-
-function formatCondition(condition: any): string {
-    if (!condition)        return "any result";
-    if (condition.range)   return formatRange(condition.range);
-    return "specific condition";
-}
-
-function parsePickId(pickId: string): { teamAbbr: string; year: number; round: number } | null {
-    const m = pickId.match(/^(.+)_(\d{4})_([12])$/);
-    if (!m) return null;
-    const abbr = TEAM_FULL_TO_ABBR[m[1].replace(/_/g, " ")] ?? m[1].replace(/_/g, " ");
-    return { teamAbbr: abbr, year: Number(m[2]), round: Number(m[3]) };
-}
-
-function pickLabel(pickId: string): string {
-    const info = parsePickId(pickId);
-    if (!info) return pickId;
-    return `${info.teamAbbr} ${info.year} ${info.round === 1 ? "1st" : "2nd"} Round`;
-}
-
-function triggerProb(pick: SimPickCard, condition: any): number | null {
-    if (!condition?.range || !pick.slot_probs) return null;
-    const [min, max] = condition.range as [number, number];
-    let prob = 0;
-    for (let slot = min; slot <= max; slot++) {
-        prob += pick.slot_probs[slot] ?? 0;
-    }
-    return prob;
-}
-
-/* ============================================================
-   RELATED PICK ROW (non-swap related picks)
-============================================================ */
-function RelatedPickRow({ pick }: { pick: SimPickCard }) {
-    const originAbbr = abbrFor(pick.original_team);
-    const { bg, text } = evStyles(pick.ev, pick.round);
-    const typeInfo = getPickTypeInfo(pick.pick_type);
-    const primaryOwner = pick.ownership[0];
-    const isMulti = pick.ownership.length > 1;
-    const isOwnPick = !isMulti && primaryOwner?.team === pick.original_team;
-
-    return (
-        <a
-            href={`/picks/${pick.year}/${pick.round}/${originAbbr.toLowerCase()}`}
-            className="glass-row flex items-center gap-4 rounded-xl px-4 py-3"
-        >
-            <div className="w-10 h-10 rounded-md overflow-hidden border border-white/10 bg-[#0a0a0a] shrink-0 flex items-center justify-center">
-                <img src={`/team-logos/${originAbbr}.png`} alt={originAbbr} className="w-full h-full object-cover" />
-            </div>
-            <div className="flex-1 min-w-0">
-                <div className="text-sm font-semibold truncate">{pick.original_team}</div>
-                <div className="text-[10px] opacity-50 mt-0.5">
-                    {pick.year} · {roundLabel(pick.round)}
-                    {!isOwnPick && primaryOwner && ` · Owned by ${cityFor(primaryOwner.team)}`}
-                    {isMulti && ` · ${pick.ownership.length} possible owners`}
-                </div>
-            </div>
-            <span className="shrink-0 text-[9px] font-black uppercase tracking-wider px-2 py-1 rounded-md border bg-neutral-900/60"
-                style={{ borderColor: typeInfo.borderColor, color: typeInfo.borderColor }}>
-                {typeInfo.tag}
-            </span>
-            <div className={`shrink-0 rounded-md ${bg} ${text} px-2.5 py-1 text-sm font-black`}>
-                {pick.ev.toFixed(1)}
-            </div>
-            <span className="text-white/20 text-xs shrink-0">→</span>
-        </a>
-    );
-}
-
-/* ============================================================
-   PAGE
-============================================================ */
 export default async function PickSlugPage({ params }: Props) {
     const { year, round, team } = await params;
     const yearNum  = Number(year);
@@ -309,7 +72,7 @@ export default async function PickSlugPage({ params }: Props) {
                         <TeamLogo abbr={ownerAbbr} size={110} />
 
                         <div className="space-y-1">
-                            <h1 className="text-5xl font-black" style={{ color: ownerColor }}>
+                            <h1 className="text-5xl font-black" style={{ color: readableTextColor(ownerColor) }}>
                                 {ownerMeta?.city ?? ownerAbbr}
                             </h1>
                             <p className="text-base opacity-50 font-semibold">{ownerMeta?.full}</p>
@@ -415,6 +178,22 @@ export default async function PickSlugPage({ params }: Props) {
 
                     // Use raw JSON type as source of truth (sim output may lag behind JSON edits)
                     const rawPickType = rawPick?.rules?.type ?? pick.pick_type;
+                    // Normalize pro_pick schema variants (protection_range vs condition.range, etc.)
+                    const proRange: [number, number] | null = rawPickType === "pro_pick"
+                        ? (rawPick?.rules?.protection_range ?? rawPick?.rules?.condition?.range ?? null)
+                        : null;
+                    const proKeeperTeam: string | null = rawPickType === "pro_pick"
+                        ? (rawPick?.rules?.if_protected_to ?? rawPick?.rules?.if_in_range_to ?? null)
+                        : null;
+                    const proRecipientTeam: string | null = rawPickType === "pro_pick"
+                        ? (rawPick?.rules?.if_not_protected_to ?? rawPick?.rules?.if_not_in_range_to ?? null)
+                        : null;
+                    // pro_triple_swap is structurally a protected swap with a 3-pick pool —
+                    // render the same protection details (lock ranges, conditional pool
+                    // entry, fallback) rather than the bare generic swap view.
+                    const isProtectedSwap =
+                        pick.pick_type === "pro_swap" || rawPickType === "pro_swap" ||
+                        pick.pick_type === "pro_triple_swap" || rawPickType === "pro_triple_swap";
                     // Special picks with pool + conditional allocation (custom display)
                     const isSpecialPoolSwap = rawPickType === "special" &&
                         poolPicks.length > 1 &&
@@ -506,11 +285,30 @@ export default async function PickSlugPage({ params }: Props) {
                     const trigger_logic: string              = rawPick?.rules?.trigger_logic ?? "OR";
                     const hasTriggers = rawTriggers.length > 0 || rawBranches.length > 0;
 
+                    /* ── Top-level pool (e.g. Utah worst-pick clause) ── */
+                    const pickPoolMeta = rawPick?.pool ?? null;
+                    const poolMembers: { pick: SimPickCard; raw: any }[] = pickPoolMeta
+                        ? allPicks
+                            .filter(p => p.year === pick.year && p.round === pick.round)
+                            .flatMap(p => {
+                                const r = loadRawPickById(p.pick_id);
+                                return r?.pool?.pool_id === pickPoolMeta.pool_id ? [{ pick: p, raw: r }] : [];
+                            })
+                            .sort((a, b) => a.pick.expected_slot - b.pick.expected_slot)
+                        : [];
+
                     /* ── Non-swap ownership ── */
-                    const isMulti      = pick.ownership.length > 1;
+                    const isMulti      = pick.ownership.length > 1 || (rawPick?.rules?.possible_destinations ?? []).length > 1;
                     const primaryOwner = pick.ownership[0];
                     const isOwnPick    = !isMulti && primaryOwner?.team === pick.original_team;
-                    const sortedOwners = [...pick.ownership].filter(o => o.prob > 0.005).sort((a, b) => b.prob - a.prob);
+                    const possibleDests: string[] = rawPick?.rules?.possible_destinations ?? [];
+                    const ownershipMap = new Map(pick.ownership.map(o => [o.team, o]));
+                    const sortedOwners = [
+                        ...pick.ownership,
+                        ...possibleDests
+                            .filter(t => !ownershipMap.has(t))
+                            .map(t => ({ team: t, prob: 0, conditional_ev: 0, conditional_slot: null })),
+                    ].sort((a, b) => b.prob - a.prob);
 
                     /* ── Related picks — BFS through JSON references ── */
                     const relatedChain   = buildRelatedChain(pick.pick_id, allPicks);
@@ -521,7 +319,7 @@ export default async function PickSlugPage({ params }: Props) {
 
                     /* ── Protected pick ranges (for lock icon in header) ── */
                     const protectedPickRanges = new Map<string, [number, number]>();
-                    if (pick.pick_type === "pro_swap") {
+                    if (isProtectedSwap) {
                         // Type 1: conditional pool entry
                         for (const entry of (rawPick?.rules?.pool ?? [])) {
                             if (typeof entry === "object" && entry.pick && entry.condition?.range) {
@@ -537,14 +335,34 @@ export default async function PickSlugPage({ params }: Props) {
                         }
                     }
 
-                    /* ── Dynamic description for pro_swap ── */
+                    /* ── Dynamic description ── */
                     const pickDescription: string = (() => {
-                        if (pick.pick_type !== "pro_swap" || !rawPick) return typeInfo.description;
+                        if (rawPickType === "pro_pick" && proRange && proKeeperTeam && proRecipientTeam) {
+                            const [pMin, pMax] = proRange;
+                            const roundStr     = pick.round === 1 ? "1st-round" : "2nd-round";
+                            const keeper       = cityFor(proKeeperTeam);
+                            const recipient    = cityFor(proRecipientTeam);
+                            const protDesc     = pMin === 1 ? `in the top ${pMax}` : `between picks ${pMin}–${pMax}`;
+                            const convDesc     = pMin === 1 ? `outside the top ${pMax}` : `outside picks ${pMin}–${pMax}`;
+                            const rawFb        = rawPick.rules.fallback_pick;
+                            const fbIds: string[] | null = !rawFb || rawFb === "none" ? null
+                                : Array.isArray(rawFb) ? rawFb : [rawFb];
+                            const fbInfo       = fbIds?.[0] ? parsePickId(fbIds[0]) : null;
+                            const fallbackStr  = !fbIds ? ` If it is never triggered, the obligation expires — no pick is owed.`
+                                : fbIds.length === 1 && fbInfo
+                                    ? ` If it is never triggered, the ${fbInfo.year} ${fbInfo.round === 1 ? "1st" : "2nd"}-round pick conveys to ${recipient} as a fallback.`
+                                    : ` If it is never triggered, one of ${fbIds.length} fallback picks conveys to ${recipient}.`;
+                            return `The ${teamMeta.city} ${pick.year} ${roundStr} pick is protected ${protDesc}. If it lands there, ${keeper} keeps it.${fallbackStr} If it falls ${convDesc}, it conveys to ${recipient}.`;
+                        }
+
+                        if (!isProtectedSwap || !rawPick) return typeInfo.description;
 
                         const roundStr  = pick.round === 1 ? "1st-round" : "2nd-round";
                         const yr        = String(pick.year);
                         const teamCities = poolPicks.map(p => cityFor(p.original_team));
-                        const poolStr   = teamCities.join(" and ");
+                        const poolStr   = teamCities.length <= 2
+                            ? teamCities.join(" and ")
+                            : `${teamCities.slice(0, -1).join(", ")}, and ${teamCities[teamCities.length - 1]}`;
 
                         const rank1Alloc = allocation.find((a: any) => Number(a.rank) === 1);
                         const rank1City  = rank1Alloc?.to ? cityFor(rank1Alloc.to) : (teamCities[0] ?? "");
@@ -730,7 +548,11 @@ export default async function PickSlugPage({ params }: Props) {
                                             {yearNum} · {roundLabel(roundNum)}
                                         </div>
                                         <h1 className="text-3xl font-bold">{teamMeta.full}</h1>
-                                        <div className="text-sm opacity-50">{teamMeta.city} original pick</div>
+                                        <div className="text-sm opacity-50">
+                                            {rawPickType === "pro_pick"
+                                                ? `Determined by ${teamMeta.city}'s draft result`
+                                                : `${teamMeta.city} original pick`}
+                                        </div>
                                     </div>
                                 </div>
                             )}
@@ -742,13 +564,25 @@ export default async function PickSlugPage({ params }: Props) {
                                 </div>
                             )}
 
+                            {/* ── OVERVIEW ── */}
+                            <div className="glass-surface rounded-xl border p-5 space-y-2"
+                                style={{ borderColor: typeInfo.borderColor + "60" }}>
+                                <h2 className="text-lg font-bold tracking-wide">Overview</h2>
+                                <p className="text-sm opacity-70 leading-relaxed">{pickDescription}</p>
+                            </div>
+
                             {/* ── METRICS ROW ── */}
                             <div className="grid grid-cols-3 gap-3">
                                 <div className="glass-card rounded-xl p-4 flex flex-col items-center gap-2">
-                                    <span className="text-[10px] uppercase tracking-widest opacity-40">Stash Value</span>
+                                    <span className="text-[10px] uppercase tracking-widest opacity-40">
+                                        {rawPickType === "pro_pick" ? "Protected EV" : "Stash Value"}
+                                    </span>
                                     <span className={`text-3xl font-black rounded-lg px-3 py-1 ${bg} ${text} ${glow}`}>
                                         {pick.ev.toFixed(1)}
                                     </span>
+                                    {rawPickType === "pro_pick" && (
+                                        <span className="text-[9px] opacity-30 tracking-wide">if kept</span>
+                                    )}
                                 </div>
                                 <div className="glass-card rounded-xl p-4 flex flex-col items-center gap-2">
                                     <span className="text-[10px] uppercase tracking-widest opacity-40">Proj. Slot</span>
@@ -758,7 +592,7 @@ export default async function PickSlugPage({ params }: Props) {
                                         const min = Math.min(...slots);
                                         const max = Math.max(...slots);
                                         return (
-                                            <span className="text-[10px] font-mono opacity-40">
+                                            <span className="text-sm font-bold opacity-50">
                                                 {min}–{max}
                                             </span>
                                         );
@@ -771,6 +605,11 @@ export default async function PickSlugPage({ params }: Props) {
                                         style={{ color: typeInfo.borderColor }}>
                                         {typeInfo.tag}
                                     </span>
+                                    {proRange && (
+                                        <span className="text-sm font-black tabular-nums" style={{ color: typeInfo.borderColor }}>
+                                            {proRange[0]}–{proRange[1]}
+                                        </span>
+                                    )}
                                 </div>
                             </div>
 
@@ -791,7 +630,7 @@ export default async function PickSlugPage({ params }: Props) {
                                             const posColor  = SWAP_POS_COLOR[pos];
                                             const recipient = recipientFor(poolPick);
                                             const recAbbr   = recipient ? abbrFor(recipient) : null;
-                                            const recColor  = recAbbr ? (teamColors[recAbbr] ?? "#444") : "#444";
+                                            const recColor  = readableTextColor(recAbbr ? (teamColors[recAbbr] ?? "#444") : "#444");
                                             const recProb   = recipientProb(poolPick);
                                             const { bg: pbg, text: ptxt } = evStyles(poolPick.ev, poolPick.round);
                                             const isCurrent = poolPick.pick_id === pick.pick_id;
@@ -811,6 +650,9 @@ export default async function PickSlugPage({ params }: Props) {
                                                         style={{ color: posColor, borderColor: posColor + "70", background: posColor + "18" }}>
                                                         {pos}
                                                     </div>
+
+                                                    {/* "to" connector */}
+                                                    <div className="text-[10px] opacity-40 -my-2">TO</div>
 
                                                     {/* RECIPIENT — the team that owns/receives this pick */}
                                                     {recAbbr ? (
@@ -851,8 +693,8 @@ export default async function PickSlugPage({ params }: Props) {
                                                         )}
                                                     </div>
 
-                                                    {/* POOL ENTRY CONDITION (pro_swap only) */}
-                                                    {pick.pick_type === "pro_swap" && (() => {
+                                                    {/* POOL ENTRY CONDITION (protected swaps) */}
+                                                    {isProtectedSwap && (() => {
                                                         const entry = poolEntryMap.get(poolPick.pick_id);
                                                         const poolRange: [number, number] | null =
                                                             (entry && typeof entry === "object") ? (entry.condition?.range ?? null) : null;
@@ -896,15 +738,15 @@ export default async function PickSlugPage({ params }: Props) {
 
                                 const rank1RecipientCity = rank1Alloc?.to ? cityFor(rank1Alloc.to) : "?";
                                 const rank1RecipientAbbr = rank1Alloc?.to ? abbrFor(rank1Alloc.to) : null;
-                                const rank1Color = rank1RecipientAbbr ? (teamColors[rank1RecipientAbbr] ?? "#444") : "#444";
+                                const rank1Color = readableTextColor(rank1RecipientAbbr ? (teamColors[rank1RecipientAbbr] ?? "#444") : "#444");
 
                                 const condRange: [number, number] = rank2Alloc.condition?.range ?? [1, 30];
                                 const ifInCity  = rank2Alloc.if_in_range_to   ? cityFor(rank2Alloc.if_in_range_to)   : null;
                                 const ifInAbbr  = rank2Alloc.if_in_range_to   ? abbrFor(rank2Alloc.if_in_range_to)   : null;
                                 const ifNotCity = rank2Alloc.if_not_in_range_to ? cityFor(rank2Alloc.if_not_in_range_to) : null;
                                 const ifNotAbbr = rank2Alloc.if_not_in_range_to ? abbrFor(rank2Alloc.if_not_in_range_to) : null;
-                                const ifInColor  = ifInAbbr  ? (teamColors[ifInAbbr]  ?? "#444") : "#444";
-                                const ifNotColor = ifNotAbbr ? (teamColors[ifNotAbbr] ?? "#444") : "#444";
+                                const ifInColor  = readableTextColor(ifInAbbr  ? (teamColors[ifInAbbr]  ?? "#444") : "#444");
+                                const ifNotColor = readableTextColor(ifNotAbbr ? (teamColors[ifNotAbbr] ?? "#444") : "#444");
 
                                 const probIn    = triggerProb(worsePick, rank2Alloc.condition);
                                 const probNotIn = probIn !== null ? 1 - probIn : null;
@@ -1008,8 +850,8 @@ export default async function PickSlugPage({ params }: Props) {
 
                                 const ifTriggeredAbbr    = ifTriggeredTo    ? abbrFor(ifTriggeredTo)    : null;
                                 const ifNotTriggeredAbbr = ifNotTriggeredTo ? abbrFor(ifNotTriggeredTo) : null;
-                                const ifTriggeredColor   = ifTriggeredAbbr    ? (teamColors[ifTriggeredAbbr]    ?? "#444") : "#444";
-                                const ifNotTriggeredColor = ifNotTriggeredAbbr ? (teamColors[ifNotTriggeredAbbr] ?? "#444") : "#444";
+                                const ifTriggeredColor   = readableTextColor(ifTriggeredAbbr    ? (teamColors[ifTriggeredAbbr]    ?? "#444") : "#444");
+                                const ifNotTriggeredColor = readableTextColor(ifNotTriggeredAbbr ? (teamColors[ifNotTriggeredAbbr] ?? "#444") : "#444");
 
                                 const triggeredProb    = ifTriggeredTo
                                     ? (pick.ownership.find(o => o.team === ifTriggeredTo)?.prob ?? null)
@@ -1346,14 +1188,34 @@ export default async function PickSlugPage({ params }: Props) {
 
                                             return (
                                                 <div key={lvlIdx} className="space-y-3">
-                                                    <div className="flex items-center gap-2">
-                                                        <span className="text-[9px] font-black uppercase tracking-widest opacity-30">
-                                                            Stage {lvlIdx + 1}
-                                                        </span>
-                                                        <div className="flex-1 border-t border-white/8" />
-                                                        {level.description && (
-                                                            <span className="text-[9px] opacity-20 font-mono">{level.description}</span>
-                                                        )}
+                                                    {/* ── POOL HEADER: title + the picks that compete in this sub-swap ── */}
+                                                    <div className="space-y-2 pt-1">
+                                                        <div className="flex items-center gap-3">
+                                                            <div className="flex-1 border-t border-white/8" />
+                                                            <span className="text-sm font-black uppercase tracking-[0.2em] text-white/80 whitespace-nowrap">
+                                                                Swap Pool {lvlIdx + 1}
+                                                            </span>
+                                                            <div className="flex-1 border-t border-white/8" />
+                                                        </div>
+                                                        <div className="flex items-center justify-center gap-x-3 gap-y-1.5 flex-wrap">
+                                                            {realPicks.map((p) => {
+                                                                const a = abbrFor(p.original_team);
+                                                                return (
+                                                                    <div key={p.pick_id} className="flex items-center gap-1.5">
+                                                                        <TeamLogo abbr={a} size={18} />
+                                                                        <span className="text-[11px] font-bold opacity-60">{a}</span>
+                                                                    </div>
+                                                                );
+                                                            })}
+                                                            {tempIds.map((tempId: string) => (
+                                                                <div key={tempId} className="flex items-center gap-1.5 opacity-50">
+                                                                    <div className="w-[18px] h-[18px] rounded-full border border-white/15 bg-white/5 flex items-center justify-center">
+                                                                        <span className="text-white/40 text-[10px] font-thin">↑</span>
+                                                                    </div>
+                                                                    <span className="text-[11px] font-bold italic">Stage {lvlIdx} loser</span>
+                                                                </div>
+                                                            ))}
+                                                        </div>
                                                     </div>
 
                                                     <div className="grid gap-2" style={{ gridTemplateColumns: `repeat(${totalInPool}, minmax(0, 1fr))` }}>
@@ -1384,9 +1246,20 @@ export default async function PickSlugPage({ params }: Props) {
                                                                         style={{ color: posColor, borderColor: posColor + "70", background: posColor + "18" }}>
                                                                         {pos}
                                                                     </div>
-                                                                    <TeamLogo abbr={displayAbbr} size={32} />
+                                                                    {isTemp ? (
+                                                                        <div className="w-8 h-8 flex items-center justify-center">
+                                                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="opacity-40">
+                                                                                <path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"/>
+                                                                            </svg>
+                                                                        </div>
+                                                                    ) : (
+                                                                        <TeamLogo abbr={displayAbbr} size={32} />
+                                                                    )}
                                                                     <span className="text-[10px] font-bold opacity-70">
-                                                                        {recipientAbbr ? (TEAM_METADATA[recipientAbbr]?.city ?? recipientAbbr) : pAbbr}
+                                                                        {isTemp
+                                                                            ? <span className="opacity-50 italic">stage {lvlIdx + 2}</span>
+                                                                            : (recipientAbbr ? (TEAM_METADATA[recipientAbbr]?.city ?? recipientAbbr) : pAbbr)
+                                                                        }
                                                                     </span>
                                                                     <div className="flex items-center gap-1.5">
                                                                         <div className={`rounded px-1.5 py-1 ${pbg} ${ptxt}`}>
@@ -1469,7 +1342,7 @@ export default async function PickSlugPage({ params }: Props) {
                             })()}
 
                             {/* ── FALLBACK PICKS ── */}
-                            {pick.pick_type === "pro_swap" && !isSpecialPoolSwap && (
+                            {isProtectedSwap && !isSpecialPoolSwap && (
                                 <div className="glass-card rounded-2xl p-6 space-y-4">
                                     <div>
                                         <h2 className="text-lg font-bold tracking-wide">Fallback Pick</h2>
@@ -1516,8 +1389,8 @@ export default async function PickSlugPage({ params }: Props) {
                                 </div>
                             )}
 
-                            {/* ── PRO_SWAP PROTECTION DETAILS ── */}
-                            {pick.pick_type === "pro_swap" && !isSpecialPoolSwap && (() => {
+                            {/* ── PROTECTED SWAP PROTECTION DETAILS ── */}
+                            {isProtectedSwap && !isSpecialPoolSwap && (() => {
                                 // Type 1: conditional pool entry (pick has a condition on whether it enters)
                                 const condPoolEntries: any[] = (rawPick?.rules?.pool ?? [])
                                     .filter((e: any) => typeof e === "object" && e.pick && e.condition?.range);
@@ -1832,6 +1705,48 @@ export default async function PickSlugPage({ params }: Props) {
                                 </div>
                             )}
 
+                            {/* ── PRO PICK ROUTING ── */}
+                            {rawPickType === "pro_pick" && proRange && proKeeperTeam && proRecipientTeam && (
+                                <div className="glass-card rounded-2xl p-6 space-y-4">
+                                    <h2 className="text-lg font-bold tracking-wide">Routing</h2>
+                                    <div className="space-y-2">
+                                        {/* Protected row */}
+                                        <div className="rounded-xl border border-blue-500/30 bg-blue-500/8 px-5 py-4 flex items-center gap-4">
+                                            <div className="shrink-0 flex flex-col items-center gap-1 min-w-[56px]">
+                                                <span className="text-[10px] font-black uppercase tracking-widest text-blue-400">PROTECTED</span>
+                                                <span className="text-3xl font-black text-blue-300 tabular-nums leading-none">
+                                                    {proRange[0] === 1 ? `Top ${proRange[1]}` : `${proRange[0]}–${proRange[1]}`}
+                                                </span>
+                                            </div>
+                                            <div className="w-px h-10 bg-white/10 shrink-0" />
+                                            <TeamLogo abbr={abbrFor(proKeeperTeam)} size={36} />
+                                            <span className="text-base font-semibold">{cityFor(proKeeperTeam)} keeps it</span>
+                                        </div>
+                                        {/* Conveys row */}
+                                        {(() => {
+                                            const slotMin = pick.round === 1 ? 1 : 31;
+                                            const slotMax = pick.round === 1 ? 30 : 60;
+                                            const convMin = proRange[0] === slotMin ? proRange[1] + 1 : slotMin;
+                                            const convMax = proRange[1] === slotMax ? proRange[0] - 1 : slotMax;
+                                            const convLabel = `${convMin}–${convMax}`;
+                                            return (
+                                        <div className="rounded-xl border border-white/8 px-5 py-4 flex items-center gap-4">
+                                            <div className="shrink-0 flex flex-col items-center gap-1 min-w-[56px]">
+                                                <span className="text-[10px] font-black uppercase tracking-widest text-green-400">CONVEYS</span>
+                                                <span className="text-xl font-black tabular-nums leading-none opacity-70">
+                                                    {convLabel}
+                                                </span>
+                                            </div>
+                                            <div className="w-px h-10 bg-white/10 shrink-0" />
+                                            <TeamLogo abbr={abbrFor(proRecipientTeam)} size={36} />
+                                            <span className="text-base font-semibold">{cityFor(proRecipientTeam)} receives it</span>
+                                        </div>
+                                            );
+                                        })()}
+                                    </div>
+                                </div>
+                            )}
+
                             {/* ── OWNERSHIP (non-swap) ── */}
                             {!isSwap && !isSpecialPoolSwap && !isTriggerSpecial && !isSwapGroup && !isNestedSwap && (
                                 <div className="glass-card rounded-2xl p-6 space-y-5">
@@ -1841,7 +1756,8 @@ export default async function PickSlugPage({ params }: Props) {
                                             {sortedOwners.map((o, i) => {
                                                 const oAbbr  = abbrFor(o.team);
                                                 const oColor = teamColors[oAbbr] ?? "#555";
-                                                const pct    = Math.round(o.prob * 100);
+                                                const pct    = o.prob >= 1 ? 99.9 : Math.round(o.prob * 100);
+                                                const ev     = (o.prob * o.conditional_ev).toFixed(1);
                                                 return (
                                                     <div key={o.team} className="flex items-center gap-4">
                                                         <span className="text-xs opacity-30 w-4 text-right shrink-0">{i + 1}</span>
@@ -1857,8 +1773,9 @@ export default async function PickSlugPage({ params }: Props) {
                                                             </div>
                                                         </div>
                                                         <div className="shrink-0 text-right">
-                                                            <div className="text-[10px] opacity-40 uppercase">cEV</div>
-                                                            <div className="text-sm font-black">{o.conditional_ev.toFixed(1)}</div>
+                                                            <div className="text-[10px] opacity-40 uppercase">EV</div>
+                                                            <div className="text-sm font-black">{ev}</div>
+                                                            <div className="text-[9px] opacity-25 tabular-nums">cEV {o.conditional_ev.toFixed(1)}</div>
                                                         </div>
                                                     </div>
                                                 );
@@ -1876,39 +1793,106 @@ export default async function PickSlugPage({ params }: Props) {
                                                 {!isOwnPick && (
                                                     <div className="text-sm opacity-50 mt-0.5">Originally from {teamMeta.full}</div>
                                                 )}
-                                                <div className="text-sm opacity-30 mt-1">100% probability</div>
+                                                <div className="text-sm opacity-30 mt-1">≥99.9% probability</div>
                                             </div>
                                         </div>
                                     )}
                                 </div>
                             )}
 
-                            {/* ── RELATED PICKS (non-swap only) ── */}
-                            {relatedPicks.length > 0 && (
-                                <div className="glass-card rounded-2xl p-6 space-y-4">
-                                    <div>
-                                        <h2 className="text-lg font-bold tracking-wide">Related Picks</h2>
-                                        <p className="text-xs opacity-40 mt-1">Picks that touch this pick or are touched by this pick.</p>
+                            {/* ── FALLBACK ── */}
+                            {rawPickType === "pro_pick" && (() => {
+                                const rawFb = rawPick?.rules?.fallback_pick;
+                                const fbIds: string[] | null = !rawFb || rawFb === "none" ? null
+                                    : Array.isArray(rawFb) ? rawFb : [rawFb];
+                                return (
+                                    <div className="glass-card rounded-2xl p-6 space-y-4">
+                                        <h2 className="text-lg font-bold tracking-wide">Fallback</h2>
+                                        {!fbIds ? (
+                                            <span className="text-sm opacity-40">Obligation expires — if this pick never conveys, no further pick is owed.</span>
+                                        ) : (
+                                            <div className="space-y-2">
+                                                {fbIds.map(id => {
+                                                    const info = parsePickId(id);
+                                                    const fbPick = info ? pickIdMap.get(id) : null;
+                                                    const fbAbbr = info?.teamAbbr ?? id;
+                                                    return (
+                                                        <a
+                                                            key={id}
+                                                            href={info ? `/picks/${info.year}/${info.round}/${fbAbbr.toLowerCase()}` : "#"}
+                                                            className="glass-row flex items-center gap-4 rounded-xl px-4 py-3"
+                                                        >
+                                                            <TeamLogo abbr={fbAbbr} size={40} />
+                                                            <div className="flex-1 min-w-0">
+                                                                <div className="text-sm font-semibold">
+                                                                    {info ? `${fbAbbr} ${info.year} ${info.round === 1 ? "1st" : "2nd"} Round` : id}
+                                                                </div>
+                                                                {fbPick && (
+                                                                    <div className="text-xs opacity-40 mt-0.5">{fbPick.pick_type.replace(/_/g, " ")}</div>
+                                                                )}
+                                                            </div>
+                                                            {fbPick && (
+                                                                <div className={`shrink-0 rounded-md px-2.5 py-1 text-sm font-black ${evStyles(fbPick.ev, fbPick.round).bg} ${evStyles(fbPick.ev, fbPick.round).text}`}>
+                                                                    {fbPick.ev.toFixed(1)}
+                                                                </div>
+                                                            )}
+                                                            <span className="text-white/20 text-xs shrink-0">→</span>
+                                                        </a>
+                                                    );
+                                                })}
+                                            </div>
+                                        )}
                                     </div>
-                                    <div className="space-y-2">
-                                        {relatedPicks.map(p => <RelatedPickRow key={p.pick_id} pick={p} />)}
-                                    </div>
-                                </div>
-                            )}
+                                );
+                            })()}
 
-                            {/* ── PICK TYPE EXPLAINER ── */}
-                            <div className="glass-surface rounded-xl border p-5 space-y-2"
-                                style={{ borderColor: typeInfo.borderColor + "60" }}>
-                                <div className="flex items-center gap-2">
-                                    <span className="text-xs font-black uppercase tracking-widest"
-                                        style={{ color: typeInfo.borderColor }}>{typeInfo.label}</span>
-                                    <span className="text-[9px] font-bold px-2 py-0.5 rounded-full border"
-                                        style={{ borderColor: typeInfo.borderColor + "60", color: typeInfo.borderColor }}>
-                                        {typeInfo.tag}
-                                    </span>
-                                </div>
-                                <p className="text-sm opacity-70 leading-relaxed">{pickDescription}</p>
-                            </div>
+                            {/* ── POOL ── */}
+                            {pickPoolMeta && poolMembers.length > 0 && (() => {
+                                const recipient = cityFor(pickPoolMeta.pool_resolution.to);
+                                const rankLabel = pickPoolMeta.pool_resolution.rank === "lf" ? "worst" : pickPoolMeta.pool_resolution.rank;
+                                const entersIfTeam = pickPoolMeta.enters_pool_if?.resolves_to
+                                    ? cityFor(pickPoolMeta.enters_pool_if.resolves_to) : null;
+                                return (
+                                    <div className="glass-card rounded-2xl p-6 space-y-4">
+                                        <div>
+                                            <h2 className="text-lg font-bold tracking-wide">Outgoing Pool</h2>
+                                            <p className="text-xs opacity-40 mt-1">
+                                                {entersIfTeam
+                                                    ? `If this pick resolves to ${entersIfTeam}, it enters this group. The ${rankLabel}-slotted pick among all ${entersIfTeam}-owned picks in the group goes to ${recipient}.`
+                                                    : `The ${rankLabel}-slotted pick in this group goes to ${recipient}.`}
+                                            </p>
+                                        </div>
+                                        <div className="space-y-2">
+                                            {poolMembers.map(({ pick: mp, raw: mr }) => {
+                                                const mAbbr = abbrFor(mp.original_team);
+                                                const { bg: mbg, text: mtxt } = evStyles(mp.ev, mp.round);
+                                                const isThis = mp.pick_id === pick.pick_id;
+                                                const entersIf = mr.pool?.enters_pool_if?.resolves_to;
+                                                return (
+                                                    <a
+                                                        key={mp.pick_id}
+                                                        href={`/picks/${mp.year}/${mp.round}/${mAbbr.toLowerCase()}`}
+                                                        className={`flex items-center gap-4 rounded-xl px-4 py-3 border transition-colors ${isThis ? "border-white/20 bg-white/6" : "border-white/8 bg-white/2 hover:border-white/15"}`}
+                                                    >
+                                                        <TeamLogo abbr={mAbbr} size={36} />
+                                                        <div className="flex-1 min-w-0">
+                                                            <div className="text-sm font-semibold truncate">{mp.original_team}</div>
+                                                            <div className="text-xs opacity-40 mt-0.5">
+                                                                {entersIf ? `enters if → ${cityFor(entersIf)}` : "always in pool"}
+                                                            </div>
+                                                        </div>
+                                                        <div className={`shrink-0 rounded-md px-2.5 py-1 text-sm font-black ${mbg} ${mtxt}`}>
+                                                            {mp.ev.toFixed(1)}
+                                                        </div>
+                                                        {!isThis && <span className="text-white/20 text-xs shrink-0">→</span>}
+                                                        {isThis && <span className="text-white/40 text-xs font-bold shrink-0">this pick</span>}
+                                                    </a>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                );
+                            })()}
 
                             {/* ── PICK ID ── */}
                             <div className="glass-surface rounded-xl border border-white/5 px-4 py-3 flex items-center justify-between">
