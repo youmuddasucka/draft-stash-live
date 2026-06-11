@@ -60,7 +60,7 @@ export default function DraftStashPage() {
                   style={{ borderLeft: `2px solid ${color}30` }}
                 >
                   <span className="text-xs opacity-25 w-4 shrink-0 tabular-nums font-mono">{i + 1}</span>
-                  <TeamLogo abbr={row.team} size={32} />
+                  <TeamLogo abbr={row.team} size={32} noLink />
                   <span className="text-sm font-semibold flex-1">{row.team}</span>
                   <span className="text-xs font-mono text-[#A8A9AD] opacity-60 tabular-nums">{row.score.toFixed(1)}</span>
                   <span className="text-white/15 text-xs group-hover:text-[#E6B85C]/40 transition-colors">→</span>
@@ -143,7 +143,7 @@ export default function DraftStashPage() {
                   style={{ borderLeft: `2px solid ${color}30` }}
                 >
                   <span className="text-xs opacity-25 w-4 shrink-0 tabular-nums font-mono">{i + 1}</span>
-                  <TeamLogo abbr={row.ownerAbbr} size={32} />
+                  <TeamLogo abbr={row.ownerAbbr} size={32} noLink />
                   <div className="flex flex-col leading-tight flex-1 min-w-0">
                     <span className="text-sm font-semibold truncate">{row.label}</span>
                     <span className="text-[10px] text-[#A8A9AD] opacity-50">{row.year} · R{row.round}</span>

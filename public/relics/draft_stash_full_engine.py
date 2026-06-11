@@ -23,7 +23,7 @@ def run_single_sim(sim_number, all_picks):
 
     draft_df = pd.read_csv(temp_orders)
 
-    engine = de.PickEngine(all_picks, de.PELTON_CURVE)
+    engine = de.PickEngine(all_picks, de.VALUE_CURVE)
 
     orders_by_year = {
         year: de.DraftOrder(draft_df, year)
@@ -49,10 +49,10 @@ def run_single_sim(sim_number, all_picks):
             else:
                 overall_pos = 91 - pos  # FIX reversed round-2 ordering
 
-            if overall_pos not in de.PELTON_CURVE:
+            if overall_pos not in de.VALUE_CURVE:
                 raise ValueError(f"Bad overall_pos={overall_pos} (pos={pos}, rnd={rnd}) for {pick_id}")
 
-            pelton_value = de.PELTON_CURVE[overall_pos]
+            draft_value = de.VALUE_CURVE[overall_pos]
             display_pos = overall_pos
 
             rows.append([
@@ -63,7 +63,7 @@ def run_single_sim(sim_number, all_picks):
                 pick["original_team"],
                 pick["rules"]["type"],
                 info["owner"],
-                pelton_value,
+                draft_value,
                 display_pos,
                 True
             ])

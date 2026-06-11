@@ -53,7 +53,7 @@ export default async function PickSlugPage({ params }: Props) {
 
         return (
             <div className="glass-bg min-h-screen">
-                <div className="max-w-3xl mx-auto px-6 py-10 space-y-6">
+                <div className="max-w-3xl mx-auto px-4 md:px-6 py-6 md:py-10 space-y-6">
 
                     <a href={`/teams/${team.toLowerCase()}`}
                         className="inline-flex items-center gap-1.5 text-xs opacity-40 hover:opacity-100 transition-opacity tracking-wide">
@@ -62,7 +62,7 @@ export default async function PickSlugPage({ params }: Props) {
 
                     {/* OWNERSHIP HERO */}
                     <div
-                        className="glass-surface rounded-2xl border-2 px-8 py-10 flex flex-col items-center gap-5 text-center"
+                        className="glass-surface rounded-2xl border-2 px-5 md:px-8 py-8 md:py-10 flex flex-col items-center gap-5 text-center"
                         style={{ borderColor: ownerColor + "99" }}
                     >
                         <div className="text-[11px] uppercase tracking-widest opacity-40">
@@ -72,7 +72,7 @@ export default async function PickSlugPage({ params }: Props) {
                         <TeamLogo abbr={ownerAbbr} size={110} />
 
                         <div className="space-y-1">
-                            <h1 className="text-5xl font-black" style={{ color: readableTextColor(ownerColor) }}>
+                            <h1 className="text-4xl md:text-5xl font-black" style={{ color: readableTextColor(ownerColor) }}>
                                 {ownerMeta?.city ?? ownerAbbr}
                             </h1>
                             <p className="text-base opacity-50 font-semibold">{ownerMeta?.full}</p>
@@ -83,17 +83,17 @@ export default async function PickSlugPage({ params }: Props) {
                                 href={`/teams/${teamAbbr.toLowerCase()}`}
                                 className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 transition-colors"
                             >
-                                <TeamLogo abbr={teamAbbr} size={20} />
+                                <TeamLogo abbr={teamAbbr} size={20} noLink />
                                 <span className="text-xs opacity-60">via {teamMeta.full}</span>
                             </a>
                         )}
                     </div>
 
                     {/* SLOT + ORIGIN ROW */}
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="glass-card rounded-2xl p-6 flex flex-col items-center gap-2">
                             <span className="text-[10px] uppercase tracking-widest opacity-40">Draft Slot</span>
-                            <span className="text-5xl font-black tabular-nums">#{slot}</span>
+                            <span className="text-4xl md:text-5xl font-black tabular-nums">#{slot}</span>
                         </div>
                         <div className="glass-card rounded-2xl p-6 flex flex-col items-center gap-3">
                             <span className="text-[10px] uppercase tracking-widest opacity-40">
@@ -179,15 +179,27 @@ export default async function PickSlugPage({ params }: Props) {
                     // Use raw JSON type as source of truth (sim output may lag behind JSON edits)
                     const rawPickType = rawPick?.rules?.type ?? pick.pick_type;
                     // Normalize pro_pick schema variants (protection_range vs condition.range, etc.)
-                    const proRange: [number, number] | null = rawPickType === "pro_pick"
-                        ? (rawPick?.rules?.protection_range ?? rawPick?.rules?.condition?.range ?? null)
-                        : null;
+                    const proRange: [number, number] | null =
+                        rawPickType === "pro_pick"
+                            ? (rawPick?.rules?.protection_range ?? rawPick?.rules?.condition?.range ?? null)
+                            : rawPickType === "pro_backup"
+                                ? (rawPick?.rules?.protection_range ?? null)
+                                : null;
                     const proKeeperTeam: string | null = rawPickType === "pro_pick"
                         ? (rawPick?.rules?.if_protected_to ?? rawPick?.rules?.if_in_range_to ?? null)
                         : null;
                     const proRecipientTeam: string | null = rawPickType === "pro_pick"
                         ? (rawPick?.rules?.if_not_protected_to ?? rawPick?.rules?.if_not_in_range_to ?? null)
                         : null;
+                    // pro_backup: protected backup with four-way routing (trigger × protection).
+                    // Uses if_triggered_and_protected_to etc. — NOT the simple if_triggered_to
+                    // fields the generic backup section reads — so it gets a dedicated display.
+                    const pbTP: string | null = rawPick?.rules?.if_triggered_and_protected_to ?? null;
+                    const pbTN: string | null = rawPick?.rules?.if_triggered_and_not_protected_to ?? null;
+                    const pbNP: string | null = rawPick?.rules?.if_not_triggered_and_protected_to ?? null;
+                    const pbNN: string | null = rawPick?.rules?.if_not_triggered_and_not_protected_to ?? null;
+                    const isProBackup = rawPickType === "pro_backup" &&
+                        !!proRange && !!pbTP && !!pbTN && !!pbNP && !!pbNN;
                     // pro_triple_swap is structurally a protected swap with a 3-pick pool —
                     // render the same protection details (lock ranges, conditional pool
                     // entry, fallback) rather than the bare generic swap view.
@@ -355,6 +367,46 @@ export default async function PickSlugPage({ params }: Props) {
                             return `The ${teamMeta.city} ${pick.year} ${roundStr} pick is protected ${protDesc}. If it lands there, ${keeper} keeps it.${fallbackStr} If it falls ${convDesc}, it conveys to ${recipient}.`;
                         }
 
+                        if (isProBackup && proRange) {
+                            const [pMin, pMax] = proRange;
+                            const roundStr  = pick.round === 1 ? "1st-round" : "2nd-round";
+                            const protDesc  = pMin === 1 ? `in the top ${pMax}` : `in picks ${pMin}–${pMax}`;
+                            const trigger   = rawTriggers[0];
+                            const trigInfo  = trigger ? parsePickId(trigger.pick) : null;
+                            const trigDesc  = trigger && trigInfo
+                                ? `the ${trigInfo.teamAbbr} ${trigInfo.year} ${trigInfo.round === 1 ? "1st" : "2nd"}-round pick ${formatCondition(trigger.condition)}`
+                                : "another pick's result";
+                            const dest = (team: string) =>
+                                team === pick.original_team ? `${cityFor(team)} keeps it` : `it goes to ${cityFor(team)}`;
+                            const trigSentence = pbTP === pbTN
+                                ? `If ${trigDesc}, ${dest(pbTP!)} no matter where this pick lands.`
+                                : `If ${trigDesc}, ${dest(pbTP!)} when this pick lands ${protDesc}; otherwise ${dest(pbTN!)}.`;
+                            const notSentence = pbNP === pbNN
+                                ? `If the trigger never hits, ${dest(pbNP!)} regardless.`
+                                : `If the trigger never hits, ${dest(pbNP!)} when it lands ${protDesc}; otherwise ${dest(pbNN!)}.`;
+                            const rawFb = rawPick?.rules?.fallback_pick;
+                            const fbInfo = rawFb && rawFb !== "none" ? parsePickId(rawFb as string) : null;
+                            const fallbackStr = fbInfo
+                                ? ` If this pick never conveys, the ${fbInfo.year} ${fbInfo.round === 1 ? "1st" : "2nd"}-round pick is sent as a fallback.`
+                                : "";
+                            return `The ${teamMeta.city} ${pick.year} ${roundStr} pick is protected ${protDesc}, and its destination also depends on a trigger. ${trigSentence} ${notSentence}${fallbackStr}`;
+                        }
+
+                        if (rawPickType === "unpro_backup" && rawTriggers.length > 0 && if_triggered_to && if_not_triggered_to) {
+                            const roundStr = pick.round === 1 ? "1st-round" : "2nd-round";
+                            const trigDesc = rawTriggers
+                                .map(t => {
+                                    const ti = parsePickId(t.pick);
+                                    return ti
+                                        ? `the ${ti.teamAbbr} ${ti.year} ${ti.round === 1 ? "1st" : "2nd"}-round pick ${formatCondition(t.condition)}`
+                                        : `another pick's result`;
+                                })
+                                .join(trigger_logic === "AND" ? " and " : " or ");
+                            const dest = (team: string) =>
+                                team === pick.original_team ? `${cityFor(team)} keeps it` : `it goes to ${cityFor(team)}`;
+                            return `The ${teamMeta.city} ${pick.year} ${roundStr} pick has no protection of its own — its destination depends entirely on another pick's result. If ${trigDesc}, ${dest(if_triggered_to)}; otherwise ${dest(if_not_triggered_to)}.`;
+                        }
+
                         if (!isProtectedSwap || !rawPick) return typeInfo.description;
 
                         const roundStr  = pick.round === 1 ? "1st-round" : "2nd-round";
@@ -478,7 +530,7 @@ export default async function PickSlugPage({ params }: Props) {
                                             <div className="text-[11px] uppercase tracking-widest opacity-40">
                                                 {yearNum} · {roundLabel(roundNum)}
                                             </div>
-                                            <h1 className="text-3xl font-bold">{teamMeta.full}</h1>
+                                            <h1 className="text-2xl md:text-3xl font-bold">{teamMeta.full}</h1>
                                             <div className="flex items-center gap-2 flex-wrap">
                                                 <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded border"
                                                     style={{ color: typeInfo.borderColor, borderColor: typeInfo.borderColor + "60" }}>
@@ -547,11 +599,13 @@ export default async function PickSlugPage({ params }: Props) {
                                         <div className="text-[11px] uppercase tracking-widest opacity-40">
                                             {yearNum} · {roundLabel(roundNum)}
                                         </div>
-                                        <h1 className="text-3xl font-bold">{teamMeta.full}</h1>
+                                        <h1 className="text-2xl md:text-3xl font-bold">{teamMeta.full}</h1>
                                         <div className="text-sm opacity-50">
                                             {rawPickType === "pro_pick"
                                                 ? `Determined by ${teamMeta.city}'s draft result`
-                                                : `${teamMeta.city} original pick`}
+                                                : isProBackup
+                                                    ? `Determined by a trigger and ${teamMeta.city}'s draft result`
+                                                    : `${teamMeta.city} original pick`}
                                         </div>
                                     </div>
                                 </div>
@@ -623,7 +677,7 @@ export default async function PickSlugPage({ params }: Props) {
                                         </p>
                                     </div>
 
-                                    <div className="grid gap-4" style={{ gridTemplateColumns: `repeat(${poolSize}, minmax(0, 1fr))` }}>
+                                    <div className="grid gap-4 max-md:grid-cols-2!" style={{ gridTemplateColumns: `repeat(${poolSize}, minmax(0, 1fr))` }}>
                                         {sortedPool.map((poolPick) => {
                                             const pAbbr     = abbrFor(poolPick.original_team);
                                             const pos       = poolPosition(poolPick);
@@ -657,7 +711,7 @@ export default async function PickSlugPage({ params }: Props) {
                                                     {/* RECIPIENT — the team that owns/receives this pick */}
                                                     {recAbbr ? (
                                                         <div className="flex flex-col items-center gap-1.5">
-                                                            <TeamLogo abbr={recAbbr} size={64} />
+                                                            <TeamLogo abbr={recAbbr} size={64} noLink />
                                                             <span className="text-sm font-bold" style={{ color: recColor }}>
                                                                 {TEAM_METADATA[recAbbr]?.city ?? recipient}
                                                             </span>
@@ -763,7 +817,7 @@ export default async function PickSlugPage({ params }: Props) {
                                             </p>
                                         </div>
 
-                                        <div className="grid grid-cols-2 gap-4">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                             {/* Better pick */}
                                             <div className={`rounded-2xl border p-5 space-y-3 flex flex-col items-center text-center ${isCurBetter ? "border-white/30 bg-white/6" : "border-green-500/20 bg-green-500/5"}`}>
                                                 <div className="text-[9px] font-black uppercase tracking-widest text-green-400 opacity-80">Better Pick</div>
@@ -884,7 +938,7 @@ export default async function PickSlugPage({ params }: Props) {
                                                 href={triggerHref ?? "#"}
                                                 className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/3 px-4 py-3 hover:border-white/20 transition-colors"
                                             >
-                                                <TeamLogo abbr={triggerInfo.teamAbbr} size={32} />
+                                                <TeamLogo abbr={triggerInfo.teamAbbr} size={32} noLink />
                                                 <div className="flex-1 min-w-0">
                                                     <div className="text-sm font-bold">{pickLabel(triggerPickId)}</div>
                                                     <div className="text-xs opacity-50 mt-0.5">{formatCondition(triggerCond)}</div>
@@ -899,7 +953,7 @@ export default async function PickSlugPage({ params }: Props) {
                                         )}
 
                                         {/* Two destination branches */}
-                                        <div className="grid grid-cols-2 gap-4">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                             {ifTriggeredAbbr && (
                                                 <div className="rounded-2xl border border-white/10 bg-white/3 p-4 space-y-3 flex flex-col items-center text-center">
                                                     <div className="text-[9px] font-black uppercase tracking-widest opacity-30">If Triggered</div>
@@ -941,7 +995,7 @@ export default async function PickSlugPage({ params }: Props) {
                                                         If {cityFor(ifNotTriggeredTo!)} receives this pick, it enters a pool with their other picks.
                                                         The least favorable goes to {cityFor(poolRecipientTo!)}.
                                                     </p>
-                                                    <div className="grid grid-cols-2 gap-3">
+                                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                                         <div className="text-center space-y-1.5">
                                                             <TeamLogo abbr={ifNotTriggeredAbbr} size={28} />
                                                             <div className="text-[10px] font-semibold" style={{ color: ifNotTriggeredColor }}>
@@ -989,7 +1043,7 @@ export default async function PickSlugPage({ params }: Props) {
                                             <div className="flex-1 border-t border-white/8" />
                                             <span className="text-[9px] opacity-20 font-mono">BRK · PHI(cond) · PHX · NYK</span>
                                         </div>
-                                        <div className="grid grid-cols-4 gap-2">
+                                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                                             {sgMainPicks.map(p => {
                                                 const pAbbr = abbrFor(p.original_team);
                                                 const role  = SG_ROLE[p.pick_id];
@@ -1008,7 +1062,7 @@ export default async function PickSlugPage({ params }: Props) {
                                                                 : "border-white/10 bg-white/2 hover:border-white/20 hover:bg-white/4"
                                                         }`}
                                                     >
-                                                        <TeamLogo abbr={pAbbr} size={36} />
+                                                        <TeamLogo abbr={pAbbr} size={36} noLink />
                                                         <div className="flex flex-col items-center gap-0.5">
                                                             <span className="text-[10px] font-bold opacity-70">{pAbbr}</span>
                                                             {role && (
@@ -1039,7 +1093,7 @@ export default async function PickSlugPage({ params }: Props) {
                                                                 const oColor = teamColors[oAbbr] ?? "#555";
                                                                 return (
                                                                     <div key={o.team} className="flex items-center gap-1">
-                                                                        <TeamLogo abbr={oAbbr} size={10} />
+                                                                        <TeamLogo abbr={oAbbr} size={10} noLink />
                                                                         <div className="flex-1 h-1 rounded-full bg-white/10 overflow-hidden">
                                                                             <div className="h-full rounded-full"
                                                                                 style={{ width: `${Math.round(o.prob * 100)}%`, backgroundColor: oColor }} />
@@ -1064,7 +1118,7 @@ export default async function PickSlugPage({ params }: Props) {
                                             <div className="flex-1 border-t border-white/8" />
                                             <span className="text-[9px] opacity-20 font-mono">MIL · POR · WAS</span>
                                         </div>
-                                        <div className="grid grid-cols-3 gap-2">
+                                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                                             {sgSecPicks.map(p => {
                                                 const pAbbr = abbrFor(p.original_team);
                                                 const role  = SG_ROLE[p.pick_id];
@@ -1083,7 +1137,7 @@ export default async function PickSlugPage({ params }: Props) {
                                                                 : "border-white/10 bg-white/2 hover:border-white/20 hover:bg-white/4"
                                                         }`}
                                                     >
-                                                        <TeamLogo abbr={pAbbr} size={36} />
+                                                        <TeamLogo abbr={pAbbr} size={36} noLink />
                                                         <div className="flex flex-col items-center gap-0.5">
                                                             <span className="text-[10px] font-bold opacity-70">{pAbbr}</span>
                                                             {role && (
@@ -1114,7 +1168,7 @@ export default async function PickSlugPage({ params }: Props) {
                                                                 const oColor = teamColors[oAbbr] ?? "#555";
                                                                 return (
                                                                     <div key={o.team} className="flex items-center gap-1">
-                                                                        <TeamLogo abbr={oAbbr} size={10} />
+                                                                        <TeamLogo abbr={oAbbr} size={10} noLink />
                                                                         <div className="flex-1 h-1 rounded-full bg-white/10 overflow-hidden">
                                                                             <div className="h-full rounded-full"
                                                                                 style={{ width: `${Math.round(o.prob * 100)}%`, backgroundColor: oColor }} />
@@ -1218,7 +1272,7 @@ export default async function PickSlugPage({ params }: Props) {
                                                         </div>
                                                     </div>
 
-                                                    <div className="grid gap-2" style={{ gridTemplateColumns: `repeat(${totalInPool}, minmax(0, 1fr))` }}>
+                                                    <div className="grid gap-2 max-md:grid-cols-2!" style={{ gridTemplateColumns: `repeat(${totalInPool}, minmax(0, 1fr))` }}>
                                                         {/* Real picks — sorted best→worst */}
                                                         {sortedReal.map((p, rankIdx) => {
                                                             const pAbbr = abbrFor(p.original_team);
@@ -1253,7 +1307,7 @@ export default async function PickSlugPage({ params }: Props) {
                                                                             </svg>
                                                                         </div>
                                                                     ) : (
-                                                                        <TeamLogo abbr={displayAbbr} size={32} />
+                                                                        <TeamLogo abbr={displayAbbr} size={32} noLink />
                                                                     )}
                                                                     <span className="text-[10px] font-bold opacity-70">
                                                                         {isTemp
@@ -1364,7 +1418,7 @@ export default async function PickSlugPage({ params }: Props) {
                                                         href={fbInfo ? `/picks/${fbInfo.year}/${fbInfo.round}/${fbAbbr?.toLowerCase()}` : "#"}
                                                         className="glass-row flex items-center gap-4 rounded-xl px-4 py-3"
                                                     >
-                                                        {fbAbbr && <TeamLogo abbr={fbAbbr} size={36} />}
+                                                        {fbAbbr && <TeamLogo abbr={fbAbbr} size={36} noLink />}
                                                         <div className="flex-1 min-w-0">
                                                             <div className="text-sm font-semibold">{pickLabel(fallbackPickId)}</div>
                                                             {protInfo && (
@@ -1462,7 +1516,7 @@ export default async function PickSlugPage({ params }: Props) {
                                                         </div>
                                                     )}
 
-                                                    <div className="grid grid-cols-2 gap-3">
+                                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                                         {/* Enters swap */}
                                                         <div className="rounded-xl border border-purple-500/25 bg-purple-500/5 p-4 space-y-2">
                                                             <div className="text-[9px] font-black uppercase tracking-widest text-purple-400 opacity-80">Enters Swap</div>
@@ -1496,7 +1550,7 @@ export default async function PickSlugPage({ params }: Props) {
                                                             className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-white/8 bg-white/2 hover:border-white/16 hover:bg-white/4 transition-colors"
                                                         >
                                                             <span className="text-[9px] font-black uppercase tracking-widest opacity-30">Fallback</span>
-                                                            {fallbackAbbr && <TeamLogo abbr={fallbackAbbr} size={16} />}
+                                                            {fallbackAbbr && <TeamLogo abbr={fallbackAbbr} size={16} noLink />}
                                                             <span className="text-xs opacity-50">{pickLabel(fallbackPickId)}</span>
                                                             <span className="ml-auto text-[9px] opacity-30">View →</span>
                                                         </a>
@@ -1526,7 +1580,7 @@ export default async function PickSlugPage({ params }: Props) {
                                                     <div className="text-[11px] opacity-40 px-1">
                                                         Rank {alloc.rank} pick destination is conditional
                                                     </div>
-                                                    <div className="grid grid-cols-2 gap-3">
+                                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                                         {ifInAbbr && (
                                                             <div className="rounded-xl border border-white/10 bg-white/3 p-4 space-y-2">
                                                                 <div className="text-[9px] font-black uppercase tracking-widest opacity-40">IF PICKS {min}–{max}</div>
@@ -1564,12 +1618,12 @@ export default async function PickSlugPage({ params }: Props) {
                             })()}
 
                             {/* ── BACKUP TRIGGERS ── */}
-                            {isBackup && hasTriggers && (
+                            {isBackup && !isProBackup && hasTriggers && (
                                 <div className="glass-card rounded-2xl p-6 space-y-4">
                                     <div>
-                                        <h2 className="text-lg font-bold tracking-wide">Trigger Condition</h2>
+                                        <h2 className="text-lg font-bold tracking-wide">Routing</h2>
                                         <p className="text-xs opacity-40 mt-1">
-                                            This backup pick only activates when the condition below is met.
+                                            This pick's destination depends on the outcome of the trigger pick below.
                                         </p>
                                     </div>
 
@@ -1605,11 +1659,13 @@ export default async function PickSlugPage({ params }: Props) {
                                             })}
 
                                             {(if_triggered_to || if_not_triggered_to) && (() => {
-                                                const r = rawTriggers[0]?.condition?.range as [number, number] | undefined;
-                                                const triggeredLabel = r ? `IF ${r[0]}–${r[1]}` : "IF TRIGGERED";
-                                                const notTriggeredLabel = r ? `IF ${r[1] + 1}+` : "OTHERWISE";
+                                                // The trigger range belongs to the trigger pick (shown on its row
+                                                // above), not this one — don't repeat it here where it reads as
+                                                // this pick's landing range.
+                                                const triggeredLabel = "IF TRIGGERED";
+                                                const notTriggeredLabel = "IF NOT TRIGGERED";
                                                 return (
-                                                    <div className="grid grid-cols-2 gap-3 pt-1">
+                                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                                                         {if_triggered_to && (
                                                             <div className="rounded-xl border border-green-500/25 bg-green-500/5 p-3 space-y-1.5">
                                                                 <div className="text-[9px] font-black uppercase tracking-widest text-green-400 opacity-80">{triggeredLabel}</div>
@@ -1705,6 +1761,121 @@ export default async function PickSlugPage({ params }: Props) {
                                 </div>
                             )}
 
+                            {/* ── PRO BACKUP ROUTING (trigger × protection) ── */}
+                            {isProBackup && proRange && (() => {
+                                const [pMin, pMax] = proRange;
+                                const slotMin = pick.round === 1 ? 1 : 31;
+                                const slotMax = pick.round === 1 ? 30 : 60;
+                                const availRange: [number, number] = rawPick?.rules?.available_range
+                                    ?? [pMax + 1, slotMax];
+                                const protLabel  = pMin === 1 ? `Top ${pMax}` : `${pMin}–${pMax}`;
+                                const availLabel = `${availRange[0]}–${availRange[1]}`;
+                                const anyLabel   = `${slotMin}–${slotMax}`;
+
+                                const destRow = (
+                                    kind: "protected" | "conveys" | "any",
+                                    rangeLabel: string,
+                                    team: string,
+                                ) => {
+                                    const keeps = team === pick.original_team;
+                                    const boxCls = kind === "protected"
+                                        ? "rounded-xl border border-blue-500/30 bg-blue-500/8 px-5 py-3.5 flex items-center gap-4"
+                                        : "rounded-xl border border-white/8 px-5 py-3.5 flex items-center gap-4";
+                                    const tagCls = kind === "protected"
+                                        ? "text-[10px] font-black uppercase tracking-widest text-blue-400"
+                                        : kind === "conveys"
+                                            ? "text-[10px] font-black uppercase tracking-widest text-green-400"
+                                            : "text-[10px] font-black uppercase tracking-widest opacity-40";
+                                    const rangeCls = kind === "protected"
+                                        ? "text-xl font-black text-blue-300 tabular-nums leading-none"
+                                        : "text-xl font-black tabular-nums leading-none opacity-70";
+                                    const tag = kind === "protected" ? "PROTECTED" : kind === "conveys" ? "CONVEYS" : "ANY RESULT";
+                                    return (
+                                        <div key={`${tag}-${team}`} className={boxCls}>
+                                            <div className="shrink-0 flex flex-col items-center gap-1 min-w-[56px]">
+                                                <span className={tagCls}>{tag}</span>
+                                                <span className={rangeCls}>{rangeLabel}</span>
+                                            </div>
+                                            <div className="w-px h-10 bg-white/10 shrink-0" />
+                                            <TeamLogo abbr={abbrFor(team)} size={36} />
+                                            <span className="text-base font-semibold">
+                                                {cityFor(team)} {keeps ? "keeps it" : "receives it"}
+                                            </span>
+                                        </div>
+                                    );
+                                };
+
+                                return (
+                                    <div className="glass-card rounded-2xl p-6 space-y-5">
+                                        <div>
+                                            <h2 className="text-lg font-bold tracking-wide">Routing</h2>
+                                            <p className="text-xs opacity-40 mt-1">
+                                                Destination depends on the trigger below and where this pick lands.
+                                            </p>
+                                        </div>
+
+                                        {/* Trigger rows */}
+                                        <div className="space-y-2">
+                                            {rawTriggers.map((trigger, i) => {
+                                                const info  = parsePickId(trigger.pick);
+                                                const tPick = pickIdMap.get(trigger.pick);
+                                                const href  = info ? `/picks/${info.year}/${info.round}/${info.teamAbbr.toLowerCase()}` : null;
+                                                const prob  = tPick ? triggerProb(tPick, trigger.condition) : null;
+                                                return (
+                                                    <div key={i}>
+                                                        {rawTriggers.length > 1 && i > 0 && (
+                                                            <div className="text-center text-[10px] font-black opacity-30 uppercase tracking-widest py-1">
+                                                                {trigger_logic}
+                                                            </div>
+                                                        )}
+                                                        <a href={href ?? "#"}
+                                                            className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/3 px-4 py-3 hover:border-white/20 transition-colors">
+                                                            {info && <TeamLogo abbr={info.teamAbbr} size={32} noLink />}
+                                                            <div className="flex-1 min-w-0">
+                                                                <div className="text-sm font-bold">{pickLabel(trigger.pick)}</div>
+                                                                <div className="text-xs opacity-50 mt-0.5">{formatCondition(trigger.condition)}</div>
+                                                            </div>
+                                                            {prob !== null && (
+                                                                <div className="shrink-0 text-right">
+                                                                    <div className="text-[9px] opacity-40 uppercase leading-none">Triggers</div>
+                                                                    <div className="text-sm font-black mt-0.5">{(prob * 100).toFixed(1)}%</div>
+                                                                </div>
+                                                            )}
+                                                        </a>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+
+                                        {/* If triggered */}
+                                        <div className="space-y-2">
+                                            <div className="text-[9px] font-black uppercase tracking-widest text-green-400 opacity-80">
+                                                If Triggered
+                                            </div>
+                                            {pbTP === pbTN
+                                                ? destRow("any", anyLabel, pbTP!)
+                                                : <>
+                                                    {destRow("protected", protLabel, pbTP!)}
+                                                    {destRow("conveys", availLabel, pbTN!)}
+                                                </>}
+                                        </div>
+
+                                        {/* If not triggered */}
+                                        <div className="space-y-2">
+                                            <div className="text-[9px] font-black uppercase tracking-widest opacity-40">
+                                                If Not Triggered
+                                            </div>
+                                            {pbNP === pbNN
+                                                ? destRow("any", anyLabel, pbNP!)
+                                                : <>
+                                                    {destRow("protected", protLabel, pbNP!)}
+                                                    {destRow("conveys", availLabel, pbNN!)}
+                                                </>}
+                                        </div>
+                                    </div>
+                                );
+                            })()}
+
                             {/* ── PRO PICK ROUTING ── */}
                             {rawPickType === "pro_pick" && proRange && proKeeperTeam && proRecipientTeam && (
                                 <div className="glass-card rounded-2xl p-6 space-y-4">
@@ -1793,7 +1964,11 @@ export default async function PickSlugPage({ params }: Props) {
                                                 {!isOwnPick && (
                                                     <div className="text-sm opacity-50 mt-0.5">Originally from {teamMeta.full}</div>
                                                 )}
-                                                <div className="text-sm opacity-30 mt-1">≥99.9% probability</div>
+                                                <div className="text-sm font-semibold text-green-400/70 mt-1">
+                                                    {isOwnPick
+                                                        ? "Guaranteed — no trade conditions"
+                                                        : "Guaranteed — unprotected, conveys unconditionally"}
+                                                </div>
                                             </div>
                                         </div>
                                     )}
@@ -1801,10 +1976,13 @@ export default async function PickSlugPage({ params }: Props) {
                             )}
 
                             {/* ── FALLBACK ── */}
-                            {rawPickType === "pro_pick" && (() => {
+                            {(rawPickType === "pro_pick" || isProBackup) && (() => {
                                 const rawFb = rawPick?.rules?.fallback_pick;
                                 const fbIds: string[] | null = !rawFb || rawFb === "none" ? null
                                     : Array.isArray(rawFb) ? rawFb : [rawFb];
+                                // pro_backup always resolves to someone — only show the card
+                                // when a real fallback pick exists.
+                                if (isProBackup && !fbIds) return null;
                                 return (
                                     <div className="glass-card rounded-2xl p-6 space-y-4">
                                         <h2 className="text-lg font-bold tracking-wide">Fallback</h2>
@@ -1822,7 +2000,7 @@ export default async function PickSlugPage({ params }: Props) {
                                                             href={info ? `/picks/${info.year}/${info.round}/${fbAbbr.toLowerCase()}` : "#"}
                                                             className="glass-row flex items-center gap-4 rounded-xl px-4 py-3"
                                                         >
-                                                            <TeamLogo abbr={fbAbbr} size={40} />
+                                                            <TeamLogo abbr={fbAbbr} size={40} noLink />
                                                             <div className="flex-1 min-w-0">
                                                                 <div className="text-sm font-semibold">
                                                                     {info ? `${fbAbbr} ${info.year} ${info.round === 1 ? "1st" : "2nd"} Round` : id}
@@ -1874,7 +2052,7 @@ export default async function PickSlugPage({ params }: Props) {
                                                         href={`/picks/${mp.year}/${mp.round}/${mAbbr.toLowerCase()}`}
                                                         className={`flex items-center gap-4 rounded-xl px-4 py-3 border transition-colors ${isThis ? "border-white/20 bg-white/6" : "border-white/8 bg-white/2 hover:border-white/15"}`}
                                                     >
-                                                        <TeamLogo abbr={mAbbr} size={36} />
+                                                        <TeamLogo abbr={mAbbr} size={36} noLink />
                                                         <div className="flex-1 min-w-0">
                                                             <div className="text-sm font-semibold truncate">{mp.original_team}</div>
                                                             <div className="text-xs opacity-40 mt-0.5">

@@ -214,7 +214,7 @@ export default function MobileNav({
             )}
           </div>
 
-          <Link href="/pelton_scale" onClick={close} className={rowClass}>
+          <Link href="/stash-value" onClick={close} className={rowClass}>
             STASH VALUE
           </Link>
 

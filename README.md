@@ -20,6 +20,28 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Naming Conventions
+
+Naming follows a **language boundary**: the web/TypeScript side and the Python/data side each use their own idiomatic convention. Don't mix conventions *within* a side.
+
+**TypeScript / web side** (`app/`, `components/`, `lib/`, web-facing `public/` paths):
+
+| Thing | Convention | Example |
+| --- | --- | --- |
+| React component files | `PascalCase.tsx` | `MobileNav.tsx`, `TeamLogo.tsx` |
+| Utility / lib files | `camelCase.ts` | `loadPicks.ts`, `teamMetadata.ts` |
+| App Router route folders | `kebab-case` | `app/stash-value/`, `app/projected-standings/` |
+| Dynamic route folders | `[bracket]` | `[team]`, `[pickId]` |
+| Next.js special files | lowercase (required) | `page.tsx`, `layout.tsx`, `route.ts` |
+| Variables / functions | `camelCase` | `loadSwapGroups` |
+| Constants | `UPPER_SNAKE` (optional) | |
+
+**Python / data-pipeline side** (`scripts/` engines — `engine_v2.py`, `special_picks_solver.py` — which read the pick JSON in `public/pick-data/teams/` and emit the sim output in `public/sim-output/`):
+
+- `snake_case` for everything — files, folders, identifiers. This is standard Python convention.
+
+**Known exception:** the team folders under `public/pick-data/teams/` are `snake_case` (`new_york`, `golden_state`) even though they live on the web side. These are load-bearing path keys shared with the Python scripts that generate them (mapped from team abbreviations in `lib/picks/constants.ts`, `lib/loadSwapGroups.ts`, and `app/teams/[team]/page.tsx`). Leave them as-is — renaming would break the Python↔web contract.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

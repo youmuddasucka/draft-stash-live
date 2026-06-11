@@ -2,15 +2,7 @@ import TeamLogo from "@/components/TeamLogo";
 import { TEAM_METADATA, TEAM_FULL_TO_ABBR } from "@/lib/teamMetadata";
 import type { SimPickCard as SimPickCardType } from "@/lib/loadSimPickCards";
 import { evStyles } from "@/lib/picks/evColor";
-
-function pickTypeBadgeClass(pickType: string) {
-    const t = pickType.toLowerCase();
-    if (t === "unprotected") return "border-[#E6B85C]";
-    if (t.includes("swap")) return "border-purple-700";
-    if (t.startsWith("pro_")) return "border-blue-700";
-    if (t.includes("backup")) return "border-neutral-600";
-    return "border-neutral-700";
-}
+import { getPickTypeInfo, backupPillLabel, isBackupType, nearCertainAlternate } from "@/lib/picks/utils";
 
 function abbr(fullName: string): string {
     return TEAM_FULL_TO_ABBR[fullName] ?? fullName;
@@ -24,16 +16,40 @@ function city(fullName: string): string {
 export default function SimPickCard({ pick }: { pick: SimPickCardType }) {
     const originAbbr = TEAM_FULL_TO_ABBR[pick.original_team] ?? pick.original_team;
     const { bg, text, glow } = evStyles(pick.ev, pick.round);
+    const typeInfo = getPickTypeInfo(pick.pick_type);
+    // Backups collapse to "Backup" (+ lock & range when protected) on the card.
+    const pillText = backupPillLabel(pick.pick_type, pick.protected_range) ?? typeInfo.label;
 
     const primaryOwner = pick.ownership[0];
-    const isMultiOwner = pick.ownership.length > 1;
+
+    // Ownership shown on the card. Protected/backup picks sometimes resolve to a
+    // single owner at ~100% in the sim, which renders as a flat "Owned by X" —
+    // inconsistent next to the other conditional picks that show odds. Since
+    // these are never truly certain, force a minimum 99/1 split toward the
+    // alternate destination so there's always visible uncertainty.
+    const realOwners = pick.ownership.filter(o => o.prob > 0.001).sort((a, b) => b.prob - a.prob);
+    const isConditional = pick.pick_type === "pro_pick" || isBackupType(pick.pick_type);
+    let displayOwners = realOwners;
+    if (isConditional && realOwners[0] && realOwners[0].prob >= 0.995) {
+        if (realOwners.length >= 2) {
+            displayOwners = [{ ...realOwners[0], prob: 0.99 }, { ...realOwners[1], prob: 0.01 }];
+        } else {
+            const alt = nearCertainAlternate(pick.possible_destinations, realOwners[0].team, pick.original_team);
+            if (alt) displayOwners = [
+                { ...realOwners[0], prob: 0.99 },
+                { team: alt, prob: 0.01, conditional_ev: 0 },
+            ];
+        }
+    }
+
+    const isMultiOwner = displayOwners.length > 1;
     const isSingleOwner = !isMultiOwner;
     const isOwnPick = isSingleOwner && pick.original_team === primaryOwner?.team;
 
     const href = `/picks/${pick.year}/${pick.round}/${originAbbr.toLowerCase()}`;
 
     return (
-        <a href={href} className={`group relative flex items-center justify-between gap-6 rounded-xl border px-4 py-3 bg-neutral-900/40 backdrop-blur-sm overflow-hidden before:absolute before:inset-0 before:bg-[url('/noise.svg')] before:opacity-[0.8] before:pointer-events-none transition-colors duration-150 ${pick.frozen ? "border-cyan-400/60 hover:border-cyan-400/90" : "border-white/20 hover:border-white/40"}`}>
+        <a href={href} className={`group relative flex items-center justify-between gap-3 md:gap-6 rounded-xl border px-4 py-3 bg-neutral-900/40 backdrop-blur-sm overflow-hidden before:absolute before:inset-0 before:bg-[url('/noise.svg')] before:opacity-[0.8] before:pointer-events-none transition-colors duration-150 ${pick.frozen ? "border-cyan-400/60 hover:border-cyan-400/90" : "border-white/20 hover:border-white/40"}`}>
             {/* GLOSS HOVER SHEEN */}
             <div className="absolute inset-0 bg-linear-to-b from-white/[0.07] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none rounded-xl" />
 
@@ -71,10 +87,7 @@ export default function SimPickCard({ pick }: { pick: SimPickCardType }) {
                         </>
                     ) : (
                         <div className="space-y-0.5">
-                            {pick.ownership
-                                .filter(o => o.prob > 0.001)
-                                .sort((a, b) => b.prob - a.prob)
-                                .map(o => (
+                            {displayOwners.map(o => (
                                     <div key={o.team} className="flex items-center gap-2">
                                         <div className="w-16 shrink-0">
                                             <div
@@ -93,8 +106,12 @@ export default function SimPickCard({ pick }: { pick: SimPickCardType }) {
                         </div>
                     )}
 
-                    <span className={`inline-block w-fit rounded-md border px-1.5 py-0.5 text-[9px] font-mono uppercase tracking-wide text-neutral-300 bg-neutral-800 mt-0.5 ${pickTypeBadgeClass(pick.pick_type)}`}>
-                        {pick.pick_type.replace(/_/g, " ")}
+                    <span
+                        className="inline-block w-fit rounded-md border px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide bg-neutral-900/60 mt-0.5"
+                        style={{ color: typeInfo.borderColor, borderColor: typeInfo.borderColor + "70" }}
+                        title={typeInfo.description}
+                    >
+                        {pillText}
                     </span>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import { loadSimPickCards } from "@/lib/loadSimPickCards";
-import PeltonScaleClient from "./PeltonScaleClient";
+import ValueScaleClient from "./ValueScaleClient";
 
 export type PickSummary = {
     pick_id: string;
@@ -12,7 +12,7 @@ export type PickSummary = {
     ev: number;
 };
 
-export default function PeltonValueScalePage() {
+export default function ValueScalePage() {
     const allPicks = loadSimPickCards();
     const picks: PickSummary[] = allPicks.map(p => ({
         pick_id: p.pick_id,
@@ -24,5 +24,5 @@ export default function PeltonValueScalePage() {
         slot_probs: (p.slot_probs ?? {}) as Record<string, number>,
         ev: p.ev,
     }));
-    return <PeltonScaleClient picks={picks} />;
+    return <ValueScaleClient picks={picks} />;
 }

@@ -5,14 +5,14 @@ Resolves picks with rules.type == "special".
 Imported by engine_v2.py — do not run directly.
 """
 
-from engine_v2 import pelton_value, evaluate_triggers
+from engine_v2 import draft_value, evaluate_triggers
 
 
 # ─────────────────────────────────────────────────────────────────────────────
 # MAIN ENTRY POINT
 # ─────────────────────────────────────────────────────────────────────────────
 
-def resolve_special(pick: dict, order, all_picks: dict, group_cache: dict) -> dict:
+def resolve_special(pick: dict, order, all_picks: dict, group_cache: dict, orders: dict) -> dict:
     """
     group_cache persists across calls within one simulation so swap groups
     are resolved exactly once per sim.
@@ -30,24 +30,26 @@ def resolve_special(pick: dict, order, all_picks: dict, group_cache: dict) -> di
             }
             group_cache[group_id] = resolve_group(group_id, group_picks, order)
         owner = group_cache[group_id][pick["pick_id"]]
-        return {"owner": owner, "value": pelton_value(pick, order)}
+        return {"owner": owner, "value": draft_value(pick, order)}
 
     # ── Category B1: single trigger_pick / trigger_condition  (MIA 2028 R2) ─
     if "trigger_pick" in rule:
         ref = all_picks[rule["trigger_pick"]]
-        pos = order.position_of(ref["original_team"], ref["round"])
+        # Use the trigger pick's OWN year's order (it may differ from this pick's year,
+        # e.g. MIA 2028 R2 hinges on the DAL 2027 1st).
+        pos = orders[ref["year"]].position_of(ref["original_team"], ref["round"])
         a, b = rule["trigger_condition"]["range"]
         triggered = a <= pos <= b
         owner = rule["if_triggered_to"] if triggered else rule["if_not_triggered_to"]
-        return {"owner": owner, "value": pelton_value(pick, order)}
+        return {"owner": owner, "value": draft_value(pick, order)}
 
     # ── Category B2: triggers[] array  (POR 2028 R2) ────────────────────────
     if "triggers" in rule:
         triggered = evaluate_triggers(
-            rule["triggers"], rule["trigger_logic"], order, all_picks
+            rule["triggers"], rule["trigger_logic"], orders, all_picks
         )
         owner = rule["if_triggered_to"] if triggered else rule["if_not_triggered_to"]
-        return {"owner": owner, "value": pelton_value(pick, order)}
+        return {"owner": owner, "value": draft_value(pick, order)}
 
     raise ValueError(f"Unrecognized special pick structure: {pick['pick_id']}")
 

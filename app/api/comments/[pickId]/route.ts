@@ -10,7 +10,7 @@ export async function GET(
 
   const { data, error } = await supabase
     .from("comments")
-    .select("id, content, created_at")
+    .select("id, content, created_at, name")
     .eq("pick_id", pickId)
     .order("created_at", { ascending: false });
 

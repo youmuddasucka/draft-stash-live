@@ -33,7 +33,7 @@ export default function AboutPage() {
         <ul className="list-disc list-inside space-y-1">
           <li>Simulates 10,000 future drafts using projected standings</li>
           <li>Resolves each pick to its final owner based on trade rules</li>
-          <li>Applies Kevin Pelton’s 2017 draft slot valuation curve</li>
+          <li>Applies a blended draft slot valuation curve</li>
           <li>Assigns expected value to the rightful owner of each pick</li>
         </ul>
       </div>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-type Comment = { id: string; content: string; created_at: string };
+type Comment = { id: string; content: string; created_at: string; name: string | null };
 type Reactions = { too_high: number; too_low: number; incorrect: number };
 type ReactionKey = keyof Reactions;
 
@@ -28,6 +28,7 @@ export default function PickComments({ pickId }: { pickId: string }) {
   const [activeReaction, setActiveReaction] = useState<ReactionKey | null>(null);
   const [comments, setComments] = useState<Comment[]>([]);
   const [content, setContent] = useState("");
+  const [name, setName] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -79,7 +80,7 @@ export default function PickComments({ pickId }: { pickId: string }) {
     const res = await fetch("/api/comments", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ pick_id: pickId, content: content.trim() }),
+      body: JSON.stringify({ pick_id: pickId, content: content.trim(), name: name.trim() || null }),
     });
     if (res.ok) {
       const newComment = await res.json();
@@ -131,6 +132,16 @@ export default function PickComments({ pickId }: { pickId: string }) {
 
       {/* Comment form */}
       <form onSubmit={handleSubmit} className="space-y-2.5">
+        {content.length > 0 && (
+          <input
+            type="text"
+            value={name}
+            onChange={e => setName(e.target.value)}
+            maxLength={40}
+            placeholder="Name (optional)"
+            className="glass-surface rounded-xl border border-white/10 w-full px-4 py-2.5 text-sm focus:border-white/25 focus:outline-none placeholder:opacity-20 bg-transparent"
+          />
+        )}
         <div className="relative">
           <textarea
             value={content}
@@ -166,7 +177,11 @@ export default function PickComments({ pickId }: { pickId: string }) {
           {comments.map(c => (
             <div key={c.id} className="glass-surface rounded-xl border border-white/5 px-4 py-3.5 space-y-1.5">
               <p className="text-sm leading-relaxed opacity-75 whitespace-pre-wrap break-words">{c.content}</p>
-              <time className="text-[10px] opacity-20 font-mono">{relativeTime(c.created_at)}</time>
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-black uppercase tracking-wider opacity-40">{c.name?.trim() || "Anonymous"}</span>
+                <span className="opacity-15 text-[10px]">·</span>
+                <time className="text-[10px] opacity-20 font-mono">{relativeTime(c.created_at)}</time>
+              </div>
             </div>
           ))}
         </div>

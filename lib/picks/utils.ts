@@ -25,6 +25,50 @@ export function getPickTypeInfo(pt: string) {
 
 export function isSwapType(pt: string): boolean { return pt.includes("swap"); }
 export function isBackupType(pt: string): boolean { return pt.includes("backup"); }
+
+/**
+ * Display label for backup picks on the list/card views (Teams, All Picks).
+ * All backups read simply "Backup"; protected variants (pro_backup,
+ * pro_backup_branched) append a lock + the protected range, e.g.
+ * "Backup 🔒 (31-45)". Returns null for non-backup types.
+ */
+export function backupPillLabel(pt: string, range?: [number, number] | null): string | null {
+    if (!isBackupType(pt)) return null;
+    if (pt.startsWith("pro_") && range && range.length === 2) {
+        return `Backup 🔒 (${range[0]}-${range[1]})`;
+    }
+    return "Backup";
+}
+
+/**
+ * Picks the destination to show as the "other" outcome for a conditional pick
+ * the sim resolved as a near-certainty. Prefers the original team staying home,
+ * otherwise the first possible destination that isn't the current owner.
+ */
+export function nearCertainAlternate(
+    dests: string[] | undefined, owner: string | undefined, originalTeam: string,
+): string | null {
+    const d = dests ?? [];
+    if (owner && originalTeam !== owner && d.includes(originalTeam)) return originalTeam;
+    const other = d.find(t => t !== owner);
+    if (other) return other;
+    return owner && originalTeam !== owner ? originalTeam : null;
+}
+
+/**
+ * Collapses the 11 raw pick_type values into 5 user-facing buckets.
+ * Used for the /picks type filter so users don't have to know the engine taxonomy.
+ * Order matters: swap/backup substrings must be checked before the exact matches.
+ */
+export type PickBucket = "Unprotected" | "Swap" | "Protected" | "Backup" | "Special";
+export const PICK_BUCKETS: PickBucket[] = ["Unprotected", "Swap", "Protected", "Backup", "Special"];
+export function pickTypeBucket(pt: string): PickBucket {
+    if (isSwapType(pt))      return "Swap";
+    if (isBackupType(pt))    return "Backup";
+    if (pt === "unprotected") return "Unprotected";
+    if (pt === "special")     return "Special";
+    return "Protected";
+}
 export function roundLabel(r: number): string { return r === 1 ? "1st Round" : r === 2 ? "2nd Round" : `Round ${r}`; }
 
 export function abbrFor(fullName: string): string { return TEAM_FULL_TO_ABBR[fullName] ?? fullName; }

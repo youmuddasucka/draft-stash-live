@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import fs from "fs";
 import path from "path";
 import TeamLogo from "@/components/TeamLogo";
@@ -6,8 +7,10 @@ import { TEAM_METADATA, TEAM_FULL_TO_ABBR } from "@/lib/teamMetadata";
 import { TEAM_EMPLOYEES } from "@/lib/employees";
 import { loadSimPickCards } from "@/lib/loadSimPickCards";
 import { loadSimTeamPickCards, type SimTeamPickCard } from "@/lib/loadSimTeamPickCards";
+import { loadStepienGuarantees } from "@/lib/loadStepienGuarantees";
 import { computeStashRankings } from "@/lib/computeStashRankings";
 import TeamPicksSection from "@/components/TeamPicksSection";
+import { backupPillLabel } from "@/lib/picks/utils";
 
 const TEAM_FOLDER: Record<string, string> = {
   ATL: "atlanta",      BOS: "boston",       BKN: "brooklyn",
@@ -111,6 +114,14 @@ function getSwapPoolAbbrs(pickId: string): string[] {
   return [];
 }
 
+// Teams that receive a pick out of a swap, from top-level allocation or levels.
+function getSwapRecipients(pickId: string): string[] {
+  const rules = loadRawPick(pickId)?.rules;
+  if (!rules) return [];
+  const alloc: any[] = rules.allocation ?? (rules.levels ?? []).flatMap((l: any) => l.allocation ?? []);
+  return alloc.map((a: any) => a.to).filter(Boolean);
+}
+
 // Distinct real (non-TEMP) pool pick ids for a swap, from top-level pool or levels.
 function getSwapPoolPickIds(pickId: string): string[] {
   const rules = loadRawPick(pickId)?.rules;
@@ -170,6 +181,22 @@ const FINISH_YEARS = [2026, 2027, 2028, 2029, 2030, 2031, 2032];
 // grey those boxes out instead of showing a green/red signal.
 const DECIDED_YEAR = 2026;
 
+// How a team's OWN pick (round + year) is held. Drives the Own Pick Control grid.
+type OwnPickKind =
+  | "unprotected" | "swap_best" | "swap_mid" | "swap_worst" | "swap" | "protected" | "none";
+
+// Glyph + color for each state. Green = strong control / tank-positive, blue =
+// conditional, amber/orange = swap downside, red = no own pick.
+const OWN_PICK_STYLE: Record<OwnPickKind, { bg: string; glyph: string; tip: string }> = {
+  unprotected: { bg: "#16a34a", glyph: "✓", tip: "Owns outright (unprotected)" },
+  swap_best:   { bg: "#16a34a", glyph: "B", tip: "Swap — best (keeps the better pick)" },
+  swap_mid:    { bg: "#d97706", glyph: "M", tip: "Swap — middle of the pool" },
+  swap_worst:  { bg: "#ea580c", glyph: "W", tip: "Swap — worst (gets the lesser pick)" },
+  swap:        { bg: "#7c3aed", glyph: "S", tip: "Swap" },
+  protected:   { bg: "#3b82f6", glyph: "P", tip: "Protected — may convey away" },
+  none:        { bg: "#dc2626", glyph: "✗", tip: "No own pick (traded away)" },
+};
+
 function rankToColor(rank: number | null): string {
   if (!rank) return "#444";
   const clamped = Math.max(1, Math.min(30, rank));
@@ -225,36 +252,72 @@ export default async function TeamPage({ params }: Props) {
 
   const allTeamCards = loadSimTeamPickCards();
 
-  // Own first-round pick control: for each year, the likelihood this team ends
-  // up holding its OWN R1 pick. A green/red tank signal — controlling your own
-  // pick rewards losing, having traded it away removes the incentive.
-  const ownPickControl = FINISH_YEARS.map(year => {
-    const prob = allTeamCards
-      .filter(c => c.team === teamName && c.original_team === teamName && c.round === 1 && c.year === year)
-      .reduce((max, c) => Math.max(max, c.prob ?? 0), 0);
-    return { year, prob, controls: prob >= 0.5 };
-  });
+  // Own pick control: for each round + year, how the team holds its OWN pick.
+  // Beyond a binary hold/don't-hold, we surface the *type* — owned outright,
+  // protected, or a swap (best/mid/worst) — since that drives tanking incentive
+  // (a swap-best rewards losing; a swap-worst much less so).
+  function classifyOwnPick(round: number, year: number): { kind: OwnPickKind; prob: number } {
+    // Classify by the team's OWN pick (its pick_id), regardless of who physically
+    // ends up holding that exact slot. In a "best" swap the team takes the better
+    // pick and its own slot conveys to the counterparty — so filtering by holder
+    // (team === teamName) would read that as "no own pick" when it's really a
+    // (favorable) swap the team controls.
+    const ownPickId = `${teamName.replace(/ /g, "_")}_${year}_${round}`;
+    const ownCards = allTeamCards.filter(c => c.pick_id === ownPickId && (c.prob ?? 0) > 0.01);
+    if (!ownCards.length) return { kind: "none", prob: 0 };
+    const rep = ownCards.reduce((b, c) => ((c.prob ?? 0) > (b.prob ?? 0) ? c : b));
+    const prob = rep.prob ?? 0;
+
+    if (rep.pick_type.includes("swap")) {
+      // If the team isn't a recipient in this swap, its pick was swapped into a
+      // pool between other teams and it controls nothing here.
+      const recipients = getSwapRecipients(rep.pick_id);
+      if (recipients.length && !recipients.includes(teamName)) return { kind: "none", prob };
+      const pos = swapPositionKind(getSwapPoolPickIds(rep.pick_id), teamName, allTeamCards);
+      const kind: OwnPickKind = pos === "best" ? "swap_best"
+        : pos === "worst" ? "swap_worst" : pos === "mid" ? "swap_mid" : "swap";
+      return { kind, prob };
+    }
+
+    // Non-swap: the team controls it only if it actually still holds the slot.
+    if (rep.team !== teamName) return { kind: "none", prob };
+    if (rep.pick_type === "unprotected") return { kind: "unprotected", prob };
+    return { kind: "protected", prob }; // pro_pick, backups, special
+  }
+
+  const ownControlRounds = ([1, 2] as const).map(round => ({
+    round,
+    label: round === 1 ? "First" : "Second",
+    years: FINISH_YEARS.map(year => ({ year, ...classifyOwnPick(round, year) })),
+  }));
 
   // Stepien Rule: a team must be guaranteed a first-round pick at least every
-  // other year. Only GUARANTEED firsts count — a pick owned outright
-  // (unprotected) or a swap (you always receive one). Protected picks (pro_pick)
-  // and backups are conditional and can convey away, so they DON'T guarantee a
-  // first. A team is "Stepien-maxed" when two consecutive years lack a
-  // guaranteed first (it relies on protections resolving its way / can't trade
-  // more adjacent firsts).
+  // other year — it can't end up without a first in two consecutive drafts.
+  // Whether a first "counts" is a per-outcome guarantee, NOT a pick_type label:
+  // a pick counts only if the team holds it in EVERY possible draft outcome.
+  // The sim computes this directly (engine_v2.py -> stepien_guarantees.json):
+  //   guaranteed_count = firsts held in 100% of sims (the guaranteed floor)
+  //   hold_prob        = fraction of sims holding >=1 first
+  // This correctly handles the cases a label-based check gets wrong: a protected
+  // SWAP always leaves you a pick (counts), while a one-way conditional pick can
+  // leave you with nothing (doesn't count) even when nominally "unprotected".
+  const stepienByYear = new Map(
+    loadStepienGuarantees()
+      .filter(g => g.team === teamName)
+      .map(g => [g.year, g])
+  );
   const stepienBase = FINISH_YEARS.map(year => {
-    const cards = allTeamCards.filter(
-      c => c.team === teamName && c.round === 1 && c.year === year && (c.prob ?? 0) > 0.01
-    );
-    // Count distinct GUARANTEED firsts: owned outright (unprotected) counts per
-    // pick; a swap recipient always gets exactly one, so all swaps that year = 1.
-    const unprotectedIds = new Set(
-      cards.filter(c => c.pick_type === "unprotected" && (c.prob ?? 0) >= 0.999).map(c => c.pick_id)
-    );
-    const guaranteedCount = unprotectedIds.size + (cards.some(c => c.pick_type.includes("swap")) ? 1 : 0);
+    const g = stepienByYear.get(year);
+    const guaranteedCount = g?.guaranteed_count ?? 0;
+    const holdProb = g?.hold_prob ?? 0;
+    // pairFloorNext >= 1 means this year + next year are never both empty, so two
+    // individually-protected years can still be jointly guaranteed (Stepien-safe).
+    const pairFloorNext = g?.pair_floor_next ?? null;
+    // guaranteed: holds a first no matter what. protected: holds one only in some
+    // outcomes (conditional/protected — a Stepien gap). none: never holds one.
     const status: "guaranteed" | "protected" | "none" =
-      guaranteedCount > 0 ? "guaranteed" : cards.length > 0 ? "protected" : "none";
-    return { year, status, guaranteedCount };
+      guaranteedCount > 0 ? "guaranteed" : holdProb > 0 ? "protected" : "none";
+    return { year, status, guaranteedCount, pairFloorNext };
   });
 
   // A guaranteed first is TRADEABLE only if moving it can't create two
@@ -268,6 +331,30 @@ export default async function TeamPage({ params }: Props) {
     const locked = s.guaranteedCount < 2 && (prevGap || nextGap);
     return { ...s, locked, tradeable: !locked };
   });
+
+  // Two adjacent PROTECTED years whose pair floor is >=1 can never both be empty,
+  // so the team is guaranteed to keep at least one across them — that's legal
+  // under Stepien even though neither year is guaranteed alone (e.g. Denver
+  // 2029/2030). Coalesce such runs so the UI can bracket them as a joint guarantee
+  // instead of showing what looks like an illegal back-to-back gap.
+  type StepienCell = (typeof stepienYears)[number];
+  const stepienGroups: { cells: StepienCell[]; jointlyGuaranteed: boolean }[] = [];
+  for (let i = 0; i < stepienYears.length; i++) {
+    if (stepienYears[i].status === "protected") {
+      let j = i;
+      while (
+        j + 1 < stepienYears.length &&
+        stepienYears[j + 1].status === "protected" &&
+        (stepienYears[j].pairFloorNext ?? 0) >= 1
+      ) j++;
+      if (j > i) {
+        stepienGroups.push({ cells: stepienYears.slice(i, j + 1), jointlyGuaranteed: true });
+        i = j;
+        continue;
+      }
+    }
+    stepienGroups.push({ cells: [stepienYears[i]], jointlyGuaranteed: false });
+  }
 
   const teamCards = dedupeSwaps(allTeamCards.filter(c => c.team === teamName), teamName);
 
@@ -303,19 +390,26 @@ export default async function TeamPage({ params }: Props) {
         pickTypeLabels[card.pick_id] = `protected (${pr[0]}-${pr[1]})`;
       }
     }
+    if (card.pick_type.includes("backup")) {
+      // "Backup" everywhere; protected variants add the lock + range.
+      const rules = loadRawPick(card.pick_id)?.rules;
+      const pr = rules?.protection_range ?? rules?.branches?.[0]?.protection_range ?? null;
+      const lbl = backupPillLabel(card.pick_type, pr);
+      if (lbl) pickTypeLabels[card.pick_id] = lbl;
+    }
   }
 
   return (
     <div className="glass-bg min-h-screen">
-      <div className="max-w-6xl mx-auto px-6 py-10 space-y-10">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 py-6 md:py-10 space-y-8 md:space-y-10">
         {/* TOP ROW */}
         <div className="flex justify-center">
-          <section className="flex items-center gap-10">
+          <section className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
             {/* LOGO + INFO */}
             <div className="flex items-center gap-4">
               <TeamLogo abbr={TEAM} size={120} />
               <div>
-                <h1 className="text-3xl font-bold">{teamName}</h1>
+                <h1 className="text-2xl md:text-3xl font-bold">{teamName}</h1>
                 <p className="text-xs opacity-70">Executive: {gm}</p>
                 <p className="text-xs opacity-70">Coach: {coach}</p>
               </div>
@@ -374,69 +468,121 @@ export default async function TeamPage({ params }: Props) {
               <h2 className="text-sm font-semibold uppercase tracking-widest opacity-60">Stepien Checker</h2>
               <p className="text-[11px] opacity-50">Which 1st-round picks can still be traded.</p>
             </div>
-            <div className="grid grid-flow-col auto-cols-max gap-2 justify-center">
-              {stepienYears.map(({ year, status, locked }) => {
-                const kind = status === "none" ? "none" : status === "protected" ? "protected" : locked ? "locked" : "tradeable";
-                const bg = kind === "tradeable" ? "#16a34a" : kind === "locked" ? "#64748b" : kind === "protected" ? "#d97706" : "#dc2626";
-                const glyph = kind === "tradeable" ? "✓" : kind === "locked" ? "🔒" : kind === "protected" ? "P" : "✗";
-                const tip = kind === "tradeable" ? "Guaranteed 1st — tradeable"
-                  : kind === "locked" ? "Guaranteed, but Stepien-locked by an adjacent year"
-                  : kind === "protected" ? "Protected — may convey away (not guaranteed)"
-                  : "No 1st-round pick";
+            <div className="overflow-x-auto">
+            <div className="flex items-start gap-2 w-max mx-auto">
+              {stepienGroups.map((group) => {
+                const renderCell = ({ year, status, locked }: StepienCell, jointTip?: string) => {
+                  const kind = status === "none" ? "none" : status === "protected" ? "protected" : locked ? "locked" : "tradeable";
+                  const bg = kind === "tradeable" ? "#16a34a" : kind === "locked" ? "#64748b" : kind === "protected" ? "#3b82f6" : "#dc2626";
+                  const glyph = kind === "tradeable" ? "✓" : kind === "locked" ? "🔒" : kind === "protected" ? "P" : "✗";
+                  const tip = jointTip ?? (kind === "tradeable" ? "Guaranteed 1st — tradeable"
+                    : kind === "locked" ? "Guaranteed, but Stepien-locked by an adjacent year"
+                    : kind === "protected" ? "Protected — may convey away (not guaranteed)"
+                    : "No 1st-round pick");
+                  return (
+                    <div key={year} className="text-center text-[10px]">
+                      <div className="opacity-60 mb-1">{year}</div>
+                      <div
+                        title={tip}
+                        className="w-8 h-8 rounded-md flex items-center justify-center font-black text-white text-xs"
+                        style={{ backgroundColor: bg }}
+                      >
+                        {glyph}
+                      </div>
+                    </div>
+                  );
+                };
+
+                if (!group.jointlyGuaranteed) return renderCell(group.cells[0]);
+
+                const first = group.cells[0].year;
+                const last = group.cells[group.cells.length - 1].year;
+                const jointTip = `Stepien-legal: at least one 1st-round pick is guaranteed to stay across ${first}–${last} — the obligation can never take both`;
                 return (
-                  <div key={year} className="text-center text-[10px]">
-                    <div className="opacity-60 mb-1">{year}</div>
-                    <div
-                      title={tip}
-                      className="w-8 h-8 rounded-md flex items-center justify-center font-black text-white text-xs"
-                      style={{ backgroundColor: bg }}
-                    >
-                      {glyph}
+                  <div key={`grp-${first}`} className="flex flex-col items-center">
+                    <div className="flex gap-2">
+                      {group.cells.map(c => renderCell(c, jointTip))}
+                    </div>
+                    <div className="w-full px-1 mt-1" title={jointTip}>
+                      <div className="h-1.5 border-l-2 border-r-2 border-b-2 rounded-b" style={{ borderColor: "#3b82f6" }} />
+                    </div>
+                    <div className="text-[8px] leading-none mt-0.5 font-semibold whitespace-nowrap" style={{ color: "#60a5fa" }} title={jointTip}>
+                      ≥1 guaranteed
                     </div>
                   </div>
                 );
               })}
             </div>
+            </div>
             <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-[9px] opacity-60">
               <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm inline-block" style={{ backgroundColor: "#16a34a" }} />Tradeable</span>
               <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm inline-block" style={{ backgroundColor: "#64748b" }} />Locked</span>
-              <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm inline-block" style={{ backgroundColor: "#d97706" }} />Protected</span>
+              <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm inline-block" style={{ backgroundColor: "#3b82f6" }} />Protected</span>
               <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-sm inline-block" style={{ backgroundColor: "#dc2626" }} />None</span>
             </div>
           </div>
 
-          {/* OWN FIRST-ROUND PICK CONTROL */}
+          {/* OWN PICK CONTROL */}
           <div
             className="glass-surface rounded-xl border-2 px-6 py-4 space-y-3"
             style={{ borderColor: color }}
           >
             <div className="text-center">
-              <h2 className="text-sm font-semibold uppercase tracking-widest opacity-60">Own 1st-Round Control</h2>
-              <p className="text-[11px] opacity-50">Does {teamMeta?.city ?? TEAM} hold its own 1st that year?</p>
+              <h2 className="text-sm font-semibold uppercase tracking-widest opacity-60">Own Pick Control</h2>
+              <p className="text-[11px] opacity-50">Does {teamMeta?.city ?? TEAM} hold its picks that year?</p>
             </div>
-            <div className="grid grid-flow-col auto-cols-max gap-2 justify-center">
-              {ownPickControl.map(({ year, prob, controls }) => {
-                const decided = year <= DECIDED_YEAR;
-                return (
-                  <div key={year} className="text-center text-[10px]">
-                    <div className={`mb-1 ${decided ? "opacity-30" : "opacity-60"}`}>{year}</div>
-                    <div
-                      title={decided ? `${year} draft — already decided` : `${Math.round(prob * 100)}% likely to keep own 1st`}
-                      className={`w-8 h-8 rounded-md flex items-center justify-center font-black text-sm ${decided ? "text-white/40" : "text-white"}`}
-                      style={{ backgroundColor: decided ? "#3f3f46" : controls ? "#16a34a" : "#dc2626" }}
-                    >
-                      {decided ? "–" : controls ? "✓" : "✗"}
-                    </div>
-                  </div>
-                );
-              })}
+            <div className="overflow-x-auto">
+              <div
+                className="grid gap-x-2 gap-y-1.5 w-max mx-auto"
+                style={{ gridTemplateColumns: `auto repeat(${FINISH_YEARS.length}, 2rem)` }}
+              >
+                {/* Year header */}
+                <div />
+                {FINISH_YEARS.map(year => (
+                  <div key={year} className={`text-center text-[10px] ${year <= DECIDED_YEAR ? "opacity-30" : "opacity-60"}`}>{year}</div>
+                ))}
+
+                {/* One row per round */}
+                {ownControlRounds.map(({ round, label, years }) => (
+                  <Fragment key={round}>
+                    <div className="text-[10px] font-bold uppercase tracking-wider opacity-50 self-center pr-2 text-right">{label}</div>
+                    {years.map(({ year, kind, prob }) => {
+                      const decided = year <= DECIDED_YEAR;
+                      const s = OWN_PICK_STYLE[kind];
+                      const pct = Math.round(prob * 100);
+                      const showPct = !decided && kind !== "none" && kind !== "unprotected" && prob > 0;
+                      const tip = decided
+                        ? `${year} draft — already decided`
+                        : kind === "none"
+                          ? `No own ${round === 1 ? "1st" : "2nd"} (traded away)`
+                          : `${s.tip}${showPct ? ` · ${pct}% likely held` : ""}`;
+                      return (
+                        <div
+                          key={year}
+                          title={tip}
+                          className={`w-8 h-8 rounded-md flex items-center justify-center font-black text-sm ${decided ? "text-white/40" : "text-white"}`}
+                          style={{ backgroundColor: decided ? "#3f3f46" : s.bg }}
+                        >
+                          {decided ? "–" : s.glyph}
+                        </div>
+                      );
+                    })}
+                  </Fragment>
+                ))}
+              </div>
+            </div>
+            <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-[9px] opacity-60">
+              <span className="flex items-center gap-1"><span className="w-3.5 h-3.5 rounded-sm inline-flex items-center justify-center text-[8px] font-black text-white" style={{ backgroundColor: "#16a34a" }}>✓</span>Outright</span>
+              <span className="flex items-center gap-1"><span className="w-3.5 h-3.5 rounded-sm inline-flex items-center justify-center text-[8px] font-black text-white" style={{ backgroundColor: "#3b82f6" }}>P</span>Protected</span>
+              <span className="flex items-center gap-1"><span className="w-3.5 h-3.5 rounded-sm inline-flex items-center justify-center text-[8px] font-black text-white" style={{ backgroundColor: "#16a34a" }}>B</span>/<span className="w-3.5 h-3.5 rounded-sm inline-flex items-center justify-center text-[8px] font-black text-white" style={{ backgroundColor: "#d97706" }}>M</span>/<span className="w-3.5 h-3.5 rounded-sm inline-flex items-center justify-center text-[8px] font-black text-white" style={{ backgroundColor: "#ea580c" }}>W</span>Swap best/mid/worst</span>
+              <span className="flex items-center gap-1"><span className="w-3.5 h-3.5 rounded-sm inline-flex items-center justify-center text-[8px] font-black text-white" style={{ backgroundColor: "#dc2626" }}>✗</span>None</span>
             </div>
           </div>
         </section>
 
         {/* PICKS */}
-        <section className="grid md:grid-cols-2 gap-15">
-          <div className="glass-card rounded-xl p-6 space-y-3">
+        <section className="grid md:grid-cols-2 gap-8 md:gap-15">
+          <div className="glass-card rounded-xl p-4 md:p-6 space-y-3">
             <TeamPicksSection
               title="1st-Round Picks"
               cards={r1Cards}
@@ -448,7 +594,7 @@ export default async function TeamPage({ params }: Props) {
               pickTypeLabels={pickTypeLabels}
             />
           </div>
-          <div className="glass-card rounded-xl p-6 space-y-3">
+          <div className="glass-card rounded-xl p-4 md:p-6 space-y-3">
             <TeamPicksSection
               title="2nd-Round Picks"
               cards={r2Cards}

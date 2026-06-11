@@ -4,7 +4,7 @@ import { createSupabaseAdmin } from "@/lib/supabase";
 
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null);
-  const { pick_id, content } = body ?? {};
+  const { pick_id, content, name } = body ?? {};
 
   if (!pick_id || typeof content !== "string" || !content.trim()) {
     return NextResponse.json({ error: "Missing fields." }, { status: 400 });
@@ -12,6 +12,9 @@ export async function POST(req: NextRequest) {
   if (content.length > 800) {
     return NextResponse.json({ error: "Comment too long." }, { status: 400 });
   }
+
+  const trimmedName =
+    typeof name === "string" && name.trim() ? name.trim().slice(0, 40) : null;
 
   const ip =
     req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
@@ -53,8 +56,8 @@ export async function POST(req: NextRequest) {
 
   const { data, error } = await supabase
     .from("comments")
-    .insert({ pick_id, content: content.trim(), ip_hash: ipHash })
-    .select("id, content, created_at")
+    .insert({ pick_id, content: content.trim(), name: trimmedName, ip_hash: ipHash })
+    .select("id, content, created_at, name")
     .single();
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });

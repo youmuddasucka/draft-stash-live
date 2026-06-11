@@ -43,7 +43,7 @@ export default function TeamPicksSection({ title, cards, slotMap, swapPositions 
     return (
         <div className="space-y-3">
             <div className="flex items-center justify-between">
-                <h2 className="text-2xl font-semibold">{title} <span className="opacity-50 font-normal">({cards.length})</span></h2>
+                <h2 className="text-xl md:text-2xl font-semibold">{title} <span className="opacity-50 font-normal">({cards.length})</span></h2>
 
                 <div className="flex gap-1 text-xs">
                     <button

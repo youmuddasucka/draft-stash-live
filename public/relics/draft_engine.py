@@ -52,19 +52,19 @@ ABBR_MAP = {v: k for k, v in TEAM_MAP.items()}
 # DRAFT ORDER OBJECT
 # ===============================================================
 
-PELTON_CURVE = {
-    1: 1.00, 2: 0.775, 3: 0.6675, 4: 0.6025, 5: 0.56,
-    6: 0.5275, 7: 0.50, 8: 0.4775, 9: 0.4575, 10: 0.43,
-    11: 0.40, 12: 0.375, 13: 0.35, 14: 0.33, 15: 0.31,
-    16: 0.295, 17: 0.2825, 18: 0.27, 19: 0.2575, 20: 0.245,
-    21: 0.23, 22: 0.215, 23: 0.20, 24: 0.1875, 25: 0.175,
-    26: 0.165, 27: 0.155, 28: 0.1425, 29: 0.13, 30: 0.1175,
-    31: 0.09, 32: 0.0875, 33: 0.0825, 34: 0.08, 35: 0.075,
-    36: 0.0725, 37: 0.07, 38: 0.0675, 39: 0.0625, 40: 0.06,
-    41: 0.0575, 42: 0.055, 43: 0.0525, 44: 0.05, 45: 0.0475,
-    46: 0.045, 47: 0.0425, 48: 0.04, 49: 0.0375, 50: 0.035,
-    51: 0.0325, 52: 0.03, 53: 0.0275, 54: 0.025, 55: 0.0225,
-    56: 0.0225, 57: 0.02, 58: 0.0175, 59: 0.015, 60: 0.0125
+VALUE_CURVE = {
+    1: 1.0, 2: 0.84007, 3: 0.7516, 4: 0.6895, 5: 0.64183,
+    6: 0.60223, 7: 0.56745, 8: 0.53702, 9: 0.50913, 10: 0.48013,
+    11: 0.45108, 12: 0.42505, 13: 0.4007, 14: 0.37892, 15: 0.35868,
+    16: 0.34123, 17: 0.32595, 18: 0.31275, 19: 0.29943, 20: 0.28758,
+    21: 0.27428, 22: 0.26237, 23: 0.24967, 24: 0.2383, 25: 0.22705,
+    26: 0.21682, 27: 0.20703, 28: 0.19608, 29: 0.18613, 30: 0.17563,
+    31: 0.15018, 32: 0.14385, 33: 0.13697, 34: 0.1311, 35: 0.125,
+    36: 0.11983, 37: 0.11443, 38: 0.1097, 39: 0.10373, 40: 0.0994,
+    41: 0.0951, 42: 0.09053, 43: 0.08663, 44: 0.0824, 45: 0.07825,
+    46: 0.0741, 47: 0.06998, 48: 0.0659, 49: 0.06215, 50: 0.05815,
+    51: 0.05445, 52: 0.05108, 53: 0.04745, 54: 0.0435, 55: 0.03955,
+    56: 0.0369, 57: 0.03333, 58: 0.02947, 59: 0.02625, 60: 0.02242
 }
 
 class DraftOrder:
@@ -107,14 +107,14 @@ class PickEngine:
         # will definitely have the allocation array you're looking for.
         return rule.get("allocation", [])
 
-    def __init__(self, all_picks, pelton_curve, base_year=2025):
+    def __init__(self, all_picks, value_curve, base_year=2025):
         """
         all_picks: dict[pick_id] -> pick JSON object
-        pelton_curve: dict or list that maps 1..60 -> value
+        value_curve: dict or list that maps 1..60 -> value
         base_year: starting point for discounting (your simulations use 2025)
         """
         self.all_picks = all_picks
-        self.pelton_curve = pelton_curve
+        self.value_curve = value_curve
         self.base_year = base_year
 
     # ------------------------------------------
@@ -160,7 +160,7 @@ class PickEngine:
 
         return order.positions[team_abbr][rnd]
 
-    def pelton_value(self, pick, order):
+    def draft_value(self, pick, order):
         team = TEAM_MAP[pick["original_team"]]
         rnd = pick["round"]
 
@@ -169,7 +169,7 @@ class PickEngine:
         if rnd == 2:
             position = 91 - position
 
-        raw = self.pelton_curve[position]
+        raw = self.value_curve[position]
 
         years_ahead = max(0, pick["year"] - 2026)
         return raw * (0.98 ** years_ahead)
@@ -196,7 +196,7 @@ class PickEngine:
         return {
             pick["pick_id"]: {
                 "owner": owner,
-                "value": self.pelton_value(pick, order)
+                "value": self.draft_value(pick, order)
             }
         }
 
@@ -220,7 +220,7 @@ class PickEngine:
         return {
             pick["pick_id"]: {
                 "owner": owner,
-                "value": self.pelton_value(pick, order)
+                "value": self.draft_value(pick, order)
             }
         }
 
@@ -255,7 +255,7 @@ class PickEngine:
         return {
             pick["pick_id"]: {
                 "owner": owner,
-                "value": self.pelton_value(pick, order)
+                "value": self.draft_value(pick, order)
             }
         }
 
@@ -344,7 +344,7 @@ class PickEngine:
                 return {
                     target_id: {
                         "owner": owner,
-                        "value": self.pelton_value(pick, order)
+                        "value": self.draft_value(pick, order)
                     }
                 }
 
@@ -433,7 +433,7 @@ class PickEngine:
                         return {
                             target_id: {
                                 "owner": dest,
-                                "value": self.pelton_value(
+                                "value": self.draft_value(
                                     pick, order
                                 )
                             }
@@ -448,7 +448,7 @@ class PickEngine:
             return {
                 target_id: {
                     "owner": rule["if_protected_to"],
-                    "value": self.pelton_value(
+                    "value": self.draft_value(
                         pick, order
                     )
                 }
@@ -459,7 +459,7 @@ class PickEngine:
         return {
             target_id: {
                 "owner": orig,
-                "value": self.pelton_value(pick, order)
+                "value": self.draft_value(pick, order)
             }
         }
 
@@ -509,7 +509,7 @@ class PickEngine:
             return {
                 target_id: {
                     "owner": orig,
-                    "value": self.pelton_value(pick, order)
+                    "value": self.draft_value(pick, order)
                 }
             }
 
@@ -543,7 +543,7 @@ class PickEngine:
             return {
                 target_id: {
                     "owner": orig,
-                    "value": self.pelton_value(pick, order)
+                    "value": self.draft_value(pick, order)
                 }
             }
 
@@ -561,7 +561,7 @@ class PickEngine:
                 return {
                     target_id: {
                         "owner": dest,
-                        "value": self.pelton_value(pick, order)
+                        "value": self.draft_value(pick, order)
                     }
                 }
 
@@ -572,7 +572,7 @@ class PickEngine:
         return {
             target_id: {
                 "owner": orig,
-                "value": self.pelton_value(pick, order)
+                "value": self.draft_value(pick, order)
             }
         }
 
