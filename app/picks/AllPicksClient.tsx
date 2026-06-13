@@ -64,6 +64,10 @@ function SwapGroupCard({ group }: { group: SwapGroup }) {
     const typeInfo = getPickTypeInfo(group.pick_type);
     const poolAbbrs = group.entries.map(e => abbrFor(e.pick.original_team));
     const { bg, text, glow } = evStyles(group.bestEv, group.round);
+    // swap_group "special" picks are a swap in everything but the type label.
+    const isSwapGroup = group.swap_id.startsWith("swap_group:");
+    const groupLabel  = isSwapGroup ? "Swap" : typeInfo.label;
+    const groupColor  = isSwapGroup ? "#a855f7" : typeInfo.borderColor;
 
     const best = group.entries[0];
     const bestAbbr = abbrFor(best.pick.original_team);
@@ -74,6 +78,7 @@ function SwapGroupCard({ group }: { group: SwapGroup }) {
     // swaps stay on the range layout since their outcome is conditional.
     const perEntryEvs =
         (group.pick_type === "unpro_swap"  && group.entries.length === 2) ||
+        (group.pick_type === "cond_alloc_swap" && group.entries.length === 2) ||
         (group.pick_type === "triple_swap" && group.entries.length === 3);
     const evEntries = perEntryEvs
         ? [...group.entries].sort((a, b) => b.pick.ev - a.pick.ev)
@@ -106,14 +111,14 @@ function SwapGroupCard({ group }: { group: SwapGroup }) {
                         {poolAbbrs.join(" / ")}
                     </span>
                     <span className="text-[11px] opacity-60 truncate">
-                        {group.entries.length}-team {typeInfo.label.toLowerCase()}
+                        {group.entries.length}-team {groupLabel.toLowerCase()}
                     </span>
                     <span
                         className="inline-block w-fit rounded-md border px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide bg-neutral-900/60 mt-0.5"
-                        style={{ color: typeInfo.borderColor, borderColor: typeInfo.borderColor + "70" }}
+                        style={{ color: groupColor, borderColor: groupColor + "70" }}
                         title={typeInfo.description}
                     >
-                        {typeInfo.label}
+                        {groupLabel}
                     </span>
                 </div>
             </div>

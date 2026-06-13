@@ -25,11 +25,12 @@ const TYPE_ORDER: Record<string, number> = {
   pro_triple_swap: 2,
   unpro_swap: 3,
   pro_swap: 4,
-  special: 5,
-  pro_backup_branched: 6,
-  pro_backup: 7,
-  unpro_backup: 8,
-  pro_pick: 9,
+  cond_alloc_swap: 5,
+  special: 6,
+  pro_backup_branched: 7,
+  pro_backup: 8,
+  unpro_backup: 9,
+  pro_pick: 10,
 };
 
 function loadGroups(): AuditGroup[] {

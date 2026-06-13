@@ -5,9 +5,9 @@
   "round": 2,
   "original_team": "Los Angeles Clippers",
   "frozen": false,
-  "possible_destinations": ["Charlotte Hornets", "Detroit Pistons", "Utah Jazz"],
   "rules": {
     "type": "unpro_swap",
+    "possible_destinations": ["Charlotte Hornets", "Detroit Pistons", "Utah Jazz"],
     "pool": [
       "Charlotte_Hornets_2028_2",
       "Los_Angeles_Clippers_2028_2"

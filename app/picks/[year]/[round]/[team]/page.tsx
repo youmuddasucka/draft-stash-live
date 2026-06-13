@@ -205,16 +205,12 @@ export default async function PickSlugPage({ params }: Props) {
                     // entry, fallback) rather than the bare generic swap view.
                     const isProtectedSwap =
                         pick.pick_type === "pro_swap" || rawPickType === "pro_swap" ||
-                        pick.pick_type === "pro_triple_swap" || rawPickType === "pro_triple_swap";
+                        pick.pick_type === "pro_triple_swap" || rawPickType === "pro_triple_swap" ||
+                        pick.pick_type === "cond_alloc_swap" || rawPickType === "cond_alloc_swap";
                     // Special picks with pool + conditional allocation (custom display)
                     const isSpecialPoolSwap = rawPickType === "special" &&
                         poolPicks.length > 1 &&
                         (rawPick?.rules?.allocation ?? []).some((a: any) => a.if_in_range_to || a.if_not_in_range_to);
-                    // Special picks with trigger-based routing (e.g. MIA 2028 R2)
-                    const isTriggerSpecial = rawPickType === "special" &&
-                        !!rawPick?.rules?.trigger_pick &&
-                        (!!rawPick?.rules?.if_triggered_to || !!rawPick?.rules?.if_not_triggered_to);
-                    const hasSecondaryPool = isTriggerSpecial && rawPick?.pool != null;
                     // Multi-level nested swap
                     const isNestedSwap = rawPickType === "nested_swap";
                     // 7-team two-tier swap group
@@ -227,12 +223,6 @@ export default async function PickSlugPage({ params }: Props) {
                         "Milwaukee_Bucks_2028_1", "Portland_Trail_Blazers_2028_1",
                         "Washington_Wizards_2028_1",
                     ];
-                    const SG_ROLE: Record<string, string> = {
-                        "Brooklyn_Nets_2028_1":      "HOLDER",
-                        "Philadelphia_76ers_2028_1": "COND 9–30",
-                        "Washington_Wizards_2028_1": "BRIDGE",
-                        "Milwaukee_Bucks_2028_1":    "FLOOR",
-                    };
                     const sgMainPicks = isSwapGroup
                         ? SG_MAIN_IDS.map(id => pickIdMap.get(id)).filter(Boolean) as SimPickCard[]
                         : [];
@@ -349,6 +339,13 @@ export default async function PickSlugPage({ params }: Props) {
 
                     /* ── Dynamic description ── */
                     const pickDescription: string = (() => {
+                        // Swap-group picks: friendly intro; the staged breakdown and the
+                        // per-pick outcomes below carry the detail.
+                        if (isSwapGroup) {
+                            const roundStr = pick.round === 1 ? "1st-round" : "2nd-round";
+                            return `The ${teamMeta.city} ${pick.year} ${roundStr} pick is one of seven tied together in a two-tier swap. Brooklyn controls the main pool — its own pick plus Phoenix, New York, and Philadelphia (only if it falls 9–30) — and takes the two best. New York takes the worst of the New York, Brooklyn, and Phoenix picks. Whatever is left over feeds a Washington swap that can reach into a second pool with Milwaukee and Portland. See where this pick actually lands, and the full stage-by-stage breakdown, below.`;
+                        }
+
                         if (rawPickType === "pro_pick" && proRange && proKeeperTeam && proRecipientTeam) {
                             const [pMin, pMax] = proRange;
                             const roundStr     = pick.round === 1 ? "1st-round" : "2nd-round";
@@ -454,7 +451,17 @@ export default async function PickSlugPage({ params }: Props) {
                                 }
                             }
 
-                            return `${rank1City} holds a swap right over the ${yr} ${roundStr} picks of ${poolStr}. The ${protCity} pick only enters the swap if it falls in picks ${min}–${max}. If it ${protTriggerDesc}, ${ifNotCity} keeps it${fallbackStr}.`;
+                            // Lead sentence: spell out the full allocation when the worst pick
+                            // goes to a different team than the swap holder (e.g. triple swaps
+                            // where the holder takes the two best and a third team gets the rest).
+                            const allocSorted = [...allocation].sort((a, b) => Number(a.rank) - Number(b.rank));
+                            const lastTo = allocSorted[allocSorted.length - 1]?.to;
+                            const lead = allocSorted.length === 3
+                                && allocSorted[0]?.to && allocSorted[0].to === allocSorted[1]?.to
+                                && lastTo && lastTo !== allocSorted[0].to
+                                ? `${cityFor(allocSorted[0].to)} takes the two best of the ${yr} ${roundStr} picks of ${poolStr}, while the worst goes to ${cityFor(lastTo)}.`
+                                : `${rank1City} holds a swap right over the ${yr} ${roundStr} picks of ${poolStr}.`;
+                            return `${lead} The ${protCity} pick only enters the swap if it falls in picks ${min}–${max}. If it ${protTriggerDesc}, ${ifNotCity} keeps it${fallbackStr}.`;
                         }
 
                         // Type 2: conditional allocation
@@ -479,44 +486,21 @@ export default async function PickSlugPage({ params }: Props) {
 
                             {/* ── HEADER ── */}
                             {isSwapGroup ? (
-                                /* Swap group header: two-tier */
-                                <div className="glass-surface rounded-2xl border-2 px-6 py-6 flex flex-col items-center gap-5 text-center"
-                                    style={{ borderColor: typeInfo.borderColor + "99" }}>
-                                    <div className="text-[11px] uppercase tracking-widest opacity-40">
-                                        {yearNum} · {roundLabel(roundNum)} · Swap Group
-                                    </div>
-                                    {/* Main pool row */}
-                                    <div className="flex items-center justify-center gap-4 flex-wrap">
-                                        {sgMainPicks.flatMap((sgPick, i) => {
-                                            const abbr = abbrFor(sgPick.original_team);
-                                            const teamEl = (
-                                                <div key={sgPick.pick_id} className="flex flex-col items-center gap-1">
-                                                    <TeamLogo abbr={abbr} size={52} />
-                                                    <span className="text-[10px] font-bold opacity-50 tracking-wider">{abbr}</span>
-                                                </div>
-                                            );
-                                            return i === 0 ? [teamEl] : [
-                                                <span key={`msep-${i}`} className="text-white/20 text-xl font-thin self-center">×</span>,
-                                                teamEl,
-                                            ];
-                                        })}
-                                    </div>
-                                    <div className="text-[8px] font-black uppercase tracking-widest opacity-20">Secondary Swap</div>
-                                    {/* Secondary pool row */}
-                                    <div className="flex items-center justify-center gap-4 flex-wrap">
-                                        {sgSecPicks.flatMap((sgPick, i) => {
-                                            const abbr = abbrFor(sgPick.original_team);
-                                            const teamEl = (
-                                                <div key={sgPick.pick_id} className="flex flex-col items-center gap-1">
-                                                    <TeamLogo abbr={abbr} size={52} />
-                                                    <span className="text-[10px] font-bold opacity-50 tracking-wider">{abbr}</span>
-                                                </div>
-                                            );
-                                            return i === 0 ? [teamEl] : [
-                                                <span key={`ssep-${i}`} className="text-white/20 text-xl font-thin self-center">×</span>,
-                                                teamEl,
-                                            ];
-                                        })}
+                                /* Swap group: standard single-pick identity (the staged
+                                   mechanics live in the body so it's clear which pick
+                                   this page is about). */
+                                <div className="glass-surface rounded-2xl border-2 px-6 py-5 flex items-center gap-6"
+                                    style={{ borderColor: color }}>
+                                    <TeamLogo abbr={teamAbbr} size={80} />
+                                    <div className="space-y-1.5">
+                                        <div className="text-[11px] uppercase tracking-widest opacity-40">
+                                            {yearNum} · {roundLabel(roundNum)}
+                                        </div>
+                                        <h1 className="text-2xl md:text-3xl font-bold">{teamMeta.full}</h1>
+                                        <span className="inline-block text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded border"
+                                            style={{ color: typeInfo.borderColor, borderColor: typeInfo.borderColor + "60" }}>
+                                            7-Team Swap
+                                        </span>
                                     </div>
                                 </div>
                             ) : (isSwap || isSpecialPoolSwap) && poolSize > 1 ? (
@@ -605,7 +589,9 @@ export default async function PickSlugPage({ params }: Props) {
                                                 ? `Determined by ${teamMeta.city}'s draft result`
                                                 : isProBackup
                                                     ? `Determined by a trigger and ${teamMeta.city}'s draft result`
-                                                    : `${teamMeta.city} original pick`}
+                                                    : isBackup
+                                                        ? `Determined by another pick's result`
+                                                        : `${teamMeta.city} original pick`}
                                         </div>
                                     </div>
                                 </div>
@@ -890,304 +876,202 @@ export default async function PickSlugPage({ params }: Props) {
                                 );
                             })()}
 
-                            {/* ── TRIGGER ROUTING (e.g., MIA 2028 R2) ── */}
-                            {isTriggerSpecial && (() => {
-                                const triggerPickId    = rawPick.rules.trigger_pick as string;
-                                const triggerCond      = rawPick.rules.trigger_condition;
-                                const ifTriggeredTo    = rawPick.rules.if_triggered_to    as string | null;
-                                const ifNotTriggeredTo = rawPick.rules.if_not_triggered_to as string | null;
-
-                                const triggerPick  = pickIdMap.get(triggerPickId);
-                                const triggerInfo  = parsePickId(triggerPickId);
-                                const triggerHref  = triggerInfo ? `/picks/${triggerInfo.year}/${triggerInfo.round}/${triggerInfo.teamAbbr.toLowerCase()}` : null;
-                                const tProb        = triggerPick ? triggerProb(triggerPick, triggerCond) : null;
-
-                                const ifTriggeredAbbr    = ifTriggeredTo    ? abbrFor(ifTriggeredTo)    : null;
-                                const ifNotTriggeredAbbr = ifNotTriggeredTo ? abbrFor(ifNotTriggeredTo) : null;
-                                const ifTriggeredColor   = readableTextColor(ifTriggeredAbbr    ? (teamColors[ifTriggeredAbbr]    ?? "#444") : "#444");
-                                const ifNotTriggeredColor = readableTextColor(ifNotTriggeredAbbr ? (teamColors[ifNotTriggeredAbbr] ?? "#444") : "#444");
-
-                                const triggeredProb    = ifTriggeredTo
-                                    ? (pick.ownership.find(o => o.team === ifTriggeredTo)?.prob ?? null)
-                                    : null;
-                                const notTriggeredProb = pick.ownership
-                                    .filter(o => o.team !== ifTriggeredTo)
-                                    .reduce((s, o) => s + o.prob, 0);
-
-                                const poolData           = rawPick.pool;
-                                const poolRecipientTo    = poolData?.pool_resolution?.to as string | null;
-                                const poolRecipientAbbr  = poolRecipientTo ? abbrFor(poolRecipientTo) : null;
-                                const poolRecipientColor = poolRecipientAbbr ? (teamColors[poolRecipientAbbr] ?? "#444") : "#444";
-                                const poolRecipientOwner = poolRecipientTo ? pick.ownership.find(o => o.team === poolRecipientTo) : null;
-                                const notTriggeredDirectOwner = ifNotTriggeredTo ? pick.ownership.find(o => o.team === ifNotTriggeredTo) : null;
-
-                                const condRange: [number, number] = triggerCond?.range ?? [1, 1];
-
-                                return (
-                                    <div className="glass-card rounded-2xl p-6 space-y-5">
-                                        <div className="text-center space-y-1">
-                                            <h2 className="text-lg font-bold tracking-wide">Conditional Routing</h2>
-                                            <p className="text-xs opacity-40">
-                                                This pick's destination depends on the outcome of another draft pick.
-                                            </p>
-                                        </div>
-
-                                        {/* Trigger pick row */}
-                                        {triggerInfo && (
-                                            <a
-                                                href={triggerHref ?? "#"}
-                                                className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/3 px-4 py-3 hover:border-white/20 transition-colors"
-                                            >
-                                                <TeamLogo abbr={triggerInfo.teamAbbr} size={32} noLink />
-                                                <div className="flex-1 min-w-0">
-                                                    <div className="text-sm font-bold">{pickLabel(triggerPickId)}</div>
-                                                    <div className="text-xs opacity-50 mt-0.5">{formatCondition(triggerCond)}</div>
-                                                </div>
-                                                {tProb !== null && (
-                                                    <div className="shrink-0 text-right">
-                                                        <div className="text-[9px] opacity-40 uppercase leading-none">Triggers</div>
-                                                        <div className="text-sm font-black mt-0.5">{(tProb * 100).toFixed(1)}%</div>
-                                                    </div>
-                                                )}
-                                            </a>
-                                        )}
-
-                                        {/* Two destination branches */}
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                            {ifTriggeredAbbr && (
-                                                <div className="rounded-2xl border border-white/10 bg-white/3 p-4 space-y-3 flex flex-col items-center text-center">
-                                                    <div className="text-[9px] font-black uppercase tracking-widest opacity-30">If Triggered</div>
-                                                    <div className="text-[10px] opacity-40 leading-tight">
-                                                        {triggerInfo?.teamAbbr} falls {condRange[0]}–{condRange[1]}
-                                                    </div>
-                                                    <TeamLogo abbr={ifTriggeredAbbr} size={40} />
-                                                    <span className="text-sm font-bold" style={{ color: ifTriggeredColor }}>
-                                                        {cityFor(ifTriggeredTo!)}
-                                                    </span>
-                                                    {triggeredProb !== null && (
-                                                        <div className="text-xl font-black opacity-70">{(triggeredProb * 100).toFixed(1)}%</div>
-                                                    )}
-                                                </div>
-                                            )}
-                                            {ifNotTriggeredAbbr && (
-                                                <div className="rounded-2xl border border-white/10 bg-white/3 p-4 space-y-3 flex flex-col items-center text-center">
-                                                    <div className="text-[9px] font-black uppercase tracking-widest opacity-30">If Not Triggered</div>
-                                                    <div className="text-[10px] opacity-40 leading-tight">
-                                                        {triggerInfo?.teamAbbr} outside top {condRange[1]}
-                                                    </div>
-                                                    <TeamLogo abbr={ifNotTriggeredAbbr} size={40} />
-                                                    <span className="text-sm font-bold" style={{ color: ifNotTriggeredColor }}>
-                                                        {cityFor(ifNotTriggeredTo!)}
-                                                    </span>
-                                                    {notTriggeredProb > 0 && (
-                                                        <div className="text-xl font-black opacity-70">{(notTriggeredProb * 100).toFixed(1)}%</div>
-                                                    )}
-                                                </div>
-                                            )}
-                                        </div>
-
-                                        {/* Secondary pool breakdown */}
-                                        {hasSecondaryPool && poolRecipientAbbr && ifNotTriggeredAbbr && (
-                                            <div className="space-y-2">
-                                                <div className="text-[9px] font-black uppercase tracking-widest opacity-30">Secondary Pool</div>
-                                                <div className="rounded-xl border border-white/8 bg-white/2 px-4 py-3 space-y-3">
-                                                    <p className="text-xs opacity-50 leading-relaxed">
-                                                        If {cityFor(ifNotTriggeredTo!)} receives this pick, it enters a pool with their other picks.
-                                                        The least favorable goes to {cityFor(poolRecipientTo!)}.
-                                                    </p>
-                                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                                        <div className="text-center space-y-1.5">
-                                                            <TeamLogo abbr={ifNotTriggeredAbbr} size={28} />
-                                                            <div className="text-[10px] font-semibold" style={{ color: ifNotTriggeredColor }}>
-                                                                {cityFor(ifNotTriggeredTo!)} keeps
-                                                            </div>
-                                                            {notTriggeredDirectOwner && (
-                                                                <div className="text-sm font-black opacity-70">
-                                                                    {(notTriggeredDirectOwner.prob * 100).toFixed(1)}%
-                                                                </div>
-                                                            )}
-                                                        </div>
-                                                        <div className="text-center space-y-1.5">
-                                                            <TeamLogo abbr={poolRecipientAbbr} size={28} />
-                                                            <div className="text-[10px] font-semibold" style={{ color: poolRecipientColor }}>
-                                                                {cityFor(poolRecipientTo!)} receives
-                                                            </div>
-                                                            {poolRecipientOwner && (
-                                                                <div className="text-sm font-black opacity-70">
-                                                                    {(poolRecipientOwner.prob * 100).toFixed(1)}%
-                                                                </div>
-                                                            )}
-                                                        </div>
-                                                    </div>
-                                                </div>
+                            {/* ── SWAP GROUP (7-team, two-tier) ── */}
+                            {isSwapGroup && (() => {
+                                const curOwners = [...pick.ownership]
+                                    .filter(o => o.prob >= 0.005)
+                                    .sort((a, b) => b.prob - a.prob);
+                                const STAGE_TEAMS: Record<string, string[]> = {
+                                    main: ["BKN", "PHI", "PHX", "NYK"],
+                                    split: ["WAS", "PHX"],
+                                    sec: ["MIL", "POR", "WAS"],
+                                };
+                                const teamRow = (keys: string[]) => (
+                                    <div className="flex items-center justify-center gap-3 flex-wrap">
+                                        {keys.map(k => (
+                                            <div key={k} className="flex flex-col items-center gap-1">
+                                                <TeamLogo abbr={k} size={34} />
+                                                <span className="text-[9px] font-bold opacity-50 tracking-wider">{k}</span>
                                             </div>
-                                        )}
+                                        ))}
                                     </div>
                                 );
+                                const stage = (n: string, title: string, keys: string[], rules: string[]) => (
+                                    <div className="rounded-2xl border border-white/10 bg-white/2 p-4 space-y-3">
+                                        <div className="flex items-center gap-2">
+                                            <span className="text-[10px] font-black w-5 h-5 rounded-full bg-white/10 flex items-center justify-center shrink-0">{n}</span>
+                                            <span className="text-sm font-bold tracking-wide">{title}</span>
+                                        </div>
+                                        {teamRow(keys)}
+                                        <ul className="space-y-1.5">
+                                            {rules.map((r, i) => (
+                                                <li key={i} className="flex gap-2 text-xs opacity-70 leading-relaxed">
+                                                    <span className="opacity-40 shrink-0">•</span>
+                                                    <span>{r}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                );
+                                return (
+                                    <>
+                                        {/* WHERE THIS PICK LANDS */}
+                                        <div className="glass-card rounded-2xl p-6 space-y-4">
+                                            <div>
+                                                <h2 className="text-lg font-bold tracking-wide">Where this pick lands</h2>
+                                                <p className="text-xs opacity-40 mt-1">
+                                                    How often the {teamMeta.city} pick conveys to each team, with its average value when it does.
+                                                </p>
+                                            </div>
+                                            <div className="space-y-3">
+                                                {curOwners.map((o, i) => {
+                                                    const oAbbr  = abbrFor(o.team);
+                                                    const oColor = teamColors[oAbbr] ?? "#555";
+                                                    const pct    = o.prob >= 1 ? 99.9 : Math.round(o.prob * 100);
+                                                    const keeps  = o.team === pick.original_team;
+                                                    return (
+                                                        <div key={o.team} className="flex items-center gap-4">
+                                                            <span className="text-xs opacity-30 w-4 text-right shrink-0">{i + 1}</span>
+                                                            <TeamLogo abbr={oAbbr} size={36} />
+                                                            <div className="flex-1 min-w-0 space-y-1">
+                                                                <div className="flex items-center justify-between">
+                                                                    <span className="text-sm font-semibold truncate">
+                                                                        {TEAM_METADATA[oAbbr]?.full ?? o.team}
+                                                                        {keeps && <span className="opacity-40 font-normal"> (keeps it)</span>}
+                                                                    </span>
+                                                                    <span className="text-xs font-black opacity-70 shrink-0 ml-2">{pct}%</span>
+                                                                </div>
+                                                                <div className="h-1.5 rounded-full bg-white/10 overflow-hidden">
+                                                                    <div className="h-full rounded-full"
+                                                                        style={{ width: `${pct}%`, backgroundColor: oColor, boxShadow: `0 0 6px ${oColor}80` }} />
+                                                                </div>
+                                                            </div>
+                                                            <div className="shrink-0 text-right">
+                                                                <div className="text-[10px] opacity-40 uppercase">EV if won</div>
+                                                                <div className="text-sm font-black">{o.conditional_ev.toFixed(1)}</div>
+                                                            </div>
+                                                        </div>
+                                                    );
+                                                })}
+                                            </div>
+                                        </div>
+
+                                        {/* HOW THE SWAP RESOLVES */}
+                                        <div className="glass-card rounded-2xl p-6 space-y-4">
+                                            <div className="text-center space-y-1">
+                                                <h2 className="text-lg font-bold tracking-wide">How the swap resolves</h2>
+                                                <p className="text-xs opacity-40 max-w-md mx-auto">
+                                                    Settled in stages by draft position — a lower pick number is more favorable. The leftover from each stage feeds the next.
+                                                </p>
+                                            </div>
+                                            {stage("1", "Main Pool", STAGE_TEAMS.main, [
+                                                "Philadelphia's pick is protected 1–8 — it only joins the pool if it lands 9–30.",
+                                                "Brooklyn takes the two most favorable picks in the pool.",
+                                                "New York takes the least favorable of the New York, Brooklyn, and Phoenix picks.",
+                                                "The one pick still unassigned carries over to Stage 2.",
+                                            ])}
+                                            {stage("2", "Washington / Phoenix", STAGE_TEAMS.split, [
+                                                "Washington takes the more favorable of its own pick and the Stage 1 carryover.",
+                                                "Phoenix takes the less favorable of those two.",
+                                            ])}
+                                            {stage("3", "Secondary Swap", STAGE_TEAMS.sec, [
+                                                "Portland takes the more favorable of the Portland and Milwaukee picks.",
+                                                "Washington keeps the better of its Stage 2 pick and the less favorable of Milwaukee/Portland.",
+                                                "Milwaukee receives whatever is left.",
+                                            ])}
+                                        </div>
+
+                                        {/* PICK ALLOCATIONS — every pick, sorted by value, → most-likely owner */}
+                                        <div className="glass-card rounded-2xl p-6 space-y-4">
+                                            <div className="text-center space-y-1">
+                                                <h2 className="text-lg font-bold tracking-wide">Pick allocations</h2>
+                                                <p className="text-xs opacity-40">
+                                                    All seven picks, ranked by value, and where each most often lands.
+                                                </p>
+                                            </div>
+                                            <div className="grid gap-2 grid-cols-2 sm:grid-cols-4 lg:grid-cols-7">
+                                                {[...sgMainPicks, ...sgSecPicks]
+                                                    .sort((a, b) => b.ev - a.ev)
+                                                    .map(p => {
+                                                        const pAbbr = abbrFor(p.original_team);
+                                                        const isCur = p.pick_id === pick.pick_id;
+                                                        const top   = [...p.ownership].sort((a, b) => b.prob - a.prob)[0];
+                                                        const topAbbr = top ? abbrFor(top.team) : null;
+                                                        const { bg: pbg, text: ptxt } = evStyles(p.ev, p.round);
+                                                        return (
+                                                            <a key={p.pick_id}
+                                                                href={`/picks/${p.year}/${p.round}/${pAbbr.toLowerCase()}`}
+                                                                className={`rounded-2xl border flex flex-col items-center gap-2 p-3 text-center transition-colors ${
+                                                                    isCur ? "border-white/30 bg-white/6" : "border-white/10 bg-white/2 hover:border-white/20 hover:bg-white/4"
+                                                                }`}
+                                                            >
+                                                                {/* source pick */}
+                                                                <TeamLogo abbr={pAbbr} size={32} noLink />
+                                                                <span className="text-[10px] font-bold opacity-60 tracking-wider">{pAbbr}</span>
+                                                                {/* value */}
+                                                                <div className={`rounded-md px-2 py-1 ${pbg} ${ptxt}`}>
+                                                                    <div className="text-[7px] font-black opacity-70 uppercase leading-none">Value</div>
+                                                                    <div className="text-sm font-black leading-none mt-0.5">{p.ev.toFixed(1)}</div>
+                                                                </div>
+                                                                {/* arrow */}
+                                                                <div className="text-white/25 text-xs leading-none">↓</div>
+                                                                {/* destination */}
+                                                                {topAbbr ? (
+                                                                    <div className="flex flex-col items-center gap-1">
+                                                                        <TeamLogo abbr={topAbbr} size={28} noLink />
+                                                                        <span className="text-[10px] font-semibold opacity-80 leading-tight">
+                                                                            {TEAM_METADATA[topAbbr]?.city ?? top.team}
+                                                                        </span>
+                                                                        <span className="text-[9px] opacity-40 leading-none">{Math.round(top.prob * 100)}%</span>
+                                                                    </div>
+                                                                ) : (
+                                                                    <span className="text-[10px] opacity-30 italic">TBD</span>
+                                                                )}
+                                                                {isCur && (
+                                                                    <span className="text-[7px] font-black px-1.5 py-0.5 rounded border border-white/25 text-white/60 tracking-wider leading-none">
+                                                                        THIS PICK
+                                                                    </span>
+                                                                )}
+                                                            </a>
+                                                        );
+                                                    })}
+                                            </div>
+                                        </div>
+
+                                        {/* ALL PICKS IN THE GROUP */}
+                                        <div className="glass-card rounded-2xl p-6 space-y-3">
+                                            <h2 className="text-lg font-bold tracking-wide">All picks in this swap</h2>
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                                {[...sgMainPicks, ...sgSecPicks].map(p => {
+                                                    const pAbbr = abbrFor(p.original_team);
+                                                    const isCur = p.pick_id === pick.pick_id;
+                                                    const top   = [...p.ownership].sort((a, b) => b.prob - a.prob)[0];
+                                                    const topAbbr = top ? abbrFor(top.team) : null;
+                                                    return (
+                                                        <a key={p.pick_id}
+                                                            href={`/picks/${p.year}/${p.round}/${pAbbr.toLowerCase()}`}
+                                                            className={`flex items-center gap-3 rounded-xl px-3 py-2.5 border transition-colors ${
+                                                                isCur ? "border-white/30 bg-white/6" : "border-white/8 bg-white/2 hover:border-white/20"
+                                                            }`}
+                                                        >
+                                                            <TeamLogo abbr={pAbbr} size={28} noLink />
+                                                            <div className="flex-1 min-w-0">
+                                                                <div className="text-xs font-bold">{pAbbr}{isCur && <span className="opacity-50 font-normal"> · this pick</span>}</div>
+                                                                {topAbbr && (
+                                                                    <div className="text-[10px] opacity-40">
+                                                                        usually &rarr; {TEAM_METADATA[topAbbr]?.city ?? top.team} ({Math.round(top.prob * 100)}%)
+                                                                    </div>
+                                                                )}
+                                                            </div>
+                                                            {topAbbr && <TeamLogo abbr={topAbbr} size={20} noLink />}
+                                                        </a>
+                                                    );
+                                                })}
+                                            </div>
+                                        </div>
+                                    </>
+                                );
                             })()}
-
-                            {/* ── SWAP GROUP ── */}
-                            {isSwapGroup && (
-                                <div className="glass-card rounded-2xl p-6 space-y-6">
-                                    <div className="text-center space-y-1">
-                                        <h2 className="text-lg font-bold tracking-wide">Swap Group</h2>
-                                        <p className="text-xs opacity-40 max-w-md mx-auto">
-                                            Brooklyn holds swap rights over the main pool. Washington bridges to a secondary swap with Milwaukee and Portland — taking the better outcome from each tier. Milwaukee gets the floor.
-                                        </p>
-                                    </div>
-
-                                    {/* Main Pool */}
-                                    <div className="space-y-2">
-                                        <div className="flex items-center gap-2">
-                                            <span className="text-[9px] font-black uppercase tracking-widest opacity-30">Main Pool</span>
-                                            <div className="flex-1 border-t border-white/8" />
-                                            <span className="text-[9px] opacity-20 font-mono">BRK · PHI(cond) · PHX · NYK</span>
-                                        </div>
-                                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                                            {sgMainPicks.map(p => {
-                                                const pAbbr = abbrFor(p.original_team);
-                                                const role  = SG_ROLE[p.pick_id];
-                                                const isCur = p.pick_id === pick.pick_id;
-                                                const { bg: pbg, text: ptxt } = evStyles(p.ev, p.round);
-                                                const topOwners = [...p.ownership]
-                                                    .filter(o => o.prob > 0.01)
-                                                    .sort((a, b) => b.prob - a.prob)
-                                                    .slice(0, 4);
-                                                return (
-                                                    <a key={p.pick_id}
-                                                        href={`/picks/${p.year}/${p.round}/${pAbbr.toLowerCase()}`}
-                                                        className={`rounded-2xl border flex flex-col items-center gap-2.5 p-3 text-center transition-colors ${
-                                                            isCur
-                                                                ? "border-white/30 bg-white/6"
-                                                                : "border-white/10 bg-white/2 hover:border-white/20 hover:bg-white/4"
-                                                        }`}
-                                                    >
-                                                        <TeamLogo abbr={pAbbr} size={36} noLink />
-                                                        <div className="flex flex-col items-center gap-0.5">
-                                                            <span className="text-[10px] font-bold opacity-70">{pAbbr}</span>
-                                                            {role && (
-                                                                <span className="text-[7px] font-black uppercase tracking-wider px-1 py-0.5 rounded border border-white/15 text-white/40 leading-none">
-                                                                    {role}
-                                                                </span>
-                                                            )}
-                                                            {isCur && (
-                                                                <span className="text-[7px] font-black px-1.5 py-0.5 rounded border border-white/25 text-white/60 tracking-wider leading-none">
-                                                                    THIS PICK
-                                                                </span>
-                                                            )}
-                                                        </div>
-                                                        <div className="flex items-center gap-1.5">
-                                                            <div className={`rounded px-1.5 py-1 ${pbg} ${ptxt}`}>
-                                                                <div className="text-[7px] font-black opacity-70 uppercase leading-none">EV</div>
-                                                                <div className="text-[10px] font-black leading-none mt-0.5">{p.ev.toFixed(1)}</div>
-                                                            </div>
-                                                            <div>
-                                                                <div className="text-[7px] opacity-40 uppercase leading-none">Slot</div>
-                                                                <div className="text-[10px] font-black mt-0.5">{p.expected_slot.toFixed(0)}</div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="w-full border-t border-white/8" />
-                                                        <div className="w-full space-y-0.5">
-                                                            {topOwners.map(o => {
-                                                                const oAbbr  = abbrFor(o.team);
-                                                                const oColor = teamColors[oAbbr] ?? "#555";
-                                                                return (
-                                                                    <div key={o.team} className="flex items-center gap-1">
-                                                                        <TeamLogo abbr={oAbbr} size={10} noLink />
-                                                                        <div className="flex-1 h-1 rounded-full bg-white/10 overflow-hidden">
-                                                                            <div className="h-full rounded-full"
-                                                                                style={{ width: `${Math.round(o.prob * 100)}%`, backgroundColor: oColor }} />
-                                                                        </div>
-                                                                        <span className="text-[8px] font-black opacity-50 w-6 text-right shrink-0">
-                                                                            {Math.round(o.prob * 100)}%
-                                                                        </span>
-                                                                    </div>
-                                                                );
-                                                            })}
-                                                        </div>
-                                                    </a>
-                                                );
-                                            })}
-                                        </div>
-                                    </div>
-
-                                    {/* Secondary Swap */}
-                                    <div className="space-y-2">
-                                        <div className="flex items-center gap-2">
-                                            <span className="text-[9px] font-black uppercase tracking-widest opacity-30">Secondary Swap</span>
-                                            <div className="flex-1 border-t border-white/8" />
-                                            <span className="text-[9px] opacity-20 font-mono">MIL · POR · WAS</span>
-                                        </div>
-                                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                                            {sgSecPicks.map(p => {
-                                                const pAbbr = abbrFor(p.original_team);
-                                                const role  = SG_ROLE[p.pick_id];
-                                                const isCur = p.pick_id === pick.pick_id;
-                                                const { bg: pbg, text: ptxt } = evStyles(p.ev, p.round);
-                                                const topOwners = [...p.ownership]
-                                                    .filter(o => o.prob > 0.01)
-                                                    .sort((a, b) => b.prob - a.prob)
-                                                    .slice(0, 4);
-                                                return (
-                                                    <a key={p.pick_id}
-                                                        href={`/picks/${p.year}/${p.round}/${pAbbr.toLowerCase()}`}
-                                                        className={`rounded-2xl border flex flex-col items-center gap-2.5 p-3 text-center transition-colors ${
-                                                            isCur
-                                                                ? "border-white/30 bg-white/6"
-                                                                : "border-white/10 bg-white/2 hover:border-white/20 hover:bg-white/4"
-                                                        }`}
-                                                    >
-                                                        <TeamLogo abbr={pAbbr} size={36} noLink />
-                                                        <div className="flex flex-col items-center gap-0.5">
-                                                            <span className="text-[10px] font-bold opacity-70">{pAbbr}</span>
-                                                            {role && (
-                                                                <span className="text-[7px] font-black uppercase tracking-wider px-1 py-0.5 rounded border border-white/15 text-white/40 leading-none">
-                                                                    {role}
-                                                                </span>
-                                                            )}
-                                                            {isCur && (
-                                                                <span className="text-[7px] font-black px-1.5 py-0.5 rounded border border-white/25 text-white/60 tracking-wider leading-none">
-                                                                    THIS PICK
-                                                                </span>
-                                                            )}
-                                                        </div>
-                                                        <div className="flex items-center gap-1.5">
-                                                            <div className={`rounded px-1.5 py-1 ${pbg} ${ptxt}`}>
-                                                                <div className="text-[7px] font-black opacity-70 uppercase leading-none">EV</div>
-                                                                <div className="text-[10px] font-black leading-none mt-0.5">{p.ev.toFixed(1)}</div>
-                                                            </div>
-                                                            <div>
-                                                                <div className="text-[7px] opacity-40 uppercase leading-none">Slot</div>
-                                                                <div className="text-[10px] font-black mt-0.5">{p.expected_slot.toFixed(0)}</div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="w-full border-t border-white/8" />
-                                                        <div className="w-full space-y-0.5">
-                                                            {topOwners.map(o => {
-                                                                const oAbbr  = abbrFor(o.team);
-                                                                const oColor = teamColors[oAbbr] ?? "#555";
-                                                                return (
-                                                                    <div key={o.team} className="flex items-center gap-1">
-                                                                        <TeamLogo abbr={oAbbr} size={10} noLink />
-                                                                        <div className="flex-1 h-1 rounded-full bg-white/10 overflow-hidden">
-                                                                            <div className="h-full rounded-full"
-                                                                                style={{ width: `${Math.round(o.prob * 100)}%`, backgroundColor: oColor }} />
-                                                                        </div>
-                                                                        <span className="text-[8px] font-black opacity-50 w-6 text-right shrink-0">
-                                                                            {Math.round(o.prob * 100)}%
-                                                                        </span>
-                                                                    </div>
-                                                                );
-                                                            })}
-                                                        </div>
-                                                    </a>
-                                                );
-                                            })}
-                                        </div>
-                                    </div>
-                                </div>
-                            )}
-
                             {/* ── NESTED SWAP (multi-level) ── */}
                             {isNestedSwap && (() => {
                                 const levels: any[] = rawPick?.rules?.levels ?? [];
@@ -1919,7 +1803,7 @@ export default async function PickSlugPage({ params }: Props) {
                             )}
 
                             {/* ── OWNERSHIP (non-swap) ── */}
-                            {!isSwap && !isSpecialPoolSwap && !isTriggerSpecial && !isSwapGroup && !isNestedSwap && (
+                            {!isSwap && !isSpecialPoolSwap && !isSwapGroup && !isNestedSwap && (
                                 <div className="glass-card rounded-2xl p-6 space-y-5">
                                     <h2 className="text-lg font-bold tracking-wide">Ownership</h2>
                                     {isMulti ? (

@@ -6,7 +6,7 @@
   "original_team": "New Orleans Pelicans",
   "frozen": false,
   "rules": {
-    "type": "pro_swap",
+    "type": "cond_alloc_swap",
     "possible_destinations": [
       "Charlotte Hornets",
       "Portland Trail Blazers",

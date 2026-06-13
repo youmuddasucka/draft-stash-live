@@ -5,10 +5,10 @@
   "round": 1,
   "original_team": "San Antonio Spurs",
   "frozen": false,
-  "possible_destinations": ["San Antonio Spurs", "Minnesota Timberwolves", "Dallas Mavericks"],
   "rules": {
     "type": "nested_swap",
     "swap_id": "nested_swap_301sasdalmin",
+    "possible_destinations": ["San Antonio Spurs", "Minnesota Timberwolves", "Dallas Mavericks"],
     "levels": [
       {
         "description": "SAN/DAL swap: MF into MIN comparison, LF stays with DAL",

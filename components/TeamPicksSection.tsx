@@ -16,15 +16,18 @@ type Props = {
     swapPos?: Record<string, "best" | "mid" | "worst">;
     swapLogos?: Record<string, string[]>;
     pickTypeLabels?: Record<string, string>;
+    stashOverrides?: Record<string, number>;
 };
 
-export default function TeamPicksSection({ title, cards, slotMap, swapPositions = {}, swapTitles = {}, swapPos = {}, swapLogos = {}, pickTypeLabels = {} }: Props) {
+export default function TeamPicksSection({ title, cards, slotMap, swapPositions = {}, swapTitles = {}, swapPos = {}, swapLogos = {}, pickTypeLabels = {}, stashOverrides = {} }: Props) {
     const [sortBy, setSortBy] = useState<SortKey>("year");
+
+    const stashOf = (c: SimTeamPickCard) => stashOverrides[c.pick_id] ?? stashValue(c);
 
     const sorted = useMemo(() => {
         return [...cards].sort((a, b) => {
-            if (sortBy === "year") return a.year !== b.year ? a.year - b.year : stashValue(b) - stashValue(a);
-            return stashValue(b) - stashValue(a);
+            if (sortBy === "year") return a.year !== b.year ? a.year - b.year : stashOf(b) - stashOf(a);
+            return stashOf(b) - stashOf(a);
         });
     }, [cards, sortBy]);
 
@@ -79,6 +82,7 @@ export default function TeamPicksSection({ title, cards, slotMap, swapPositions 
                                         swapPos={swapPos[card.pick_id]}
                                         swapLogos={swapLogos[card.pick_id]}
                                         pickTypeLabel={pickTypeLabels[card.pick_id]}
+                                        stashOverride={stashOverrides[card.pick_id]}
                                     />
                                 ))}
                             </div>

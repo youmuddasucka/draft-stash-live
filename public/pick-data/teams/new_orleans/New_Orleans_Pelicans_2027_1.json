@@ -6,8 +6,8 @@
   "original_team": "New Orleans Pelicans",
   "frozen": false,
   "rules": {
-    "type": "unpro_swap",
-    "swap_id": "unpro_swap_271nopmilatl",
+    "type": "cond_alloc_swap",
+    "swap_id": "cond_alloc_swap_271nopmilatl",
     "possible_destinations": [
       "New Orleans Pelicans",
       "Atlanta Hawks"

@@ -213,7 +213,7 @@
     "team": "Atlanta Hawks",
     "year": 2027,
     "guaranteed_count": 0,
-    "hold_prob": 0.9249,
+    "hold_prob": 0.9073,
     "pair_floor_next": 1
   },
   {
@@ -228,7 +228,7 @@
     "year": 2027,
     "guaranteed_count": 2,
     "hold_prob": 1.0,
-    "pair_floor_next": 4
+    "pair_floor_next": 3
   },
   {
     "team": "Charlotte Hornets",
@@ -255,7 +255,7 @@
     "team": "Dallas Mavericks",
     "year": 2027,
     "guaranteed_count": 0,
-    "hold_prob": 0.1482,
+    "hold_prob": 0.159,
     "pair_floor_next": 1
   },
   {
@@ -297,7 +297,7 @@
     "team": "Los Angeles Clippers",
     "year": 2027,
     "guaranteed_count": 0,
-    "hold_prob": 1.0,
+    "hold_prob": 0.9999,
     "pair_floor_next": 0
   },
   {
@@ -318,7 +318,7 @@
     "team": "Miami Heat",
     "year": 2027,
     "guaranteed_count": 0,
-    "hold_prob": 0.8351,
+    "hold_prob": 0.9042,
     "pair_floor_next": 0
   },
   {
@@ -347,7 +347,7 @@
     "year": 2027,
     "guaranteed_count": 0,
     "hold_prob": 0.0,
-    "pair_floor_next": 0
+    "pair_floor_next": 1
   },
   {
     "team": "Oklahoma City Thunder",
@@ -436,9 +436,9 @@
   {
     "team": "Brooklyn Nets",
     "year": 2028,
-    "guaranteed_count": 2,
+    "guaranteed_count": 1,
     "hold_prob": 1.0,
-    "pair_floor_next": 5
+    "pair_floor_next": 4
   },
   {
     "team": "Charlotte Hornets",
@@ -528,7 +528,7 @@
     "team": "Miami Heat",
     "year": 2028,
     "guaranteed_count": 0,
-    "hold_prob": 0.8351,
+    "hold_prob": 0.9042,
     "pair_floor_next": 1
   },
   {
@@ -555,9 +555,9 @@
   {
     "team": "New York Knicks",
     "year": 2028,
-    "guaranteed_count": 0,
-    "hold_prob": 0.0925,
-    "pair_floor_next": 0
+    "guaranteed_count": 1,
+    "hold_prob": 1.0,
+    "pair_floor_next": 1
   },
   {
     "team": "Oklahoma City Thunder",
@@ -682,7 +682,7 @@
     "team": "Denver Nuggets",
     "year": 2029,
     "guaranteed_count": 0,
-    "hold_prob": 0.2051,
+    "hold_prob": 0.2033,
     "pair_floor_next": 1
   },
   {
@@ -752,7 +752,7 @@
     "team": "Minnesota Timberwolves",
     "year": 2029,
     "guaranteed_count": 0,
-    "hold_prob": 0.0735,
+    "hold_prob": 0.0733,
     "pair_floor_next": 1
   },
   {
@@ -892,7 +892,7 @@
     "team": "Denver Nuggets",
     "year": 2030,
     "guaranteed_count": 0,
-    "hold_prob": 0.8266,
+    "hold_prob": 0.8292,
     "pair_floor_next": 1
   },
   {
@@ -906,7 +906,7 @@
     "team": "Golden State Warriors",
     "year": 2030,
     "guaranteed_count": 0,
-    "hold_prob": 0.6743,
+    "hold_prob": 0.6734,
     "pair_floor_next": 1
   },
   {
@@ -955,7 +955,7 @@
     "team": "Milwaukee Bucks",
     "year": 2030,
     "guaranteed_count": 0,
-    "hold_prob": 0.9793,
+    "hold_prob": 0.9795,
     "pair_floor_next": 1
   },
   {

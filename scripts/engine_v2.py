@@ -466,7 +466,11 @@ def resolve_pro_backup_branched(pick: dict, order: DraftOrder, all_picks: dict, 
 
 
 def resolve_swap(pick: dict, order: DraftOrder, all_picks: dict) -> dict:
-    """Handles unpro_swap, pro_swap, triple_swap, pro_triple_swap."""
+    """Handles unpro_swap, pro_swap, pro_triple_swap, cond_alloc_swap.
+
+    Flat pool + allocation. Pool entries may be conditional (pro_swap /
+    pro_triple_swap) and allocation entries may be conditional — a ranked slot
+    whose destination depends on where that pick landed (cond_alloc_swap)."""
     rule = pick["rules"]
     target_id = pick["pick_id"]
 
@@ -614,7 +618,7 @@ def resolve_pick(pick: dict, order: DraftOrder, all_picks: dict, group_cache: di
         return resolve_pro_backup(pick, order, all_picks, orders)
     if rtype == "pro_backup_branched":
         return resolve_pro_backup_branched(pick, order, all_picks, orders)
-    if rtype in ("unpro_swap", "pro_swap", "pro_triple_swap"):
+    if rtype in ("unpro_swap", "pro_swap", "pro_triple_swap", "cond_alloc_swap"):
         return resolve_swap(pick, order, all_picks)
     if rtype in ("triple_swap", "nested_swap"):
         return resolve_nested_swap(pick, order, all_picks)

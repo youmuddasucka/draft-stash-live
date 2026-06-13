@@ -10,37 +10,22 @@
         "swap_id": "pro_triple_swap_YYRteam1team2team3",
         "possible_destinations": [
             "City Team",
-            "City Team",
             "City Team"
         ],
-        "levels": [
+        "pool": [
+            "City_Team_YYYY_R",
+            "City_Team_YYYY_R",
             {
-                "description": "Sub-swap (e.g. inner two picks)",
-                "pool": [
-                    "City_Team_YYYY_R",
-                    {
-                        "pick": "City_Team_YYYY_R",
-                        "condition": {"range": [6, 30]},
-                        "if_not_in_range_to": "City Team or none",
-                        "fallback_pick": "City_Team_YYYY_R or none"
-                    }
-                ],
-                "allocation": [
-                    {"rank": "1", "to": "City Team"},
-                    {"rank": "2", "to": "TEMP_INNER_2"}
-                ]
-            },
-            {
-                "description": "Outer swap (result of sub-swap vs third pick)",
-                "pool": [
-                    "City_Team_YYYY_R",
-                    "TEMP_INNER_2"
-                ],
-                "allocation": [
-                    {"rank": "1", "to": "City Team"},
-                    {"rank": "2", "to": "City Team"}
-                ]
+                "pick": "City_Team_YYYY_R",
+                "condition": {"range": [6, 30]},
+                "if_not_in_range_to": "City Team or none",
+                "fallback_pick": "City_Team_YYYY_R or none"
             }
+        ],
+        "allocation": [
+            {"rank": "1", "to": "City Team"},
+            {"rank": "2", "to": "City Team"},
+            {"rank": "3", "to": "City Team"}
         ]
     }
 }

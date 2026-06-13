@@ -35,7 +35,7 @@ const X_TICKS = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60];
 /* ─── VALUE COLOR ────────────────────────────────────────── */
 function valueColor(v: number): string {
     /* Round 1 (slots 1–30, value ≥ 16.3): gold → dark green → light green/white */
-    if (v >= 77.5) return "#D4AF37"; // gold
+    if (v >= 64) return "#D4AF37"; // gold
     if (v >= 55)   return "#14532d"; // dark green
     if (v >= 42)   return "#16a34a";
     if (v >= 30)   return "#4ade80";

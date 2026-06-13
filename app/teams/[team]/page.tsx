@@ -30,6 +30,10 @@ function loadPickSwapId(pickId: string): string | null {
   const rules = loadRawPick(pickId)?.rules;
   if (!rules) return null;
   if (rules.swap_id) return rules.swap_id;
+  // Swap-group picks (type "special") share a swap_group id — group them so a
+  // team that could receive several of the group's picks shows ONE row (its
+  // most-likely outcome) instead of one confusing low-probability row per pick.
+  if (rules.swap_group) return `swap_group:${rules.swap_group}`;
   // Some nested/triple swaps have no swap_id. Synthesize a stable key from the
   // pool composition (shared across all pool members) so they still group and
   // dedupe instead of rendering one card per possible origin pick.
@@ -100,7 +104,7 @@ function poolEntriesToAbbrs(poolEntries: any[]): string[] {
 }
 
 // Gather the swap pool abbreviations for a pick. Handles both top-level
-// rules.pool (unpro_swap, pro_swap, pro_triple_swap) and levels-based pools
+// rules.pool (unpro_swap, pro_swap, pro_triple_swap, cond_alloc_swap) and levels-based pools
 // (triple_swap, nested_swap), de-duplicated across levels.
 function getSwapPoolAbbrs(pickId: string): string[] {
   const raw = loadRawPick(pickId);
@@ -268,6 +272,14 @@ export default async function TeamPage({ params }: Props) {
     const rep = ownCards.reduce((b, c) => ((c.prob ?? 0) > (b.prob ?? 0) ? c : b));
     const prob = rep.prob ?? 0;
 
+    // Swap-group picks (type "special") are genuine swaps but don't match the
+    // "swap" substring. Classify them as a swap; a precise best/mid/worst or
+    // "% held" isn't meaningful across a conditional 7-team pool (the modal owner
+    // of a given pick is often a different team), so report it generically.
+    if (loadRawPick(rep.pick_id)?.rules?.swap_group) {
+      return { kind: "swap", prob: 0 };
+    }
+
     if (rep.pick_type.includes("swap")) {
       // If the team isn't a recipient in this swap, its pick was swapped into a
       // pool between other teams and it controls nothing here.
@@ -356,7 +368,46 @@ export default async function TeamPage({ params }: Props) {
     stepienGroups.push({ cells: [stepienYears[i]], jointlyGuaranteed: false });
   }
 
-  const teamCards = dedupeSwaps(allTeamCards.filter(c => c.team === teamName), teamName);
+  // Modal (most-likely) owner of every pick, from the league-wide sim ownership.
+  const modalOwner = new Map(allPickCards.map(p => [p.pick_id, p.ownership[0]?.team ?? null]));
+
+  // Swap-group picks need bespoke handling. A team should show ONE row per pick it
+  // is the modal owner of — so Brooklyn (which takes the two most favorable of the
+  // pool) shows two first-rounders, while every other team shows the single pick it
+  // usually lands. A source team that's modal-owner of nothing (e.g. Philadelphia,
+  // whose own pick most often conveys away) still shows its own pick as a fallback.
+  const myCards = allTeamCards.filter(c => c.team === teamName);
+  const isSwapGroupPick = (id: string) => !!loadRawPick(id)?.rules?.swap_group;
+  const stashOverrides: Record<string, number> = {};
+
+  const sgGroups = new Map<string, SimTeamPickCard[]>();
+  for (const c of myCards) {
+    if (!isSwapGroupPick(c.pick_id)) continue;
+    const sg = loadRawPick(c.pick_id)!.rules.swap_group;
+    const key = `${sg}|${c.round}`;
+    (sgGroups.get(key) ?? sgGroups.set(key, []).get(key)!).push(c);
+  }
+
+  const sgDisplay: SimTeamPickCard[] = [];
+  for (const g of sgGroups.values()) {
+    const modal = g.filter(c => modalOwner.get(c.pick_id) === teamName);
+    const display = modal.length ? modal : [g.reduce((b, c) => ((c.prob ?? 0) > (b.prob ?? 0) ? c : b))];
+    // The team's full entitlement from this swap, split across its displayed picks
+    // in proportion to each pick's own expected value (so the total is preserved
+    // and Brooklyn's two picks each show a sensible value).
+    const total = g.reduce((s, c) => s + (c.prob ?? 0) * c.conditional_ev, 0);
+    const sumW = display.reduce((s, c) => s + (c.prob ?? 0) * c.conditional_ev, 0);
+    for (const c of display) {
+      const w = (c.prob ?? 0) * c.conditional_ev;
+      stashOverrides[c.pick_id] = sumW > 0 ? total * (w / sumW) : total / display.length;
+      sgDisplay.push(c);
+    }
+  }
+
+  const teamCards = [
+    ...dedupeSwaps(myCards.filter(c => !isSwapGroupPick(c.pick_id)), teamName),
+    ...sgDisplay,
+  ];
 
   const r1Cards = teamCards.filter(c => c.round === 1).sort((a, b) => a.year - b.year);
   const r2Cards = teamCards.filter(c => c.round === 2).sort((a, b) => a.year - b.year);
@@ -396,6 +447,10 @@ export default async function TeamPage({ params }: Props) {
       const pr = rules?.protection_range ?? rules?.branches?.[0]?.protection_range ?? null;
       const lbl = backupPillLabel(card.pick_type, pr);
       if (lbl) pickTypeLabels[card.pick_id] = lbl;
+    }
+    if (loadRawPick(card.pick_id)?.rules?.swap_group) {
+      // Replace the opaque "special" pill with a clear swap label.
+      pickTypeLabels[card.pick_id] = "7-team swap";
     }
   }
 
@@ -592,6 +647,7 @@ export default async function TeamPage({ params }: Props) {
               swapPos={swapPos}
               swapLogos={swapLogos}
               pickTypeLabels={pickTypeLabels}
+              stashOverrides={stashOverrides}
             />
           </div>
           <div className="glass-card rounded-xl p-4 md:p-6 space-y-3">
@@ -604,6 +660,7 @@ export default async function TeamPage({ params }: Props) {
               swapPos={swapPos}
               swapLogos={swapLogos}
               pickTypeLabels={pickTypeLabels}
+              stashOverrides={stashOverrides}
             />
           </div>
         </section>

@@ -67,34 +67,32 @@ def resolve_group(group_id: str, group_picks: dict, order) -> dict:
 
 # ─────────────────────────────────────────────────────────────────────────────
 # GROUP: 281brknykphiphxwasmilpor
-# 2028 R1 — BRK, PHI, PHX, NYK, WAS, MIL, POR
+# 2028 R1 — BKN, PHI, PHX, NYK, WAS, MIL, POR
 #
-# Trade structure (sourced from trade_description in each JSON):
+# Faithful to realGMmay8th2.txt lines 480 (main pool) + 587 (secondary swap).
+# Lower draft position = more favorable. Validated against a from-prose reference
+# in scripts/verify_group_281.py (the prior heuristic dropped New York's swap
+# right entirely and misrouted the worst main-pool pick — wrong in ~95% of orders).
 #
-# STEP 1 — BRK main pool: {BRK, PHI(if 9-30), PHX, NYK}
-#   Rank by draft position (pick 1 = most favorable).
-#   rank 1 → BRK  (BRK takes the best pick)
-#   rank 2 → BRK  (BRK also takes second best — "two most favorable")
-#   rank N-1 → enters WAS comparison in Step 2
-#   rank N   → PHX  (absolute worst of main pool)
-#   PHI protected (1-8): stays home; pool shrinks to 3 (NYK, BRK, PHX).
+# MAIN POOL  {BKN, PHI(only if conveyed, i.e. lands 9-30), PHX, NYK}
+#   Brooklyn: normally the two most favorable. Exception — if PHI is conveyed and
+#     is the 3rd most favorable of the four AND NYK is the 1st or 2nd most
+#     favorable, Brooklyn instead takes the 1st and 3rd most favorable.
+#   New York: the least favorable of {NYK, BKN, PHX} when PHI is conveyed or NYK
+#     is worse than both BKN and PHX; otherwise the 2nd most favorable of the three.
+#   The one remaining main-pool pick is the "dreg":
+#     Washington takes the more favorable of {its own pick, dreg};
+#     Phoenix takes the less favorable of the two.
 #
-# STEP 2 — WAS primary swap: WAS vs step-1 middle pick
-#   More favorable → WAS.
-#   Less favorable → to be resolved in Step 3 (goes to MIL eventually).
-#
-# STEP 3 — MIL/POR secondary, then WAS secondary swap:
-#   Compare MIL vs POR:
-#     more favorable → POR (POR always takes the better of the two)
-#     less favorable → competes against WAS result from Step 2
-#   WAS competes against less favorable of {MIL, POR}:
-#     more favorable → WAS
-#     less favorable → MIL
+# SECONDARY SWAP  {WAS-result, MIL, POR}
+#   Portland: the more favorable of {POR, MIL}.
+#   Washington: the more favorable of {its main-pool result, less favorable of MIL/POR}.
+#   Milwaukee: the less favorable of those two.
 # ─────────────────────────────────────────────────────────────────────────────
 
 def resolve_group_281(group_picks: dict, order) -> dict:
     IDS = {
-        "BRK": "Brooklyn_Nets_2028_1",
+        "BKN": "Brooklyn_Nets_2028_1",
         "PHI": "Philadelphia_76ers_2028_1",
         "PHX": "Phoenix_Suns_2028_1",
         "NYK": "New_York_Knicks_2028_1",
@@ -102,95 +100,70 @@ def resolve_group_281(group_picks: dict, order) -> dict:
         "MIL": "Milwaukee_Bucks_2028_1",
         "POR": "Portland_Trail_Blazers_2028_1",
     }
+    NAME = {
+        "BKN": "Brooklyn Nets",      "PHI": "Philadelphia 76ers",
+        "PHX": "Phoenix Suns",       "NYK": "New York Knicks",
+        "WAS": "Washington Wizards", "MIL": "Milwaukee Bucks",
+        "POR": "Portland Trail Blazers",
+    }
 
-    def pos(key: str) -> int:
-        pick = group_picks[IDS[key]]
-        return order.position_of(pick["original_team"], pick["round"])
+    # The sim draws lottery slots independently, so two group picks can share a
+    # draft position within a sim. Break such ties deterministically by a fixed
+    # team order so the allocation is always a valid 1-to-1 partition (real drafts
+    # have no ties, so the tiebreak never affects a real outcome).
+    TIE = {"BKN": 0, "PHI": 1, "PHX": 2, "NYK": 3, "WAS": 4, "MIL": 5, "POR": 6}
 
-    results = {}  # pick_id -> owner full name
+    def key(k: str):
+        pick = group_picks[IDS[k]]
+        return (order.position_of(pick["original_team"], pick["round"]), TIE[k])
 
-    # ── Step 1: BRK main pool ────────────────────────────────────────────────
-    phi_pos = pos("PHI")
-    phi_enters = 9 <= phi_pos <= 30
+    res = {}  # team key -> owner team key
 
-    main_pool = ["BRK", "PHX", "NYK"]
-    if phi_enters:
-        main_pool.append("PHI")
-    else:
-        results[IDS["PHI"]] = "Philadelphia 76ers"
+    # ── Main pool ────────────────────────────────────────────────────────────
+    phi_conv = 9 <= key("PHI")[0] <= 30
+    main = ["BKN", "PHX", "NYK"] + (["PHI"] if phi_conv else [])
+    s = sorted(main, key=key)  # most favorable first
 
-    main_pool_sorted = sorted(main_pool, key=pos)  # best first
-    N = len(main_pool_sorted)
-
-    # BRK gets picks at rank 0 and rank 1 (two most favorable)
-    results[IDS[main_pool_sorted[0]]] = "Brooklyn Nets"
-    results[IDS[main_pool_sorted[1]]] = "Brooklyn Nets"
-
-    # PHX gets absolute worst (rank N-1)
-    results[IDS[main_pool_sorted[N - 1]]] = "Phoenix Suns"
-
-    # The middle pick (rank N-2) enters the WAS comparison
-    # When N=3: index 1 is both rank-1 (already assigned to BRK) and rank N-2.
-    # Collision: rank 1 == rank N-2 when N=3, but BRK already took rank 0 and rank 1.
-    # With N=3: BRK gets [0] and [1], PHX gets [2], nothing left for WAS comparison.
-    # In this case WAS just keeps its own pick, MIL/POR do their secondary swap.
-    # When N=4: BRK gets [0],[1]; [2] enters WAS comparison; PHX gets [3].
-
-    if N == 4:
-        was_comparison_key = main_pool_sorted[2]
-        was_comparison_available = True
-    else:
-        # N==3: no middle pick available for WAS comparison
-        was_comparison_key = None
-        was_comparison_available = False
-
-    # ── Step 2: WAS primary swap ─────────────────────────────────────────────
-    was_pos = pos("WAS")
-
-    if was_comparison_available:
-        comp_pos = pos(was_comparison_key)
-        if was_pos < comp_pos:
-            results[IDS["WAS"]] = "Washington Wizards"
+    # Brooklyn
+    if phi_conv:
+        if s[2] == "PHI" and (s[0] == "NYK" or s[1] == "NYK"):
+            bkn = [s[0], s[2]]   # most + third most favorable
         else:
-            results[IDS[was_comparison_key]] = "Washington Wizards"
+            bkn = [s[0], s[1]]   # two most favorable
     else:
-        results[IDS["WAS"]] = "Washington Wizards"
+        bkn = [s[0]]             # most favorable
+        res["PHI"] = "PHI"       # protected (1-8) → stays home
+    for t in bkn:
+        res[t] = "BKN"
 
-    # ── Step 3: MIL/POR secondary swap, then WAS secondary ───────────────────
-    mil_pos = pos("MIL")
-    por_pos = pos("POR")
+    # New York — over {NYK, BKN, PHX}
+    s3 = sorted(["NYK", "BKN", "PHX"], key=key)
+    nyk_worst = key("NYK") > key("BKN") and key("NYK") > key("PHX")
+    nyk = s3[-1] if (phi_conv or nyk_worst) else s3[1]
+    res[nyk] = "NYK"
 
-    if mil_pos < por_pos:
-        mf_key = "MIL"
-        lf_key = "POR"
+    # Dreg = the lone remaining main-pool pick → Washington/Phoenix split
+    dreg = next(t for t in main if t not in res)
+    if key("WAS") <= key(dreg):
+        was_main = "WAS"
+        res[dreg] = "PHX"        # Phoenix gets the less favorable
     else:
-        mf_key = "POR"
-        lf_key = "MIL"
+        was_main = dreg
+        res["WAS"] = "PHX"       # Phoenix gets the less favorable (Washington's own)
 
-    # POR always gets the more favorable of {MIL, POR}
-    results[IDS[mf_key]] = "Portland Trail Blazers"
-
-    # WAS secondary: WAS vs lf_of_{MIL,POR}
-    # "better goes to WAS, less favorable goes to MIL"
-    lf_pos = pos(lf_key)
-
-    if was_pos < lf_pos:
-        # WAS more favorable → WAS keeps (already set above unless step2_loser was WAS)
-        # lf_key pick → MIL
-        results[IDS[lf_key]] = "Milwaukee Bucks"
+    # ── Secondary swap ───────────────────────────────────────────────────────
+    if key("POR") <= key("MIL"):
+        res["POR"] = "POR"
+        lf_mp = "MIL"
     else:
-        # lf_key pick more favorable → goes to WAS (overwrites step 2 result for WAS)
-        results[IDS[lf_key]] = "Washington Wizards"
-        results[IDS["WAS"]] = "Milwaukee Bucks"
+        res["MIL"] = "POR"
+        lf_mp = "POR"
 
-    # If step 2 had a loser from the main pool going to MIL, it's already handled:
-    # the step-2 loser key's result was set in step 2 unless it was WAS.
-    # If step2_loser_key was a main pool pick (e.g. NYK or PHI), it already has a result.
-    # Verify all 7 are resolved.
-    missing = [k for k, pid in IDS.items() if pid not in results]
-    if missing:
-        # Any main pool pick not yet assigned (shouldn't happen, but safety fallback)
-        for k in missing:
-            results[IDS[k]] = group_picks[IDS[k]]["original_team"]
+    if key(was_main) <= key(lf_mp):
+        res[was_main] = "WAS"
+        res[lf_mp] = "MIL"
+    else:
+        res[lf_mp] = "WAS"
+        res[was_main] = "MIL"
 
-    return results
+    return {IDS[t]: NAME[res[t]] for t in IDS}

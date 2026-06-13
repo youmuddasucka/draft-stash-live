@@ -3,14 +3,21 @@ import { computeStashRankings } from "@/lib/computeStashRankings";
 import { loadSimPickCards } from "@/lib/loadSimPickCards";
 import { TEAM_FULL_TO_ABBR } from "@/lib/teamMetadata";
 import { teamLogos } from "@/lib/teamLogos";
-import { teamColors } from "@/components/teamColors";
 import { evStyles } from "@/lib/picks/evColor";
+
+const MEDAL_COLORS = ["text-[#E6B85C]", "text-[#C9CAD0]", "text-[#B08D57]"];
+
+function rankClass(i: number): string {
+  const medal = MEDAL_COLORS[i];
+  return medal ? `font-black ${medal}` : "text-white/25";
+}
 
 export default function DraftStashPage() {
   const westTeams = ["DAL","DEN","GSW","HOU","LAC","LAL","MEM","MIN","NOP","OKC","PHX","POR","SAC","SAS","UTA"];
   const eastTeams = ["ATL","BOS","BKN","CHA","CHI","CLE","DET","IND","MIA","MIL","NYK","ORL","PHI","TOR","WAS"];
 
   const stashRankings = computeStashRankings();
+  const maxStashScore = stashRankings[0]?.score ?? 1;
 
   const allPicks = loadSimPickCards();
   const topPicks = [...allPicks]
@@ -46,27 +53,40 @@ export default function DraftStashPage() {
 
         {/* LEFT — TOP STASHES */}
         <div className="order-2 md:order-0 glass-card rounded-2xl p-5 h-[440px] md:h-[700px] flex flex-col gap-3">
-          <div className="shrink-0 pb-1 border-b border-white/6">
-            <h2 className="text-base font-black tracking-[0.12em] uppercase text-center text-gold">Top Stashes</h2>
+          <div className="shrink-0 pb-2 border-b border-white/6 text-center">
+            <h2 className="text-base font-black tracking-[0.12em] uppercase text-gold">Top Stashes</h2>
+            <p className="text-[9px] font-bold tracking-[0.22em] uppercase text-[#A8A9AD] opacity-45 mt-1">Total Pick Value · 2026–2032</p>
           </div>
-          <div className="space-y-0.5 overflow-y-auto">
-            {stashRankings.map((row, i) => {
-              const color = teamColors[row.team] ?? "#888";
-              return (
+          <div className="relative flex-1 min-h-0">
+            <div className="h-full overflow-y-auto pr-1 space-y-0.5">
+              {stashRankings.map((row, i) => (
                 <a
                   key={row.team}
                   href={`/teams/${row.team.toLowerCase()}`}
-                  className="group flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-[#E6B85C]/5 hover:border-[#E6B85C]/10 border border-transparent transition-all"
-                  style={{ borderLeft: `2px solid ${color}30` }}
+                  className="group flex items-center gap-3 rounded-xl px-3 py-2 border border-transparent hover:bg-[#E6B85C]/6 hover:border-[#E6B85C]/10 transition-all"
                 >
-                  <span className="text-xs opacity-25 w-4 shrink-0 tabular-nums font-mono">{i + 1}</span>
-                  <TeamLogo abbr={row.team} size={32} noLink />
-                  <span className="text-sm font-semibold flex-1">{row.team}</span>
-                  <span className="text-xs font-mono text-[#A8A9AD] opacity-60 tabular-nums">{row.score.toFixed(1)}</span>
-                  <span className="text-white/15 text-xs group-hover:text-[#E6B85C]/40 transition-colors">→</span>
+                  <span className={`w-5 shrink-0 text-right text-xs font-mono tabular-nums ${rankClass(i)}`}>{i + 1}</span>
+                  <TeamLogo abbr={row.team} size={30} noLink />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-baseline justify-between gap-2">
+                      <span className="text-sm font-bold tracking-wide">{row.team}</span>
+                      <span className="text-xs font-mono tabular-nums text-[#A8A9AD] opacity-70">{row.score.toFixed(1)}</span>
+                    </div>
+                    <div className="mt-1 h-[3px] rounded-full bg-white/6 overflow-hidden">
+                      <div
+                        className="h-full rounded-full"
+                        style={{
+                          width: `${(row.score / maxStashScore) * 100}%`,
+                          background: "linear-gradient(90deg, rgba(230,184,92,0.85), rgba(230,184,92,0.30))",
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <span className="text-xs shrink-0 text-[#E6B85C]/0 group-hover:text-[#E6B85C]/60 transition-colors">→</span>
                 </a>
-              );
-            })}
+              ))}
+            </div>
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-linear-to-t from-black/55 to-transparent" />
           </div>
         </div>
 
@@ -128,33 +148,35 @@ export default function DraftStashPage() {
 
         {/* RIGHT — TOP PICKS */}
         <div className="order-3 md:order-0 glass-card rounded-2xl p-5 h-[440px] md:h-[700px] flex flex-col gap-3">
-          <div className="shrink-0 pb-1 border-b border-white/6">
-            <h2 className="text-base font-black tracking-[0.12em] uppercase text-center text-gold">Top Picks</h2>
+          <div className="shrink-0 pb-2 border-b border-white/6 text-center">
+            <h2 className="text-base font-black tracking-[0.12em] uppercase text-gold">Top Picks</h2>
+            <p className="text-[9px] font-bold tracking-[0.22em] uppercase text-[#A8A9AD] opacity-45 mt-1">Highest Expected Value</p>
           </div>
-          <div className="space-y-0.5 overflow-y-auto">
-            {topPicks.map((row, i) => {
-              const { bg, text } = evStyles(row.ev, row.round);
-              const color = teamColors[row.ownerAbbr] ?? "#888";
-              return (
-                <a
-                  key={i}
-                  href={`/picks/${row.year}/${row.round}/${row.originAbbr.toLowerCase()}`}
-                  className="group flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-[#E6B85C]/5 border border-transparent transition-all"
-                  style={{ borderLeft: `2px solid ${color}30` }}
-                >
-                  <span className="text-xs opacity-25 w-4 shrink-0 tabular-nums font-mono">{i + 1}</span>
-                  <TeamLogo abbr={row.ownerAbbr} size={32} noLink />
-                  <div className="flex flex-col leading-tight flex-1 min-w-0">
-                    <span className="text-sm font-semibold truncate">{row.label}</span>
-                    <span className="text-[10px] text-[#A8A9AD] opacity-50">{row.year} · R{row.round}</span>
-                  </div>
-                  <span className={`text-xs font-black px-2 py-1 rounded tabular-nums shrink-0 ${bg} ${text}`}>
-                    {row.ev.toFixed(1)}
-                  </span>
-                  <span className="text-white/15 text-xs group-hover:text-[#E6B85C]/40 transition-colors">→</span>
-                </a>
-              );
-            })}
+          <div className="relative flex-1 min-h-0">
+            <div className="h-full overflow-y-auto pr-1 space-y-0.5">
+              {topPicks.map((row, i) => {
+                const { bg, text } = evStyles(row.ev, row.round);
+                return (
+                  <a
+                    key={i}
+                    href={`/picks/${row.year}/${row.round}/${row.originAbbr.toLowerCase()}`}
+                    className="group flex items-center gap-3 rounded-xl px-3 py-2 border border-transparent hover:bg-[#E6B85C]/6 hover:border-[#E6B85C]/10 transition-all"
+                  >
+                    <span className={`w-5 shrink-0 text-right text-xs font-mono tabular-nums ${rankClass(i)}`}>{i + 1}</span>
+                    <TeamLogo abbr={row.ownerAbbr} size={30} noLink />
+                    <div className="flex flex-col leading-tight flex-1 min-w-0">
+                      <span className="text-sm font-bold truncate">{row.label}</span>
+                      <span className="text-[10px] text-[#A8A9AD] opacity-55 mt-0.5">{row.year} · Round {row.round}</span>
+                    </div>
+                    <span className={`text-xs font-black px-2 py-1 rounded-md tabular-nums shrink-0 w-12 text-center ${bg} ${text}`}>
+                      {row.ev.toFixed(1)}
+                    </span>
+                    <span className="text-xs shrink-0 text-[#E6B85C]/0 group-hover:text-[#E6B85C]/60 transition-colors">→</span>
+                  </a>
+                );
+              })}
+            </div>
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-linear-to-t from-black/55 to-transparent" />
           </div>
         </div>
 

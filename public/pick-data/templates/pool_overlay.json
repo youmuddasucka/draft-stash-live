@@ -1,0 +1,18 @@
+{
+    "_overlay": "pool",
+    "_description": "OPTIONAL block appended ALONGSIDE rules (a sibling of rules, NOT inside it). It is not a pick type. Stage 1: every pick that shares a pool_id resolves normally via its own rules.type. Stage 2: the picks whose stage-1 owner satisfies enters_pool_if are gathered, ranked, and the one at pool_resolution.rank is conveyed to pool_resolution.to. Engine: resolve_pick (stage 1) then the pool comparison in engine_v2.py. The only dataset use today is det_2028_2_utah_pool (Detroit's worst 2028 2nd -> Utah; members: detroit pro_pick, charlotte+lac unpro_swap, miami unpro_backup, new_york unprotected).",
+    "pick_status": "processed or unprocessed",
+    "pick_id": "City_Team_YYYY_R",
+    "year": 0,
+    "round": 0,
+    "original_team": "City Team",
+    "frozen": false,
+    "rules": {
+        "type": "any base type (unprotected, pro_pick, unpro_swap, pro_swap, unpro_backup, ...) — the pick's own stage-1 resolution"
+    },
+    "pool": {
+        "pool_id": "descriptive_pool_id",
+        "enters_pool_if": {"resolves_to": "City Team"},
+        "pool_resolution": {"rank": "lf or mf", "to": "City Team"}
+    }
+}

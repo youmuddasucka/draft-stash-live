@@ -2,7 +2,7 @@ export type EvStyle = { bg: string; text: string; glow: string };
 
 export function evStyles(val: number, round: number): EvStyle {
     // Thresholds mirror valueColor in ValueScaleClient.
-    if (val >= 77.5) return {
+    if (val >= 64) return {
         bg: "bg-linear-to-br from-[#D4AF37] via-[#FFD700] to-[#B8860B]",
         text: "text-black",
         glow: "shadow-[0_0_20px_rgba(255,215,0,0.6)]",

@@ -5,9 +5,8 @@
   "round": 2,
   "original_team": "Washington Wizards",
   "frozen": false,
-  "possible_destinations": ["New York Knicks"],
   "rules": {
     "type": "unprotected",
-    "to": "New York Knicks"
+    "owner": "New York Knicks"
   }
 }

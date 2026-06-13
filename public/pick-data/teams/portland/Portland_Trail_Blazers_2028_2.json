@@ -5,9 +5,8 @@
   "round": 2,
   "original_team": "Portland Trail Blazers",
   "frozen": false,
-  "possible_destinations": ["Portland Trail Blazers", "Chicago Bulls"],
   "rules": {
     "type": "unprotected",
-    "possible_destinations": ["Portland Trail Blazers"]
+    "owner": "Portland Trail Blazers"
   }
 }

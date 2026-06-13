@@ -31,6 +31,10 @@ export const PICK_TYPE_INFO: Record<string, { label: string; tag: string; border
         label: "Protected Swap", tag: "SWAP · PROTECTED", borderColor: "#a855f7",
         description: "A protected swap right. The holder can only take the better pick if specific draft-position conditions are met. If the protection triggers, each team keeps their own pick.",
     },
+    cond_alloc_swap: {
+        label: "Conditional Swap", tag: "SWAP · CONDITIONAL", borderColor: "#a855f7",
+        description: "A swap where the picks are ranked and the more favorable conveys outright, but the less-favorable pick's destination depends on where it lands — a protection on the conveyance itself rather than on a specific pick entering the pool.",
+    },
     pro_pick: {
         label: "Protected Pick", tag: "PROTECTED", borderColor: "#3b82f6",
         description: "This pick has lottery protection. It only conveys to the holder if it falls outside a specified range. If it lands in the protected zone, the original team keeps it and the pick rolls over or triggers a backup.",

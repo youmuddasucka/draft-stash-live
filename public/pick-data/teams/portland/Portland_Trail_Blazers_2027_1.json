@@ -7,6 +7,6 @@
   "frozen": false,
   "rules": {
     "type": "unprotected",
-    "possible_destinations": ["Portland Trail Blazers"]
+    "owner": "Portland Trail Blazers"
   }
 }

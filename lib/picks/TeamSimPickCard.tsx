@@ -27,17 +27,27 @@ type Props = {
     swapLogos?: string[];
     /** Overrides the pick-type pill text (e.g. "pro pick (1-20)"). */
     pickTypeLabel?: string;
+    /** Overrides the stash value (e.g. a swap-group's full entitlement across all
+     *  picks the team could receive, not just the representative pick). */
+    stashOverride?: number;
 };
 
-export default function TeamSimPickCard({ card, expectedSlot, swapPosition, swapTitle, swapPos, swapLogos, pickTypeLabel }: Props) {
+export default function TeamSimPickCard({ card, expectedSlot, swapPosition, swapTitle, swapPos, swapLogos, pickTypeLabel, stashOverride }: Props) {
     const originAbbr = TEAM_FULL_TO_ABBR[card.original_team] ?? card.original_team;
     const isOwnPick = card.original_team === card.team;
 
     // "Stash" — the true value to this team. For conditional picks (protected,
     // backups) this is prob-weighted, so it doesn't overstate a pick the team
-    // only ends up with a fraction of the time. The probability is baked in, so
-    // no separate "% chance" badge is shown.
-    const displayEv = stashValue(card);
+    // only ends up with a fraction of the time.
+    const displayEv = stashOverride ?? stashValue(card);
+
+    // Surface the convey probability for genuinely conditional holds so a small
+    // stash next to a strong projected slot reads as "good pick, but unlikely"
+    // rather than as an error. Suppressed when a stashOverride is present (e.g.
+    // swap-group rows, where the team always ends up with *some* pick).
+    const prob = card.prob ?? 1;
+    const showProb = stashOverride === undefined && card.year > 2026 &&
+        !swapPosition && !swapPos && prob > 0 && prob < 0.9;
 
     const { bg, text, glow } = evStyles(displayEv, card.round);
     const href = `/picks/${card.year}/${card.round}/${originAbbr.toLowerCase()}`;
@@ -107,6 +117,12 @@ export default function TeamSimPickCard({ card, expectedSlot, swapPosition, swap
                             </span>
                         );
                     })()}
+
+                    {showProb && (
+                        <span className="text-[10px] opacity-50 mt-0.5">
+                            {Math.round(prob * 100)}% chance to convey
+                        </span>
+                    )}
                 </div>
             </div>
 

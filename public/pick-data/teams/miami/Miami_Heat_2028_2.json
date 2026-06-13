@@ -5,11 +5,13 @@
   "round": 2,
   "original_team": "Miami Heat",
   "frozen": false,
-  "possible_destinations": ["Charlotte Hornets", "Detroit Pistons", "Utah Jazz"],
   "rules": {
-    "type": "special",
-    "trigger_pick": "Dallas_Mavericks_2027_1",
-    "trigger_condition": {"range": [1, 2]},
+    "type": "unpro_backup",
+    "possible_destinations": ["Charlotte Hornets", "Detroit Pistons", "Utah Jazz"],
+    "triggers": [
+      {"pick": "Dallas_Mavericks_2027_1", "condition": {"range": [1, 2]}}
+    ],
+    "trigger_logic": "OR",
     "if_triggered_to": "Charlotte Hornets",
     "if_not_triggered_to": "Detroit Pistons"
   },

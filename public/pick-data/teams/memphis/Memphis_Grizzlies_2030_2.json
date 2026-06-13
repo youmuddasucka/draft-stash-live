@@ -5,11 +5,13 @@
   "round": 2,
   "original_team": "Memphis Grizzlies",
   "frozen": false,
-  "possible_destinations": ["Memphis Grizzlies", "Minnesota Timberwolves"],
   "rules": {
     "type": "pro_pick",
-    "condition": {"range": [31, 50]},
-    "if_in_range_to": "Memphis Grizzlies",
-    "if_not_in_range_to": "Minnesota Timberwolves"
+    "possible_destinations": ["Memphis Grizzlies", "Minnesota Timberwolves"],
+    "protection_range": [31, 50],
+    "available_range": [51, 60],
+    "if_protected_to": "Memphis Grizzlies",
+    "if_not_protected_to": "Minnesota Timberwolves",
+    "fallback_pick": "none"
   }
 }

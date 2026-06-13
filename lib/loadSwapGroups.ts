@@ -120,5 +120,36 @@ export function loadSwapGroups(allPicks: SimPickCard[]): SwapGroup[] {
         });
     }
 
+    // Swap-group "special" picks (e.g. the 7-team 2028 R1 mega-swap) aren't a
+    // standard pool+allocation swap, but should still render as ONE grouped card
+    // instead of N confusing "special" rows. Group by rules.swap_group; each pick's
+    // recipient is its most-likely owner from the sim.
+    const sgMap = new Map<string, SimPickCard[]>();
+    for (const p of allPicks) {
+        if (p.pick_type !== "special") continue;
+        const abbr = TEAM_FULL_TO_ABBR[p.original_team] ?? p.original_team;
+        const sg = loadRules(p.pick_id, abbr)?.swap_group;
+        if (!sg) continue;
+        const key = `${sg}|${p.round}`;
+        (sgMap.get(key) ?? sgMap.set(key, []).get(key)!).push(p);
+    }
+    for (const [key, poolPicks] of sgMap) {
+        const sorted = [...poolPicks].sort((a, b) => b.ev - a.ev);
+        const entries: SwapGroupEntry[] = sorted.map((p, i) => {
+            const recipient = p.ownership[0]?.team ?? null;
+            const recAbbr = recipient ? (TEAM_FULL_TO_ABBR[recipient] ?? recipient) : null;
+            return { pick: p, rank: i + 1, recipient, recAbbr };
+        });
+        groups.push({
+            swap_id: `swap_group:${key}`,
+            pick_type: "special",
+            year: sorted[0].year,
+            round: sorted[0].round,
+            entries,
+            bestEv: sorted[0].ev,
+            worstEv: sorted[sorted.length - 1].ev,
+        });
+    }
+
     return groups;
 }
