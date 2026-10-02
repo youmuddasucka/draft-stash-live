@@ -3,12 +3,12 @@
 import { useState, useEffect } from "react";
 import { teamColors } from "@/components/teamColors";
 
-const YEARS = ["y2026", "y2027", "y2028", "y2029", "y2030", "y2031", "y2032"] as const;
+const YEARS = ["y2027", "y2028", "y2029", "y2030", "y2031", "y2032", "y2033"] as const;
 type Year = typeof YEARS[number];
 
 const YEAR_LABELS: Record<Year, string> = {
-  y2026: "2025–26", y2027: "2026–27", y2028: "2027–28",
-  y2029: "2028–29", y2030: "2029–30", y2031: "2030–31", y2032: "2031–32",
+  y2027: "2026–27", y2028: "2027–28", y2029: "2028–29",
+  y2030: "2029–30", y2031: "2030–31", y2032: "2031–32", y2033: "2032–33",
 };
 
 const TEAM_ABBR_TO_NAME: Record<string, string> = {
@@ -28,13 +28,13 @@ const ALL_TEAMS = Object.keys(TEAM_ABBR_TO_NAME).sort();
 
 // rank 0 = best team (most wins), rank 29 = worst (fewest wins / pick 1)
 const INITIAL_STANDINGS: Record<Year, string[]> = {
-  y2026: ["OKC","HOU","DEN","CLE","DET","LAL","NYK","MIA","TOR","ATL","ORL","SAS","MIN","GSW","PHI","BOS","PHX","LAC","MIL","POR","CHI","MEM","DAL","CHA","NOP","SAC","UTA","IND","BKN","WAS"],
   y2027: ["OKC","HOU","DET","SAS","DEN","CLE","BOS","ATL","IND","TOR","LAL","NYK","MIN","ORL","MIA","PHI","GSW","PHX","POR","NOP","DAL","WAS","CHA","MEM","CHI","UTA","MIL","LAC","SAC","BKN"],
   y2028: ["HOU","DET","OKC","SAS","MIN","LAL","BOS","DEN","IND","ATL","CLE","TOR","ORL","MIA","DAL","LAC","NYK","PHI","POR","WAS","CHA","NOP","GSW","UTA","PHX","CHI","MEM","BKN","MIL","SAC"],
   y2029: ["SAS","OKC","MIN","HOU","DET","LAL","ORL","IND","DEN","BOS","ATL","MIA","CLE","TOR","DAL","PHI","POR","WAS","NOP","CHA","NYK","UTA","LAC","CHI","PHX","GSW","BKN","SAC","MIL","MEM"],
   y2030: ["MIN","LAL","DET","SAS","PHI","HOU","OKC","ORL","DAL","ATL","CLE","IND","DEN","WAS","CHA","TOR","NOP","POR","UTA","CHI","MIA","NYK","BOS","BKN","GSW","SAC","MEM","PHX","MIL","LAC"],
   y2031: ["LAL","SAS","PHI","MIN","DAL","OKC","DET","HOU","IND","WAS","CHA","CLE","ATL","NOP","ORL","UTA","CHI","TOR","BOS","DEN","POR","BKN","GSW","SAC","NYK","PHX","MIA","MIL","MEM","LAC"],
   y2032: ["SAS","DET","PHI","LAL","IND","HOU","DAL","CHA","MIN","OKC","WAS","UTA","CLE","BOS","POR","TOR","NOP","CHI","BKN","ATL","GSW","DEN","SAC","NYK","ORL","MIA","PHX","MEM","MIL","LAC"],
+  y2033: ["SAS","DET","PHI","LAL","IND","HOU","DAL","CHA","MIN","OKC","WAS","UTA","CLE","BOS","POR","TOR","NOP","CHI","BKN","ATL","GSW","DEN","SAC","NYK","ORL","MIA","PHX","MEM","MIL","LAC"],
 };
 
 function rankStyle(i: number) {
@@ -62,7 +62,7 @@ export default function EditStandingsPage() {
         if (!data?.length) return;
         setStandings(
           Object.fromEntries(
-            YEARS.map(y => [y, data.map(row => row[y] as string)])
+            YEARS.map(y => [y, data.map(row => (row[y] ?? row.y2032) as string)])
           ) as Record<Year, string[]>
         );
       })

@@ -35,11 +35,11 @@ const TEAM_ABBR_TO_NAME: Record<string, string> = {
   WAS: "Washington Wizards",
 };
 
-type Year = "y2026" | "y2027" | "y2028" | "y2029" | "y2030" | "y2031" | "y2032";
-const YEARS: Year[] = ["y2026", "y2027", "y2028", "y2029", "y2030", "y2031", "y2032"];
+type Year = "y2027" | "y2028" | "y2029" | "y2030" | "y2031" | "y2032" | "y2033";
+const YEARS: Year[] = ["y2027", "y2028", "y2029", "y2030", "y2031", "y2032", "y2033"];
 const YEAR_NUM: Record<Year, number> = {
-  y2026: 2026, y2027: 2027, y2028: 2028, y2029: 2029,
-  y2030: 2030, y2031: 2031, y2032: 2032,
+  y2027: 2027, y2028: 2028, y2029: 2029, y2030: 2030,
+  y2031: 2031, y2032: 2032, y2033: 2033,
 };
 
 export async function POST(req: NextRequest) {
